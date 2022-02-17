@@ -68,7 +68,7 @@
 <nav class="navbar navbar-expand-md navbar-dark primary-color mt-5 mb-5" style="background: #212121;">
 
     <!-- Navbar brand-->
-    <a class="font-weight-bold white-text mr-4" href="http://localhost:8080/CT271">TRANG CHỦ</a>
+    <a class="font-weight-bold white-text mr-4" href="http://localhost:8080/CT466">TRANG CHỦ</a>
 
     <!-- Collapse button-->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
@@ -301,7 +301,7 @@
 
 
         <div class="md-form">
-            <form action="http://localhost:8080/CT271/timkiem/timkiem.php" method="get">
+            <form method="get">
                 <div class="row align-items-center">
                     <div class="col-md-3 col-md-8">
                         <input type="text" name="search" id="form-s" class="form-control"/>

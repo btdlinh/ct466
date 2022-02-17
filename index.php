@@ -9,7 +9,7 @@ $dbname = 'ct466';
 $conn = new mysqli($servername, $username, $password, $dbname)
 or die($conn->connect_error);
 
-$conn -> set_charset('utf8');
+$conn->set_charset('utf8');
 
 //$rs = $conn->query("SELECT * FROM sach ");
 require_once "khachhang/sanpham/csdl_function.php";
@@ -64,7 +64,8 @@ require_once "khachhang/sanpham/csdl_function.php";
                 <!--                <a href="#" data-activates="slide-out" class="button-collapse"><i class="fas fa-home"></i></a>-->
             </div>
 
-            <a class="navbar-brand font-weight-bold" href="http://localhost:8080/CT466"><strong> HIRAKI.COM </strong></a>
+            <a class="navbar-brand font-weight-bold" href="http://localhost:8080/CT466"><strong>
+                    HIRAKI.COM </strong></a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
                     aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
@@ -101,7 +102,7 @@ require_once "khachhang/sanpham/csdl_function.php";
                              aria-labelledby="navbarDropdownMenuLink-4">
                             <a class="dropdown-item waves-effect waves-light" href="dangky.html"> Đăng ký </a>
                             <a class="dropdown-item waves-effect waves-light" href="dangnhap.html"> Đăng nhập </a>
-                            <a class="dropdown-item waves-effect waves-light" href="xulydangxuat.php" > Đăng xuất </a>
+                            <a class="dropdown-item waves-effect waves-light" href="xulydangxuat.php"> Đăng xuất </a>
                         </div>
 
                     </li>
@@ -122,7 +123,7 @@ require_once "khachhang/sanpham/csdl_function.php";
 <div class="container mt-5 pt-3">
 
     <!-- Navbar sp-->
-   <?php require "hienthi/navbar.php";?>
+    <?php require "hienthi/navbar.php"; ?>
 
     <!-- Navbar sp-->
     <div class="row pt-4" style="margin-bottom: 5em;">
@@ -134,7 +135,7 @@ require_once "khachhang/sanpham/csdl_function.php";
             <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="image/nen.png" alt="First slide"  style="height:30em ;">
+                        <img class="d-block w-100" src="image/nen.png" alt="First slide" style="height:30em ;">
                     </div>
                     <div class="carousel-item">
                         <img class="d-block w-100" src="image/nen1.png" alt="Second slide" style="height:30em ;">
@@ -143,13 +144,13 @@ require_once "khachhang/sanpham/csdl_function.php";
                         <img class="d-block w-100" src="image/nen2.png" alt="Third slide" style="height:30em ;">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="image/nen3.png"  alt="Third slide" style="height:30em ;">
+                        <img class="d-block w-100" src="image/nen3.png" alt="Third slide" style="height:30em ;">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="image/nen5.png"  alt="Third slide" style="height:30em ;">
+                        <img class="d-block w-100" src="image/nen5.png" alt="Third slide" style="height:30em ;">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="image/nen7.png"  alt="Third slide" style="height:30em ;">
+                        <img class="d-block w-100" src="image/nen7.png" alt="Third slide" style="height:30em ;">
                     </div>
                     <!--                    <div class="carousel-item">-->
                     <!--                        <img class="d-block w-100" src="image/8.jpg"  alt="Third slide" style="height:30em ;">-->
@@ -170,29 +171,103 @@ require_once "khachhang/sanpham/csdl_function.php";
         <!-- Content-->
 
     </div>
-<!--phân trang-->
+    <!--phân trang-->
     <?php
-//so san pham mot trang
-    $item_per_page = !empty($_GET['per_page'])?$_GET['per_page']:12;
-//trang hien tai
-    $current_page = !empty($_GET['page'])?$_GET['page']:1;
-// vi tri bd lay
+    //so san pham mot trang
+    $item_per_page = !empty($_GET['per_page']) ? $_GET['per_page'] : 12;
+    //trang hien tai
+    $current_page = !empty($_GET['page']) ? $_GET['page'] : 1;
+    // vi tri bd lay
     $offset = (int)($current_page - 1) * (int)$item_per_page;
-    $rs = $conn->query('SELECT * FROM sanpham ORDER BY `sp_id` DESC LIMIT '.$item_per_page.' OFFSET '.$offset.' ');
+    $rs = $conn->query('SELECT * FROM sanpham ORDER BY `sp_id` DESC LIMIT ' . $item_per_page . ' OFFSET ' . $offset . ' ');
     $total_records = $conn->query("SELECT * FROM sanpham");
     $total_records = $total_records->num_rows;
-// hien thi tong so trang = tong so sp / so sp o mot trang
+    // hien thi tong so trang = tong so sp / so sp o mot trang
     (int)$total_pages = ceil($total_records / (int)$item_per_page);
 
     ?>
-<!--phân trang-->
+    <!--phân trang-->
 
-<!-- Grid row san pham-->
+    <!-- Grid row san pham-->
     <h1>Danh sách sản phẩm</h1>
-<div class="row mt-5 mb-5 pt-5 pb-5">
+    <div class="row mt-5 mb-5 pt-5 pb-5">
 
-    <?php
-//        if ($rs->num_rows) {
+        <?php
+        if (isset($_GET['search'])) {
+            // tiem kiem san pham
+            $search = addslashes($_GET['search']);
+            $sql = "select * from sanpham as sp join the_loai as tl on sp.sp_idtheloai=tl.tl_id
+                            where sp_tensach like '%$search%' or tl.tl_tentheloai like '%$search%' ";
+            $s = mysqli_query($conn, $sql);
+            $num = mysqli_num_rows($s);
+        if ($num > 0 && $search != "") {
+            while ($rowloai = mysqli_fetch_assoc($s)) {
+                $linkhinh = "http://localhost:8080/CT466/img/bookimg/". $rowloai['sp_hinhanh'];
+                echo '
+      
+                            <div class="col-lg-4 mt-4 mb-4">
+                                    <!-- Card -->
+                                    <div class="card">
+                
+                                        <!-- Card image -->
+                                        <div class="view overlay"  title=' . $rowloai['sp_tensach'] . '>
+                
+                                            <img src="' . $linkhinh . '" 
+                                                alt="Hình Ảnh Sách" 
+                                                style="width: 330px; height: 350px; margin: 1em auto; padding-top: 1em;"
+                                                />
+                
+                                            <a href="http://localhost:8080/CT466/khachhang/sanpham/hienthisp.php?idsach=' . $rowloai['sp_id'] . ' " 
+                                                title=' . $rowloai['sp_tensach'] . ' />
+                                                <div class="mask rgba-white-slight"></div>
+                                            </a>
+                
+                                        </div>
+                                        <!-- Card image -->
+                
+                                        <!-- Card content -->
+                                        <div class="card-body" style="height: 5em;">
+                                            <!-- Category & Title tensach-->
+                                            <h5 class="card-title mb-1">
+                                                <strong>
+                                                    <a href="http://localhost:8080/CT466/khachhang/sanpham/hienthisp.php?idsach=' . $rowloai['sp_id'] . ' " 
+                                                        class="dark-grey-text font-small font-weight-bolder"  />' . $rowloai['sp_tensach'] . '</a>
+                                                </strong>
+                                            </h5>
+                                          <!-- Category & Title ten sach-->
+                                        </div>
+                                        <!-- Card content -->
+                                        
+                                        <!-- Card footer gia-->
+                                            <div class="card-footer pb-0">
+                
+                                                <div class="row mb-0">
+                
+                                                    <span class="float-left m-1 center-element text-info"><strong>' . number_format($rowloai["sp_gia"]) . ' đ</strong></span>
+                                                
+                                                    <span class=" float-right m-2">
+                                                            <a data-toggle="tooltip" data-placement="top" title="Thêm vào giỏ hàng" href="khachhang/sanpham/giohang.php?id= ' . $rowloai['sp_id'] . ' ">
+                                                            </a> 
+                                                    </span>
+                                                  
+                
+                                                </div>
+                
+                                            </div>
+                                        <!-- Card footer gia-->
+                                    </div>
+                                    <!-- Card -->
+                              </div>
+       
+                    ';
+            }
+        }
+        else {
+            echo "<h5 class='text-info'><b>Không tìm thấy kết quả!</b></h5>";
+        }
+
+        } else {
+           // hien thi san pham
             while ($row = $rs->fetch_assoc()) {
                 $linkhinh = "CT466" . $row['sp_hinhanh'];
                 echo '
@@ -202,12 +277,12 @@ require_once "khachhang/sanpham/csdl_function.php";
                     <div class="card">
 
                         <!-- Card image -->
-                        <div class="view overlay"  title='.$row['sp_tensach'].'>
+                        <div class="view overlay"  title=' . $row['sp_tensach'] . '>
 
                             <img src=' . $linkhinh . ' alt="Hình Ảnh Sách" style="width: 330px; height: 350px; margin: 1em auto; padding-top: 1em;">
 
                             <a href="http://localhost:8080/CT466/khachhang/sanpham/hienthisp.php?idsach=' . $row['sp_id'] . ' " 
-                                title='.$row['sp_tensach'].' />
+                                title=' . $row['sp_tensach'] . ' />
                                 <div class="mask rgba-white-slight"></div>
                             </a>
 
@@ -232,7 +307,7 @@ require_once "khachhang/sanpham/csdl_function.php";
 
                                 <div class="row mb-0">
 
-                                    <span class="float-left m-1 center-element text-info"><strong>'. number_format($row["sp_gia"]) .' đ</strong></span>
+                                    <span class="float-left m-1 center-element text-info"><strong>' . number_format($row["sp_gia"]) . ' đ</strong></span>
                                 
                                 </div>
 
@@ -244,130 +319,129 @@ require_once "khachhang/sanpham/csdl_function.php";
        
                     ';
             }
-//        }
+        }
 
-    ?>
-<!--    <span class=" float-right m-2">-->
-<!--       <a data-toggle="tooltip" data-placement="top" title="Thêm vào giỏ hàng" href="khachhang/sanpham/giohang.php?id= '.$row['idsach'].' ">-->
-<!--            <i class="fas fa-shopping-cart ml-1 blue-text"></i>-->
-<!--       </a> -->
-<!--    </span>-->
+        ?>
+        <!--    <span class=" float-right m-2">-->
+        <!--       <a data-toggle="tooltip" data-placement="top" title="Thêm vào giỏ hàng" href="khachhang/sanpham/giohang.php?id= '.$row['idsach'].' ">-->
+        <!--            <i class="fas fa-shopping-cart ml-1 blue-text"></i>-->
+        <!--       </a> -->
+        <!--    </span>-->
 
-<!--    </div>-->
-</div>
+        <!--    </div>-->
+    </div>
 
-<!-- Grid row san pham-->
+    <!-- Grid row san pham-->
 
-<!-- Grid row so trang-->
+    <!-- Grid row so trang-->
 
-<div class="row justify-content-center mb-4">
+    <div class="row justify-content-center mb-4">
 
-    <!-- Pagination -->
-    <nav class="mb-4">
+        <!-- Pagination -->
+        <nav class="mb-4">
 
-        <ul class="pagination pagination-circle pg-blue mb-0">
+            <ul class="pagination pagination-circle pg-blue mb-0">
 
-            <!-- First -->
-            <?php
-            if ($current_page > 3) {
-                $first_page = 1;
-                echo '
+                <!-- First -->
+                <?php
+                if ($current_page > 3) {
+                    $first_page = 1;
+                    echo '
                     <li class="page-item disabled clearfix d-none d-md-block">
                         <a class="page-link waves-effect waves-effect"
-                        href="?per_page = '.$item_per_page.' &page = '.$first_page.' ">Đầu
+                        href="?per_page = ' . $item_per_page . ' &page = ' . $first_page . ' ">Đầu
                         </a>
                     </li>
                    ';
-            }
-            ?>
-            <!-- Arrow left -->
-            <?php
-            if ($current_page > 1) {
-                $prev_page = $current_page - 1;
-                echo '
+                }
+                ?>
+                <!-- Arrow left -->
+                <?php
+                if ($current_page > 1) {
+                    $prev_page = $current_page - 1;
+                    echo '
                     <li class="page-item ">
                         <a class="page-link waves-effect waves-effect" 
                             aria-label="Previous"
-                            href="?per_page = '. $item_per_page.' &page = '.$prev_page.' "> «
+                            href="?per_page = ' . $item_per_page . ' &page = ' . $prev_page . ' "> «
                             
                         </a>
                     </li>
              ';
-            }
-            ?>
+                }
+                ?>
 
-            <!-- Numbers -->
+                <!-- Numbers -->
 
-            <?php
-            for ($num = 1; $num <= $total_pages; $num++){
-                if($num != $current_page){
-                    // gioi han so trang hien thi
-                    if ($num > $current_page -3 && $num < $current_page + 3)
-                    echo '
+                <?php
+                for ($num = 1; $num <= $total_pages; $num++) {
+                    if ($num != $current_page) {
+                        // gioi han so trang hien thi
+                        if ($num > $current_page - 3 && $num < $current_page + 3)
+                            echo '
                             <li class="page-item">
                                 <a class="page-link waves-effect waves-effect" 
-                                href="?per_page= '.$item_per_page.' & page= '.$num.' " >'.$num.'</a>
+                                href="?per_page= ' . $item_per_page . ' & page= ' . $num . ' " >' . $num . '</a>
                             </li>
 
                     ';
-                }
-                else{
-                // in dam trang hien tai
-                    echo'
+                    } else {
+                        // in dam trang hien tai
+                        echo '
                     
                     <strong>
                              <li class="page-item">
-                                <a class="page-link waves-effect waves-effect"  > '.$num.' </a>
+                                <a class="page-link waves-effect waves-effect"  > ' . $num . ' </a>
                              </li>
                     </strong>
                     ';
+                    }
                 }
-            }
-            ?>
-<!--            <li class="page-item"><a class="page-link waves-effect waves-effect" href="?per_page=4&page=1" >1</a></li>-->
-<!---->
-<!--            <li class="page-item"><a class="page-link waves-effect waves-effect" href="?per_page=4&page=2" >2</a></li>-->
-<!---->
-<!--            <li class="page-item"><a class="page-link waves-effect waves-effect" href="?per_page=4&page=3" >3</a></li>-->
-<!---->
-<!--            <li class="page-item"><a class="page-link waves-effect waves-effect" href="?per_page=4&page=4" >4</a></li>-->
-<!---->
-<!--            <li class="page-item"><a class="page-link waves-effect waves-effect" href="?per_page=4&page=5" >5</a></li>-->
+                ?>
+                <!--            <li class="page-item"><a class="page-link waves-effect waves-effect" href="?per_page=4&page=1" >1</a></li>-->
+                <!---->
+                <!--            <li class="page-item"><a class="page-link waves-effect waves-effect" href="?per_page=4&page=2" >2</a></li>-->
+                <!---->
+                <!--            <li class="page-item"><a class="page-link waves-effect waves-effect" href="?per_page=4&page=3" >3</a></li>-->
+                <!---->
+                <!--            <li class="page-item"><a class="page-link waves-effect waves-effect" href="?per_page=4&page=4" >4</a></li>-->
+                <!---->
+                <!--            <li class="page-item"><a class="page-link waves-effect waves-effect" href="?per_page=4&page=5" >5</a></li>-->
 
-            <!-- Arrow right -->
-        <?php
-        if ($current_page < $total_pages - 1) {
-                $next_page = $current_page + 1;
-                echo '
+                <!-- Arrow right -->
+                <?php
+                if ($current_page < $total_pages - 1) {
+                    $next_page = $current_page + 1;
+                    echo '
                     <li class="page-item">
                         <a class="page-link waves-effect waves-effect" 
                         aria-label="Next"
-                        href="?per_page ='.$item_per_page.' &page = '.$next_page.' "> »
+                        href="?per_page =' . $item_per_page . ' &page = ' . $next_page . ' "> »
                         </a>
                     </li>
                 ';
-        }
-        ?>
+                }
+                ?>
 
-            <!-- First -->
-        <?php
-        if ($current_page < $total_pages - 3) {
-            $end_page = $total_pages;
-            echo '
+                <!-- First -->
+                <?php
+                if ($current_page < $total_pages - 3) {
+                    $end_page = $total_pages;
+                    echo '
                 <li class="page-item clearfix d-none d-md-block">
-                    <a class="page-link waves-effect waves-effect" href="?per_page ='.$item_per_page.'&page='.$end_page.' ">Cuối</a>
+                    <a class="page-link waves-effect waves-effect" href="?per_page =' . $item_per_page . '&page=' . $end_page . ' ">Cuối</a>
                 </li>
                     ';
-            }
-        ?>
+                }
+                ?>
 
-        </ul>
+            </ul>
 
-    </nav>
-    <!-- Pagination -->
+        </nav>
+        <!-- Pagination -->
 
-</div>
-<!-- Grid row so trang-->
+    </div>
+    <!-- Grid row so trang-->
 
 </div>
 
@@ -447,14 +521,14 @@ require_once "khachhang/sanpham/csdl_function.php";
 
                 <hr class="blue mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
 
-<!--                <p><a href="#">Điều khoản sử dụng</a></p>-->
-<!---->
-<!--                <p><a href="#">Chính sách bảo mật</a></p>-->
+                <!--                <p><a href="#">Điều khoản sử dụng</a></p>-->
+                <!---->
+                <!--                <p><a href="#">Chính sách bảo mật</a></p>-->
 
                 <p><a href="http://localhost:8080/CT271/gioithieu.php">Giới thiệu Hiraki</a></p>
                 <p><a href="http://localhost:8080/CT271/khachhang/lienhe.php">Liên hệ</a></p>
 
-<!--                <p><a href="#">Hệ thống nhà sách</a></p>-->
+                <!--                <p><a href="#">Hệ thống nhà sách</a></p>-->
 
             </div>
             <!-- Second column-->
@@ -468,11 +542,11 @@ require_once "khachhang/sanpham/csdl_function.php";
 
                 <p><a href="chinhsachdoitra.php">Chính sách đổi trả - hoàn tiền</a></p>
 
-<!--                <p><a href="#">Chính sách khách sỉ</a></p>-->
+                <!--                <p><a href="#">Chính sách khách sỉ</a></p>-->
 
                 <p><a href="phuongthucvanchuyen.php">Phương thức vận chuyển</a></p>
 
-<!--                <p><a href="#">Phương thức thanh toán và xuất hóa đơn</a></p>-->
+                <!--                <p><a href="#">Phương thức thanh toán và xuất hóa đơn</a></p>-->
 
             </div>
             <!-- Third column-->
@@ -583,7 +657,6 @@ require_once "khachhang/sanpham/csdl_function.php";
     $(".button-collapse").sideNav();
 
 </script>
-
 
 
 </body>
