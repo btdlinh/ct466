@@ -1,7 +1,7 @@
 <?php
 
 function db_connect(){
-    $conn = mysqli_connect("localhost", "root", "", "ct271-01");
+    $conn = mysqli_connect("localhost", "root", "", "ct466");
     if(!$conn){
         echo "Không thể kêt nối cơ sở dữ liệu. " . mysqli_connect_error($conn);
         exit;
@@ -25,7 +25,7 @@ function select4LatestBook($conn){
 }
         // lay ttin sach
 function getBookByIsbn($conn, $id){
-    $query = "SELECT tensach, hinhanh,tentacgia, gia FROM sach as s join tacgia tg on s.idtacgia=tg.idtacgia WHERE idsach = '$id'";
+    $query = "SELECT sp_tensach, sp_hinhanh,tg_hoten, sp_gia FROM sanpham  as s join tac_gia tg on s.sp_idtg=tg.tg_id WHERE s.sp_idtg = tg.tg_id and s.sp_id = '$id'";
     $result = mysqli_query($conn, $query);
     if(!$result){
         echo "Khong thể truy xuất dữ lệu." . mysqli_error($conn);
@@ -88,14 +88,14 @@ function insertIntoOrder($conn, $idkh, $gia, $emailkh, $diachikh, $sdtkh, $date)
         //lấy gia sách
 function getbookprice($id){
     $conn = db_connect();
-    $query = " SELECT gia FROM sach WHERE idsach = $id ";
+    $query = " SELECT sp_gia FROM sanpham WHERE sp_id = $id ";
     $result = mysqli_query($conn, $query);
     if(!$result){
         echo "Mua thất bại! " . mysqli_error($conn);
         exit;
     }
     $row = mysqli_fetch_assoc($result);
-    return $row['gia'];
+    return $row['sp_gia'];
 }
 
 

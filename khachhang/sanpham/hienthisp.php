@@ -62,6 +62,57 @@ $conn -> set_charset('utf8');
     <!-- Material Design Bootstrap -->
     <link href="../../MDB-ecommerce-Templates-Pack_4.8.11/css/mdb.min.css" rel="stylesheet">
 
+    <style>
+            /*nút số lượng*/
+       .buttons_added {
+           opacity:1;
+           display:inline-block;
+           display:-ms-inline-flexbox;
+           display:inline-flex;
+           white-space:nowrap;
+           vertical-align:top;
+       }
+        .is-form {
+            overflow:hidden;
+            position:relative;
+            background-color:#f9f9f9;
+            height:2.2rem;
+            width:1.9rem;
+            padding:0;
+            text-shadow:1px 1px 1px #fff;
+            border:1px solid #ddd;
+        }
+        .is-form:focus,.input-text:focus {
+            outline:none;
+        }
+        .is-form.minus {
+            border-radius:4px 0 0 4px;
+        }
+        .is-form.plus {
+            border-radius:0 4px 4px 0;
+        }
+        .input-qty {
+            background-color:#fff;
+            height:2.2rem;
+            text-align:center;
+            font-size:1rem;
+            display:inline-block;
+            vertical-align:top;
+            margin:0;
+            border-top:1px solid #ddd;
+            border-bottom:1px solid #ddd;
+            border-left:0;
+            border-right:0;
+            padding:0;
+        }
+        .input-qty::-webkit-outer-spin-button,.input-qty::-webkit-inner-spin-button {
+            -webkit-appearance:none;
+            margin:0;
+        }
+
+        /*nút số lượng*/
+    </style>
+
 </head>
 
 <body class="product-v1 hidden-sn white-skin animated " >
@@ -113,20 +164,44 @@ $conn -> set_charset('utf8');
                     case "ncc_ten":
                         $key = "Nhà cung cấp";
                         break;
-
                 }
                 ?>
                 <tr>
                     <td><?php echo $key; ?></td>
 
                     <td><?php echo $value; ?></td>
+                    <td></td>
                 </tr>
+
                 <?php
             }
 
 //            if(isset($conn)) {mysqli_close($conn); }
             ?>
+
+            <tr>
+                <td> Số lượng</td>
+                <td>
+<!--                <td> Số lượng</td>-->
+<!--                <td >-->
+<!--                    <input type="number" min="1" max="5" value="1" class="form-control text-center w-50">-->
+<!--                </td>-->
+<!--                <td> --><?php //echo $row['sp_soluong']?><!-- sản phẩm có sẵn</td>-->
+                    <div class="buttons_added">
+                        <input class="minus is-form" type="button" value="-">
+                        <input aria-label="quantity" class="input-qty" max="5" min="1" name="" type="number" value="1">
+                        <input class="plus is-form" type="button" value="+" >
+                    </div>
+                </td>
+                <td> <?php echo $row['sp_soluong']?> sản phẩm có sẵn</td>
+            </tr>
         </table>
+        <div>
+            <table >
+
+            </table>
+
+        </div>
         <form method="POST" action="giohang.php">
             <input type="hidden" name="idsach" value="<?php echo $id;?>">
             <input type="submit" value="Mua / Thêm vào giỏ hàng" name="cart" class="btn btn-primary">
@@ -317,6 +392,26 @@ require "../../UI/adheader.php";
 
 </script>
 
+<script>//nút số lượng
+    $('input.input-qty').each(function() {
+        var $this = $(this),
+            qty = $this.parent().find('.is-form'),
+            min = Number($this.attr('min')),
+            max = Number($this.attr('max'))
+        if (min == 0) {
+            var d = 0
+        } else d = min
+        $(qty).on('click', function() {
+            if ($(this).hasClass('minus')) {
+                if (d > min) d += -1
+            } else if ($(this).hasClass('plus')) {
+                var x = Number($this.val()) + 1
+                if (x <= max) d += 1
+            }
+            $this.attr('value', d).val(d)
+        })
+    })
+    </script>
 </body>
 
 </html>

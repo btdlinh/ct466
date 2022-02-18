@@ -197,7 +197,10 @@ require_once "khachhang/sanpham/csdl_function.php";
             // tiem kiem san pham
             $search = addslashes($_GET['search']);
             $sql = "select * from sanpham as sp join the_loai as tl on sp.sp_idtheloai=tl.tl_id
-                            where sp_tensach like '%$search%' or tl.tl_tentheloai like '%$search%' ";
+                                                join tac_gia as tg on sp.sp_idtg=tg.tg_id
+                            where sp_tensach like '%$search%' 
+                               or tl.tl_tentheloai like '%$search%' 
+                               or tg.tg_hoten like '%$search%' ";
             $s = mysqli_query($conn, $sql);
             $num = mysqli_num_rows($s);
         if ($num > 0 && $search != "") {
