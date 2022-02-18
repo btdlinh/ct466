@@ -196,12 +196,7 @@ $conn -> set_charset('utf8');
                 <td> <?php echo $row['sp_soluong']?> sản phẩm có sẵn</td>
             </tr>
         </table>
-        <div>
-            <table >
 
-            </table>
-
-        </div>
         <form method="POST" action="giohang.php">
             <input type="hidden" name="idsach" value="<?php echo $id;?>">
             <input type="submit" value="Mua / Thêm vào giỏ hàng" name="cart" class="btn btn-primary">
@@ -392,7 +387,8 @@ require "../../UI/adheader.php";
 
 </script>
 
-<script>//nút số lượng
+<!--nút số lượng-->
+<script>
     $('input.input-qty').each(function() {
         var $this = $(this),
             qty = $this.parent().find('.is-form'),
@@ -412,6 +408,7 @@ require "../../UI/adheader.php";
         })
     })
     </script>
+<!--nút số lượng-->
 </body>
 
 </html>

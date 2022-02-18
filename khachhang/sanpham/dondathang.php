@@ -2,7 +2,7 @@
 require_once "../sanpham/csdl_function.php";
 
 //$sql1 = "SELECT * FROM khachhang WHERE  emailkh = $email ";
-$conn = mysqli_connect("localhost", "root", "", "ct271-01");
+$conn = mysqli_connect("localhost", "root", "", "ct466");
 
 
 //$iddon=$_GET['iddon'];

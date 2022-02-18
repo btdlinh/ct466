@@ -110,7 +110,7 @@ require "headerhienthisp.php";
 <!--                    <td class="col-md-1">--><?php //echo $id ?><!--</td>-->
                     <td class="img-fluid z-depth-0" style="width: 150px; height: 200px; margin: 0 auto;"><img src="<?php echo $book['sp_hinhanh'] ?>" alt='Hình ảnh' width= '100px' > </td>
                     <td class="w-75 m-0 m-auto text-center"><?php echo $book['sp_tensach'] . " <br><br> " . number_format($book['sp_gia'])."đ"; ?></td>
-                    <td class="w-75 m-0 m-auto text-center"><input type="number" min="1" max="50" class="form-control text-center w-50" value="<?php echo $qty; ?>" size="2" name="<?php echo $id; ?>"></td>
+                    <td class="w-75 m-0 m-auto text-center"><input type="number" min="1" max="5" class="form-control text-center w-50" value="<?php echo $qty; ?>" size="2" name="<?php echo $id; ?>"></td>
 
                 <!--test SL-->
 <!---->
