@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
 $servername = 'localhost';
 $username = 'root';
 $password = '';
@@ -9,36 +9,36 @@ $dbname = 'ct466';
 $conn = new mysqli($servername, $username, $password, $dbname)
 or die($conn->connect_error);
 
-$conn -> set_charset('utf8');
+$conn->set_charset('utf8');
 //    $conn = db_connect();
 //	session_destroy();exit();
 
 //require('../../db.php');
-    //if (isset($_SESSION['email'])) {
-    //    $email = $_SESSION['email'];
-    //} else exit();
+//if (isset($_SESSION['email'])) {
+//    $email = $_SESSION['email'];
+//} else exit();
 
-    $id=$_GET['idsach'];
-    $query = "SELECT * FROM sanpham as s join the_loai as t on s.sp_idtheloai=t.tl_id
+$id = $_GET['idsach'];
+$query = "SELECT * FROM sanpham as s join the_loai as t on s.sp_idtheloai=t.tl_id
                                        join tac_gia as tg on s.sp_idtg=tg.tg_id 
                                         join nha_xuat_ban as nxb on s.sp_idnxb=nxb.nxb_id
                                         join nha_cung_cap as ncc on s.sp_idncc=ncc.ncc_id
                                         join ngon_ngu as nn on s.sp_idnn=nn.nn_id
                         WHERE sp_id = $id
                     ";
-    $rs = mysqli_query($conn, $query);
-    if(!$rs){
-        echo "Không thể truy xuất dữ liệu" . mysqli_error($conn);
-        exit;
-    }
+$rs = mysqli_query($conn, $query);
+if (!$rs) {
+    echo "Không thể truy xuất dữ liệu" . mysqli_error($conn);
+    exit;
+}
 
-    $row = mysqli_fetch_assoc($rs);
-    if(!$row){
-        echo "Không có sách.";
-        exit;
-    }
+$row = mysqli_fetch_assoc($rs);
+if (!$row) {
+    echo "Không có sách.";
+    exit;
+}
 
-    $title = $row['sp_tensach'];
+$title = $row['sp_tensach'];
 
 
 //        $row= $rs->fetch_assoc();
@@ -63,51 +63,57 @@ $conn -> set_charset('utf8');
     <link href="../../MDB-ecommerce-Templates-Pack_4.8.11/css/mdb.min.css" rel="stylesheet">
 
     <style>
-            /*nút số lượng*/
-       .buttons_added {
-           opacity:1;
-           display:inline-block;
-           display:-ms-inline-flexbox;
-           display:inline-flex;
-           white-space:nowrap;
-           vertical-align:top;
-       }
+        /*nút số lượng*/
+        .buttons_added {
+            opacity: 1;
+            display: inline-block;
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            white-space: nowrap;
+            vertical-align: top;
+        }
+
         .is-form {
-            overflow:hidden;
-            position:relative;
-            background-color:#f9f9f9;
-            height:2.2rem;
-            width:1.9rem;
-            padding:0;
-            text-shadow:1px 1px 1px #fff;
-            border:1px solid #ddd;
+            overflow: hidden;
+            position: relative;
+            background-color: #f9f9f9;
+            height: 2.2rem;
+            width: 1.9rem;
+            padding: 0;
+            text-shadow: 1px 1px 1px #fff;
+            border: 1px solid #ddd;
         }
-        .is-form:focus,.input-text:focus {
-            outline:none;
+
+        .is-form:focus, .input-text:focus {
+            outline: none;
         }
+
         .is-form.minus {
-            border-radius:4px 0 0 4px;
+            border-radius: 4px 0 0 4px;
         }
+
         .is-form.plus {
-            border-radius:0 4px 4px 0;
+            border-radius: 0 4px 4px 0;
         }
+
         .input-qty {
-            background-color:#fff;
-            height:2.2rem;
-            text-align:center;
-            font-size:1rem;
-            display:inline-block;
-            vertical-align:top;
-            margin:0;
-            border-top:1px solid #ddd;
-            border-bottom:1px solid #ddd;
-            border-left:0;
-            border-right:0;
-            padding:0;
+            background-color: #fff;
+            height: 2.2rem;
+            text-align: center;
+            font-size: 1rem;
+            display: inline-block;
+            vertical-align: top;
+            margin: 0;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            border-left: 0;
+            border-right: 0;
+            padding: 0;
         }
-        .input-qty::-webkit-outer-spin-button,.input-qty::-webkit-inner-spin-button {
-            -webkit-appearance:none;
-            margin:0;
+
+        .input-qty::-webkit-outer-spin-button, .input-qty::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
         }
 
         /*nút số lượng*/
@@ -115,95 +121,105 @@ $conn -> set_charset('utf8');
 
 </head>
 
-<body class="product-v1 hidden-sn white-skin animated " >
+<body class="product-v1 hidden-sn white-skin animated ">
 
 <!-- News card -->
 
-<p class="lead" style=" margin-left: 12%; padding-top: 5em; padding-bottom: 1em; font-size: 25px; font-weight: bold"><a href="../../index.php">Sách > </a> <?php echo $row['tl_tentheloai']; ?> </p>
+<p class="lead" style=" margin-left: 12%; padding-top: 5em; padding-bottom: 1em; font-size: 25px; font-weight: bold"><a
+            href="../../index.php">Sách > </a> <?php echo $row['tl_tentheloai']; ?> </p>
 
 <div class="card mt-5 hoverable  p-5 w-75 m-auto">
 
     <div class="row w-100" style="margin:0 auto; ">
 
-    <div class="col-md-5 text-center pb-5">
-        <img class="img-responsive img-thumbnail"  src="<?php echo $row['sp_hinhanh']; ?>">
-    </div>
+        <div class="col-md-5 text-center pb-5">
+            <img class="img-responsive img-thumbnail" src="<?php echo $row['sp_hinhanh']; ?>">
+        </div>
 
-    <div class="col-md-7" >
-        <h2 class="h2-responsive text-center text-md-left product-name font-weight-bold dark-grey-text mb-3 ml-xl-0 ml-4">
-            <strong> <?php echo $row['sp_tensach'] ?></strong>
-        </h2>
-        <h3 class="h3-responsive text-center text-md-left mb-5 ml-xl-0 ml-4" >
+        <div class="col-md-7">
+            <h2 class="h2-responsive text-center text-md-left product-name font-weight-bold dark-grey-text mb-3 ml-xl-0 ml-4">
+                <strong> <?php echo $row['sp_tensach'] ?></strong>
+            </h2>
+            <h3 class="h3-responsive text-center text-md-left mb-5 ml-xl-0 ml-4">
             <span class="red-text font-weight-bold">
-                <strong> <?php  echo number_format($row['sp_gia']) ?> đ</strong>
+                <strong> <?php echo number_format($row['sp_gia']) ?> đ</strong>
             </span>
-        </h3>
-        <h4>Mô Tả</h4>
-        <p><?php echo $row['sp_mota']; ?></p>
-        <h4>Chi Tiết Sản Phẩm</h4>
-        <table class="table" >
-            <?php foreach($row as $key => $value){
-                if($key == "sp_id" || $key == "sp_idtheloai" || $key == "tg_id" || $key == "ncc_sdt" || $key == "ncc_diachi" || $key == "ncc_id" || $key == "sp_idnxb" || $key == "sp_soluong" || $key == "sp_hinhanh"
-                    || $key == "sp_idnn" || $key == "sp_idncc" || $key == "tl_id" || $key == "sp_idtg" || $key == "tl_iddm"  || $key == "tg_diachi" || $key == "tg_sdt"|| $key == "nxb_id" || $key == "nxb_sdt"
-                    || $key == "nxb_diachi" || $key == "sp_mota" || $key == "sp_gia" || $key == "sp_tensach" || $key == "nn_id"|| $key == "status"){
-                    continue;
-                }
-                switch($key){
-                    case "nn_ngonngu":
-                        $key = "Ngôn ngữ";
-                        break;
-                    case "tl_tentheloai":
-                        $key = "Thể loại";
-                        break;
-                    case "tg_hoten":
-                        $key = "Tác giả";
-                        break;
-                    case "nxb_ten":
-                        $key = "Nhà xuất bản";
-                        break;
-                    case "ncc_ten":
-                        $key = "Nhà cung cấp";
-                        break;
-                }
-                ?>
-                <tr>
-                    <td><?php echo $key; ?></td>
+            </h3>
+            <h4>Mô Tả</h4>
+            <p><?php echo $row['sp_mota']; ?></p>
+            <h4>Chi Tiết Sản Phẩm</h4>
+            <form method="POST" action="giohang.php">
+                <table class="table">
+                    <?php foreach ($row as $key => $value) {
+                        if ($key == "sp_id" || $key == "sp_idtheloai" || $key == "tg_id" || $key == "ncc_sdt" || $key == "ncc_diachi" || $key == "ncc_id" || $key == "sp_idnxb" || $key == "sp_soluong" || $key == "sp_hinhanh"
+                            || $key == "sp_idnn" || $key == "sp_idncc" || $key == "tl_id" || $key == "sp_idtg" || $key == "tl_iddm" || $key == "tg_diachi" || $key == "tg_sdt" || $key == "nxb_id" || $key == "nxb_sdt"
+                            || $key == "nxb_diachi" || $key == "sp_mota" || $key == "sp_gia" || $key == "sp_tensach" || $key == "nn_id" || $key == "status") {
+                            continue;
+                        }
+                        switch ($key) {
+                            case "nn_ngonngu":
+                                $key = "Ngôn ngữ";
+                                break;
+                            case "tl_tentheloai":
+                                $key = "Thể loại";
+                                break;
+                            case "tg_hoten":
+                                $key = "Tác giả";
+                                break;
+                            case "nxb_ten":
+                                $key = "Nhà xuất bản";
+                                break;
+                            case "ncc_ten":
+                                $key = "Nhà cung cấp";
+                                break;
+                        }
+                        ?>
+                        <tr>
+                            <td><?php echo $key; ?></td>
 
-                    <td><?php echo $value; ?></td>
-                    <td></td>
-                </tr>
+                            <td><?php echo $value; ?></td>
+                            <td></td>
+                        </tr>
 
-                <?php
-            }
+                        <?php
+                    }
 
-//            if(isset($conn)) {mysqli_close($conn); }
-            ?>
+                    //            if(isset($conn)) {mysqli_close($conn); }
+                    ?>
 
-            <tr>
-                <td> Số lượng</td>
-                <td>
-<!--                <td> Số lượng</td>-->
-<!--                <td >-->
-<!--                    <input type="number" min="1" max="5" value="1" class="form-control text-center w-50">-->
-<!--                </td>-->
-<!--                <td> --><?php //echo $row['sp_soluong']?><!-- sản phẩm có sẵn</td>-->
-                    <div class="buttons_added">
-                        <input class="minus is-form" type="button" value="-">
-                        <input aria-label="quantity" class="input-qty" max="5" min="1" name="" type="number" value="1">
-                        <input class="plus is-form" type="button" value="+" >
-                    </div>
-                </td>
-                <td> <?php echo $row['sp_soluong']?> sản phẩm có sẵn</td>
-            </tr>
-        </table>
+                    <tr>
+                        <td> Số lượng</td>
+                            <!--                <td> Số lượng</td>-->
+                            <!--                <td >-->
+                            <!--                    <input type="number" min="1" max="5" value="1" class="form-control text-center w-50">-->
+                            <!--                </td>-->
+                            <!--                <td> --><?php //echo $row['sp_soluong']?><!-- sản phẩm có sẵn</td>-->
+                            <!--                    <div class="buttons_added">-->
+                            <!--                        <input class="minus is-form" type="button" value="-">-->
+                            <!--                        <input aria-label="quantity" class="input-qty" max="5" min="1" name="" type="number" value="1">-->
+                            <!--                        <input class="plus is-form" type="button" value="+" >-->
+                            <!--                    </div>-->
 
-        <form method="POST" action="giohang.php">
-            <input type="hidden" name="idsach" value="<?php echo $id;?>">
-            <input type="submit" value="Mua / Thêm vào giỏ hàng" name="cart" class="btn btn-primary">
-        </form>
+                        <td>
+                            <div class="buttons_added">
+                                <input class="minus is-form" type="button" value="-">
+                                <input aria-label="quantity" class="input-qty" max="5" min="1" name="soluong" type="number"
+                                       value="1" id="soluongmua">
+                                <input class="plus is-form" type="button" value="+" onclick="soluong()">
+                            </div>
+                            <input type="hidden" name="idsach" value="<?php echo $id; ?>">
+                        </td>
+                    </tr>
+                </table>
+             <div class="m-2 text-info">
+                 <?php echo $row['sp_soluong'] ?> sản phẩm có sẵn
+             </div>
+                <input type="submit" value="Mua / Thêm vào giỏ hàng" name="cart" class="btn btn-primary">
+            </form>
 
+
+        </div>
     </div>
-</div>
 
 </div>
 <!-- News card -->
@@ -229,30 +245,30 @@ require "../../UI/adheader.php";
     <!-- Section: Products v.5 -->
     <section id="products" class="pb-5">
 
-<!--        <p class="text-center w-responsive mx-auto mb-5 dark-grey-text">Lorem ipsum dolor sit amet, consectetur-->
-<!--            adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi,-->
-<!---->
-<!--            veritatis totam voluptas nostrum quisquam eum porro a pariatur accusamus veniam.</p>-->
+        <!--        <p class="text-center w-responsive mx-auto mb-5 dark-grey-text">Lorem ipsum dolor sit amet, consectetur-->
+        <!--            adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi,-->
+        <!---->
+        <!--            veritatis totam voluptas nostrum quisquam eum porro a pariatur accusamus veniam.</p>-->
 
         <!-- Carousel Wrapper -->
         <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
 
             <!-- Controls -->
-<!--            <div class="controls-top">-->
-<!---->
-<!--                <a class="btn-floating primary-color" href="#multi-item-example" data-slide="prev">-->
-<!---->
-<!--                    <i class="fas fa-chevron-left"></i>-->
-<!---->
-<!--                </a>-->
-<!---->
-<!--                <a class="btn-floating primary-color" href="#multi-item-example" data-slide="next">-->
-<!---->
-<!--                    <i class="fas fa-chevron-right"></i>-->
-<!---->
-<!--                </a>-->
-<!---->
-<!--            </div>-->
+            <!--            <div class="controls-top">-->
+            <!---->
+            <!--                <a class="btn-floating primary-color" href="#multi-item-example" data-slide="prev">-->
+            <!---->
+            <!--                    <i class="fas fa-chevron-left"></i>-->
+            <!---->
+            <!--                </a>-->
+            <!---->
+            <!--                <a class="btn-floating primary-color" href="#multi-item-example" data-slide="next">-->
+            <!---->
+            <!--                    <i class="fas fa-chevron-right"></i>-->
+            <!---->
+            <!--                </a>-->
+            <!---->
+            <!--            </div>-->
             <!-- Controls -->
 
             <!-- Indicators -->
@@ -273,14 +289,14 @@ require "../../UI/adheader.php";
 
             $querynew = "SELECT * FROM sanpham ORDER BY sp_id DESC";
             $resultnew = mysqli_query($conn, $querynew);
-            if(!$resultnew){
+            if (!$resultnew) {
                 echo "Không truy xuất được dữ liệu " . mysqli_error($conn);
                 exit;
             }
 
-            for($i = 0; $i < 3; $i++){
+            for ($i = 0; $i < 3; $i++) {
                 $rownew = mysqli_fetch_array($resultnew);
-                echo'
+                echo '
 
                 <div class="row">
                     <div class="col-sm mt-4 mb-4">
@@ -290,12 +306,12 @@ require "../../UI/adheader.php";
                             <div class="card">
         
                                 <!-- Card image -->
-                                <div class="view overlay"  title='.$rownew['sp_tensach'].'>
+                                <div class="view overlay"  title=' . $rownew['sp_tensach'] . '>
         
                                     <img src=' . $rownew['sp_hinhanh'] . ' alt="Hình Ảnh Sách" style="width: 330px; height: 350px; margin: 1em auto; padding-top: 1em;">
         
                                     <a href="http://localhost:8080/CT466/khachhang/sanpham/hienthisp.php?idsach=' . $rownew['sp_id'] . ' " 
-                                        title='.$rownew['sp_tensach'].' />
+                                        title=' . $rownew['sp_tensach'] . ' />
                                         <div class="mask rgba-white-slight"></div>
                                     </a>
         
@@ -320,7 +336,7 @@ require "../../UI/adheader.php";
         
                                         <div class="row mb-0">
         
-                                            <span class="float-left m-1 center-element text-info"><strong>'. number_format($rownew["sp_gia"]) .' đ</strong></span>
+                                            <span class="float-left m-1 center-element text-info"><strong>' . number_format($rownew["sp_gia"]) . ' đ</strong></span>
                                         
                                         </div>
         
@@ -332,24 +348,22 @@ require "../../UI/adheader.php";
       
                     ';
 
-                    }
+            }
 
             ?>
 
             <!-- Slides -->
-                </div>
+        </div>
 
         <!-- Carousel Wrapper -->
-</section>
+    </section>
     <!-- Section: Products v.5 -->
 </div>
 <!-- Main Container -->
 
 
-
-
 <!-- Footer-->
-<?php require "../../hienthi/footer.php";?>
+<?php require "../../hienthi/footer.php"; ?>
 <!-- Footer-->
 <!-- SCRIPTS -->
 <!-- JQuery -->
@@ -389,7 +403,7 @@ require "../../UI/adheader.php";
 
 <!--nút số lượng-->
 <script>
-    $('input.input-qty').each(function() {
+    $('input.input-qty').each(function () {
         var $this = $(this),
             qty = $this.parent().find('.is-form'),
             min = Number($this.attr('min')),
@@ -397,7 +411,7 @@ require "../../UI/adheader.php";
         if (min == 0) {
             var d = 0
         } else d = min
-        $(qty).on('click', function() {
+        $(qty).on('click', function () {
             if ($(this).hasClass('minus')) {
                 if (d > min) d += -1
             } else if ($(this).hasClass('plus')) {
@@ -407,8 +421,17 @@ require "../../UI/adheader.php";
             $this.attr('value', d).val(d)
         })
     })
-    </script>
+</script>
 <!--nút số lượng-->
+
+<script>
+    function soluong(){
+        var sl = document.getElementById('soluongmua').value;
+        console.log(sl)
+    }
+
+</script>
+
 </body>
 
 </html>
