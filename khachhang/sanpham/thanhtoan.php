@@ -41,7 +41,7 @@ if(isset($_SESSION['cart']) && (array_count_values($_SESSION['cart']))){
             <!--                <a href="#" data-activates="slide-out" class="button-collapse"><i class="fas fa-home"></i></a>-->
         </div>
 
-        <a class="navbar-brand font-weight-bold" href="http://localhost:8080/CT271"><strong> HIRAKI.COM </strong></a>
+        <a class="navbar-brand font-weight-bold" href="http://localhost:8080/CT466"><strong> HIRAKI.COM </strong></a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
                 aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,9 +77,9 @@ if(isset($_SESSION['cart']) && (array_count_values($_SESSION['cart']))){
 
                 ?>
                 <tr>
-                    <td class="img-fluid z-depth-0" style="width: 150px; height: 200px; margin: 0 auto;"><img src="<?php echo $book['hinhanh'] ?>" alt='Hình ảnh' width= '100px' > </td>
+                    <td class="img-fluid z-depth-0" style="width: 150px; height: 200px; margin: 0 auto;"><img src="<?php echo $book['sp_hinhanh'] ?>" alt='Hình ảnh' width= '100px' > </td>
 
-                    <td class=" text-center"><?php echo $book['tensach'] . " <br><br> " . number_format($book['gia']) ." đ"; ?></td>
+                    <td class=" text-center"><?php echo $book['sp_tensach'] . " <br><br> " . number_format($book['sp_gia']) ." đ"; ?></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -87,7 +87,7 @@ if(isset($_SESSION['cart']) && (array_count_values($_SESSION['cart']))){
                     <!--                <td class=" text-center">--><?php //echo $book['tentacgia']; ?><!--</td>-->
                     <!--                <td class=" text-center">--><?php //echo  number_format($book['gia']) ." đ"; ?><!--</td>-->
                     <td class=" text-center"><input type="text" value="<?php echo $qty; ?>" size="2" name="<?php echo $id; ?>"></td>
-                    <td class=" text-center"><?php echo  number_format($qty * $book['gia']) ." đ"; ?></td>
+                    <td class=" text-center"><?php echo  number_format($qty * $book['sp_gia']) ." đ"; ?></td>
                 </tr>
 
             <?php } ?>
@@ -110,7 +110,7 @@ if(isset($_SESSION['cart']) && (array_count_values($_SESSION['cart']))){
                 <div class="text-primary font-weight-bold"> <h3>Địa chỉ giao hàng</h3></div>
                 <br>
                 <?php
-                    $sql1 = "SELECT * FROM khachhang WHERE  emailkh = '$email' ";
+                    $sql1 = "SELECT * FROM khach_hang WHERE  kh_email = '$email' ";
                     $result1 = mysqli_query($conn,$sql1);
                     if(mysqli_num_rows($result1) == 1) {
                         $row1 = mysqli_fetch_assoc($result1);
@@ -131,7 +131,7 @@ if(isset($_SESSION['cart']) && (array_count_values($_SESSION['cart']))){
                     <div class="col-md-10">
                         Email <br>
                         <input type="text" name="emailkh" class="col-md-10" class="form-control" placeholder="... @gmail.com"
-                               value="<?php echo $row1['emailkh'] ?>"
+                               value="<?php echo $row1['kh_email'] ?>"
                         />
                     </div>
                 </div>
