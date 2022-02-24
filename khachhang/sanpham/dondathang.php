@@ -11,21 +11,28 @@ $email = $_POST['emailkh'];
 $diachi = $_POST['diachikh'];
 $sdt = $_POST['sdtkh'];
 $email = $_POST['emailkh'];
-
+$idkh = $_POST['idkh'];
 //$idsach= $_POST['idsach'];
 //$iddon = $_SESSION['iddon'];
 //$idkh = $_POST['idkh'];
 
+$sql = " SELECT * FROM  khach_hang as a on dia_chi as b on a.kh_id=b.dc_idkh WHERE(b.kh_email='$email')";
+$result = mysqli_query($conn,$sql) ;
 
-$sql1 = "UPDATE khachhang SET
-                            tenkh = '$tenkh',
-                            emailkh = '$email',
-                            diachikh = '$diachi',
-                            sdtkh = '$sdt'
-                            WHERE (emailkh='$email')
-                       ";
+//$sql1 = "UPDATE  dia_chi SET
+//
+//                            dc_hoten = '$tenkh',
+//                            dc_sdt = '$sdt',
+//                            dc_diachi = '$diachi'
+//                            WHERE dc_idkh = '$idkh'
+//                       ";
+$sql1 = "INSERT INTO  dia_chi ( dc_hoten,  dc_sdt,  dc_diachi)
+         VALUES ('$tenkh', '$sdt', '$diachi')
+         WHERE dc_idkh = '$idkh'
+         ";
 $result1 = mysqli_query($conn,$sql1) ;
 
+var_dump($result1);
 
 
 //$sql2 = "INSERT INTO khachhang_dh ( idkh, tenkh, emailkh , diachikh, sdtkh, idsach, iddon) VALUES ( '$idkh', '$tenkh', '$email', '$diachi', '$sdt', '$idsach','$iddon') ";
@@ -37,8 +44,8 @@ $result1 = mysqli_query($conn,$sql1) ;
 
 <?php
 session_start();
-if (isset($_SESSION['emailkh'])) {
-    $email = $_SESSION['emailkh'];
+if (isset($_SESSION['kh_email'])) {
+    $email = $_SESSION['kh_email'];
 } else exit();
 
 //$_SESSION['emailkh'] = 1;
@@ -86,6 +93,7 @@ if(isset($_SESSION['cart']) && (array_count_values($_SESSION['cart']))){
 <?php
 //require "headerhienthisp.php";
 ?>
+
     <!-- Navbar ngang-->
     <nav class="navbar fixed-top navbar-expand-lg navbar-light scrolling-navbar white">
 
@@ -106,40 +114,41 @@ if(isset($_SESSION['cart']) && (array_count_values($_SESSION['cart']))){
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
 
-<!--                <ul class="navbar-nav ml-auto">-->
-<!---->
-<!--                    <li class="nav-item ml-3">-->
-<!--                        <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"-->
-<!--                           href="http://localhost:8080/CT271/khachhang/lienhe.php"><i-->
-<!--                                    class="fas fa-comments blue-text"></i> Liên Hệ</a>-->
-<!--                    </li>-->
-<!---->
-<!--                    <li class="nav-item ml-3">-->
-<!--                        <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"-->
-<!--                           href="http://localhost:8080/CT271/khachhang/sanpham/giohang.php"><i-->
-<!--                                    class="fas fa-shopping-cart blue-text"></i> Giỏ Hàng</a>-->
-<!--                    </li>-->
-<!---->
-<!--                    <li class="nav-item dropdown ml-3">-->
-<!---->
-<!--                        <a class="nav-link dropdown-toggle waves-effect waves-light dark-grey-text font-weight-bold"-->
-<!--                           id="navbarDropdownMenuLink-4"-->
-<!--                           data-toggle="dropdown"-->
-<!--                           aria-haspopup="true"-->
-<!--                           aria-expanded="false">-->
-<!--                            <i class="fas fa-user blue-text"></i>Tài Khoản-->
-<!--                        </a>-->
-<!---->
-<!--                        <div class="dropdown-menu dropdown-menu-right dropdown-cyan"-->
-<!--                             aria-labelledby="navbarDropdownMenuLink-4">-->
-<!--                            <a class="dropdown-item waves-effect waves-light" href="http://localhost:8080/CT271/dangky.html"> Đăng ký </a>-->
-<!--                            <a class="dropdown-item waves-effect waves-light" href="http://localhost:8080/CT271/dangnhap.html"> Đăng nhập </a>-->
-<!--                            <a class="dropdown-item waves-effect waves-light" href="http://localhost:8080/CT271/xulydangxuat.php"> Đăng xuất </a>-->
-<!--                        </div>-->
-<!---->
-<!--                    </li>-->
-<!---->
-<!--                </ul>-->
+
+                <!--                <ul class="navbar-nav ml-auto">-->
+                <!---->
+                <!--                    <li class="nav-item ml-3">-->
+                <!--                        <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"-->
+                <!--                           href="http://localhost:8080/CT271/khachhang/lienhe.php"><i-->
+                <!--                                    class="fas fa-comments blue-text"></i> Liên Hệ</a>-->
+                <!--                    </li>-->
+                <!---->
+                <!--                    <li class="nav-item ml-3">-->
+                <!--                        <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"-->
+                <!--                           href="http://localhost:8080/CT271/khachhang/sanpham/giohang.php"><i-->
+                <!--                                    class="fas fa-shopping-cart blue-text"></i> Giỏ Hàng</a>-->
+                <!--                    </li>-->
+                <!---->
+                <!--                    <li class="nav-item dropdown ml-3">-->
+                <!---->
+                <!--                        <a class="nav-link dropdown-toggle waves-effect waves-light dark-grey-text font-weight-bold"-->
+                <!--                           id="navbarDropdownMenuLink-4"-->
+                <!--                           data-toggle="dropdown"-->
+                <!--                           aria-haspopup="true"-->
+                <!--                           aria-expanded="false">-->
+                <!--                            <i class="fas fa-user blue-text"></i>Tài Khoản-->
+                <!--                        </a>-->
+                <!---->
+                <!--                        <div class="dropdown-menu dropdown-menu-right dropdown-cyan"-->
+                <!--                             aria-labelledby="navbarDropdownMenuLink-4">-->
+                <!--                            <a class="dropdown-item waves-effect waves-light" href="http://localhost:8080/CT271/dangky.html"> Đăng ký </a>-->
+                <!--                            <a class="dropdown-item waves-effect waves-light" href="http://localhost:8080/CT271/dangnhap.html"> Đăng nhập </a>-->
+                <!--                            <a class="dropdown-item waves-effect waves-light" href="http://localhost:8080/CT271/xulydangxuat.php"> Đăng xuất </a>-->
+                <!--                        </div>-->
+                <!---->
+                <!--                    </li>-->
+                <!---->
+                <!--                </ul>-->
 
             </div>
 
@@ -147,7 +156,6 @@ if(isset($_SESSION['cart']) && (array_count_values($_SESSION['cart']))){
 
     </nav>
     <!-- Navbar ngang-->
-
     <div class="w-100 white">
     <div class="row pt-4 w-80 m-auto mt-5">
         <div class="col-lg-7">
@@ -163,9 +171,9 @@ if(isset($_SESSION['cart']) && (array_count_values($_SESSION['cart']))){
 
                         ?>
                     <tr>
-                        <td class="img-fluid z-depth-0" style="width: 150px; height: 200px; margin: 0 auto;"><img src="<?php echo $book['hinhanh'] ?>" alt='Hình ảnh' width= '100px' > </td>
+                        <td class="img-fluid z-depth-0" style="width: 150px; height: 200px; margin: 0 auto;"><img src="<?php echo $book['sp_hinhanh'] ?>" alt='Hình ảnh' width= '100px' > </td>
 
-                        <td class=" text-center"><?php echo $book['tensach'] . " <br><br> " . number_format($book['gia']) ." đ"; ?></td>
+                        <td class=" text-center"><?php echo $book['sp_tensach'] . " <br><br> " . number_format($book['sp_gia']) ." đ"; ?></td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -173,7 +181,7 @@ if(isset($_SESSION['cart']) && (array_count_values($_SESSION['cart']))){
                         <!--                <td class=" text-center">--><?php //echo $book['tentacgia']; ?><!--</td>-->
                         <!--                <td class=" text-center">--><?php //echo  number_format($book['gia']) ." đ"; ?><!--</td>-->
                         <td class=" text-center"><input type="text" value="<?php echo $qty; ?>" size="2" name="<?php echo $id; ?>"></td>
-                        <td class=" text-center"><?php echo  number_format($qty * $book['gia']) ." đ"; ?></td>
+                        <td class=" text-center"><?php echo  number_format($qty * $book['sp_gia']) ." đ"; ?></td>
                     </tr>
         <?php } ?>
 
@@ -229,14 +237,19 @@ if(isset($_SESSION['cart']) && (array_count_values($_SESSION['cart']))){
     <!--form 2-->
     <div class="md-form col-lg-5 mt-4 pt-5" style="width: 100%;">
         <form method="post" action="hoanthanh.php" class="form-horizontal" accept-charset="UTF-8">
-            <?php if(isset($_SESSION['emailkh']) && $_SESSION['emailkh'] == 1){ ?>
+            <?php if(isset($_SESSION['kh_email']) && $_SESSION['kh_email'] == 1){ ?>
 <!--                <p class="text-danger">Nhập Thông Tin Của Bạn</p>-->
             <?php } ?>
             <div class="text-primary font-weight-bold  mt-2 ml-5"> <h3>Địa chỉ giao hàng</h3></div>
             <br>
             <?php
-            $sql1 = "SELECT * FROM khachhang WHERE  emailkh = '$email' ";
+
+//            $sql1 = "SELECT * FROM  dia_chi as a join khach_hang as b on a.dc_idkh = b.kh_id
+//                                WHERE  b.kh_email= '$email' ";
+            $sql1 = "SELECT * FROM  dia_chi
+                                WHERE  dc_idkh= '$idkh' ";
             $result1 = mysqli_query($conn,$sql1);
+//            var_dump( $result1);
             if(mysqli_num_rows($result1) == 1) {
                 $row1 = mysqli_fetch_assoc($result1);
 
@@ -244,10 +257,10 @@ if(isset($_SESSION['cart']) && (array_count_values($_SESSION['cart']))){
                 <div class="mt-2 pt-2 ml-5" >
 
                     <table class="table product-table table-cart-v-1 w-75" >
-                        <tr><th>Họ tên </th> <td><?php echo $row1['tenkh'] ?></td></tr>
-                        <tr><th>Email</th> <td><?php echo $row1['emailkh'] ?></td></tr>
-                        <tr><th>Địa chỉ</th> <td><?php echo $row1['diachikh'] ?></td></tr>
-                        <tr><th>Số điện thoại </th> <td><?php echo $row1['sdtkh'] ?></td></tr>
+                        <tr><th>Họ tên </th> <td><?php echo $row1['dc_hoten'] ?></td></tr>
+<!--                        <tr><th>Email</th> <td>--><?php //echo $row1['kh_email'] ?><!--</td></tr>-->
+                        <tr><th>Địa chỉ</th> <td><?php echo $row1['dc_diachi'] ?></td></tr>
+                        <tr><th>Số điện thoại </th> <td><?php echo $row1['dc_sdt'] ?></td></tr>
                     </table>
 
                 </div>

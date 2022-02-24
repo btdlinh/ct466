@@ -9,13 +9,13 @@ require_once "../giohang_function.php";
 require_once "../sanpham/csdl_function.php";
 
 // đọc form gửi đến - idsach
-if(isset($_POST['idsach'])){
+if (isset($_POST['idsach'])) {
     $idsach = $_POST['idsach'];
 }
 
-if(isset($idsach)){
+if (isset($idsach)) {
     // new item selected
-    if(!isset($_SESSION['cart'])){
+    if (!isset($_SESSION['cart'])) {
         // $_SESSION['cart'] is associative array that bookiook_isbnsbn => qty
         $_SESSION['cart'] = array();
 
@@ -23,18 +23,18 @@ if(isset($idsach)){
         $_SESSION['total_price'] = '0.00';
     }
 
-    if(!isset($_SESSION['cart'][$idsach])){
+    if (!isset($_SESSION['cart'][$idsach])) {
         $_SESSION['cart'][$idsach] = 1;
-    } elseif(isset($_GET['cart'])){
+    } elseif (isset($_GET['cart'])) {
         $_SESSION['cart'][$idsach]++;
         unset($_POST);
     }
 }
 
 // if save change button is clicked , change the qty of each bookisbn
-if(isset($_POST['save_change'])){
-    foreach($_SESSION['cart'] as $id =>$qty){
-        if($_POST[$id] == '0'){
+if (isset($_POST['save_change'])) {
+    foreach ($_SESSION['cart'] as $id => $qty) {
+        if ($_POST[$id] == '0') {
             unset($_SESSION['cart']["$id"]);
         } else {
             $_SESSION['cart']["$id"] = $_POST["$id"];
@@ -59,7 +59,7 @@ if(isset($_POST['save_change'])){
 $title = "Giỏ hàng của bạn.";
 
 
-if(isset($_SESSION['cart']) && (array_count_values($_SESSION['cart']))){
+if (isset($_SESSION['cart']) && (array_count_values($_SESSION['cart']))){
 $_SESSION['total_price'] = total_price($_SESSION['cart']);
 $_SESSION['total_items'] = total_items($_SESSION['cart']);
 ?>
@@ -85,7 +85,7 @@ $_SESSION['total_items'] = total_items($_SESSION['cart']);
 require "headerhienthisp.php";
 ?>
 <body class="w-100 white">
-<div class="table-responsive w-75 pb-5 pt-5" style="margin:2em auto" >
+<div class="table-responsive w-75 pb-5 pt-5" style="margin:2em auto">
 
     <!-- Vùng ALERT hiển thị thông báo -->
     <div id="alert-container" class="alert alert-warning alert-dismissible fade d-none" role="alert">
@@ -96,21 +96,26 @@ require "headerhienthisp.php";
     </div>
 
     <form action="giohang.php" method="post">
-        <table class="table product-table table-cart-v-1 " >
+        <table class="table product-table table-cart-v-1 ">
 
             <?php
-            $stt=1;
-            foreach($_SESSION['cart'] as $id => $qty){
+            $stt = 1;
+            foreach ($_SESSION['cart'] as $id => $qty) {
                 $conn = db_connect();
                 $book = mysqli_fetch_assoc(getBookByIsbn($conn, $id));
 
                 ?>
                 <tr>
                     <td class="col-md-1"><?php echo $stt++ ?></td>
-                    <!--                    <td class="col-md-1">--><?php //echo $id ?><!--</td>-->
-                    <td class="img-fluid z-depth-0" style="width: 150px; height: 200px; margin: 0 auto;"><img src="<?php echo $book['sp_hinhanh'] ?>" alt='Hình ảnh' width= '100px' > </td>
-                    <td class="w-75 m-0 m-auto text-center"><?php echo $book['sp_tensach'] . " <br><br> " . number_format($book['sp_gia'])."đ"; ?></td>
-                    <td class="w-75 m-0 m-auto text-center"><input type="number" min="1" max="5" class="form-control text-center w-50" value="<?php echo $qty; ?>" size="2" name="<?php echo $id; ?>"></td>
+                    <!--                    <td class="col-md-1">--><?php //echo $id
+                    ?><!--</td>-->
+                    <td class="img-fluid z-depth-0" style="width: 150px; height: 200px; margin: 0 auto;"><img
+                                src="<?php echo $book['sp_hinhanh'] ?>" alt='Hình ảnh' width='100px'></td>
+                    <td class="w-75 m-0 m-auto text-center"><?php echo $book['sp_tensach'] . " <br><br> " . number_format($book['sp_gia']) . "đ"; ?></td>
+                    <td class="w-75 m-0 m-auto text-center"><input type="number" min="1" max="5"
+                                                                   class="form-control text-center w-50"
+                                                                   value="<?php echo $qty; ?>" size="2"
+                                                                   name="<?php echo $id; ?>"></td>
 
                     <!--test SL-->
                     <!---->
@@ -122,15 +127,15 @@ require "headerhienthisp.php";
 
                     <!--test SL-->
 
-                    <td class="w-75 m-0 m-auto text-center"><?php echo  number_format($qty * $book['sp_gia']) ."đ" ; ?></td>
+                    <td class="w-75 m-0 m-auto text-center"><?php echo number_format($qty * $book['sp_gia']) . "đ"; ?></td>
 
 
                     <td>
-                        <section class="col-md-2" >
+                        <section class="col-md-2">
                             <!--                            <input onclick="return confirm('Bạn chắc chắn muốn xóa sản phẩm này?')" type="submit" class="btn btn-primary" name="delete" value="Xóa">-->
 
                             <a onclick="return confirm('Bạn chắc chắn muốn xóa sản phẩm này?')"
-                               href="xoasp_giohang.php?id=<?=$id?>" class="btn btn-primary ">
+                               href="xoasp_giohang.php?id=<?= $id ?>" class="btn btn-primary ">
                                 <i class="bi bi-trash"></i>
                             </a>
                         </section>
@@ -141,8 +146,11 @@ require "headerhienthisp.php";
 
             <?php } ?>
             <tr>
-                <th colspan="2"><h5><strong class="mt-2 ">Tổng sản phẩm: </strong> <strong class="text-primary"><?php echo $_SESSION['total_items']; ?> </strong></h5></th>
-                <th colspan="3"><h5><strong class="mt-2">Tổng tiền: </strong> <strong class="text-primary"> <?php echo  number_format($_SESSION['total_price'] )."đ"; ?></strong> </h5></th>
+                <th colspan="2"><h5><strong class="mt-2 ">Tổng sản phẩm: </strong> <strong
+                                class="text-primary"><?php echo $_SESSION['total_items']; ?> </strong></h5></th>
+                <th colspan="3"><h5><strong class="mt-2">Tổng tiền: </strong> <strong
+                                class="text-primary"> <?php echo number_format($_SESSION['total_price']) . "đ"; ?></strong>
+                    </h5></th>
             </tr>
 
         </table>
@@ -157,10 +165,12 @@ require "headerhienthisp.php";
 <?php require_once "../../hienthi/footer.php"; ?>
 <?php
 } else {
-    echo" <section class=\"alert alert-info\" style='text-align: center ; font-family: Arial; margin-top: 3em;'><h3>Giỏ hàng trống! <a href='http://localhost:8080/CT271/index.php'> Quay lại trang chủ</a></h3></section>";
+    echo " <section class=\"alert alert-info\" style='text-align: center ; font-family: Arial; margin-top: 3em;'><h3>Giỏ hàng trống! <a href='http://localhost:8080/CT271/index.php'> Quay lại trang chủ</a></h3></section>";
 //    echo "<strong><h4 class=\"text-warning\ text-center\">Giỏ hàng của bạn trống! Vui lòng thêm sản phẩm !</h4></strong>";
 }
-if(isset($conn)){ mysqli_close($conn); }
+if (isset($conn)) {
+    mysqli_close($conn);
+}
 
 ?>
 
