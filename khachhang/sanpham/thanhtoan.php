@@ -156,8 +156,7 @@ if (isset($_SESSION['cart']) && (array_count_values($_SESSION['cart']))){
                 </div>
 
 <!--                --><?php
-//                $sql2 = "SELECT * FROM khach_hang as a join dia_chi as b on a.kh_id=b.dc_idkh
-//                                WHERE a.kh_email = '$email' ";
+//                $sql2 = "SELECT * FROM khach_hang as a on dia_chi as b on a.kh_id=b.dc_idkh WHERE(a.kh_id='b.dc_idkh')";
 //                $result2 = mysqli_query($conn, $sql2);
 //                if (mysqli_num_rows($result2) == 1) {
 //                    $row2 = mysqli_fetch_assoc($result2);
@@ -189,7 +188,7 @@ if (isset($_SESSION['cart']) && (array_count_values($_SESSION['cart']))){
     </div>
     <?php
     } else {
-        echo "<p class=\"text-warning\">Your cart is empty! Please make sure you add some books in it!</p>";
+        echo "<p class=\"text-warning\">Giỏ hàng trống! Vui lòng thêm sản phẩm!</p>";
     }
     if (isset($conn)) {
         mysqli_close($conn);

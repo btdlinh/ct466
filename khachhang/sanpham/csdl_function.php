@@ -11,7 +11,7 @@ function db_connect(){
 
 function select4LatestBook($conn){
     $row = array();
-    $query = "SELECT idsach, hinhanh FROM sach ORDER BY idsach DESC";
+    $query = "SELECT sp_id, sp_hinhanh FROM sanpham ORDER BY sp_id DESC";
     $result = mysqli_query($conn, $query);
     if(!$result){
         echo "Không truy xuất được dữ liệu " . mysqli_error($conn);
@@ -28,7 +28,7 @@ function getBookByIsbn($conn, $id){
     $query = "SELECT sp_tensach, sp_hinhanh,tg_hoten, sp_gia FROM sanpham  as s join tac_gia tg on s.sp_idtg=tg.tg_id WHERE s.sp_idtg = tg.tg_id and s.sp_id = '$id'";
     $result = mysqli_query($conn, $query);
     if(!$result){
-        echo "Khong thể truy xuất dữ lệu." . mysqli_error($conn);
+        echo "Không thể truy xuất dữ lệu." . mysqli_error($conn);
         exit;
     }
     return $result;
@@ -37,14 +37,14 @@ function getBookByIsbn($conn, $id){
 
         // lay idmua hàng
 function getOrderId($conn, $idkh){
-    $query = "SELECT iddon FROM dondathang  WHERE idkh= $idkh ORDER BY iddon DESC LIMIT 1";
+    $query = "SELECT hd_id FROM hoa_don  WHERE hd_idkh= $idkh ORDER BY hd_id DESC LIMIT 1";
     $result = mysqli_query($conn, $query);
     if(!$result){
         echo "Lấy dữ liệu không thành công!" . mysqli_error($conn);
         exit;
     }
     $row = mysqli_fetch_assoc($result);
-    return $row['iddon'];
+    return $row['hd_id'];
 }
 
 
@@ -60,10 +60,12 @@ function getOrderId($conn, $idkh){
 //}
 
         // thong tin kh trong hoa don
-function insertIntoOrder($conn, $idkh, $gia, $emailkh, $diachikh, $sdtkh, $date)
+function insertIntoOrder($conn, $idkh, $gia, $trangthai, $date)
 {
-    $query = "INSERT INTO dondathang VALUES
-		('', '" . $idkh . "','" . $gia . "', '" . $emailkh . "','" . $diachikh . "','" . $sdtkh . "','" . $date . "')";
+//    $query = "INSERT INTO dondathang VALUES
+//		('', '" . $idkh . "','" . $gia . "', '" . $emailkh . "','" . $diachikh . "','" . $sdtkh . "','" . $date . "')";
+    $query = "INSERT INTO hoa_don VALUES
+		('', '" . $idkh . "','" . $gia . "', '" . $trangthai . "','" . $date . "')";
     $result = mysqli_query($conn, $query);
 
     if (!$result) {
@@ -100,19 +102,19 @@ function getbookprice($id){
 
 
         //lấy thông tin KH
-function getCustomerId( $tenkh, $emailkh, $sdtkh, $diachikh){
+function getCustomerId( $emailkh, $tenkh, $sdtkh, $diachikh){
     $conn = db_connect();
-    $query = "SELECT idkh from khachhang WHERE 
-		tenkh = '$tenkh' AND 
-		emailkh = '$emailkh' AND 
-		diachikh= '$diachikh' AND 
-		sdtkh = '$sdtkh'
+    $query = "SELECT dc_idkh from dia_chi WHERE 
+		dc_emailkh = '$emailkh' AND 
+		dc_hoten = '$tenkh' AND 
+		dc_sdt= '$sdtkh' AND 
+		dc_diachi = '$diachikh'
 		";
     $result = mysqli_query($conn, $query);
     // if there is customer in db, take it out
     if($result){
         $row = mysqli_fetch_assoc($result);
-        return $row['idkh'];
+        return $row['dc_idkh'];
 //        return $row['emailkh'];
     } else {
         return null;
@@ -121,10 +123,10 @@ function getCustomerId( $tenkh, $emailkh, $sdtkh, $diachikh){
 
 
         // cap nhat thong tin KH
-function setCustomerId($tenkh, $emailkh, $sdtkh, $diachikh){
+function setCustomerId($emailkh, $tenkh, $sdtkh, $diachikh){
     $conn = db_connect();
-    $query = "INSERT INTO khachhang VALUES 
-			('', '" . $tenkh . "', '" . $emailkh . "', '" . $sdtkh . "', '" . $diachikh . "')";
+    $query = "INSERT INTO dia_chi VALUES 
+			('', '" . $emailkh . "', '" . $tenkh . "', '" . $sdtkh . "', '" . $diachikh . "')";
 
     $result = mysqli_query($conn, $query);
     if(!$result){

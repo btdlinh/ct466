@@ -1,8 +1,8 @@
 <?php
 session_start();
-//if (isset($_SESSION['emailkh'])) {
-//    $email = $_SESSION['emailkh'];
-//} else exit();
+if (isset($_SESSION['kh_email'])) {
+    $email = $_SESSION['kh_email'];
+} else exit();
 //$_SESSION['err'] = 1;
 //foreach($_POST as $key => $value){
 //    if(trim($value) == ''){
@@ -38,17 +38,17 @@ extract($_SESSION['ship']);
 //}
 
 
-$idkh = getCustomerId( $tenkh, $emailkh, $sdtkh, $diachikh);
+$idkh = getCustomerId( $emailkh, $tenkh, $sdtkh, $diachikh);
 //echo "idkh la:".$idkh;
 $date = date("Y-m-d");
 
 if($idkh == null) {
     // insert customer into database and return customerid
-    $idkh = setCustomerId($tenkh, $emailkh, $sdtkh, $diachikh );
+    $idkh = setCustomerId($emailkh, $tenkh, $sdtkh, $diachikh );
 }
 
 
-insertIntoOrder($conn, $idkh, $_SESSION['total_price'], $emailkh, $diachikh, $sdtkh,$date);
+insertIntoOrder($conn, $idkh, $_SESSION['total_price'], 1, $date);
 
 // take orderid from order to insert order items
 $iddon = getOrderId($conn, $idkh);
@@ -56,8 +56,8 @@ $iddon = getOrderId($conn, $idkh);
 foreach($_SESSION['cart'] as $idsach => $qty){
     $bookprice = getbookprice($idsach);
 //   echo "giá sách là:".$bookprice;
-    $query = "INSERT INTO chitiet_dondathang VALUES
-		('$iddon','$idsach','$bookprice', '$qty')";
+    $query = "INSERT INTO chi_tiet_hoa_don VALUES
+		('$qty','$bookprice', '$idsach','$iddon')";
     //		('$iddon', ',''$idsach','$idkh','$bookprice', '$qty')";
 
 
@@ -76,7 +76,7 @@ session_unset();
 ?>
     <p class="lead text-success w-75 m-auto">Đơn đặt hàng của bạn đã được xử lý thành công. Vui lòng chú ý điện thoại của bạn để nhận được xác nhận đơn hàng và chi tiết giao hàng !.
         Giỏ hàng của bạn đã trống.
-        <a href="http://localhost:8080/CT271/index.php"> Quay lại.</a>
+        <a href="http://localhost:8080/CT466/index.php"> Quay lại.</a>
     </p>
 
 

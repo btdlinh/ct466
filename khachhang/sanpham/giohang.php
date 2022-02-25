@@ -21,17 +21,15 @@ if (isset($_POST['idsach'])) {
 //    echo json_encode($arr);
 //}
 
-// neu chua co sp trong gio hang
+// neu chua co sp trong gio hang hoac chua co id sp nay trong gio hang thi them vao với so luong tùy chon
     if (!isset($_SESSION['cart'][$idsach])) {
         // them vao 1 hoac nhieu sp tuy chon so luong (toi da la 5)
         $_SESSION['cart'][$idsach] = $sl;
-    } // neu da co san pham trong gio hang thi cong don them so luong => chua lam
+    } // da co id sp nay trong gio hang roi => tang so luong
     elseif (isset($_SESSION['cart'][$idsach])) {
+        $_SESSION['cart'][$idsach]+= $sl;
 
     }
-    // neu da co san pham trong gio hang thi cong don them so luong => chua lam
-
-
     // trong mang cart co bao nhiu idsach thi lay all idsach+ so luong mua(qty -> cua moi idsach) , chua cap nhat cong don duoc so luong
     foreach ($_SESSION['cart'] as $idsach => $qty) {
         $_SESSION['cart'][$idsach] = +$qty;
