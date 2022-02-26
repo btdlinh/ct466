@@ -6,12 +6,16 @@
 
 require "../../db.php";
 
-$sql11 = "SELECT * FROM sach  as s join theloaisach as t on s.idtheloai=t.idtheloai
-                                       join tacgia as tg on s.idtacgia=tg.idtacgia
-                                        join nhaxuatban as nxb on s.idnxb=nxb.idnxb
-                                        join chitiet_dondathang as ct on s.idsach=ct.idsach
-                                        join dondathang as a on a.iddon=ct.iddon
-                                        join khachhang as b on b.idkh=a.idkh
+$sql11 = "SELECT * FROM sanpham  as s join the_loai as t on s.sp_idtheloai=t.tl_id
+                                       join danh_muc as dm on t.tl_iddm=dm.dm_id
+                                       join ngon_ngu as nn on s.sp_idnn=nn.nn_id
+                                       join tac_gia as tg on s.sp_idtg=tg.tg_id
+                                        join nha_xuat_ban as nxb on s.sp_idnxb=nxb.nxb_id
+                                        join nha_cung_cap as ncc on s.sp_idncc=ncc.ncc_id
+                                        join chi_tiet_hoa_don as ct on s.sp_id=ct.cthd_idsp
+                                        join hoa_don as a on a.hd_id=ct.cthd_idhd
+                                        join khach_hang as b on b.kh_id=a.hd_idkh
+                                        join dia_chi as dc on b.kh_id=dc.dc_idkh
 
                                         ";
 $result11 = mysqli_query($conn,$sql11);
@@ -19,14 +23,19 @@ $result11 = mysqli_query($conn,$sql11);
 $data = [];
 while ($row11 = mysqli_fetch_array($result11, MYSQLI_ASSOC)) {
     $data[] = array(
-        'iddon' => $row11['iddon'],
-        'tenkh' => $row11['tenkh'],
-        'sdtkh' => $row11['sdtkh'],
-        'TongThanhTien' => number_format($row11['gia'], 2, ".", ",") . ' vnđ',
+        'hd_id' => $row11['hd_id'],
+        'dc_hoten' => $row11['dc_hoten'],
+        'dc_sdt' => $row11['dc_sdt'],
+        'TongThanhTien' => number_format($row11['sp_gia'], 2, ".", ",") . ' vnđ',
     );
+
 }
 
-$sql1 = "SELECT * FROM dondathang ";
+//$sql1 = "SELECT * FROM hoa_don ";
+$sql1="SELECT * FROM hoa_don as a join khach_hang as b on b.kh_id = a.hd_idkh
+                                        join dia_chi as dc on b.kh_id=dc.dc_idkh
+                GROUP BY (hd_id) DESC
+    ";
 $result = mysqli_query($conn,$sql1);
 
 ?>
@@ -88,8 +97,8 @@ $result = mysqli_query($conn,$sql1);
                         class="clearfix d-none d-sm-inline-block">Tài Khoản</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="http://localhost:8080/CT271/admin/thongtin/thongtintaikhoan.php">Tài Khoản Của Tôi</a>
-                    <a class="dropdown-item" href="http://localhost:8080/CT271/admin/xulydangxuat.php">Đăng Xuất</a>
+                    <a class="dropdown-item" href="http://localhost:8080/CT466/admin/thongtin/thongtintaikhoan.php">Tài Khoản Của Tôi</a>
+                    <a class="dropdown-item" href="http://localhost:8080/CT466/admin/xulydangxuat.php">Đăng Xuất</a>
                 </div>
             </li>
 
@@ -144,16 +153,16 @@ $result = mysqli_query($conn,$sql1);
 
                                     while ($row = $result->fetch_assoc()) {
                                         echo "<tr>
-                                                 <td>" . $row['iddon'] . "</td>
-                                                 <td>" . $row['emailkh'] ."<br>".$row['sdtkh'] . "</td>
-                                                 <td>" . $row['diachikh'] . "</td>
-                                                 <td>" . date('d/m/Y ', strtotime($row['ngaydat'])) . "</td>
+                                                 <td>" . $row['hd_id'] . "</td>
+                                                 <td>" . $row['dc_emailkh'] ."<br>".$row['dc_sdt'] . "</td>
+                                                 <td>" . $row['dc_diachi'] . "</td>
+                                                 <td>" . date('d/m/Y ', strtotime($row['hd_thoigianlapdonhang'])) . "</td>
                                              
                                                  
                                                 <td>
                                                 
                                                      <button type='button' class='btn btn-sm btn btn-light-blue' title='Xem chi tiết'>
-                                                     <a href=\"chitietdonhang.php?iddon=" . $row['iddon'] . "\"  
+                                                     <a href=\"chitietdonhang.php?iddon=" . $row['hd_id'] . "\"  
                                                          class=\"white-text\" 
                                                         data-toggle=\"tooltip\" 
                                                         data-placement=\"top\" >
@@ -163,7 +172,7 @@ $result = mysqli_query($conn,$sql1);
                                                      
                                                      <button onclick=\"return confirm('Bạn chắc chắn xóa đơn hàng này?')\"
                                                      type='button' class='btn btn-sm btn-outline-primary' title='Hủy đơn hàng'>
-                                                    <a  href=\"xoadonhang.php?iddon=" . $row['iddon'] . "\"
+                                                    <a  href=\"xoadonhang.php?iddon=" . $row['hd_id'] . "\"
                                                         class=\"red-text\" 
                                                         data-toggle=\"tooltip\" 
                                                         data-placement=\"top\" 

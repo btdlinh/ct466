@@ -279,10 +279,12 @@ require "../../db.php";
                         <?php
                         // lấy email người dùng  đang đn
                         $id=$_GET['id'];
-                        if(isset($_SESSION['email'])){
-                            $email = $_SESSION['email'];
-                        }else header("location:dangnhap.html");
-                            $sql4 = "SELECT * FROM khachhang WHERE  (idkh='".$id."')";
+//                        if(isset($_SESSION['email'])){
+//                            $email = $_SESSION['email'];
+//                        }else header("location:dangnhap.html");
+                            $sql4 = "SELECT * FROM khach_hang as a join dia_chi as b on a.kh_id = b.dc_idkh 
+                                                                   join hoa_don as c on c.hd_idkh=a.kh_id
+                                                WHERE  (kh_id='".$id."')";
                             $result4 = $conn->query($sql4);
 //                        echo "$sql4";
                             if ($result4->num_rows == 1   ) {
@@ -290,11 +292,11 @@ require "../../db.php";
 
                                 echo "<tr>
                                                 <th class=\"th-sm\">Họ Tên</th>
-                                                <td>" . $row4['tenkh'] . "</td>
+                                                <td>" . $row4['dc_hoten'] . "</td>
                                                </tr>";
                                 echo "<tr>
                                                 <th class=\"th-sm\">Email</th>
-                                                <td>" . $row4['emailkh'] . "</td>
+                                                <td>" . $row4['dc_emailkh'] . "</td>
                                                </tr>";
 
                         }

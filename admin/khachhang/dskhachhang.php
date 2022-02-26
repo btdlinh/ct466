@@ -3,11 +3,13 @@
 <?php
 session_start();
 require "../../db.php";
-if (isset($_SESSION['email'])) {
-    $email = $_SESSION['email'];
-} else exit();
+//if (isset($_SESSION['email'])) {
+//    $email = $_SESSION['email'];
+//} else exit();
 
-$sql1 = "SELECT * FROM khachhang";
+$sql1 = "SELECT * FROM khach_hang as a join dia_chi as b on a.kh_id = b.dc_idkh 
+                GROUP BY (kh_id)
+                ";
 $result = $conn->query($sql1);
 ?>
 
@@ -96,16 +98,16 @@ $result = $conn->query($sql1);
                                 while ($row = $result->fetch_assoc()) {
                                     echo "<tr>
                                                 <td>".$i."</td>
-                                                <td>".$row['tenkh']."</td>  
-                                                <td>".$row['emailkh']."</td> 
+                                                <td>".$row['dc_hoten']."</td>  
+                                                <td>".$row['kh_email']."</td> 
                                                 <td>
                                                          <button type='button' class='btn btn-sm btn-danger'>
                                                          <a onclick=\"return confirm('Bạn chắc chắn muốn xóa Khách hàng này?')\"
-                                                         href=\"xoakh.php?id=".$row['idkh']."\"  > Xóa </a>
+                                                         href=\"xoakh.php?id=".$row['kh_id']."\"  > Xóa </a>
                                                          </button>
                                                 <br>
                                                          <button type='button' class='btn btn-sm btn-cyan'>
-                                                         <a href=\"thongtinkh.php?id=".$row['idkh']."\"  > Xem </a>
+                                                         <a href=\"thongtinkh.php?id=".$row['kh_id']."\"  > Xem </a>
                                                          </button>
                                                 </td>
                                                 

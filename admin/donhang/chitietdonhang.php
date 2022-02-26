@@ -10,10 +10,11 @@ require "../../db.php";
 //} else exit();
 $iddon = $_GET['iddon'];
 
-$sql1 = "SELECT * FROM dondathang as a join chitiet_dondathang as b on a.iddon=b.iddon
-                                        join sach as c on c.idsach=b.idsach   
-                                        join khachhang as d on d.idkh=a.idkh   
-                                        WHERE a.iddon = $iddon
+$sql1 = "SELECT * FROM hoa_don as a join chi_tiet_hoa_don as b on a.hd_id=b.cthd_idhd
+                                        join sanpham as c on c.sp_id=b.cthd_idsp   
+                                        join khach_hang as d on d.kh_id=a.hd_idkh   
+                                        join dia_chi as e on d.kh_id=e.dc_idkh   
+                                        WHERE a.hd_id = $iddon
                                          
                                         ";
 
@@ -63,7 +64,7 @@ $result1 = mysqli_query($conn,$sql1);
 
                         <!--thong tin kh-->
                         <?php
-                        $sql2 = "select sum(soluongsp) as tongsp  from chitiet_dondathang where iddon=$iddon";
+                        $sql2 = "select sum(cthd_soluong) as tongsp  from chi_tiet_hoa_don where cthd_idhd=$iddon";
                         $rs2 = mysqli_query($conn,$sql2);
                         $row2 = mysqli_fetch_assoc($rs2);
                         if ($result1->num_rows > 0) {
@@ -74,27 +75,27 @@ $result1 = mysqli_query($conn,$sql1);
 
                             <tr>
                                 <td class="col-md-5 font-weight-normal">Ngày đặt:</td>
-                                <th class="col-md-5 font-weight-bold">'. date('d/m/Y ', strtotime($row1['ngaydat'])) .'</th>
+                                <th class="col-md-5 font-weight-bold">'. date('d/m/Y ', strtotime($row1['hd_thoigianlapdonhang'])) .'</th>
                             </tr>
                         
                             <tr>
                                 <td class="col-md-5 font-weight-normal" >Tên khách hàng:</td>
-                                <th class="col-md-5 font-weight-bold">'.$row1['tenkh'].'</th>
+                                <th class="col-md-5 font-weight-bold">'.$row1['dc_hoten'].'</th>
                             </tr>
                             
                              <tr>
                                 <td class="col-md-5 font-weight-normal">Email khách hàng:</td>
-                                <th class="col-md-5 font-weight-bold">'.$row1['emailkh'].'</th>
+                                <th class="col-md-5 font-weight-bold">'.$row1['dc_emailkh'].'</th>
                             </tr>
                             
                              <tr>
                                 <td class="col-md-5 font-weight-normal">Số điện thoại:</td>
-                                <th class="col-md-5 font-weight-bold">'.$row1['sdtkh'].'</th>
+                                <th class="col-md-5 font-weight-bold">'.$row1['dc_sdt'].'</th>
                             </tr>
                             
                              <tr>
                                 <td class="col-md-5 font-weight-normal">Địa chỉ:</td>
-                                <th class="col-md-5 font-weight-bold">'.$row1['diachikh'].'</th>
+                                <th class="col-md-5 font-weight-bold">'.$row1['dc_diachi'].'</th>
                             </tr>
                             
                             <tr>
@@ -104,7 +105,7 @@ $result1 = mysqli_query($conn,$sql1);
 
                             <tr>
                                 <td class="col-md-5 font-weight-normal">Tổng:</td>
-                                <th class="col-md-5 font-weight-bold">'.number_format($row1['giasp'])." VNĐ".'</th>
+                                <th class="col-md-5 font-weight-bold">'.number_format($row1['hd_tongtiendonhang'])." VNĐ".'</th>
                             </tr>
                             
                             <tr>
@@ -114,7 +115,7 @@ $result1 = mysqli_query($conn,$sql1);
                             
                             <tr>
                                 <th class="col-md-5 font-weight-bold "><h5 class="mt-4">Tổng thanh toán :</h5></th>
-                                <th class="col-md-5 font-weight-bold"><h5 class="mt-4">'.number_format($row1['giasp']+30000)." VNĐ".'</h5></h5></th>
+                                <th class="col-md-5 font-weight-bold"><h5 class="mt-4">'.number_format($row1['hd_tongtiendonhang']+30000)." VNĐ".'</h5></h5></th>
                             </tr>
 
                             </tbody>
@@ -152,7 +153,7 @@ $result1 = mysqli_query($conn,$sql1);
 
                         <?php
                         $stt=1;
-                        $sql11 = "select * from dondathang where iddon=$iddon";
+                        $sql11 = "select * from hoa_don where hd_id=$iddon";
                         $rs11 = mysqli_query($conn,$sql11);
                         while ($row11 = mysqli_fetch_assoc($rs11)){
 
@@ -167,11 +168,11 @@ $result1 = mysqli_query($conn,$sql1);
 
 
                             $sql14="SELECT *
-                                        FROM sach  as s
-                                        join chitiet_dondathang as z on s.idsach=z.idsach
-                                        join dondathang as a on a.iddon=z.iddon
-                                        join khachhang as b on b.idkh=a.idkh
-                                        WHERE z.iddon = $iddon
+                                        FROM sanpham  as s
+                                        join chi_tiet_hoa_don as z on s.sp_id=z.cthd_idsp
+                                        join hoa_don as a on a.hd_id=z.cthd_idhd
+                                        join khach_hang as b on b.kh_id=a.hd_idkh
+                                        WHERE z.cthd_idhd = $iddon
                                         ";
 
                             if($rs14= mysqli_query($conn, $sql14)){
@@ -179,10 +180,10 @@ $result1 = mysqli_query($conn,$sql1);
                                     echo '
                                             <tr>
                                                 <td class="text-center">'.$stt++.'</td>
-                                                <td > '. $row14['tensach'] .'</td>
-                                                <td class="text-center"> '. number_format($row14['gia'] ).'</td>
-                                                <td class="text-center"> '. $row14['soluongsp'] .' </td>
-                                                <td class="text-center"> '. number_format($row14['gia']*$row14['soluongsp']) .' </td>
+                                                <td > '. $row14['sp_tensach'] .'</td>
+                                                <td class="text-center"> '. number_format($row14['cthd_gia'] ).'</td>
+                                                <td class="text-center"> '. $row14['cthd_soluong'] .' </td>
+                                                <td class="text-center"> '. number_format($row14['cthd_gia']*$row14['cthd_soluong']) .' </td>
 
                                             </tr>                                          
                                             
