@@ -67,8 +67,8 @@
                             <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-chevron-right"></i> ĐƠN HÀNG<i class="fas fa-angle-down rotate-icon"></i></a>
                                 <div class="collapsible-body">
                                     <ul>
-                                        <li><a href="http://localhost:8080/CT466/admin/donhang/quanlydonhang.php" class="waves-effect">Thông Tin Đơn Hàng</a></li>
-                                        <!--                                    <li><a href="#" class="waves-effect">Đã Xác Nhận</a></li>-->
+                                        <li><a href="http://localhost:8080/CT466/admin/donhang/quanlydonhang.php" class="waves-effect">Chi Tiết Đơn Hàng</a></li>
+                                        <li><a href="http://localhost:8080/CT466/admin/donhang/thongkedonhang.php" class="waves-effect">Quản Lý Đơn  Hàng</a></li>
                                         <!--                                    <li><a href="#" class="waves-effect">Đang Giao</a></li>-->
                                         <!--                                    <li><a href="#" class="waves-effect">Giao Thành Công</a></li>-->
                                     </ul>
