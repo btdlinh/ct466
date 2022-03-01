@@ -1,4 +1,3 @@
-
 <?php
 if (session_id() === '') {
     session_start();
@@ -18,7 +17,7 @@ $sql1 = "SELECT * FROM hoa_don as a join chi_tiet_hoa_don as b on a.hd_id=b.cthd
                                          
                                         ";
 
-$result1 = mysqli_query($conn,$sql1);
+$result1 = mysqli_query($conn, $sql1);
 
 ?>
 
@@ -58,54 +57,89 @@ $result1 = mysqli_query($conn,$sql1);
             <div class="card">
 
                 <div class="card-body mb-5">
-<form id="myfrm">
-                    <p class="mt-5"><i><u>THÔNG TIN ĐƠN HÀNG</u></i></p>
-                    <div class="ml-5 pl-5">
+                    <!--trang thai cu-->
+                    <div>
+                        <table class="btn-outline-indigo m-auto">
+                            <tr>
+                                <th class="th-lg font-weight-bold text-center ">Trạng thái đơn hàng:</th>
 
-                        <!--thong tin kh-->
-                        <?php
-                        $sql2 = "select sum(cthd_soluong) as tongsp  from chi_tiet_hoa_don where cthd_idhd=$iddon";
-                        $rs2 = mysqli_query($conn,$sql2);
-                        $row2 = mysqli_fetch_assoc($rs2);
-                        if ($result1->num_rows > 0) {
-                            $row1 = $result1->fetch_assoc();
-                            echo '
+                                <td class="th-lg font-weight-bold text-center text-black-50 font-italic">
+                                    <?php
+
+                                    $sql3 = "SELECT hd_trangthai FROM hoa_don WHERE hd_id=$iddon";
+                                    $result3 = mysqli_query($conn, $sql3);
+                                    $row3 = mysqli_fetch_assoc($result3);
+                                    if ($row3['hd_trangthai'] == 1) {
+                                        echo " Chờ xác nhận";
+                                    }
+                                    if ($row3['hd_trangthai'] == 2) {
+                                        echo " Đã xác nhận";
+                                    }
+                                    if ($row3['hd_trangthai'] == 3) {
+                                        echo " Đang giao hàng";
+                                    }
+                                    if ($row3['hd_trangthai'] == 4) {
+                                        echo " Đã giao hàng";
+                                    }
+                                    if ($row3['hd_trangthai'] == 5) {
+                                        echo " Hủy đơn hàng";
+                                    }
+                                    ?>
+                                </td>
+
+                            </tr>
+                        </table>
+                    </div>
+                    <!--trang thai cu-->
+
+                    <form id="myfrm">
+                        <p class="mt-5"><i><u>THÔNG TIN ĐƠN HÀNG</u></i></p>
+                        <div class="ml-5 pl-5">
+
+                            <!--thong tin kh-->
+                            <?php
+                            $sql2 = "select sum(cthd_soluong) as tongsp  from chi_tiet_hoa_don where cthd_idhd=$iddon";
+                            $rs2 = mysqli_query($conn, $sql2);
+                            $row2 = mysqli_fetch_assoc($rs2);
+                            if ($result1->num_rows > 0) {
+                                $row1 = $result1->fetch_assoc();
+                                echo '
                         <table >
                         <tbody >
 
                             <tr>
                                 <td class="col-md-5 font-weight-normal">Ngày đặt:</td>
-                                <th class="col-md-5 font-weight-bold">'. date('d/m/Y ', strtotime($row1['hd_thoigianlapdonhang'])) .'</th>
+                                <th class="col-md-5 font-weight-bold">' . date('d/m/Y ', strtotime($row1['hd_thoigianlapdonhang'])) . '</th>
                             </tr>
                         
                             <tr>
                                 <td class="col-md-5 font-weight-normal" >Tên khách hàng:</td>
-                                <th class="col-md-5 font-weight-bold">'.$row1['dc_hoten'].'</th>
+                                <th class="col-md-5 font-weight-bold">' . $row1['dc_hoten'] . '</th>
                             </tr>
                             
                              <tr>
                                 <td class="col-md-5 font-weight-normal">Email khách hàng:</td>
-                                <th class="col-md-5 font-weight-bold">'.$row1['dc_emailkh'].'</th>
+                                <th class="col-md-5 font-weight-bold">' . $row1['dc_emailkh'] . '</th>
                             </tr>
                             
                              <tr>
                                 <td class="col-md-5 font-weight-normal">Số điện thoại:</td>
-                                <th class="col-md-5 font-weight-bold">'.$row1['dc_sdt'].'</th>
+                                <th class="col-md-5 font-weight-bold">' . $row1['dc_sdt'] . '</th>
                             </tr>
                             
                              <tr>
                                 <td class="col-md-5 font-weight-normal">Địa chỉ:</td>
-                                <th class="col-md-5 font-weight-bold">'.$row1['dc_diachi'].'</th>
+                                <th class="col-md-5 font-weight-bold">' . $row1['dc_diachi'] . '</th>
                             </tr>
                             
                             <tr>
                                 <td class="col-md-5 font-weight-normal">Số lượng sản phẩm:</td>
-                                <th class="col-md-5 font-weight-bold">'.$row2['tongsp'].'</th>
+                                <th class="col-md-5 font-weight-bold">' . $row2['tongsp'] . '</th>
                             </tr>
 
                             <tr>
                                 <td class="col-md-5 font-weight-normal">Tổng:</td>
-                                <th class="col-md-5 font-weight-bold">'.number_format($row1['hd_tongtiendonhang'])." VNĐ".'</th>
+                                <th class="col-md-5 font-weight-bold">' . number_format($row1['hd_tongtiendonhang']) . " VNĐ" . '</th>
                             </tr>
                             
                             <tr>
@@ -115,7 +149,7 @@ $result1 = mysqli_query($conn,$sql1);
                             
                             <tr>
                                 <th class="col-md-5 font-weight-bold "><h5 class="mt-4">Tổng thanh toán :</h5></th>
-                                <th class="col-md-5 font-weight-bold"><h5 class="mt-4">'.number_format($row1['hd_tongtiendonhang']+30000)." VNĐ".'</h5></h5></th>
+                                <th class="col-md-5 font-weight-bold"><h5 class="mt-4">' . number_format($row1['hd_tongtiendonhang'] + 30000) . " VNĐ" . '</h5></h5></th>
                             </tr>
 
                             </tbody>
@@ -123,39 +157,37 @@ $result1 = mysqli_query($conn,$sql1);
                             
                         ';
 
-                        }
-                        ?>
-                    </div>
+                            }
+                            ?>
+                        </div>
 
 
+                        <!--end thong tin kh-->
 
+                        <!--thong tin sp-->
+                        <br><br>
+                        <p><i><u>Chi tiết sản phẩm</u></i></p>
+                        <br>
+                        <table id="dtMaterialDesignExample" class="table w-100">
+                            <thead>
 
-                    <!--end thong tin kh-->
+                            <tr>
+                                <th class="font-weight-bold text-center">STT</th>
+                                <th class="th-sm font-weight-bold text-center">Tên sách</th>
+                                <th class="th-sm font-weight-bold text-center">Đơn giá</th>
+                                <th class="th-sm font-weight-bold text-center">Số lượng</th>
+                                <th class="th-sm font-weight-bold text-center">Thành tiền</th>
+                            </tr>
 
-                    <!--thong tin sp-->
-                    <br><br>
-                    <p><i><u>Chi tiết sản phẩm</u></i></p>
-                    <br>
-                    <table id="dtMaterialDesignExample" class="table w-100" >
-                        <thead>
+                            </thead>
 
-                        <tr>
-                            <th class="font-weight-bold text-center">STT</th>
-                            <th class="th-sm font-weight-bold text-center">Tên sách</th>
-                            <th class="th-sm font-weight-bold text-center">Đơn giá</th>
-                            <th class="th-sm font-weight-bold text-center">Số lượng </th>
-                            <th class="th-sm font-weight-bold text-center">Thành tiền</th>
-                        </tr>
+                            <tbody>
 
-                        </thead>
-
-                        <tbody>
-
-                        <?php
-                        $stt=1;
-                        $sql11 = "select * from hoa_don where hd_id=$iddon";
-                        $rs11 = mysqli_query($conn,$sql11);
-                        while ($row11 = mysqli_fetch_assoc($rs11)){
+                            <?php
+                            $stt = 1;
+                            $sql11 = "select * from hoa_don where hd_id=$iddon";
+                            $rs11 = mysqli_query($conn, $sql11);
+                            while ($row11 = mysqli_fetch_assoc($rs11)) {
 
 //                                $sql12 = "select count(*) as tong, idsach, soluongsp from chitiet_dondathang where iddon=$iddon";
 //                                $rs12 = mysqli_query($conn,$sql12);
@@ -167,7 +199,7 @@ $result1 = mysqli_query($conn,$sql1);
 //                                    echo " SL sách là " . $row12['tong'] . "<br>";
 
 
-                            $sql14="SELECT *
+                                $sql14 = "SELECT *
                                         FROM sanpham  as s
                                         join chi_tiet_hoa_don as z on s.sp_id=z.cthd_idsp
                                         join hoa_don as a on a.hd_id=z.cthd_idhd
@@ -175,39 +207,90 @@ $result1 = mysqli_query($conn,$sql1);
                                         WHERE z.cthd_idhd = $iddon
                                         ";
 
-                            if($rs14= mysqli_query($conn, $sql14)){
-                                while ($row14 = mysqli_fetch_assoc($rs14)){
-                                    echo '
+                                if ($rs14 = mysqli_query($conn, $sql14)) {
+                                    while ($row14 = mysqli_fetch_assoc($rs14)) {
+                                        echo '
                                             <tr>
-                                                <td class="text-center">'.$stt++.'</td>
-                                                <td > '. $row14['sp_tensach'] .'</td>
-                                                <td class="text-center"> '. number_format($row14['cthd_gia'] ).'</td>
-                                                <td class="text-center"> '. $row14['cthd_soluong'] .' </td>
-                                                <td class="text-center"> '. number_format($row14['cthd_gia']*$row14['cthd_soluong']) .' </td>
+                                                <td class="text-center">' . $stt++ . '</td>
+                                                <td > ' . $row14['sp_tensach'] . '</td>
+                                                <td class="text-center"> ' . number_format($row14['cthd_gia']) . '</td>
+                                                <td class="text-center"> ' . $row14['cthd_soluong'] . ' </td>
+                                                <td class="text-center"> ' . number_format($row14['cthd_gia'] * $row14['cthd_soluong']) . ' </td>
 
                                             </tr>                                          
                                             
                                     ';
 
+                                    }
                                 }
                             }
-                        }
-                        //                            }
+                            //                            }
 
-                        ?>
+                            ?>
 
-                        <tr>
-                            <td colspan="5" class="text-center font-weight-bolder">
-                                Xin cảm ơn Quý khách đã ủng hộ Cửa hàng, Chúc Quý khách An Khang, Thịnh Vượng!
-                            </td>
-                        </tr>
+                            <tr>
+                                <td colspan="5" class="text-center font-weight-bolder">
+                                    Xin cảm ơn Quý khách đã ủng hộ Cửa hàng, Chúc Quý khách An Khang, Thịnh Vượng!
+                                </td>
+                            </tr>
 
-                        </tbody>
+                            </tbody>
 
-                    </table>
-                    <!--end thong tin sp-->
-</form>
-                    <p align="center"><input class='btn btn-sm btn btn-primary' title="In hóa đơn" type="button" onclick="myPrint('myfrm')" value="In hóa đơn"></p>
+                        </table>
+                        <!--end thong tin sp-->
+                    </form>
+                    <p align="center"><input class='btn btn-sm btn btn-primary' title="In hóa đơn" type="button"
+                                             onclick="myPrint('myfrm')" value="In hóa đơn"></p>
+
+
+                    <!--trạng thái-->
+
+
+                    <div>
+                        <form action="trangthai.php" method="GET">
+                            <table>
+
+                                <tr>
+                                    <div class="md - form ml - 4 pl - 5">
+                                        <th class="th-sm font-weight-bold text-center">
+                                            <label for="select" style="margin - left: 0.9em;">
+                                                Cập nhật trạng thái mới:
+                                            </label>
+                                            <select class=""
+                                                    id="select"
+                                                    name="trangthai"
+                                                    style="margin - left: 3em; margin - top: 0.5em;width: 8em;">
+
+                                                <option value="1">Chờ xác nhận</option>
+                                                <option value="2">Đã xác nhận</option>
+                                                <option value="3">Đang giao hàng</option>
+                                                <option value="4">Đã giao hàng</option>
+                                                <option value="5">Hủy đơn hàng</option>
+
+                                            </select>
+                                        </th>
+                                    </div>
+
+
+                                        <input type="hidden" name="id" value="<?php echo $iddon; ?>">
+
+                                    <td>
+                                        <button class="btn btn-sm btn btn-blue-grey mt-0"
+                                                title="Cập nhật trạng thái"
+                                                type="submit">Cập nhật
+                                            <!--                                <a href="trangthai.php?iddon=-->
+                                            <?php //echo $iddon;?><!--" class="white-text" >Cập nhật</a>-->
+                                        </button>
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </form>
+
+                    </div>
+
+                    <!--trạng thái-->
+
 
                 </div>
 
@@ -216,6 +299,7 @@ $result1 = mysqli_query($conn,$sql1);
         </div>
 
         <!-- Gird column -->
+
     </div>
 
 </main>
@@ -231,5 +315,9 @@ $result1 = mysqli_query($conn,$sql1);
         newwin.close();
     }
 </script>
-
+<!--<script>-->
+<!--    Let e = document.getElementById("select").value;-->
+<!--    Let giatri = e.option.text;-->
+<!--    console.log(giatri);-->
+<!--</script>-->
 </html>

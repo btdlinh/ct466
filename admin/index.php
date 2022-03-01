@@ -69,10 +69,10 @@ require "headerindex.php";
                         class="clearfix d-none d-sm-inline-block">Tài Khoản</span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="http://localhost:8080/CT271/admin/thongtin/thongtintaikhoan.php">Tài Khoản Của Tôi</a>
-                <a class="dropdown-item" href="http://localhost:8080/CT271/admin/dangky.html">Đăng Ký</a>
-                <a class="dropdown-item" href="http://localhost:8080/CT271/admin/dangnhap.html">Đăng Nhập</a>
-                <a class="dropdown-item" onclick="return confirm('Bạn chắc chắn đăng xuất?')" href="http://localhost:8080/CT271/admin/xulydangxuat.php">Đăng Xuất</a>
+                <a class="dropdown-item" href="http://localhost:8080/CT466/admin/thongtin/thongtintaikhoan.php">Tài Khoản Của Tôi</a>
+                <a class="dropdown-item" href="http://localhost:8080/CT466/admin/dangky.html">Đăng Ký</a>
+                <a class="dropdown-item" href="http://localhost:8080/CT466/admin/dangnhap.html">Đăng Nhập</a>
+                <a class="dropdown-item" onclick="return confirm('Bạn chắc chắn đăng xuất?')" href="http://localhost:8080/CT466/admin/xulydangxuat.php">Đăng Xuất</a>
             </div>
         </li>
     </ul>
@@ -126,7 +126,7 @@ require "headerindex.php";
             $servername = 'localhost';
             $username = 'root';
             $password = '';
-            $dbname = 'ct271-01';
+            $dbname = 'ct466';
 
             // Create connection
             $conn = new mysqli($servername, $username, $password, $dbname)
@@ -134,47 +134,49 @@ require "headerindex.php";
 
             $conn -> set_charset('utf8');
 
-            $query1 = "select count(iddon) from dondathang  ";
+            $query1 = "select count(hd_id) from hoa_don  ";
             $rs1 = mysqli_query($conn,$query1);
             $row1 = mysqli_fetch_row($rs1);
             //print_r($row1[0]);
 
-            $query2 = "select count(idkh) from khachhang  ";
+            $query2 = "select count(kh_id) from khach_hang  ";
             $rs2 = mysqli_query($conn,$query2);
             $row2 = mysqli_fetch_row($rs2);
             //print_r($row2[0]);
 
-            $query3 = "select count(idsach) from sach  ";
+            $query3 = "select count(sp_id) from sanpham  ";
             $rs3 = mysqli_query($conn,$query3);
             $row3 = mysqli_fetch_row($rs3);
             //print_r($row3[0]);
-
-            $query4 = "select count(stt) from kh_lienhe  ";
+            $query4 = "select count(ncc_id) from nha_cung_cap ";
             $rs4 = mysqli_query($conn,$query4);
             $row4 = mysqli_fetch_row($rs4);
+//            $query4 = "select count(stt) from kh_lienhe  ";
+//            $rs4 = mysqli_query($conn,$query4);
+//            $row4 = mysqli_fetch_row($rs4);
             //print_r($row4[0]);
 
-            $query5 = "select sum(giasp) from dondathang  ";
+            $query5 = "select sum(hd_tongtiendonhang) from hoa_don  ";
             $rs5 = mysqli_query($conn,$query5);
             $row5 = mysqli_fetch_row($rs5);
             //print_r($row5[0]);
 
-            $query6 = "select count(idtheloai) from theloaisach  ";
+            $query6 = "select count(tl_id) from the_loai  ";
             $rs6 = mysqli_query($conn,$query6);
             $row6 = mysqli_fetch_row($rs6);
             //print_r($row6[0]);
 
-            $query7 = "select count(idnxb) from nhaxuatban  ";
+            $query7 = "select count(nxb_id) from nha_xuat_ban  ";
             $rs7 = mysqli_query($conn,$query7);
             $row7 = mysqli_fetch_row($rs7);
             //print_r($row7[0])
 
-            $query8 = "select count(id) from admin  ";
-            $rs8 = mysqli_query($conn,$query8);
-            $row8 = mysqli_fetch_row($rs8);
+//            $query8 = "select count(id) from admin  ";
+//            $rs8 = mysqli_query($conn,$query8);
+//            $row8 = mysqli_fetch_row($rs8);
             //print_r($row7[0]);
 
-            $query9 = "select count(idtacgia) from tacgia  ";
+            $query9 = "select count(tg_id) from tac_gia  ";
             $rs9 = mysqli_query($conn,$query9);
             $row9 = mysqli_fetch_row($rs9);
             //print_r($row9[0]);
@@ -202,7 +204,7 @@ require "headerindex.php";
 
                                         <div class="col-md-5 col-5 text-left pl-4">
 
-                                            <a type="button" class="btn-floating btn-lg primary-color ml-4" href="http://localhost:8080/CT271/admin/sach/dssach.php">
+                                            <a type="button" class="btn-floating btn-lg primary-color ml-4" href="http://localhost:8080/CT466/admin/sach/dssach.php">
                                                 <!--                      <i class="far fa-book" aria-hidden="true"></i>-->
                                                 <i class="fas fa-book"></i>
                                             </a>
@@ -253,7 +255,7 @@ require "headerindex.php";
 
                                         <div class="col-md-5 col-5 text-left pl-4">
 
-                                            <a type="button" class="btn-floating btn-lg warning-color ml-4" href="http://localhost:8080/CT271/admin/khachhang/dskhachhang.php">
+                                            <a type="button" class="btn-floating btn-lg warning-color ml-4" href="http://localhost:8080/CT466/admin/khachhang/dskhachhang.php">
                                                 <i class="fas fa-user" aria-hidden="true"></i></a>
 
                                         </div>
@@ -298,7 +300,7 @@ require "headerindex.php";
                                     <div class="row mt-3">
 
                                         <div class="col-md-5 col-5 text-left pl-4">
-                                            <a type="button" class="btn-floating btn-lg success-color ml-4" href="http://localhost:8080/CT271/khachhang/xem_lienhe.php">
+                                            <a type="button" class="btn-floating btn-lg success-color ml-4" href="http://localhost:8080/CT466/khachhang/xem_lienhe.php">
                                                 <!--                        <i class="fas fa-user" aria-hidden="true"></i>-->
                                                 <i class="fas fa-phone"></i>
                                             </a>
@@ -394,7 +396,7 @@ require "headerindex.php";
                                     <div class="row mt-3">
 
                                         <div class="col-md-5 col-5 text-left pl-4">
-                                            <a type="button" class="btn-floating btn-lg red accent-2 ml-4" href="http://localhost:8080/CT271/admin/donhang/quanlydonhang.php"><i class="fas fa-database"
+                                            <a type="button" class="btn-floating btn-lg red accent-2 ml-4" href="http://localhost:8080/CT466/admin/donhang/quanlydonhang.php"><i class="fas fa-database"
                                                                                                               aria-hidden="true"></i></a>
                                         </div>
 
@@ -436,7 +438,7 @@ require "headerindex.php";
                                     <div class="row mt-3">
 
                                         <div class="col-md-5 col-5 text-left pl-4">
-                                            <a type="button" class="btn-floating btn-lg purple accent-2 ml-4" href="http://localhost:8080/CT271/admin/theloai/dstheloai.php">
+                                            <a type="button" class="btn-floating btn-lg purple accent-2 ml-4" href="http://localhost:8080/CT466/admin/theloai/dstheloai.php">
 <!--                                                <i class="fas fa-database" aria-hidden="true"></i>-->
                                                 <i class="fas fa-list"></i>
 
@@ -480,7 +482,7 @@ require "headerindex.php";
                                     <div class="row mt-3">
 
                                         <div class="col-md-5 col-5 text-left pl-4">
-                                            <a type="button" class="btn-floating btn-lg gradient accent-2 ml-4" href="http://localhost:8080/CT271/admin/nxb/dsnxb.php">
+                                            <a type="button" class="btn-floating btn-lg gradient accent-2 ml-4" href="http://localhost:8080/CT466/admin/nxb/dsnxb.php">
 <!--                                                <i class="fas fa-database" aria-hidden="true"></i>-->
                                                 <i class="fas fa-warehouse"></i>
                                             </a>
@@ -523,7 +525,7 @@ require "headerindex.php";
                                     <div class="row mt-3">
 
                                         <div class="col-md-5 col-5 text-left pl-4">
-                                            <a type="button" class="btn-floating btn-lg btn-discord ml-4" href="http://localhost:8080/CT271/admin/tacgia/dstacgia.php">
+                                            <a type="button" class="btn-floating btn-lg btn-discord ml-4" href="http://localhost:8080/CT466/admin/tacgia/dstacgia.php">
                                                 <!--                                                <i class="fas fa-database" aria-hidden="true"></i>-->
                                                 <i class="fas fa-user-edit"></i>
                                             </a>
@@ -566,16 +568,16 @@ require "headerindex.php";
                                     <div class="row mt-3">
 
                                         <div class="col-md-5 col-5 text-left pl-4">
-                                            <a type="button" class="btn-floating btn-lg btn-pink ml-4" href="http://localhost:8080/CT271/admin/thongtin/dsadmin.php">
+                                            <a type="button" class="btn-floating btn-lg btn-pink ml-4" href="http://localhost:8080/CT466/admin/thongtin/dsadmin.php">
                                                 <!--                                                <i class="fas fa-database" aria-hidden="true"></i>-->
                                                 <i class="far fa-heart"></i>
                                             </a>
                                         </div>
 
-                                        <div class="col-md-7 col-7 text-right pr-5">
-                                            <h5 class="ml-4 mt-4 mb-2 font-weight-bold"><?php print_r($row8[0]); ?></h5>
-                                            <p class="font-small grey-text">SL admin</p>
-                                        </div>
+<!--                                        <div class="col-md-7 col-7 text-right pr-5">-->
+<!--                                            <h5 class="ml-4 mt-4 mb-2 font-weight-bold">--><?php //print_r($row8[0]); ?><!--</h5>-->
+<!--                                            <p class="font-small grey-text">SL admin</p>-->
+<!--                                        </div>-->
 
                                     </div>
                                     <!-- Card Data -->

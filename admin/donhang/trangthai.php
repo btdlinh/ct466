@@ -1,3 +1,37 @@
+<?php
+
+require "../../db.php";
+
+$id = $_GET["id"];
+echo "ma don la: ".$id;
+//echo "<br>";
+$tt = $_GET["trangthai"];
+echo "trang thai la: " .$tt;
+
+
+$sql_tt = "UPDATE hoa_don  SET hd_trangthai = $tt  WHERE hd_id = $id";
+
+$result_tt = mysqli_query($conn, $sql_tt);
+//$rowtt = mysqli_fetch_assoc($result_tt);
+//echo "trang thai mới la: " .$result_tt;
+
+$sql1 = " SELECT * FROM hoa_don WHERE hd_id = $id";
+$result1 = mysqli_query($conn, $sql1);
+$row1 = mysqli_fetch_assoc($result1);
+echo "trang thai câp nhật mới la: " .$row1['hd_trangthai'];
+if($row1['hd_trangthai'] == 1){
+    echo " Chờ xác nhận";
+}if($row1['hd_trangthai'] == 2){
+    echo " Đã xác nhận";
+}if($row1['hd_trangthai'] == 3){
+    echo " Đang giao hàng";
+}if($row1['hd_trangthai'] == 4){
+    echo " Đã giao hàng";
+}if($row1['hd_trangthai'] == 1){
+    echo " Hủy đơn hàng";
+}
+?>
+
 <!--viết tất cả code php trên đầu file-->
 
 <?php
@@ -80,11 +114,6 @@ $result = mysqli_query($conn, $sql1);
             <a href="#" data-activates="slide-out" class="button-collapse"><i class="fas fa-bars"></i></a>
         </div>
 
-        <!-- Breadcrumb  -->
-        <!--        <div class="breadcrumb-dn mr-auto">-->
-        <!--            <p>Liệt Kê Sách</p>-->
-        <!--        </div>-->
-
         <!-- Navbar links  -->
         <ul class="nav navbar-nav nav-flex-icons ml-auto">
 
@@ -94,7 +123,7 @@ $result = mysqli_query($conn, $sql1);
                 <a class="nav-link dropdown-toggle waves-effect" href="#" id="userDropdown" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-user blue-text"></i> <span
-                            class="clearfix d-none d-sm-inline-block">Tài Khoản</span>
+                        class="clearfix d-none d-sm-inline-block">Tài Khoản</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                     <a class="dropdown-item" href="http://localhost:8080/CT466/admin/thongtin/thongtintaikhoan.php">Tài
@@ -130,19 +159,10 @@ $result = mysqli_query($conn, $sql1);
                                 <thead>
                                 <tr>
                                     <th class="th-sm">Mã đơn</th>
-                                    <!--                                <th class="th-sm">STT</th>-->
                                     <th class="th-sm">Khách hàng</th>
-                                    <th class="th-sm">Nơi giao</th>
                                     <th class="th-sm">Ngày đặt</th>
                                     <th class="th-sm">Trạng thái</th>
-                                    <!--                                <th class="th-sm">Tên sách</th>-->
-                                    <!--                                <th class="th-sm">Giá bán</th>-->
-                                    <!--                                <th class="th-sm">Số lượng</th>-->
-                                    <!--                                <th class="th-sm">Tổng tiền</th>-->
-                                    <!--                                <th class="th-sm">Thanh toán</th>-->
                                     <th>Chi tiết</th>
-
-                                    <!--                                    <th></th>-->
 
                                 </tr>
                                 </thead>
@@ -150,33 +170,21 @@ $result = mysqli_query($conn, $sql1);
 
 
                                 <?php
-                                // trang thai
-//                                $sql_tt = " SELECT hd_trangthai FROM hoa_don";
-//                                $result_tt = mysqli_query($conn, $sql_tt);
-//                                $row_tt = mysqli_query($conn, $result_tt);
-//                                if($row_tt == 1){
-//
-//                                }
-                                // trang thai
-
 
                                 if ($result->num_rows > 0) {
                                     $i = 1;
-//                                    echo"<td>" . $row['iddon'] . "</td>";
 
                                     while ($row = $result->fetch_assoc()) {
-
                                         echo "<tr>
                                                  <td>" . $row['hd_id'] . "</td>
-                                                 <td>" .$row['dc_hoten']. "<br>". $row['dc_emailkh'] . "<br>" . $row['dc_sdt'] . "</td>
-                                                 <td>" . $row['dc_diachi'] . "</td>
+                                                 <td>" . $row['dc_hoten'] . "<br>" . $row['dc_sdt'] . "</td>                                     
                                                  <td>" . date('d/m/Y ', strtotime($row['hd_thoigianlapdonhang'])) . "</td>
                                                   
                                                  <td>".$row['hd_trangthai']."</td>
                                                  
-                                                 <td>
+                                                <td>
                                                 
-                                                     <button type='button' class='btn btn-sm btn btn-light-blue' title='Chi tiết đơn hàng'>
+                                                     <button type='button' class='btn btn-sm btn btn-light-blue' title='Xem chi tiết'>
                                                      <a href=\"chitietdonhang.php?iddon=" . $row['hd_id'] . "\"  
                                                          class=\"white-text\" 
                                                         data-toggle=\"tooltip\" 
@@ -281,13 +289,4 @@ $result = mysqli_query($conn, $sql1);
 </body>
 </html>
 
-<!--<button onclick=\"return confirm('Xác nhận đơn hàng này?')\"-->
-<!--type='submit' name='submit'  class='btn btn-sm btn btn-primary' title='Xác nhận đơn hàng'>-->
-<!--<a href=\"dh_xacnhan.php?iddon=" . $row['iddon'] . "\"-->
-<!--class=\"white-text\"-->
-<!--data-toggle=\"tooltip\"-->
-<!--data-placement=\"top\" >Lưu-->
-<!--</a>-->
-<!--</input>-->
-<!---->
-<!--</td>-->
+
