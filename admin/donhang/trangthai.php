@@ -193,17 +193,7 @@ $result = mysqli_query($conn, $sql1);
                                                      </a>
                                                      </button>
                                                      
-                                                     <button onclick=\"return confirm('Bạn chắc chắn xóa đơn hàng này?')\"
-                                                     type='button' class='btn btn-sm btn-outline-primary' title='Hủy đơn hàng'>
-                                                    <a  href=\"xoadonhang.php?iddon=" . $row['hd_id'] . "\"
-                                                        class=\"red-text\" 
-                                                        data-toggle=\"tooltip\" 
-                                                        data-placement=\"top\" 
-                                                        ><i class=\"fas fa-times\"></i></a>
-
-                                                     </a>
-                                                     </button>
-                                              
+                                                    
                                                ";
                                         $i++;
                                     }
@@ -289,4 +279,14 @@ $result = mysqli_query($conn, $sql1);
 </body>
 </html>
 
+<!--<button onclick=\"return confirm('Bạn chắc chắn xóa đơn hàng này?')\"-->
+<!--type='button' class='btn btn-sm btn-outline-primary' title='Hủy đơn hàng'>-->
+<!--<a  href=\"xoadonhang.php?iddon=" . $row['hd_id'] . "\"-->
+<!--class=\"red-text\"-->
+<!--data-toggle=\"tooltip\"-->
+<!--data-placement=\"top\"-->
+<!--><i class=\"fas fa-times\"></i></a>-->
+<!---->
+<!--</a>-->
+<!--</button>-->
 

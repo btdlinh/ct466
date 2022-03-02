@@ -278,6 +278,7 @@ $result1 = mysqli_query($conn, $sql1);
                                         <button class="btn btn-sm btn btn-blue-grey mt-0"
                                                 title="Cập nhật trạng thái"
                                                 type="submit">Cập nhật
+
                                             <!--                                <a href="trangthai.php?iddon=-->
                                             <?php //echo $iddon;?><!--" class="white-text" >Cập nhật</a>-->
                                         </button>

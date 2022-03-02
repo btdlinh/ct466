@@ -16,7 +16,7 @@ $sql11 = "SELECT * FROM sanpham  as s join the_loai as t on s.sp_idtheloai=t.tl_
                                         join hoa_don as a on a.hd_id=ct.cthd_idhd
                                         join khach_hang as b on b.kh_id=a.hd_idkh
                                         join dia_chi as dc on b.kh_id=dc.dc_idkh
-
+                   
                                         ";
 $result11 = mysqli_query($conn, $sql11);
 
@@ -34,6 +34,7 @@ while ($row11 = mysqli_fetch_array($result11, MYSQLI_ASSOC)) {
 //$sql1 = "SELECT * FROM hoa_don ";
 $sql1 = "SELECT * FROM hoa_don as a join khach_hang as b on b.kh_id = a.hd_idkh
                                         join dia_chi as dc on b.kh_id=dc.dc_idkh
+                WHERE hd_trangthai=4
                 GROUP BY (hd_id) DESC
     ";
 $result = mysqli_query($conn, $sql1);
@@ -46,7 +47,7 @@ $result = mysqli_query($conn, $sql1);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Danh Sách Đơn Hàng</title>
+    <title>Chờ Xác Nhận</title>
     <!-- Font Awesome  -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <!-- Bootstrap core CSS  -->
@@ -94,7 +95,7 @@ $result = mysqli_query($conn, $sql1);
                 <a class="nav-link dropdown-toggle waves-effect" href="#" id="userDropdown" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-user blue-text"></i> <span
-                            class="clearfix d-none d-sm-inline-block">Tài Khoản</span>
+                        class="clearfix d-none d-sm-inline-block">Tài Khoản</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                     <a class="dropdown-item" href="http://localhost:8080/CT466/admin/thongtin/thongtintaikhoan.php">Tài
@@ -122,7 +123,7 @@ $result = mysqli_query($conn, $sql1);
 
                 <div class="card">
                     <h2 class="mt-5 text-center blue-grey-text  font-weight-bold mb-4">
-                        Danh Sách Đơn Hàng
+                        Đã Giao Hàng
                     </h2>
                     <div class="card-body">
                         <form action="#" method="GET" enctype="multipart/form-data">
@@ -133,7 +134,7 @@ $result = mysqli_query($conn, $sql1);
                                     <th class="th-sm">Khách hàng</th>
                                     <th class="th-sm">Nơi giao</th>
                                     <th class="th-sm">Ngày đặt</th>
-                                    <th class="th-sm">Trạng thái</th>
+
 
                                     <th>Chi tiết</th>
 
@@ -148,12 +149,12 @@ $result = mysqli_query($conn, $sql1);
 
 
                                 // trang thai
-//                                $sql_tt = " SELECT hd_trangthai FROM hoa_don";
-//                                $result_tt = mysqli_query($conn, $sql_tt);
-//                                $row_tt = mysqli_query($conn, $result_tt);
-//                                if($row_tt == 1){
-//
-//                                }
+                                //                                $sql_tt = " SELECT hd_trangthai FROM hoa_don";
+                                //                                $result_tt = mysqli_query($conn, $sql_tt);
+                                //                                $row_tt = mysqli_query($conn, $result_tt);
+                                //                                if($row_tt == 1){
+                                //
+                                //                                }
                                 // trang thai
 
 
@@ -168,9 +169,7 @@ $result = mysqli_query($conn, $sql1);
                                                  <td>" .$row['dc_hoten']. "<br>". $row['dc_emailkh'] . "<br>" . $row['dc_sdt'] . "</td>
                                                  <td>" . $row['dc_diachi'] . "</td>
                                                  <td>" . date('d/m/Y ', strtotime($row['hd_thoigianlapdonhang'])) . "</td>
-                                                  
-                                                 <td>".$row['hd_trangthai']."</td>
-                                                 
+
                                                  <td>
                                                 
                                                      <button type='button' class='btn btn-sm btn btn-light-blue' title='Chi tiết đơn hàng'>
@@ -192,23 +191,6 @@ $result = mysqli_query($conn, $sql1);
                             </table>
 
                         </form>
-                    </div>
-
-                    <div  class="card-body">
-                        <table class="m-auto" id="dtMaterialDesignExample" >
-                            <tr>
-                                <td >1: <b>Chờ xác nhận</b></td>
-
-                                <td >2: <b>Đã xác nhận</b></td>
-
-                                <td >3: <b>Đang giao hàng</b></td>
-
-                                <td >4: <b>Đã giao hàng</b></td>
-
-                                <td >5: <b>Hủy đơn</b></td>
-                            </tr>
-                        </table>
-
                     </div>
                 </div>
             </div>
@@ -283,28 +265,3 @@ $result = mysqli_query($conn, $sql1);
 
 </body>
 </html>
-
-<!--<button onclick=\"return confirm('Xác nhận đơn hàng này?')\"-->
-<!--type='submit' name='submit'  class='btn btn-sm btn btn-primary' title='Xác nhận đơn hàng'>-->
-<!--<a href=\"dh_xacnhan.php?iddon=" . $row['iddon'] . "\"-->
-<!--class=\"white-text\"-->
-<!--data-toggle=\"tooltip\"-->
-<!--data-placement=\"top\" >Lưu-->
-<!--</a>-->
-<!--</input>-->
-<!---->
-<!--</td>-->
-
-
-
-<!---->
-<!--<button onclick=\"return confirm('Bạn chắc chắn xóa đơn hàng này?')\"-->
-<!--type='button' class='btn btn-sm btn-outline-primary' title='Hủy đơn hàng'>-->
-<!--<a  href=\"xoadonhang.php?iddon=" . $row['hd_id'] . "\"-->
-<!--class=\"red-text\"-->
-<!--data-toggle=\"tooltip\"-->
-<!--data-placement=\"top\"-->
-<!--><i class=\"fas fa-times\"></i></a>-->
-<!---->
-<!--</a>-->
-<!--</button>-->

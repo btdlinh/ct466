@@ -192,9 +192,9 @@ require "../headerindex.php";
 
                                     <div class="col-md-5 col-5 text-left pl-4">
 
-                                        <a type="button" class="btn-floating btn-lg primary-color ml-4" href="http://localhost:8080/CT466/admin/sach/dssach.php">
+                                        <a type="button" class="btn-floating btn-lg btn-discord ml-4" href="http://localhost:8080/CT466/admin/donhang/choxacnhan.php">
                                             <!--                      <i class="far fa-book" aria-hidden="true"></i>-->
-                                            <i class="fas fa-book"></i>
+                                            <i class="fas fa-phone"></i>
                                         </a>
 
                                     </div>
@@ -243,8 +243,8 @@ require "../headerindex.php";
 
                                     <div class="col-md-5 col-5 text-left pl-4">
 
-                                        <a type="button" class="btn-floating btn-lg warning-color ml-4" href="http://localhost:8080/CT466/admin/khachhang/dskhachhang.php">
-                                            <i class="fas fa-user" aria-hidden="true"></i></a>
+                                        <a type="button" class="btn-floating btn-lg btn-discord ml-4" href="http://localhost:8080/CT466/admin/donhang/daxacnhan.php">
+                                            <i class="fas fa-check-circle"></i></a>
 
                                     </div>
 
@@ -288,9 +288,9 @@ require "../headerindex.php";
                                 <div class="row mt-3">
 
                                     <div class="col-md-5 col-5 text-left pl-4">
-                                        <a type="button" class="btn-floating btn-lg success-color ml-4" href="http://localhost:8080/CT466/khachhang/xem_lienhe.php">
+                                        <a type="button" class="btn-floating btn-lg btn-discord ml-4" href="http://localhost:8080/CT466/admin/donhang/danggiaohang.php">
                                             <!--                        <i class="fas fa-user" aria-hidden="true"></i>-->
-                                            <i class="fas fa-phone"></i>
+                                            <i class="fas fa-shuttle-van"></i>
                                         </a>
                                     </div>
 
@@ -337,7 +337,7 @@ require "../headerindex.php";
                                 <div class="row mt-3">
 
                                     <div class="col-md-5 col-5 text-left pl-4">
-                                        <a type="button" class="btn-floating btn-lg light-blue lighten-1 ml-4"><i class="fas fa-dollar-sign"
+                                        <a type="button" class="btn-floating btn-lg btn-discord lighten-1 ml-4" href="http://localhost:8080/CT466/admin/donhang/dagiaohang.php" h><i class="fas fa-dollar-sign"
                                                                                                                   aria-hidden="true"></i></a>
                                     </div>
 
@@ -385,8 +385,7 @@ require "../headerindex.php";
                                 <div class="row mt-3">
 
                                     <div class="col-md-5 col-5 text-left pl-4">
-                                        <a type="button" class="btn-floating btn-lg red accent-2 ml-4" href="http://localhost:8080/CT466/admin/donhang/quanlydonhang.php"><i class="fas fa-database"
-                                                                                                                                                                             aria-hidden="true"></i></a>
+                                        <a type="button" class="btn-floating btn-lg red accent-2 ml-4" href="http://localhost:8080/CT466/admin/donhang/huydon.php"><i class="far fa-trash-alt" aria-hidden="true"></i></a>
                                     </div>
 
                                     <div class="col-md-7 col-7 text-right pr-5">
@@ -431,9 +430,9 @@ require "../headerindex.php";
                                 <div class="row mt-3">
 
                                     <div class="col-md-5 col-5 text-left pl-4">
-                                        <a type="button" class="btn-floating btn-lg btn-discord ml-4" href="http://localhost:8080/CT466/admin/tacgia/dstacgia.php">
+                                        <a type="button" class="btn-floating btn-lg btn-info ml-4" href="http://localhost:8080/CT466/admin/donhang/quanlydonhang.php">
                                             <!--                                                <i class="fas fa-database" aria-hidden="true"></i>-->
-                                            <i class="fas fa-user-edit"></i>
+                                            <i class="far fa-list-alt"></i>
                                         </a>
                                     </div>
 
