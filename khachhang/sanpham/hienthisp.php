@@ -357,7 +357,119 @@ require "../../UI/adheader.php";
 
         <!-- Carousel Wrapper -->
     </section>
-    <!-- Section: Products v.5 -->
+
+
+    <!-- Section: Products v.5 danh dia-->
+
+    <?php
+//    require "vietdanhgia.php";
+    echo $id;
+    $sql_dg = "SELECT * FROM khach_hang as a join danh_gia as b on a.kh_id=b.dg_idkh
+                                          join sanpham as c on c.sp_id=b.dg_idsp
+                                          join hoa_don as d on d.hd_idkh=a.kh_id
+                                          join chi_tiet_hoa_don as f on d.hd_id=f.cthd_idhd
+                     WHERE c.sp_id=$id";
+    $rs_dg = mysqli_query($conn,$sql_dg);
+    $row_dg = mysqli_num_rows($rs_dg);
+
+    while ($row_dg = mysqli_fetch_assoc($rs_dg)){
+    ?>
+
+    <!-- Product Reviews -->
+    <section id="reviews" class="pb-5">
+
+        <!-- Main wrapper -->
+        <div class="comments-list text-center text-md-left">
+
+            <!-- First row -->
+            <div class="row mb-5">
+
+                <!-- Image column -->
+                <div class="col-sm-2 col-12 mb-3">
+
+                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img (8).jpg" alt="sample image"
+                         class="avatar rounded-circle z-depth-1-half">
+
+                </div>
+                <!-- Image column -->
+
+                <!-- Content column -->
+                <div class="col-sm-10 col-12">
+
+                    <a>
+
+                        <h5 class="user-name font-weight-bold"><?php echo $row_dg['kh_ten']; ?></h5>
+
+                    </a>
+
+                    <!-- Rating -->
+                    <ul class="rating">
+
+                        <li>
+
+                            <i class="fas fa-star blue-text"></i>
+
+                        </li>
+
+                        <li>
+
+                            <i class="fas fa-star blue-text"></i>
+
+                        </li>
+
+                        <li>
+
+                            <i class="fas fa-star blue-text"></i>
+
+                        </li>
+
+                        <li>
+
+                            <i class="fas fa-star blue-text"></i>
+
+                        </li>
+
+                        <li>
+
+                            <i class="fas fa-star blue-text"></i>
+
+                        </li>
+
+                    </ul>
+
+                    <div class="card-data">
+
+                        <ul class="list-unstyled mb-1">
+
+                            <li class="comment-date font-small grey-text">
+
+                                <i class="far fa-clock-o"></i> <?php echo $row_dg['dg_tg']; ?></li>
+
+                        </ul>
+
+                    </div>
+
+                    <p class="dark-grey-text article"><?php echo $row_dg['dg_binhluan']; ?></p>
+
+                </div>
+                <!-- Content column -->
+
+            </div>
+            <!-- First row -->
+
+
+        </div>
+        <!-- Main wrapper -->
+
+    </section>
+
+    <!-- Product Reviews -->
+<?php
+    
+    }
+    ?>
+    <!-- Section: Products v.5 danh dia-->
+
 </div>
 <!-- Main Container -->
 
