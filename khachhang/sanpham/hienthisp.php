@@ -360,14 +360,54 @@ require "../../UI/adheader.php";
 
 
     <!-- Section: Products v.5 danh dia-->
+    <div class="divider-new">
 
+        <h3 class="h3-responsive font-weight-bold blue-text mx-3">Đánh Giá Sản Phẩm</h3>
+
+    </div>
+    <!--   viet binh luan-->
+
+    <form action="xuly_vietdanhgia.php" method="get">
+        <div class="md-form-8 pb-5 pt-1">
+
+
+            <label for="form12">Email</label>
+
+            <input type="text" id="form12" class="md-textarea form-control m-3" rows="2" name="tenkh" placeholder="...@gmail.com">
+
+            <!--        <i class="fas fa-pencil-alt prefix"></i>-->
+            <label for="form12">Bình luận</label>
+            <textarea type="text" id="form11" class="md-textarea form-control m-3" rows="5" name="binhluan" placeholder="Viết bình luận ..."></textarea>
+
+            <input type="hidden" name="idsp"  value="<?php echo $id; ?>" >
+            <button type="submit"
+                    class="btn blue-gradient btn-rounded waves-effect waves-light btn-sm"
+                    value="Gửi bình luận "
+                    name="guibinhluan"
+
+            >
+                Gửi bình luận
+            </button>
+
+        </div>
+    </form>
+    <div class="divider-new pt-5 pb-2">
+
+        <h3 class="h3-responsive font-weight-bold blue-text mx-3">Xem Bình Luận</h3>
+
+    </div>
     <?php
 //    require "vietdanhgia.php";
-    echo $id;
-    $sql_dg = "SELECT * FROM khach_hang as a join danh_gia as b on a.kh_id=b.dg_idkh
-                                          join sanpham as c on c.sp_id=b.dg_idsp
-                                          join hoa_don as d on d.hd_idkh=a.kh_id
-                                          join chi_tiet_hoa_don as f on d.hd_id=f.cthd_idhd
+
+//    echo $id;
+//    $sql_dg = "SELECT * FROM khach_hang as a join danh_gia as b on a.kh_id=b.dg_idkh
+//                                          join sanpham as c on c.sp_id=b.dg_idsp
+//                                          join hoa_don as d on d.hd_idkh=a.kh_id
+//                                          join chi_tiet_hoa_don as f on d.hd_id=f.cthd_idhd
+//                     WHERE c.sp_id=$id";
+    $sql_dg = "SELECT * FROM test as a 
+                                          join sanpham as c on c.sp_id=a.t_idsp
+                                        
                      WHERE c.sp_id=$id";
     $rs_dg = mysqli_query($conn,$sql_dg);
     $row_dg = mysqli_num_rows($rs_dg);
@@ -376,6 +416,7 @@ require "../../UI/adheader.php";
     ?>
 
     <!-- Product Reviews -->
+
     <section id="reviews" class="pb-5">
 
         <!-- Main wrapper -->
@@ -385,9 +426,9 @@ require "../../UI/adheader.php";
             <div class="row mb-5">
 
                 <!-- Image column -->
-                <div class="col-sm-2 col-12 mb-3">
-
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img (8).jpg" alt="sample image"
+                <div class="col-sm-2 col-12 mb-3 ">
+<!--                    <i class="fas fa-user-edit " style="width: 100px; height: 150px;"></i>-->
+                    <img src="http://localhost:8080/CT466/img/thv.png" alt="sample image"
                          class="avatar rounded-circle z-depth-1-half">
 
                 </div>
@@ -398,7 +439,7 @@ require "../../UI/adheader.php";
 
                     <a>
 
-                        <h5 class="user-name font-weight-bold"><?php echo $row_dg['kh_ten']; ?></h5>
+                        <h5 class="user-name font-weight-bold"><?php echo $row_dg['t_email']; ?></h5>
 
                     </a>
 
@@ -443,13 +484,13 @@ require "../../UI/adheader.php";
 
                             <li class="comment-date font-small grey-text">
 
-                                <i class="far fa-clock-o"></i> <?php echo $row_dg['dg_tg']; ?></li>
+                                <i class="far fa-clock-o"></i> <?php echo $row_dg['t_tg']; ?></li>
 
                         </ul>
 
                     </div>
 
-                    <p class="dark-grey-text article"><?php echo $row_dg['dg_binhluan']; ?></p>
+                    <p class="dark-grey-text article"><?php echo $row_dg['t_binhluan']; ?></p>
 
                 </div>
                 <!-- Content column -->
@@ -465,7 +506,7 @@ require "../../UI/adheader.php";
 
     <!-- Product Reviews -->
 <?php
-    
+
     }
     ?>
     <!-- Section: Products v.5 danh dia-->
