@@ -50,6 +50,8 @@
                            href="http://localhost:8080/CT466/dangnhap.html"> Đăng nhập </a>
                         <a class="dropdown-item waves-effect waves-light"
                            href="http://localhost:8080/CT466/xulydangxuat.php"> Đăng xuất </a>
+                        <a class="dropdown-item waves-effect waves-light"
+                           href="http://localhost:8080/CT466/khachhang/sanpham/kh_xemdonhang.php"> Đơn hàng của bạn </a>
                     </div>
 
                 </li>

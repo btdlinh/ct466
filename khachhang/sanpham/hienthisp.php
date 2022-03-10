@@ -377,7 +377,7 @@ require "../../UI/adheader.php";
 
             <!--        <i class="fas fa-pencil-alt prefix"></i>-->
             <label for="form12">Bình luận</label>
-            <textarea type="text" id="form11" class="md-textarea form-control m-3" rows="5" name="binhluan" placeholder="Viết bình luận ..."></textarea>
+            <textarea type="text" id="form11" class="md-textarea form-control m-3" rows="5" name="binhluan" placeholder="Thêm bình luận ..."></textarea>
 
             <input type="hidden" name="idsp"  value="<?php echo $id; ?>" >
             <button type="submit"
