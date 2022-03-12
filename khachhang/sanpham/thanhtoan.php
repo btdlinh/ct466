@@ -128,9 +128,9 @@ if (isset($_SESSION['cart']) && (array_count_values($_SESSION['cart']))){
 
                 ?>
                 <div class="form-group">
-                    <div class="col-md-10">
+                    <div class="col-md-10 ">
 
-                        <input type=hidden" name="idkh"
+                        <input type="hidden" name="idkh"
                                value="<?php echo $row1['kh_id'] ?>"
                         />
                     </div>

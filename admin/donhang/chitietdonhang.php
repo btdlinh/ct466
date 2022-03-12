@@ -9,15 +9,29 @@ require "../../db.php";
 //} else exit();
 $iddon = $_GET['iddon'];
 
+$sql_dc = "SELECT kh_id,dc_diachi FROM hoa_don as a join khach_hang as b on a.hd_idkh=b.kh_id
+                                        join chi_tiet_hoa_don as c on a.hd_id=c.cthd_idhd  
+                                        join dia_chi as e on b.kh_id=e.dc_idkh       
+                    WHERE hd_id = $iddon
+";
+
+$rs_dc = mysqli_query($conn, $sql_dc);
+$row_dc = mysqli_fetch_assoc($rs_dc);
+$b = $row_dc['kh_id'];
+$c = $row_dc['dc_diachi'];
+echo $b;
+
+
 $sql1 = "SELECT * FROM hoa_don as a join chi_tiet_hoa_don as b on a.hd_id=b.cthd_idhd
                                         join sanpham as c on c.sp_id=b.cthd_idsp   
                                         join khach_hang as d on d.kh_id=a.hd_idkh   
                                         join dia_chi as e on d.kh_id=e.dc_idkh   
-                                        WHERE a.hd_id = $iddon
-                                         
+                                        WHERE a.hd_id = $iddon  and kh_id='$b'   
                                         ";
-
 $result1 = mysqli_query($conn, $sql1);
+
+
+//echo $iddon;
 
 ?>
 
