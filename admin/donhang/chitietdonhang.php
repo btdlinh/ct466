@@ -8,26 +8,32 @@ require "../../db.php";
 //    $email = $_SESSION['email'];
 //} else exit();
 $iddon = $_GET['iddon'];
-
-$sql_dc = "SELECT kh_id,dc_diachi FROM hoa_don as a join khach_hang as b on a.hd_idkh=b.kh_id
+echo $iddon;
+echo "<br>";
+// lay id kh
+$sql_dc = "SELECT kh_id,dc_diachi, dc_id FROM hoa_don as a join khach_hang as b on a.hd_idkh=b.kh_id
                                         join chi_tiet_hoa_don as c on a.hd_id=c.cthd_idhd  
                                         join dia_chi as e on b.kh_id=e.dc_idkh       
-                    WHERE hd_id = $iddon
+                                        WHERE hd_id = $iddon  
+
 ";
 
 $rs_dc = mysqli_query($conn, $sql_dc);
 $row_dc = mysqli_fetch_assoc($rs_dc);
 $b = $row_dc['kh_id'];
-$c = $row_dc['dc_diachi'];
-echo $b;
 
+$c = $row_dc['dc_id'];
+echo $b;
+echo "<br>";
+echo $c;
 
 $sql1 = "SELECT * FROM hoa_don as a join chi_tiet_hoa_don as b on a.hd_id=b.cthd_idhd
                                         join sanpham as c on c.sp_id=b.cthd_idsp   
                                         join khach_hang as d on d.kh_id=a.hd_idkh   
                                         join dia_chi as e on d.kh_id=e.dc_idkh   
-                                        WHERE a.hd_id = $iddon  and kh_id='$b'   
-                                        ";
+                                        WHERE a.hd_id = $iddon  and kh_id='$b'  
+
+";
 $result1 = mysqli_query($conn, $sql1);
 
 
@@ -112,6 +118,8 @@ $result1 = mysqli_query($conn, $sql1);
 
                             <!--thong tin kh-->
                             <?php
+
+
                             $sql2 = "select sum(cthd_soluong) as tongsp  from chi_tiet_hoa_don where cthd_idhd=$iddon";
                             $rs2 = mysqli_query($conn, $sql2);
                             $row2 = mysqli_fetch_assoc($rs2);
@@ -286,7 +294,7 @@ $result1 = mysqli_query($conn, $sql1);
                                     </div>
 
 
-                                        <input type="hidden" name="id" value="<?php echo $iddon; ?>">
+                                    <input type="hidden" name="id" value="<?php echo $iddon; ?>">
 
                                     <td>
                                         <button class="btn btn-sm btn btn-blue-grey mt-0"

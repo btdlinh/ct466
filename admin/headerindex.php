@@ -58,8 +58,8 @@
                                     <ul>
                                         <li><a href="http://localhost:8080/CT466/admin/khachhang/dskhachhang.php" class="waves-effect">Danh sách khách hàng</a></li>
                                         <li><a href="http://localhost:8080/CT466/khachhang/xem_lienhe.php" class="waves-effect">Tư vấn khách hàng</a></li>
-<!--                                        <li><a href="http://localhost:8080/CT271/admin/khachhang/dskhachhang.php" class="waves-effect">Sửa khách hàng</a></li>-->
-<!--                                        <li><a href="http://localhost:8080/CT271/admin/khachhang/dskhachhang.php" class="waves-effect">Xóa khách hàng</a></li>-->
+                                        <!--                                        <li><a href="http://localhost:8080/CT271/admin/khachhang/dskhachhang.php" class="waves-effect">Sửa khách hàng</a></li>-->
+                                        <!--                                        <li><a href="http://localhost:8080/CT271/admin/khachhang/dskhachhang.php" class="waves-effect">Xóa khách hàng</a></li>-->
                                     </ul>
                                 </div>
                             </li>
@@ -75,13 +75,13 @@
                                 </div>
                             </li>
                             <!-- Buoi 4 -->
-<!--                            <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-chevron-right"></i> HÓA ĐƠN<i class="fas fa-angle-down rotate-icon"></i></a>-->
-<!--                                <div class="collapsible-body">-->
-<!--                                    <ul>-->
-<!--                                        <li><a href="http://localhost:8080/CT271/admin/hoadon/quanlyhoadon.php" class="waves-effect">Danh Sách Hóa Đơn</a></li>-->
-<!--                                    </ul>-->
-<!--                                </div>-->
-<!--                            </li>-->
+                            <!--                            <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-chevron-right"></i> HÓA ĐƠN<i class="fas fa-angle-down rotate-icon"></i></a>-->
+                            <!--                                <div class="collapsible-body">-->
+                            <!--                                    <ul>-->
+                            <!--                                        <li><a href="http://localhost:8080/CT271/admin/hoadon/quanlyhoadon.php" class="waves-effect">Danh Sách Hóa Đơn</a></li>-->
+                            <!--                                    </ul>-->
+                            <!--                                </div>-->
+                            <!--                            </li>-->
 
                             <!-- buoi 5 -->
                             <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-chevron-right"></i> TÁC GIẢ<i class="fas fa-angle-down rotate-icon"></i></a>
@@ -150,13 +150,23 @@
                                 </div>
                             </li>
 
+                            <!-- buoi 10 -->
+                            <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-chevron-right"></i> BÌNH LUẬN<i class="fas fa-angle-down rotate-icon"></i></a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                        <li><a href="http://localhost:8080/CT466/admin/binhluan/binhluan.php" class="waves-effect">Quản Lý Bình Luận</a></li>
+
+                                    </ul>
+                                </div>
+                            </li>
+
                         </ul>
                     </li>
                 </ul>
 
 
 
-            <!-- Side navigation links-->
+                <!-- Side navigation links-->
 
         </ul>
         <!-- Sidebar navigation-->
