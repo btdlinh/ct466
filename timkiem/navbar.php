@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark primary-color mt-5 mb-5" style="background: #212121;">
 
     <!-- Navbar brand-->
-    <a class="font-weight-bold white-text mr-4" href="http://localhost:8080/CT271">TRANG CHỦ</a>
+    <a class="font-weight-bold white-text mr-4" href="http://localhost/CT466">TRANG CHỦ</a>
 
     <!-- Collapse button-->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
@@ -179,7 +179,7 @@
 
                             <ul class="caret-style pl-0">
 
-                                <li class=""><a class="menu-item" href="http://localhost:8080/CT271/hienthi/TL13.php">Sách Giáo Khoa</a></li>
+                                <li class=""><a class="menu-item" href="http://localhost/CT466/hienthi/TL13.php">Sách Giáo Khoa</a></li>
 
                                 <li class=""><a class="menu-item" href="">Sách Tham Khảo</a></li>
 

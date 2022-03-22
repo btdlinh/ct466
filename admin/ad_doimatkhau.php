@@ -2,7 +2,7 @@
 session_start();
 $email = $_SESSION["email"];
 echo "<p style='font-weight: bold;' >Tài khoản: $email</p>  " ;
-$conn = mysqli_connect("localhost", "root", "", "ct271-01") or die("Connection Error: " . mysqli_error($conn));
+$conn = mysqli_connect("localhost", "root", "", "CT466-01") or die("Connection Error: " . mysqli_error($conn));
 
 if (count($_POST) > 0) {
     $result = mysqli_query($conn, "SELECT * from admin WHERE email='" . $_SESSION["email"] . "'");
@@ -132,7 +132,7 @@ if (count($_POST) > 0) {
             </tr>
 
             <tr>
-                <td colspan="2"><a href="http://localhost:8080/CT271/admin/thongtin/thongtintaikhoan.php"
+                <td colspan="2"><a href="http://localhost/CT466/admin/thongtin/thongtintaikhoan.php"
                                     class="btnSubmit">Quay lại</a></td>
             </tr>
         </table>

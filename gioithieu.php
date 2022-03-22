@@ -67,7 +67,7 @@ if (session_id() === '') {
                 <h5 class="text-center">Mở rộng hiểu biết, kiến tạo tương lai. </h5>
                 <h5 class="text-center">Cung cấp kiến thức giúp các bạn tự tin tìm hiểu, học tập trên con đường thành công của mình.</h5>
                 <div class="text-center mt-2 mb-4">
-                    <a href="http://localhost:8080/CT271" class="btn btn-primary btn-lg"> Ghé thăm Hiraki <i class="fa fa-forward" aria-hidden="true"> </i></a>
+                    <a href="http://localhost/CT466" class="btn btn-primary btn-lg"> Ghé thăm Hiraki <i class="fa fa-forward" aria-hidden="true"> </i></a>
                 </div>
             </div>
         </div>

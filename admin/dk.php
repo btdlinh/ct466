@@ -39,7 +39,7 @@ require "../db.php";
             <!-- SideNav slide-out button -->
             <div class="float-left mr-2">
 
-                <a href="http://localhost:8080/CT271/admin/index.php" data-activates="slide-out" class="button-collapse">
+                <a href="http://localhost/CT466/admin/index.php" data-activates="slide-out" class="button-collapse">
 
 <!--                    <i class="fas fa-bars"></i>-->
                     <i class="fas fa-book-open"></i>
@@ -48,7 +48,7 @@ require "../db.php";
 
             </div>
 
-            <a class="navbar-brand font-weight-bold" href="http://localhost:8080/CT271/admin/index.php">
+            <a class="navbar-brand font-weight-bold" href="http://localhost/CT466/admin/index.php">
 
                 <strong>HIRAKI.COM</strong>
 
@@ -74,7 +74,7 @@ require "../db.php";
 
                         <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
 
-                            <a class="dropdown-item waves-effect waves-light" href="http://localhost:8080/CT271/admin/dangnhap.html">Đăng Nhập</a>
+                            <a class="dropdown-item waves-effect waves-light" href="http://localhost/CT466/admin/dangnhap.html">Đăng Nhập</a>
 
 <!--                            <a class="dropdown-item waves-effect waves-light" href="#"></a>-->
 

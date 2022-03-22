@@ -20,7 +20,7 @@ echo $sp;
 $sql = "INSERT INTO test ( t_idsp, t_email, t_binhluan) VALUES ( '$sp' ,'$ten','$bl')";
 $rs = mysqli_query($conn,$sql);
 if($rs== true){
-    echo "Bạn đã đánh giá xong! <a href='http://localhost:8080/CT466/index.php'>Quay lại trang chủ </a>";
+    echo "Bạn đã đánh giá xong! <a href='http://localhost/CT466/index.php'>Quay lại trang chủ </a>";
 }
 
 

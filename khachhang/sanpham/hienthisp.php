@@ -310,7 +310,7 @@ require "../../UI/adheader.php";
         
                                     <img src=' . $rownew['sp_hinhanh'] . ' alt="Hình Ảnh Sách" style="width: 330px; height: 350px; margin: 1em auto; padding-top: 1em;">
         
-                                    <a href="http://localhost:8080/CT466/khachhang/sanpham/hienthisp.php?idsach=' . $rownew['sp_id'] . ' " 
+                                    <a href="http://localhost/CT466/khachhang/sanpham/hienthisp.php?idsach=' . $rownew['sp_id'] . ' " 
                                         title=' . $rownew['sp_tensach'] . ' />
                                         <div class="mask rgba-white-slight"></div>
                                     </a>
@@ -323,7 +323,7 @@ require "../../UI/adheader.php";
                                     <!-- Category & Title tensach-->
                                     <h5 class="card-title mb-1">
                                         <strong>
-                                            <a href="http://localhost:8080/CT466/khachhang/sanpham/hienthisp.php?idsach=' . $rownew['sp_id'] . ' " 
+                                            <a href="http://localhost/CT466/khachhang/sanpham/hienthisp.php?idsach=' . $rownew['sp_id'] . ' " 
                                                 class="dark-grey-text font-small font-weight-bolder"  />' . $rownew['sp_tensach'] . '</a>
                                         </strong>
                                     </h5>
@@ -428,7 +428,7 @@ require "../../UI/adheader.php";
                 <!-- Image column -->
                 <div class="col-sm-2 col-12 mb-3 ">
 <!--                    <i class="fas fa-user-edit " style="width: 100px; height: 150px;"></i>-->
-                    <img src="http://localhost:8080/CT466/img/thv.png" alt="sample image"
+                    <img src="http://localhost/CT466/img/thv.png" alt="sample image"
                          class="avatar rounded-circle z-depth-1-half">
 
                 </div>

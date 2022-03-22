@@ -41,7 +41,7 @@ if (isset($_SESSION['email'])) {
         <!-- Logo-->
         <li class="logo-sn waves-effect py-3">
             <div class="text-center">
-                <a href="#" class="pl-0"><img src="http://localhost:8080/CT271/image/logo.png" style="width: 80%;"></a>
+                <a href="#" class="pl-0"><img src="http://localhost/CT466/image/logo.png" style="width: 80%;"></a>
             </div>
         </li>
 
@@ -63,8 +63,8 @@ if (isset($_SESSION['email'])) {
                         <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-chevron-right"></i> ADMIN<i class="fas fa-angle-down rotate-icon"></i></a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="http://localhost:8080/CT271/admin/thongtin/dsadmin.php" class="waves-effect">Danh Sách Admin</a></li>
-                                    <li><a href="http://localhost:8080/CT271/admin/thongtin/thongtincanhan.php" class="waves-effect">Thông Tin Admin</a></li>
+                                    <li><a href="http://localhost/CT466/admin/thongtin/dsadmin.php" class="waves-effect">Danh Sách Admin</a></li>
+                                    <li><a href="http://localhost/CT466/admin/thongtin/thongtincanhan.php" class="waves-effect">Thông Tin Admin</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -73,10 +73,10 @@ if (isset($_SESSION['email'])) {
                         <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-chevron-right"></i> SẢN PHẨM<i class="fas fa-angle-down rotate-icon"></i></a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="http://localhost:8080/CT271/admin/sach/dssach.php" class="waves-effect">Danh Sách Sản Phẩm</a></li>
-                                    <li><a href="http://localhost:8080/CT271/admin/sach/ThemSach.php" class="waves-effect">Thêm Sản Phẩm</a></li>
-                                    <li><a href="http://localhost:8080/CT271/admin/sach/dssach.php" class="waves-effect">Sửa Sản Phẩm</a></li>
-                                    <li><a href="http://localhost:8080/CT271/admin/sach/dssach.php" class="waves-effect">Xóa Sản Phẩm</a></li>
+                                    <li><a href="http://localhost/CT466/admin/sach/dssach.php" class="waves-effect">Danh Sách Sản Phẩm</a></li>
+                                    <li><a href="http://localhost/CT466/admin/sach/ThemSach.php" class="waves-effect">Thêm Sản Phẩm</a></li>
+                                    <li><a href="http://localhost/CT466/admin/sach/dssach.php" class="waves-effect">Sửa Sản Phẩm</a></li>
+                                    <li><a href="http://localhost/CT466/admin/sach/dssach.php" class="waves-effect">Xóa Sản Phẩm</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -84,10 +84,10 @@ if (isset($_SESSION['email'])) {
                         <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-chevron-right"></i> KHÁCH HÀNG<i class="fas fa-angle-down rotate-icon"></i></a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="http://localhost:8080/CT271/admin/khachhang/dskhachhang.php" class="waves-effect">Danh sách khách hàng</a></li>
+                                    <li><a href="http://localhost/CT466/admin/khachhang/dskhachhang.php" class="waves-effect">Danh sách khách hàng</a></li>
                                     <li><a href="#" class="waves-effect">Thêm khách hàng</a></li>
-                                    <li><a href="http://localhost:8080/CT271/admin/khachhang/dskhachhang.php" class="waves-effect">Sửa khách hàng</a></li>
-                                    <li><a href="http://localhost:8080/CT271/admin/khachhang/dskhachhang.php" class="waves-effect">Xóa khách hàng</a></li>
+                                    <li><a href="http://localhost/CT466/admin/khachhang/dskhachhang.php" class="waves-effect">Sửa khách hàng</a></li>
+                                    <li><a href="http://localhost/CT466/admin/khachhang/dskhachhang.php" class="waves-effect">Xóa khách hàng</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -115,10 +115,10 @@ if (isset($_SESSION['email'])) {
                         <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-chevron-right"></i> TÁC GIẢ<i class="fas fa-angle-down rotate-icon"></i></a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="http://localhost:8080/CT271/admin/tacgia/dstacgia.php" class="waves-effect">Danh Sách Tác Giả</a></li>
-                                    <li><a href="http://localhost:8080/CT271/admin/tacgia/ThemTacGia.html" class="waves-effect">Thêm Tác Giả</a></li>
-                                    <li><a href="http://localhost:8080/CT271/admin/tacgia/dstacgia.php" class="waves-effect">Sửa Tác Giả</a></li>
-                                    <li><a href="http://localhost:8080/CT271/admin/tacgia/dstacgia.php" class="waves-effect">Xóa Tác Giả</a></li>
+                                    <li><a href="http://localhost/CT466/admin/tacgia/dstacgia.php" class="waves-effect">Danh Sách Tác Giả</a></li>
+                                    <li><a href="http://localhost/CT466/admin/tacgia/ThemTacGia.html" class="waves-effect">Thêm Tác Giả</a></li>
+                                    <li><a href="http://localhost/CT466/admin/tacgia/dstacgia.php" class="waves-effect">Sửa Tác Giả</a></li>
+                                    <li><a href="http://localhost/CT466/admin/tacgia/dstacgia.php" class="waves-effect">Xóa Tác Giả</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -126,10 +126,10 @@ if (isset($_SESSION['email'])) {
                         <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-chevron-right"></i> NHÀ XUẤT BẢN<i class="fas fa-angle-down rotate-icon"></i></a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="http://localhost:8080/CT271/admin/nxb/dsnxb.php" class="waves-effect">Danh Sách NXB</a></li>
-                                    <li><a href="http://localhost:8080/CT271/admin/nxb/themnxb.html" class="waves-effect">Thêm NXB</a></li>
-                                    <li><a href="http://localhost:8080/CT271/admin/nxb/dsnxb.php" class="waves-effect">Sửa NXB</a></li>
-                                    <li><a href="http://localhost:8080/CT271/admin/nxb/dsnxb.php" class="waves-effect">Xóa NXB</a></li>
+                                    <li><a href="http://localhost/CT466/admin/nxb/dsnxb.php" class="waves-effect">Danh Sách NXB</a></li>
+                                    <li><a href="http://localhost/CT466/admin/nxb/themnxb.html" class="waves-effect">Thêm NXB</a></li>
+                                    <li><a href="http://localhost/CT466/admin/nxb/dsnxb.php" class="waves-effect">Sửa NXB</a></li>
+                                    <li><a href="http://localhost/CT466/admin/nxb/dsnxb.php" class="waves-effect">Xóa NXB</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -137,10 +137,10 @@ if (isset($_SESSION['email'])) {
                         <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-chevron-right"></i> THỂ LOẠI<i class="fas fa-angle-down rotate-icon"></i></a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="http://localhost:8080/CT271/admin/theloai/dstheloai.php" class="waves-effect">Danh Sách Thể Loại</a></li>
-                                    <li><a href="http://localhost:8080/CT271/admin/theloai/ThemTheLoai.html" class="waves-effect">Thêm Thể Loại</a></li>
-                                    <li><a href="http://localhost:8080/CT271/admin/theloai/dstheloai.php" class="waves-effect">Sửa Thể Loại</a></li>
-                                    <li><a href="http://localhost:8080/CT271/admin/theloai/dstheloai.php" class="waves-effect">Xóa Thể Loại</a></li>
+                                    <li><a href="http://localhost/CT466/admin/theloai/dstheloai.php" class="waves-effect">Danh Sách Thể Loại</a></li>
+                                    <li><a href="http://localhost/CT466/admin/theloai/ThemTheLoai.html" class="waves-effect">Thêm Thể Loại</a></li>
+                                    <li><a href="http://localhost/CT466/admin/theloai/dstheloai.php" class="waves-effect">Sửa Thể Loại</a></li>
+                                    <li><a href="http://localhost/CT466/admin/theloai/dstheloai.php" class="waves-effect">Xóa Thể Loại</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -173,7 +173,7 @@ if (isset($_SESSION['email'])) {
 
             </div>
 
-            <a class="navbar-brand font-weight-bold" href="http://localhost:8080/CT271/admin/index.php">
+            <a class="navbar-brand font-weight-bold" href="http://localhost/CT466/admin/index.php">
 
                 <strong>HIRAKI.COM</strong>
 
@@ -199,11 +199,11 @@ if (isset($_SESSION['email'])) {
 
                         <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
 
-                            <a class="dropdown-item" href="http://localhost:8080/CT271/admin/thongtin/thongtintaikhoan.php">Tài Khoản Của Tôi</a>
+                            <a class="dropdown-item" href="http://localhost/CT466/admin/thongtin/thongtintaikhoan.php">Tài Khoản Của Tôi</a>
 
-                            <a class="dropdown-item waves-effect waves-light" href="http://localhost:8080/CT271/admin/dk.php">Đăng Ký</a>
+                            <a class="dropdown-item waves-effect waves-light" href="http://localhost/CT466/admin/dk.php">Đăng Ký</a>
 
-                            <a class="dropdown-item waves-effect waves-light" onclick="return confirm('Bạn chắc chắn đăng xuất?')" href="http://localhost:8080/CT271/admin/xulydangxuat.php">Đăng Xuất</a>
+                            <a class="dropdown-item waves-effect waves-light" onclick="return confirm('Bạn chắc chắn đăng xuất?')" href="http://localhost/CT466/admin/xulydangxuat.php">Đăng Xuất</a>
 
                         </div>
 
@@ -336,7 +336,7 @@ if (isset($_SESSION['email'])) {
                                 <div class="col-md-12 text-center text-md-left text-md-right">
 
                                     <button class="btn btn-primary btn-rounded ">
-                                        <a href="http://localhost:8080/CT271/admin/ad_doimatkhau.php" class="white-text">
+                                        <a href="http://localhost/CT466/admin/ad_doimatkhau.php" class="white-text">
                                             Đổi Mật Khẩu
 
                                         </a>

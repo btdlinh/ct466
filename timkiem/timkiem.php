@@ -64,7 +64,7 @@ require_once "../khachhang/sanpham/csdl_function.php";
                 <!--                <a href="#" data-activates="slide-out" class="button-collapse"><i class="fas fa-home"></i></a>-->
             </div>
 
-            <a class="navbar-brand font-weight-bold" href="http://localhost:8080/CT271"><strong> HIRAKI.COM </strong></a>
+            <a class="navbar-brand font-weight-bold" href="http://localhost/CT466"><strong> HIRAKI.COM </strong></a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
                     aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,13 +77,13 @@ require_once "../khachhang/sanpham/csdl_function.php";
 
                     <li class="nav-item ml-3">
                         <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"
-                           href="http://localhost:8080/CT271/khachhang/lienhe.php"><i
+                           href="http://localhost/CT466/khachhang/lienhe.php"><i
                                     class="fas fa-comments blue-text"></i> Liên Hệ</a>
                     </li>
 
                     <li class="nav-item ml-3">
                         <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"
-                           href="http://localhost:8080/CT271/khachhang/sanpham/giohang.php"><i
+                           href="http://localhost/CT466/khachhang/sanpham/giohang.php"><i
                                     class="fas fa-shopping-cart blue-text"></i> Giỏ Hàng</a>
                     </li>
 
@@ -99,9 +99,9 @@ require_once "../khachhang/sanpham/csdl_function.php";
 
                         <div class="dropdown-menu dropdown-menu-right dropdown-cyan"
                              aria-labelledby="navbarDropdownMenuLink-4">
-                            <a class="dropdown-item waves-effect waves-light" href="http://localhost:8080/CT271/dangky.html"> Đăng ký </a>
-                            <a class="dropdown-item waves-effect waves-light" href="http://localhost:8080/CT271/dangnhap.html"> Đăng nhập </a>
-                            <a class="dropdown-item waves-effect waves-light" href="http://localhost:8080/CT271/xulydangxuat.php"> Đăng xuất </a>
+                            <a class="dropdown-item waves-effect waves-light" href="http://localhost/CT466/dangky.html"> Đăng ký </a>
+                            <a class="dropdown-item waves-effect waves-light" href="http://localhost/CT466/dangnhap.html"> Đăng nhập </a>
+                            <a class="dropdown-item waves-effect waves-light" href="http://localhost/CT466/xulydangxuat.php"> Đăng xuất </a>
                         </div>
 
                     </li>
@@ -221,7 +221,7 @@ require_once "../khachhang/sanpham/csdl_function.php";
                     // Vòng lặp while & mysql_fetch_assoc dùng để lấy toàn bộ dữ liệu có trong table và trả về dữ liệu ở dạng array
 
                     while ($rowloai = mysqli_fetch_assoc($sqlloai)) {
-                        $linkhinh = "http://localhost:8080/CT271/img/bookimg/". $rowloai['hinhanh'];
+                        $linkhinh = "http://localhost/CT466/img/bookimg/". $rowloai['hinhanh'];
                         echo '
       
                             <div class="col-lg-4 mt-4 mb-4">
@@ -236,7 +236,7 @@ require_once "../khachhang/sanpham/csdl_function.php";
                                                 style="width: 330px; height: 350px; margin: 1em auto; padding-top: 1em;"
                                                 />
                 
-                                            <a href="http://localhost:8080/CT271/khachhang/sanpham/hienthisp.php?idsach=' . $rowloai['idsach'] . ' " 
+                                            <a href="http://localhost/CT466/khachhang/sanpham/hienthisp.php?idsach=' . $rowloai['idsach'] . ' " 
                                                 title=' . $rowloai['tensach'] . ' />
                                                 <div class="mask rgba-white-slight"></div>
                                             </a>
@@ -249,7 +249,7 @@ require_once "../khachhang/sanpham/csdl_function.php";
                                             <!-- Category & Title tensach-->
                                             <h5 class="card-title mb-1">
                                                 <strong>
-                                                    <a href="http://localhost:8080/CT271/khachhang/sanpham/hienthisp.php?idsach=' . $rowloai['idsach'] . ' " 
+                                                    <a href="http://localhost/CT466/khachhang/sanpham/hienthisp.php?idsach=' . $rowloai['idsach'] . ' " 
                                                         class="dark-grey-text font-small font-weight-bolder"  />' . $rowloai['tensach'] . '</a>
                                                 </strong>
                                             </h5>

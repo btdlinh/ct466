@@ -25,13 +25,13 @@
 
                     <li class="nav-item ml-3">
                         <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"
-                           href="http://localhost:8080/CT271/khachhang/lienhe.php"><i
+                           href="http://localhost/CT466/khachhang/lienhe.php"><i
                                     class="fas fa-comments blue-text"></i> Liên Hệ</a>
                     </li>
 
                     <li class="nav-item ml-3">
                         <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"
-                           href="http://localhost:8080/CT271/khachhang/sanpham/giohang.php"><i
+                           href="http://localhost/CT466/khachhang/sanpham/giohang.php"><i
                                     class="fas fa-shopping-cart blue-text"></i> Giỏ Hàng</a>
                     </li>
 

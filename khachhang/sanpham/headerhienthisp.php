@@ -18,7 +18,7 @@
             </div>
 
             <a class="navbar-brand font-weight-bold" href="#">
-                <strong class="font-weight-bold"><a href="http://localhost:8080/CT271/index.php">HIRAKI</a>  > GIỎ HÀNG</strong>
+                <strong class="font-weight-bold"><a href="http://localhost/CT466/index.php">HIRAKI</a>  > GIỎ HÀNG</strong>
             </a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"

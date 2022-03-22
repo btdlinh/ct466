@@ -69,10 +69,10 @@ require "../headerindex.php";
                     class="clearfix d-none d-sm-inline-block">Tài Khoản</span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="http://localhost:8080/CT466/admin/thongtin/thongtintaikhoan.php">Tài Khoản Của Tôi</a>
-                <a class="dropdown-item" href="http://localhost:8080/CT466/admin/dangky.html">Đăng Ký</a>
-                <a class="dropdown-item" href="http://localhost:8080/CT466/admin/dangnhap.html">Đăng Nhập</a>
-                <a class="dropdown-item" onclick="return confirm('Bạn chắc chắn đăng xuất?')" href="http://localhost:8080/CT466/admin/xulydangxuat.php">Đăng Xuất</a>
+                <a class="dropdown-item" href="http://localhost/CT466/admin/thongtin/thongtintaikhoan.php">Tài Khoản Của Tôi</a>
+                <a class="dropdown-item" href="http://localhost/CT466/admin/dangky.html">Đăng Ký</a>
+                <a class="dropdown-item" href="http://localhost/CT466/admin/dangnhap.html">Đăng Nhập</a>
+                <a class="dropdown-item" onclick="return confirm('Bạn chắc chắn đăng xuất?')" href="http://localhost/CT466/admin/xulydangxuat.php">Đăng Xuất</a>
             </div>
         </li>
     </ul>
@@ -87,7 +87,7 @@ require "../headerindex.php";
     <nav class="navbar navbar-expand-lg navbar-dark primary-color mt-5 mb-5">
 
         <!-- Navbar brand-->
-        <a class="font-weight-bold white-text mr-4 m-2 p-1" style="font-size: 18px;" href="http://localhost:8080/CT466/admin/index.php">QUẢN LÝ ĐƠN HÀNG</a>
+        <a class="font-weight-bold white-text mr-4 m-2 p-1" style="font-size: 18px;" href="http://localhost/CT466/admin/index.php">QUẢN LÝ ĐƠN HÀNG</a>
 
         <!-- Collapse button-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
@@ -192,7 +192,7 @@ require "../headerindex.php";
 
                                     <div class="col-md-5 col-5 text-left pl-4">
 
-                                        <a type="button" class="btn-floating btn-lg btn-discord ml-4" href="http://localhost:8080/CT466/admin/donhang/choxacnhan.php">
+                                        <a type="button" class="btn-floating btn-lg btn-discord ml-4" href="http://localhost/CT466/admin/donhang/choxacnhan.php">
                                             <!--                      <i class="far fa-book" aria-hidden="true"></i>-->
                                             <i class="fas fa-phone"></i>
                                         </a>
@@ -243,7 +243,7 @@ require "../headerindex.php";
 
                                     <div class="col-md-5 col-5 text-left pl-4">
 
-                                        <a type="button" class="btn-floating btn-lg btn-discord ml-4" href="http://localhost:8080/CT466/admin/donhang/daxacnhan.php">
+                                        <a type="button" class="btn-floating btn-lg btn-discord ml-4" href="http://localhost/CT466/admin/donhang/daxacnhan.php">
                                             <i class="fas fa-check-circle"></i></a>
 
                                     </div>
@@ -288,7 +288,7 @@ require "../headerindex.php";
                                 <div class="row mt-3">
 
                                     <div class="col-md-5 col-5 text-left pl-4">
-                                        <a type="button" class="btn-floating btn-lg btn-discord ml-4" href="http://localhost:8080/CT466/admin/donhang/danggiaohang.php">
+                                        <a type="button" class="btn-floating btn-lg btn-discord ml-4" href="http://localhost/CT466/admin/donhang/danggiaohang.php">
                                             <!--                        <i class="fas fa-user" aria-hidden="true"></i>-->
                                             <i class="fas fa-shuttle-van"></i>
                                         </a>
@@ -337,7 +337,7 @@ require "../headerindex.php";
                                 <div class="row mt-3">
 
                                     <div class="col-md-5 col-5 text-left pl-4">
-                                        <a type="button" class="btn-floating btn-lg btn-discord lighten-1 ml-4" href="http://localhost:8080/CT466/admin/donhang/dagiaohang.php" h><i class="fas fa-dollar-sign"
+                                        <a type="button" class="btn-floating btn-lg btn-discord lighten-1 ml-4" href="http://localhost/CT466/admin/donhang/dagiaohang.php" h><i class="fas fa-dollar-sign"
                                                                                                                   aria-hidden="true"></i></a>
                                     </div>
 
@@ -385,7 +385,7 @@ require "../headerindex.php";
                                 <div class="row mt-3">
 
                                     <div class="col-md-5 col-5 text-left pl-4">
-                                        <a type="button" class="btn-floating btn-lg red accent-2 ml-4" href="http://localhost:8080/CT466/admin/donhang/huydon.php"><i class="far fa-trash-alt" aria-hidden="true"></i></a>
+                                        <a type="button" class="btn-floating btn-lg red accent-2 ml-4" href="http://localhost/CT466/admin/donhang/huydon.php"><i class="far fa-trash-alt" aria-hidden="true"></i></a>
                                     </div>
 
                                     <div class="col-md-7 col-7 text-right pr-5">
@@ -430,7 +430,7 @@ require "../headerindex.php";
                                 <div class="row mt-3">
 
                                     <div class="col-md-5 col-5 text-left pl-4">
-                                        <a type="button" class="btn-floating btn-lg btn-info ml-4" href="http://localhost:8080/CT466/admin/donhang/quanlydonhang.php">
+                                        <a type="button" class="btn-floating btn-lg btn-info ml-4" href="http://localhost/CT466/admin/donhang/quanlydonhang.php">
                                             <!--                                                <i class="fas fa-database" aria-hidden="true"></i>-->
                                             <i class="far fa-list-alt"></i>
                                         </a>

@@ -1,11 +1,14 @@
 <?php
 require "../db.php";
-$sql52 =" select * from sach as a join theloaisach as b on a.idtheloai=b.idtheloai  where b.idtheloai='52'";
-$rs52= mysqli_query($conn,$sql52);
+$idtl=$_GET['idtl'];
+
+$sql7 =" select * from sanpham  where sp_idtheloai=$idtl";
+echo $sql7;
+$rs7= mysqli_query($conn,$sql7);
 //var_dump($row);
 
 //$rs = $conn->query("SELECT * FROM sach ");
-require_once "../khachhang/sanpham/csdl_function.php";
+//require_once "khachhang/sanpham/csdl_function.php";
 ?>
 <!DOCTYPE html>
 
@@ -103,14 +106,14 @@ require_once "../khachhang/sanpham/csdl_function.php";
     </div>
 
 
-    <!-- Grid row san pham 13-->
+    <!-- Grid row san pham 7-->
     <h1>Danh sách sản phẩm</h1>
     <div class="row mt-5 mb-5 pt-5 pb-5">
 
         <?php
-        //        if ($rs13->num_rows) {
-        while ($row52 = mysqli_fetch_assoc($rs52)) {
-            $linkhinh = "http://localhost/CT466/img/bookimg/" . $row52['hinhanh'];
+                if ($rs7->num_rows) {
+        while ($row7 = mysqli_fetch_assoc($rs7)) {
+            $linkhinh = "http://localhost/CT466/img/bookimg/" . $row7['sp_hinhanh'];
             echo '
       
             <div class="col-lg-4 mt-4 mb-4">
@@ -118,12 +121,12 @@ require_once "../khachhang/sanpham/csdl_function.php";
                     <div class="card">
 
                         <!-- Card image -->
-                        <div class="view overlay"  title='.$row52['tensach'].'>
+                        <div class="view overlay"  title='.$row7['sp_tensach'].'>
 
                                     <img src='. $linkhinh.' alt="Hình Ảnh Sách" style="width: 330px; height: 350px; margin: 1em auto; padding-top: 1em;">
 
-                            <a href="http://localhost/CT466/khachhang/sanpham/hienthisp.php?idsach=' . $row52['idsach'] . ' " 
-                                title='.$row52['tensach'].' />
+                            <a href="http://localhost/CT466/khachhang/sanpham/hienthisp.php?idsach=' . $row7['sp_id'] . ' " 
+                                title='.$row7['sp_tensach'].' />
                                 <div class="mask rgba-white-slight"></div>
                             </a>
 
@@ -135,8 +138,8 @@ require_once "../khachhang/sanpham/csdl_function.php";
                             <!-- Category & Title tensach-->
                             <h5 class="card-title mb-1">
                                 <strong>
-                                    <a href="http://localhost/CT466/khachhang/sanpham/hienthisp.php?idsach=' . $row52['idsach'] . ' " 
-                                        class="dark-grey-text font-small font-weight-bolder"  />' . $row52['tensach'] . '</a>
+                                    <a href="http://localhost/CT466/khachhang/sanpham/hienthisp.php?idsach=' . $row7['sp_id'] . ' " 
+                                        class="dark-grey-text font-small font-weight-bolder"  />' . $row7['sp_tensach'] . '</a>
                                 </strong>
                             </h5>
                           <!-- Category & Title ten sach-->
@@ -148,7 +151,7 @@ require_once "../khachhang/sanpham/csdl_function.php";
 
                                 <div class="row mb-0">
 
-                                    <span class="float-left m-1 center-element text-info"><strong>'. number_format($row52["gia"]) .' đ</strong></span>
+                                    <span class="float-left m-1 center-element text-info"><strong>'. number_format($row7["sp_gia"]) .' đ</strong></span>
                                 
                                 </div>
 
@@ -160,7 +163,12 @@ require_once "../khachhang/sanpham/csdl_function.php";
        
                     ';
         }
-        //        }
+
+                }
+                else{
+                    echo "<h4 class='text-black-50 font-weight-bold m-auto'> Không tồn tại sản phẩm. Chúng tôi đang trong quá trình cập nhật sản phẩm!</h4>";
+                }
+
 
         ?>
         <!--    <span class=" float-right m-2">-->
@@ -171,7 +179,7 @@ require_once "../khachhang/sanpham/csdl_function.php";
 
         <!--    </div>-->
     </div>
-    <!-- Grid row san pham 13-->
+    <!-- Grid row san pham 7-->
 
 </div>
 
@@ -256,10 +264,5 @@ require_once "../khachhang/sanpham/csdl_function.php";
 </body>
 
 </html>
-
-
-
-
-
 
 

@@ -37,7 +37,7 @@
 <!--            <div class="collapse navbar-collapse" id="navbarSupportedContent-7">-->
 <!--                <ul class="navbar-nav mr-auto">-->
 <!--                    <li class="nav-item active">-->
-<!--                        <a class="nav-link white-text" href="http://localhost:8080/CT271/admin/index.php"> <i class="fas fa-home"></i> Trang Chủ</a>-->
+<!--                        <a class="nav-link white-text" href="http://localhost/CT466/admin/index.php"> <i class="fas fa-home"></i> Trang Chủ</a>-->
 <!--                    </li>-->
 <!--                </ul>-->
 <!--            </div>-->
@@ -50,7 +50,7 @@
             <!-- SideNav slide-out button -->
             <div class="float-left mr-2">
 
-                <a href="http://localhost:8080/CT466/admin/index.php" data-activates="slide-out" class="button-collapse">
+                <a href="http://localhost/CT466/admin/index.php" data-activates="slide-out" class="button-collapse">
 
                     <i class="fas fa-bars"></i>
 
@@ -58,7 +58,7 @@
 
             </div>
 
-            <a class="navbar-brand font-weight-bold" href="http://localhost:8080/CT271/admin/index.php">
+            <a class="navbar-brand font-weight-bold" href="http://localhost/CT466/admin/index.php">
 
                 <strong>HIRAKI.COM</strong>
 
@@ -84,11 +84,11 @@
 
                         <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
 
-                            <a class="dropdown-item" href="http://localhost:8080/CT466/admin/thongtin/thongtintaikhoan.php">Tài Khoản Của Tôi</a>
+                            <a class="dropdown-item" href="http://localhost/CT466/admin/thongtin/thongtintaikhoan.php">Tài Khoản Của Tôi</a>
 
-                            <a class="dropdown-item waves-effect waves-light" href="http://localhost:8080/CT466/admin/dk.php">Đăng Ký</a>
+                            <a class="dropdown-item waves-effect waves-light" href="http://localhost/CT466/admin/dk.php">Đăng Ký</a>
 
-                            <a class="dropdown-item waves-effect waves-light" href="http://localhost:8080/CT466/admin/xulydangxuat.php">Đăng Xuất</a>
+                            <a class="dropdown-item waves-effect waves-light" href="http://localhost/CT466/admin/xulydangxuat.php">Đăng Xuất</a>
 
                         </div>
 

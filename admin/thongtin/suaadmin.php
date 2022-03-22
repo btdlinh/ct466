@@ -69,7 +69,7 @@ echo "<form action=\"xulysuaadmin.php?id=".$id."\" method=\"POST\" enctype=\"mul
             <!-- SideNav slide-out button -->
             <div class="float-left mr-2">
 
-                <a href="http://localhost:8080/CT271/admin/index.php" data-activates="slide-out" class="button-collapse">
+                <a href="http://localhost/CT466/admin/index.php" data-activates="slide-out" class="button-collapse">
 
                     <!--                    <i class="fas fa-bars"></i>-->
                     <i class="fas fa-book-open"></i>
@@ -78,7 +78,7 @@ echo "<form action=\"xulysuaadmin.php?id=".$id."\" method=\"POST\" enctype=\"mul
 
             </div>
 
-            <a class="navbar-brand font-weight-bold" href="http://localhost:8080/CT271/admin/index.php">
+            <a class="navbar-brand font-weight-bold" href="http://localhost/CT466/admin/index.php">
 
                 <strong>HIRAKI.COM</strong>
 
@@ -104,9 +104,9 @@ echo "<form action=\"xulysuaadmin.php?id=".$id."\" method=\"POST\" enctype=\"mul
 
                         <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
 
-                            <a class="dropdown-item waves-effect waves-light" href="http://localhost:8080/CT271/admin/thongtintaikhoan.php">Tài Khoản Của Tôi</a>
-                            <a class="dropdown-item waves-effect waves-light" href="http://localhost:8080/CT271/admin/dk.php">Đăng Ký</a>
-                            <a class="dropdown-item waves-effect waves-light" href="http://localhost:8080/CT271/admin/xulydangxuat.php">Đăng Xuất</a>
+                            <a class="dropdown-item waves-effect waves-light" href="http://localhost/CT466/admin/thongtintaikhoan.php">Tài Khoản Của Tôi</a>
+                            <a class="dropdown-item waves-effect waves-light" href="http://localhost/CT466/admin/dk.php">Đăng Ký</a>
+                            <a class="dropdown-item waves-effect waves-light" href="http://localhost/CT466/admin/xulydangxuat.php">Đăng Xuất</a>
 
                             <!--                            <a class="dropdown-item waves-effect waves-light" href="#"></a>-->
 

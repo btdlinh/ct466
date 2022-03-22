@@ -1,7 +1,7 @@
 
 <?php
     // Create connection
-    $conn = new mysqli("localhost", "root", "", "ct271-01");
+    $conn = new mysqli("localhost", "root", "", "CT466-01");
     $conn->set_charset("utf8");
 
     $ten=$_POST["name"];

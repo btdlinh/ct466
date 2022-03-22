@@ -73,8 +73,8 @@
                 <!---->
                 <!--                <p><a href="#">Chính sách bảo mật</a></p>-->
 
-                <p><a href="http://localhost:8080/CT271/gioithieu.php">Giới thiệu Hiraki</a></p>
-                <p><a href="http://localhost:8080/CT271/khachhang/lienhe.php">Liên hệ</a></p>
+                <p><a href="http://localhost/CT466/gioithieu.php">Giới thiệu Hiraki</a></p>
+                <p><a href="http://localhost/CT466/khachhang/lienhe.php">Liên hệ</a></p>
 
                 <!--                <p><a href="#">Hệ thống nhà sách</a></p>-->
 
@@ -88,11 +88,11 @@
 
                 <hr class="blue mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
 
-                <p><a href="http://localhost:8080/CT271/chinhsachdoitra.php">Chính sách đổi trả - hoàn tiền</a></p>
+                <p><a href="http://localhost/CT466/chinhsachdoitra.php">Chính sách đổi trả - hoàn tiền</a></p>
 
                 <!--                <p><a href="#">Chính sách khách sỉ</a></p>-->
 
-                <p><a href="http://localhost:8080/CT271/phuongthucvanchuyen.php">Phương thức vận chuyển</a></p>
+                <p><a href="http://localhost/CT466/phuongthucvanchuyen.php">Phương thức vận chuyển</a></p>
 
                 <!--                <p><a href="#">Phương thức thanh toán và xuất hóa đơn</a></p>-->
 
@@ -128,7 +128,7 @@
 
         <div class="container-fluid">
 
-            © 2013 Nhà Sách Trực tuyến: <a href="http://localhost:8080/CT271/index.php"><strong> Hiraki.com</strong></a>
+            © 2013 Nhà Sách Trực tuyến: <a href="http://localhost/CT466/index.php"><strong> Hiraki.com</strong></a>
 
         </div>
 

@@ -111,7 +111,7 @@ $rs45= mysqli_query($conn,$sql45);
         <?php
                 if ($rs45->num_rows) {
         while ($row45 = mysqli_fetch_assoc($rs45)) {
-            $linkhinh = "http://localhost:8080/CT271/img/bookimg/" . $row45['hinhanh'];
+            $linkhinh = "http://localhost/CT466/img/bookimg/" . $row45['hinhanh'];
             echo '
       
             <div class="col-lg-4 mt-4 mb-4">
@@ -123,7 +123,7 @@ $rs45= mysqli_query($conn,$sql45);
 
                                     <img src='. $linkhinh.' alt="Hình Ảnh Sách" style="width: 330px; height: 350px; margin: 1em auto; padding-top: 1em;">
 
-                            <a href="http://localhost:8080/CT271/khachhang/sanpham/hienthisp.php?idsach=' . $row45['idsach'] . ' " 
+                            <a href="http://localhost/CT466/khachhang/sanpham/hienthisp.php?idsach=' . $row45['idsach'] . ' " 
                                 title='.$row45['tensach'].' />
                                 <div class="mask rgba-white-slight"></div>
                             </a>
@@ -136,7 +136,7 @@ $rs45= mysqli_query($conn,$sql45);
                             <!-- Category & Title tensach-->
                             <h5 class="card-title mb-1">
                                 <strong>
-                                    <a href="http://localhost:8080/CT271/khachhang/sanpham/hienthisp.php?idsach=' . $row45['idsach'] . ' " 
+                                    <a href="http://localhost/CT466/khachhang/sanpham/hienthisp.php?idsach=' . $row45['idsach'] . ' " 
                                         class="dark-grey-text font-small font-weight-bolder"  />' . $row45['tensach'] . '</a>
                                 </strong>
                             </h5>

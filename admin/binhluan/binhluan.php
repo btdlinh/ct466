@@ -82,9 +82,9 @@ $result11 = mysqli_query($conn, $sql11);
                         class="clearfix d-none d-sm-inline-block">Tài Khoản</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="http://localhost:8080/CT466/admin/thongtin/thongtintaikhoan.php">Tài
+                    <a class="dropdown-item" href="http://localhost/CT466/admin/thongtin/thongtintaikhoan.php">Tài
                         Khoản Của Tôi</a>
-                    <a class="dropdown-item" href="http://localhost:8080/CT466/admin/xulydangxuat.php">Đăng Xuất</a>
+                    <a class="dropdown-item" href="http://localhost/CT466/admin/xulydangxuat.php">Đăng Xuất</a>
                 </div>
             </li>
 

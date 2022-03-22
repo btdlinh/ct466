@@ -64,7 +64,7 @@ require_once "khachhang/sanpham/csdl_function.php";
                 <!--                <a href="#" data-activates="slide-out" class="button-collapse"><i class="fas fa-home"></i></a>-->
             </div>
 
-            <a class="navbar-brand font-weight-bold" href="http://localhost:8080/CT466"><strong>
+            <a class="navbar-brand font-weight-bold" href="http://localhost/CT466"><strong>
                     HIRAKI.COM </strong></a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
@@ -78,13 +78,13 @@ require_once "khachhang/sanpham/csdl_function.php";
 
                     <li class="nav-item ml-3">
                         <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"
-                           href="http://localhost:8080/CT466/khachhang/lienhe.php"><i
+                           href="http://localhost/CT466/khachhang/lienhe.php"><i
                                     class="fas fa-comments blue-text"></i> Liên Hệ</a>
                     </li>
 
                     <li class="nav-item ml-3">
                         <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"
-                           href="http://localhost:8080/CT466/khachhang/sanpham/giohang.php"><i
+                           href="http://localhost/CT466/khachhang/sanpham/giohang.php"><i
                                     class="fas fa-shopping-cart blue-text"></i> Giỏ Hàng</a>
                     </li>
 
@@ -205,7 +205,7 @@ require_once "khachhang/sanpham/csdl_function.php";
             $num = mysqli_num_rows($s);
         if ($num > 0 && $search != "") {
             while ($rowloai = mysqli_fetch_assoc($s)) {
-                $linkhinh = "http://localhost:8080/CT466/img/bookimg/". $rowloai['sp_hinhanh'];
+                $linkhinh = "http://localhost/CT466/img/bookimg/". $rowloai['sp_hinhanh'];
                 echo '
       
                             <div class="col-lg-4 mt-4 mb-4">
@@ -220,7 +220,7 @@ require_once "khachhang/sanpham/csdl_function.php";
                                                 style="width: 330px; height: 350px; margin: 1em auto; padding-top: 1em;"
                                                 />
                 
-                                            <a href="http://localhost:8080/CT466/khachhang/sanpham/hienthisp.php?idsach=' . $rowloai['sp_id'] . ' " 
+                                            <a href="http://localhost/CT466/khachhang/sanpham/hienthisp.php?idsach=' . $rowloai['sp_id'] . ' " 
                                                 title=' . $rowloai['sp_tensach'] . ' />
                                                 <div class="mask rgba-white-slight"></div>
                                             </a>
@@ -233,7 +233,7 @@ require_once "khachhang/sanpham/csdl_function.php";
                                             <!-- Category & Title tensach-->
                                             <h5 class="card-title mb-1">
                                                 <strong>
-                                                    <a href="http://localhost:8080/CT466/khachhang/sanpham/hienthisp.php?idsach=' . $rowloai['sp_id'] . ' " 
+                                                    <a href="http://localhost/CT466/khachhang/sanpham/hienthisp.php?idsach=' . $rowloai['sp_id'] . ' " 
                                                         class="dark-grey-text font-small font-weight-bolder"  />' . $rowloai['sp_tensach'] . '</a>
                                                 </strong>
                                             </h5>
@@ -284,7 +284,7 @@ require_once "khachhang/sanpham/csdl_function.php";
 
                             <img src=' . $linkhinh . ' alt="Hình Ảnh Sách" style="width: 330px; height: 350px; margin: 1em auto; padding-top: 1em;">
 
-                            <a href="http://localhost:8080/CT466/khachhang/sanpham/hienthisp.php?idsach=' . $row['sp_id'] . ' " 
+                            <a href="http://localhost/CT466/khachhang/sanpham/hienthisp.php?idsach=' . $row['sp_id'] . ' " 
                                 title=' . $row['sp_tensach'] . ' />
                                 <div class="mask rgba-white-slight"></div>
                             </a>
@@ -297,7 +297,7 @@ require_once "khachhang/sanpham/csdl_function.php";
                             <!-- Category & Title tensach-->
                             <h5 class="card-title mb-1">
                                 <strong>
-                                    <a href="http://localhost:8080/CT466/khachhang/sanpham/hienthisp.php?idsach=' . $row['sp_id'] . ' " 
+                                    <a href="http://localhost/CT466/khachhang/sanpham/hienthisp.php?idsach=' . $row['sp_id'] . ' " 
                                         class="dark-grey-text font-small font-weight-bolder"  />' . $row['sp_tensach'] . '</a>
                                 </strong>
                             </h5>
@@ -528,8 +528,8 @@ require_once "khachhang/sanpham/csdl_function.php";
                 <!---->
                 <!--                <p><a href="#">Chính sách bảo mật</a></p>-->
 
-                <p><a href="http://localhost:8080/CT271/gioithieu.php">Giới thiệu Hiraki</a></p>
-                <p><a href="http://localhost:8080/CT271/khachhang/lienhe.php">Liên hệ</a></p>
+                <p><a href="http://localhost/CT466/gioithieu.php">Giới thiệu Hiraki</a></p>
+                <p><a href="http://localhost/CT466/khachhang/lienhe.php">Liên hệ</a></p>
 
                 <!--                <p><a href="#">Hệ thống nhà sách</a></p>-->
 
@@ -583,7 +583,7 @@ require_once "khachhang/sanpham/csdl_function.php";
 
         <div class="container-fluid">
 
-            © 2013 Nhà Sách Trực tuyến: <a href="http://localhost:8080/CT271/index.php"><strong> Hiraki.com</strong></a>
+            © 2013 Nhà Sách Trực tuyến: <a href="http://localhost/CT466/index.php"><strong> Hiraki.com</strong></a>
 
         </div>
 

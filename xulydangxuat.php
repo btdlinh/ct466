@@ -8,5 +8,5 @@
 //    header('location:dangnhap.html');
 //}
 //else {
-//    echo '<p>Người dùng chưa đăng nhập. Không thể đăng xuất được!' ."<a href=\"http://localhost:8080/CT271\"> Quay lại </a></p>"; die;
+//    echo '<p>Người dùng chưa đăng nhập. Không thể đăng xuất được!' ."<a href=\"http://localhost/CT466\"> Quay lại </a></p>"; die;
 //}

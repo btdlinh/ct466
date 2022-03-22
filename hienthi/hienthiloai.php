@@ -2,7 +2,7 @@
 $servername = 'localhost';
 $username = 'root';
 $password = '';
-$dbname = 'ct271-01';
+$dbname = 'CT466-01';
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname)
@@ -14,7 +14,7 @@ $conn -> set_charset('utf8');
 //?>
 <!---->
 <?php //foreach ($rs as $item): ?>
-<!--    <section><a href="http://localhost:8080/CT271/hienthi/hienthiloai_sp.php?idtheloai=--><?//= $item['idtheloai'] ?><!--"></a></section>-->
+<!--    <section><a href="http://localhost/CT466/hienthi/hienthiloai_sp.php?idtheloai=--><?//= $item['idtheloai'] ?><!--"></a></section>-->
 <?php //endforeach; ?>
 
 

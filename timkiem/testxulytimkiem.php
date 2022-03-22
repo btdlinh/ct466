@@ -31,7 +31,7 @@
                 // Vòng lặp while & mysql_fetch_assoc dùng để lấy toàn bộ dữ liệu có trong table và trả về dữ liệu ở dạng array.
 
                 while ($rowloai = mysqli_fetch_assoc($sqlloai)) {
-                    $linkhinh = "CT271" . $rowloai['hinhanh'];
+                    $linkhinh = "CT466" . $rowloai['hinhanh'];
                     echo '
       
                             <div class="col-lg-4 mt-4 mb-4">
@@ -43,7 +43,7 @@
                 
                                             <img src=' . $linkhinh . ' alt="Hình Ảnh Sách" style="width: 330px; height: 350px; margin: 1em auto; padding-top: 1em;">
                 
-                                            <a href="http://localhost:8080/CT271/khachhang/sanpham/hienthisp.php?idsach=' . $rowloai['idsach'] . ' " 
+                                            <a href="http://localhost/CT466/khachhang/sanpham/hienthisp.php?idsach=' . $rowloai['idsach'] . ' " 
                                                 title=' . $rowloai['tensach'] . ' />
                                                 <div class="mask rgba-white-slight"></div>
                                             </a>
@@ -56,7 +56,7 @@
                                             <!-- Category & Title tensach-->
                                             <h5 class="card-title mb-1">
                                                 <strong>
-                                                    <a href="http://localhost:8080/CT271/khachhang/sanpham/hienthisp.php?idsach=' . $rowloai['idsach'] . ' " 
+                                                    <a href="http://localhost/CT466/khachhang/sanpham/hienthisp.php?idsach=' . $rowloai['idsach'] . ' " 
                                                         class="dark-grey-text font-small font-weight-bolder"  />' . $rowloai['tensach'] . '</a>
                                                 </strong>
                                             </h5>

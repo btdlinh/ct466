@@ -57,9 +57,9 @@ $result = $conn->query($sql1);
                             class="clearfix d-none d-sm-inline-block">Tài Khoản</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="http://localhost:8080/CT271/admin/thongtin/thongtintaikhoan.php">Tài Khoản Của Tôi</a>
-                    <a class="dropdown-item" href="http://localhost:8080/CT271/admin/dangky.html">Đăng Ký</a>
-                    <a class="dropdown-item" href="http://localhost:8080/CT271/admin/xulydangxuat.php">Đăng Xuất</a>
+                    <a class="dropdown-item" href="http://localhost/CT466/admin/thongtin/thongtintaikhoan.php">Tài Khoản Của Tôi</a>
+                    <a class="dropdown-item" href="http://localhost/CT466/admin/dangky.html">Đăng Ký</a>
+                    <a class="dropdown-item" href="http://localhost/CT466/admin/xulydangxuat.php">Đăng Xuất</a>
                 </div>
             </li>
         </ul>

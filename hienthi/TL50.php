@@ -110,7 +110,7 @@ require_once "../khachhang/sanpham/csdl_function.php";
         <?php
         //        if ($rs13->num_rows) {
         while ($row50 = mysqli_fetch_assoc($rs50)) {
-            $linkhinh = "http://localhost:8080/CT271/img/bookimg/" . $row50['hinhanh'];
+            $linkhinh = "http://localhost/CT466/img/bookimg/" . $row50['hinhanh'];
             echo '
       
             <div class="col-lg-4 mt-4 mb-4">
@@ -122,7 +122,7 @@ require_once "../khachhang/sanpham/csdl_function.php";
 
                                     <img src='. $linkhinh.' alt="Hình Ảnh Sách" style="width: 330px; height: 350px; margin: 1em auto; padding-top: 1em;">
 
-                            <a href="http://localhost:8080/CT271/khachhang/sanpham/hienthisp.php?idsach=' . $row50['idsach'] . ' " 
+                            <a href="http://localhost/CT466/khachhang/sanpham/hienthisp.php?idsach=' . $row50['idsach'] . ' " 
                                 title='.$row50['tensach'].' />
                                 <div class="mask rgba-white-slight"></div>
                             </a>
@@ -135,7 +135,7 @@ require_once "../khachhang/sanpham/csdl_function.php";
                             <!-- Category & Title tensach-->
                             <h5 class="card-title mb-1">
                                 <strong>
-                                    <a href="http://localhost:8080/CT271/khachhang/sanpham/hienthisp.php?idsach=' . $row50['idsach'] . ' " 
+                                    <a href="http://localhost/CT466/khachhang/sanpham/hienthisp.php?idsach=' . $row50['idsach'] . ' " 
                                         class="dark-grey-text font-small font-weight-bolder"  />' . $row50['tensach'] . '</a>
                                 </strong>
                             </h5>

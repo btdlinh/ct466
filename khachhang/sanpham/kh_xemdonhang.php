@@ -2,7 +2,7 @@
 session_start();
 if (isset($_SESSION['kh_email'])) {
     $email = $_SESSION['kh_email'];
-} else header("location:http://localhost:8080/CT466/dangnhap.html");
+} else header("location:http://localhost/CT466/dangnhap.html");
 
 require "../../db.php";
 
@@ -83,7 +83,7 @@ $b = $row_dc['dc_id'];
             <!--                <a href="#" data-activates="slide-out" class="button-collapse"><i class="fas fa-home"></i></a>-->
         </div>
 
-        <a class="navbar-brand font-weight-bold" href="http://localhost:8080/CT466"><strong> HIRAKI.COM </strong></a>
+        <a class="navbar-brand font-weight-bold" href="http://localhost/CT466"><strong> HIRAKI.COM </strong></a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
                 aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
@@ -295,7 +295,7 @@ $b = $row_dc['dc_id'];
                         <!--end thong tin sp-->
                     </form>
 
-                    <p align="center"><a href="http://localhost:8080/CT466" title="Quay lại trang chủ" ><i class="fas fa-arrow-circle-left btn-lg btn-outline-info" ></i></a></p>
+                    <p align="center"><a href="http://localhost/CT466" title="Quay lại trang chủ" ><i class="fas fa-arrow-circle-left btn-lg btn-outline-info" ></i></a></p>
 
                 </div>
 

@@ -147,7 +147,7 @@ $_SESSION['total_items'] = total_items($_SESSION['cart']);
                 <!--                <a href="#" data-activates="slide-out" class="button-collapse"><i class="fas fa-home"></i></a>-->
             </div>
 
-            <a class="navbar-brand font-weight-bold" href="http://localhost:8080/CT271"><strong> HIRAKI.COM </strong></a>
+            <a class="navbar-brand font-weight-bold" href="http://localhost/CT466"><strong> HIRAKI.COM </strong></a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
                     aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
@@ -161,13 +161,13 @@ $_SESSION['total_items'] = total_items($_SESSION['cart']);
                 <!---->
                 <!--                    <li class="nav-item ml-3">-->
                 <!--                        <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"-->
-                <!--                           href="http://localhost:8080/CT271/khachhang/lienhe.php"><i-->
+                <!--                           href="http://localhost/CT466/khachhang/lienhe.php"><i-->
                 <!--                                    class="fas fa-comments blue-text"></i> Liên Hệ</a>-->
                 <!--                    </li>-->
                 <!---->
                 <!--                    <li class="nav-item ml-3">-->
                 <!--                        <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"-->
-                <!--                           href="http://localhost:8080/CT271/khachhang/sanpham/giohang.php"><i-->
+                <!--                           href="http://localhost/CT466/khachhang/sanpham/giohang.php"><i-->
                 <!--                                    class="fas fa-shopping-cart blue-text"></i> Giỏ Hàng</a>-->
                 <!--                    </li>-->
                 <!---->
@@ -183,9 +183,9 @@ $_SESSION['total_items'] = total_items($_SESSION['cart']);
                 <!---->
                 <!--                        <div class="dropdown-menu dropdown-menu-right dropdown-cyan"-->
                 <!--                             aria-labelledby="navbarDropdownMenuLink-4">-->
-                <!--                            <a class="dropdown-item waves-effect waves-light" href="http://localhost:8080/CT271/dangky.html"> Đăng ký </a>-->
-                <!--                            <a class="dropdown-item waves-effect waves-light" href="http://localhost:8080/CT271/dangnhap.html"> Đăng nhập </a>-->
-                <!--                            <a class="dropdown-item waves-effect waves-light" href="http://localhost:8080/CT271/xulydangxuat.php"> Đăng xuất </a>-->
+                <!--                            <a class="dropdown-item waves-effect waves-light" href="http://localhost/CT466/dangky.html"> Đăng ký </a>-->
+                <!--                            <a class="dropdown-item waves-effect waves-light" href="http://localhost/CT466/dangnhap.html"> Đăng nhập </a>-->
+                <!--                            <a class="dropdown-item waves-effect waves-light" href="http://localhost/CT466/xulydangxuat.php"> Đăng xuất </a>-->
                 <!--                        </div>-->
                 <!---->
                 <!--                    </li>-->
@@ -277,7 +277,7 @@ $_SESSION['total_items'] = total_items($_SESSION['cart']);
 <?php require_once "../../hienthi/footer.php"; ?>
 <?php }
 else {
-    echo " <section class=\"alert alert-info\" style='text-align: center ; font-family: Arial; margin-top: 3em;'><h3>Giỏ hàng trống! <a href='http://localhost:8080/CT466/index.php'> Quay lại trang chủ</a></h3></section>";
+    echo " <section class=\"alert alert-info\" style='text-align: center ; font-family: Arial; margin-top: 3em;'><h3>Giỏ hàng trống! <a href='http://localhost/CT466/index.php'> Quay lại trang chủ</a></h3></section>";
 //    echo "<strong><h4 class=\"text-warning\ text-center\">Giỏ hàng của bạn trống! Vui lòng thêm sản phẩm !</h4></strong>";
 }?>
 

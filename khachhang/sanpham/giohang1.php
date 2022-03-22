@@ -165,7 +165,7 @@ require "headerhienthisp.php";
 <?php require_once "../../hienthi/footer.php"; ?>
 <?php
 } else {
-    echo " <section class=\"alert alert-info\" style='text-align: center ; font-family: Arial; margin-top: 3em;'><h3>Giỏ hàng trống! <a href='http://localhost:8080/CT271/index.php'> Quay lại trang chủ</a></h3></section>";
+    echo " <section class=\"alert alert-info\" style='text-align: center ; font-family: Arial; margin-top: 3em;'><h3>Giỏ hàng trống! <a href='http://localhost/CT466/index.php'> Quay lại trang chủ</a></h3></section>";
 //    echo "<strong><h4 class=\"text-warning\ text-center\">Giỏ hàng của bạn trống! Vui lòng thêm sản phẩm !</h4></strong>";
 }
 if (isset($conn)) {

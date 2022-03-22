@@ -39,7 +39,7 @@ $result = $conn->query($sql1);
         <!-- Logo-->
         <li class="logo-sn waves-effect py-3">
             <div class="text-center">
-                <a href="#" class="pl-0"><img src="http://localhost:8080/CT466/image/logo.png" style="width: 80%;"></a>
+                <a href="#" class="pl-0"><img src="http://localhost/CT466/image/logo.png" style="width: 80%;"></a>
             </div>
         </li>
 
@@ -62,9 +62,9 @@ $result = $conn->query($sql1);
                                 ADMIN<i class="fas fa-angle-down rotate-icon"></i></a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="http://localhost:8080/CT466/admin/thongtin/dsadmin.php"
+                                    <li><a href="http://localhost/CT466/admin/thongtin/dsadmin.php"
                                            class="waves-effect">Danh Sách Admin</a></li>
-                                    <li><a href="http://localhost:8080/CT466/admin/thongtin/thongtincanhan.php"
+                                    <li><a href="http://localhost/CT466/admin/thongtin/thongtincanhan.php"
                                            class="waves-effect">Thông Tin Admin</a></li>
                                 </ul>
                             </div>
@@ -75,13 +75,13 @@ $result = $conn->query($sql1);
                                 PHẨM<i class="fas fa-angle-down rotate-icon"></i></a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="http://localhost:8080/CT466/admin/sach/dssach.php"
+                                    <li><a href="http://localhost/CT466/admin/sach/dssach.php"
                                            class="waves-effect">Danh Sách Sản Phẩm</a></li>
-                                    <li><a href="http://localhost:8080/CT466/admin/sach/ThemSach.php"
+                                    <li><a href="http://localhost/CT466/admin/sach/ThemSach.php"
                                            class="waves-effect">Thêm Sản Phẩm</a></li>
-                                    <li><a href="http://localhost:8080/CT466/admin/sach/dssach.php"
+                                    <li><a href="http://localhost/CT466/admin/sach/dssach.php"
                                            class="waves-effect">Sửa Sản Phẩm</a></li>
-                                    <li><a href="http://localhost:8080/CT466/admin/sach/dssach.php"
+                                    <li><a href="http://localhost/CT466/admin/sach/dssach.php"
                                            class="waves-effect">Xóa Sản Phẩm</a></li>
                                 </ul>
                             </div>
@@ -91,12 +91,12 @@ $result = $conn->query($sql1);
                                 KHÁCH HÀNG<i class="fas fa-angle-down rotate-icon"></i></a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="http://localhost:8080/CT466/admin/khachhang/dskhachhang.php"
+                                    <li><a href="http://localhost/CT466/admin/khachhang/dskhachhang.php"
                                            class="waves-effect">Danh sách khách hàng</a></li>
                                     <li><a href="#" class="waves-effect">Thêm khách hàng</a></li>
-                                    <li><a href="http://localhost:8080/CT466/admin/khachhang/dskhachhang.php"
+                                    <li><a href="http://localhost/CT466/admin/khachhang/dskhachhang.php"
                                            class="waves-effect">Sửa khách hàng</a></li>
-                                    <li><a href="http://localhost:8080/CT466/admin/khachhang/dskhachhang.php"
+                                    <li><a href="http://localhost/CT466/admin/khachhang/dskhachhang.php"
                                            class="waves-effect">Xóa khách hàng</a></li>
                                 </ul>
                             </div>
@@ -128,13 +128,13 @@ $result = $conn->query($sql1);
                                 GIẢ<i class="fas fa-angle-down rotate-icon"></i></a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="http://localhost:8080/CT466/admin/tacgia/dstacgia.php"
+                                    <li><a href="http://localhost/CT466/admin/tacgia/dstacgia.php"
                                            class="waves-effect">Danh Sách Tác Giả</a></li>
-                                    <li><a href="http://localhost:8080/CT466/admin/tacgia/ThemTacGia.html"
+                                    <li><a href="http://localhost/CT466/admin/tacgia/ThemTacGia.html"
                                            class="waves-effect">Thêm Tác Giả</a></li>
-                                    <li><a href="http://localhost:8080/CT466/admin/tacgia/dstacgia.php"
+                                    <li><a href="http://localhost/CT466/admin/tacgia/dstacgia.php"
                                            class="waves-effect">Sửa Tác Giả</a></li>
-                                    <li><a href="http://localhost:8080/CT466/admin/tacgia/dstacgia.php"
+                                    <li><a href="http://localhost/CT466/admin/tacgia/dstacgia.php"
                                            class="waves-effect">Xóa Tác Giả</a></li>
                                 </ul>
                             </div>
@@ -144,13 +144,13 @@ $result = $conn->query($sql1);
                                 XUẤT BẢN<i class="fas fa-angle-down rotate-icon"></i></a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="http://localhost:8080/CT466/admin/nxb/dsnxb.php" class="waves-effect">Danh
+                                    <li><a href="http://localhost/CT466/admin/nxb/dsnxb.php" class="waves-effect">Danh
                                             Sách NXB</a></li>
-                                    <li><a href="http://localhost:8080/CT466/admin/nxb/themnxb.html"
+                                    <li><a href="http://localhost/CT466/admin/nxb/themnxb.html"
                                            class="waves-effect">Thêm NXB</a></li>
-                                    <li><a href="http://localhost:8080/CT466/admin/nxb/dsnxb.php" class="waves-effect">Sửa
+                                    <li><a href="http://localhost/CT466/admin/nxb/dsnxb.php" class="waves-effect">Sửa
                                             NXB</a></li>
-                                    <li><a href="http://localhost:8080/CT466/admin/nxb/dsnxb.php" class="waves-effect">Xóa
+                                    <li><a href="http://localhost/CT466/admin/nxb/dsnxb.php" class="waves-effect">Xóa
                                             NXB</a></li>
                                 </ul>
                             </div>
@@ -160,13 +160,13 @@ $result = $conn->query($sql1);
                                 LOẠI<i class="fas fa-angle-down rotate-icon"></i></a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="http://localhost:8080/CT466/admin/theloai/dstheloai.php"
+                                    <li><a href="http://localhost/CT466/admin/theloai/dstheloai.php"
                                            class="waves-effect">Danh Sách Thể Loại</a></li>
-                                    <li><a href="http://localhost:8080/CT466/admin/theloai/ThemTheLoai.html"
+                                    <li><a href="http://localhost/CT466/admin/theloai/ThemTheLoai.html"
                                            class="waves-effect">Thêm Thể Loại</a></li>
-                                    <li><a href="http://localhost:8080/CT466/admin/theloai/dstheloai.php"
+                                    <li><a href="http://localhost/CT466/admin/theloai/dstheloai.php"
                                            class="waves-effect">Sửa Thể Loại</a></li>
-                                    <li><a href="http://localhost:8080/CT466/admin/theloai/dstheloai.php"
+                                    <li><a href="http://localhost/CT466/admin/theloai/dstheloai.php"
                                            class="waves-effect">Xóa Thể Loại</a></li>
                                 </ul>
                             </div>

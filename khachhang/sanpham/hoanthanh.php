@@ -76,7 +76,7 @@ session_unset();
 ?>
     <p class="lead text-success w-75 m-auto">Đơn đặt hàng của bạn đã được xử lý thành công. Vui lòng chú ý điện thoại của bạn để nhận được xác nhận đơn hàng và chi tiết giao hàng !.
         Giỏ hàng của bạn đã trống.
-        <a href="http://localhost:8080/CT466/index.php"> Quay lại.</a>
+        <a href="http://localhost/CT466/index.php"> Quay lại.</a>
     </p>
 
 
