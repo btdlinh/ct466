@@ -2,15 +2,17 @@
     require "../../db.php";
 
     session_start();
-    if (isset($_SESSION['email'])) {
-        $email = $_SESSION['email'];
-    } else exit();
+//    if (isset($_SESSION['email'])) {
+//        $email = $_SESSION['email'];
+//    } else exit();
     // xu ly them sach
     $id=$_GET['idsach'];
     $tensach = $_POST["tensach"];
     $idloai = $_POST["idtheloai"];
     $idtacgia = $_POST["idtacgia"];
     $idnxb = $_POST["idnxb"];
+    $idnn = $_POST["idnn"];
+    $idncc = $_POST["idncc"];
     $gia = $_POST["giabansach"];
     $soluong = $_POST["slsach"];
     $mota = $_POST["motasach"];
@@ -20,15 +22,32 @@
     $destination = "../../img/bookimg/". $_FILES['hinhanhsach']['name'];
     move_uploaded_file($filename, $destination);
     //echo $destination;
-    $sql= "UPDATE sach SET  tensach='$tensach', 
-                            idtheloai='$idloai', 
-                            idtacgia='$idtacgia', 
-                            idnxb='$idnxb', 
-                            gia='$gia', 
-                            soluong='$soluong', 
-                            mota='$mota', 
-                            hinhanh='$destination' 
-                        WHERE (idsach='$id')";
+    if(empty($filename)){
+        $sql= "UPDATE sanpham SET  sp_tensach='$tensach', 
+                            sp_idtheloai='$idloai', 
+                            sp_idtg='$idtacgia', 
+                            sp_idnxb='$idnxb', 
+                            sp_idnn='$idnn',  
+                            sp_idncc='$idncc', 
+                            sp_gia='$gia', 
+                            sp_soluong= $soluong, 
+                            sp_mota='$mota' 
+                        WHERE (sp_id='$id')";
+
+    }else{
+        $sql= "UPDATE sanpham SET  sp_tensach='$tensach', 
+                            sp_idtheloai='$idloai', 
+                            sp_idtg='$idtacgia', 
+                            sp_idnxb='$idnxb', 
+                            sp_idnn='$idnn',  
+                            sp_idncc='$idncc', 
+                            sp_gia='$gia', 
+                            sp_soluong= $soluong, 
+                            sp_mota='$mota', 
+                            sp_hinhanh='$destination' 
+                        WHERE (sp_id='$id')";
+    }
+
 
     $conn->query($sql) or die("err: ");
     header('location: dssach.php');

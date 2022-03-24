@@ -20,7 +20,7 @@ $conn -> set_charset('utf8');
 //} else exit();
 // thể loai
 $sql = "SELECT * FROM the_loai ";
-$result = $conn->query($sql) or die($conn->error);
+$result = $conn->query($sql) ;
 $row = $result->fetch_assoc();
 
 // thể loại
@@ -136,12 +136,13 @@ require "../header.php";
                         <!--form the loai-->
                         <div class="col-xl-auto">
                             <!-- Name -->
+
                             <select
                                     class="custom-select custom-select-md mb-3"
                                     name="idtheloai"
-                                    value="<?php echo $row['tl_tentheloai']?>"
+
                             >
-                                <option> Thể Loại Sách</option>
+                                <option  value="<?php echo $row['tl_id'];?>" selected> <?php echo  $row['tl_tentheloai'];   ?></option>
                                 <?php
                                 if ($result->num_rows > 0) {
                                     while ($row = $result->fetch_assoc()) {
@@ -151,6 +152,7 @@ require "../header.php";
                                             echo "<option value=" . $row['tl_id'] . ">" . $row['tl_tentheloai'] . "</option>";
                                     }
                                 }
+                                echo $_POST['idtheloai'];
                                 ?>
                             </select>
                         </div>
@@ -173,9 +175,9 @@ require "../header.php";
                             <select
                                     class="custom-select custom-select-md mb-3"
                                     name="idnn"
-                                    value="<?php echo $row5['nxb_ten']?>"
+
                             >
-                                <option> Ngôn Ngữ</option>
+                                <option  value="<?php echo $row5['nn_id'];?>" selected> <?php echo  $row5['nn_ngonngu'];   ?></option>
                                 <?php
                                 if ($result5->num_rows > 0) {
                                     while ($row5 = $result5->fetch_assoc()) {
@@ -207,9 +209,8 @@ require "../header.php";
                             <select
                                     class="custom-select custom-select-md mb-3"
                                     name="idtacgia"
-                                    value="<?php echo $row2['tg_hoten']?>"
                             >
-                                <option> Tác Giả</option>
+                                <option  value="<?php echo $row2['tg_id'];?>" selected> <?php echo  $row2['tg_hoten'];   ?></option>
                                 <?php
                                 if ($result2->num_rows > 0) {
                                     while ($row2 = $result2->fetch_assoc()) {
@@ -275,17 +276,15 @@ require "../header.php";
                             <!-- Name -->
                             <select
                                     class="custom-select custom-select-md mb-3"
-                                    name="idnn"
-                                    value="<?php echo $row3['ncc_ten']?>"
+                                    name="idncc"
+
                             >
-                                <option> Nhà Cung Cấp</option>
+                                <option  value="<?php echo $row3['ncc_id'];?>" selected> <?php echo  $row3['ncc_ten'];   ?></option>
+
                                 <?php
                                 if ($result3->num_rows > 0) {
-                                    while ($row3 = $result5->fetch_assoc()) {
-                                        if ($row3['ncc_id'] == $row4['sp_idncc']) {
-                                            echo "<option value=" . $row3['ncc_id'] . " selected >" . $row3['ncc_ten'] . "  </option>";
-                                        } else
-                                            echo "<option value=" . $row3['ncc_id'] . ">" . $row3['ncc_ten'] . "</option>";
+                                    while ($row3 = $result3->fetch_assoc()) {
+                                        echo "<option value=" . $row3['ncc_id'] . " >" . $row3['ncc_ten'] . "  </option>";
 
                                     }
                                 }
@@ -322,22 +321,23 @@ require "../header.php";
                 <!-- Grid column -->
 
                 <!-- Grid column -->
-                <!--                    <div class="col-md-10">-->
-                <!---->
-                <!--                        <div class="md-form">-->
-                <!--                            <input-->
-                <!--                                    type="number"-->
-                <!--                                    id="slsach"-->
-                <!--                                    class="form-control form-control-sm black-text"-->
-                <!--                                    name="slsach"-->
-                <!--                                    value="--><?php //echo $row4['soluong']?><!--"-->
-                <!--                            />-->
-                <!--                            <label for="slsach" class="orangeForm-price black-text "> Số Lượng</label>-->
-                <!--                        </div>-->
-                <!--                        <div>-->
-                <!--                            <p id="tbsl" class="error"></p>-->
-                <!--                        </div>-->
-                <!--                    </div>-->
+                                    <div class="col-md-10">
+
+                                        <div class="md-form">
+                                            <input
+                                                    type="number"
+                                                    id="slsach"
+                                                    class="form-control form-control-sm black-text"
+                                                    name="slsach"
+                                                    min="0"
+                                                    value="<?php echo $row4['sp_soluong']?>"
+                                            />
+                                            <label for="slsach" class="orangeForm-price black-text "> Số Lượng</label>
+                                        </div>
+                                        <div>
+                                            <p id="tbsl" class="error"></p>
+                                        </div>
+                                    </div>
                 <!-- Grid column -->
                 <!-- Grid column -->
                 <div class="col-md-10">
@@ -375,6 +375,15 @@ require "../header.php";
 
                                 />
                             </div>
+                            <?php    $linkhinh = "http://localhost/CT466/img/bookimg/". $row4['sp_hinhanh']; ?>
+                            <img src=<?php echo $linkhinh; ?>
+                                 alt="Hình Ảnh Sách"
+                                 style="width: 150px;
+                                height: 180px;
+                                margin: 3em auto;
+                                padding-top: 1em;"
+                            />
+
                             <div class="file-path-wrapper">
                             </div>
                         </div>

@@ -1,5 +1,4 @@
 <?php
-
 function db_connect(){
     $conn = mysqli_connect("localhost", "root", "", "ct466");
     if(!$conn){
@@ -60,12 +59,19 @@ function getOrderId($conn, $idkh){
 //}
 
         // thong tin kh trong hoa don
-function insertIntoOrder($conn, $idkh, $gia, $trangthai, $date)
+function insertIntoOrder($conn, $idkh,$gia, $trangthai, $date)
 {
+    $emailkh = $_SESSION['kh_email'];
+    $sql = "SELECT dc_id FROM `dia_chi` Where dc_emailkh ='$emailkh' ORDER BY dc_id DESC LIMIT 1";
+//    echo $sql;
+    $result_sql = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_array($result_sql);
+//    echo $row['dc_id'];
+    $hdiddc=$row['dc_id'];
 //    $query = "INSERT INTO dondathang VALUES
 //		('', '" . $idkh . "','" . $gia . "', '" . $emailkh . "','" . $diachikh . "','" . $sdtkh . "','" . $date . "')";
     $query = "INSERT INTO hoa_don VALUES
-		('', '" . $idkh . "','" . $gia . "', '" . $trangthai . "','" . $date . "')";
+		('', '" . $idkh . "','" . $hdiddc . "','" . $gia . "', '" . $trangthai . "','" . $date . "')";
     $result = mysqli_query($conn, $query);
 
     if (!$result) {
@@ -111,6 +117,7 @@ function getCustomerId( $emailkh, $tenkh, $sdtkh, $diachikh){
 		dc_diachi = '$diachikh'
 		";
     $result = mysqli_query($conn, $query);
+
     // if there is customer in db, take it out
     if($result){
         $row = mysqli_fetch_assoc($result);

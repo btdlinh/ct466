@@ -27,13 +27,15 @@ echo $b;
 echo "<br>";
 echo $c;
 
-$sql1 = "SELECT * FROM hoa_don as a join chi_tiet_hoa_don as b on a.hd_id=b.cthd_idhd
-                                        join sanpham as c on c.sp_id=b.cthd_idsp   
-                                        join khach_hang as d on d.kh_id=a.hd_idkh   
-                                        join dia_chi as e on d.kh_id=e.dc_idkh   
-                                        WHERE a.hd_id = $iddon  and kh_id='$b'  
+//$sql1 = "SELECT * FROM hoa_don as a join chi_tiet_hoa_don as b on a.hd_id=b.cthd_idhd
+//                                        join sanpham as c on c.sp_id=b.cthd_idsp
+//                                        join khach_hang as d on d.kh_id=a.hd_idkh
+//                                        join dia_chi as e on d.kh_id=e.dc_idkh
+//                                        WHERE a.hd_id = $iddon  and kh_id='$b'
+//
+//";
+$sql1 = "SELECT * FROM hoa_don as a JOIN dia_chi as b on a.hd_iddc=b.dc_id join khach_hang AS c on c.kh_id=b.dc_idkh  WHERE a.hd_id = $iddon";
 
-";
 $result1 = mysqli_query($conn, $sql1);
 
 

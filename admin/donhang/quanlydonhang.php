@@ -32,10 +32,7 @@ while ($row11 = mysqli_fetch_array($result11, MYSQLI_ASSOC)) {
 }
 
 //$sql1 = "SELECT * FROM hoa_don ";
-$sql1 = "SELECT * FROM hoa_don as a join khach_hang as b on b.kh_id = a.hd_idkh
-                                        join dia_chi as dc on b.kh_id=dc.dc_idkh
-                GROUP BY (hd_id) DESC
-    ";
+$sql1 = "SELECT * FROM hoa_don as a JOIN dia_chi as b on a.hd_iddc=b.dc_id join khach_hang AS c on c.kh_id=b.dc_idkh";
 $result = mysqli_query($conn, $sql1);
 
 ?>
@@ -168,19 +165,29 @@ $result = mysqli_query($conn, $sql1);
                                                  <td>" .$row['dc_hoten']. "<br>". $row['dc_emailkh'] . "<br>" . $row['dc_sdt'] . "</td>
                                                  <td>" . $row['dc_diachi'] . "</td>
                                                  <td>" . date('d/m/Y ', strtotime($row['hd_thoigianlapdonhang'])) . "</td>
-                                                  
-                                                 <td>".$row['hd_trangthai']."</td>
+                                                 <td> ";
+                                        if($row['hd_trangthai'] == 1){
+                                            echo "Chờ xác nhận";
+                                        }elseif ($row['hd_trangthai'] == 2) {
+                                            echo " Đã xác nhận";
+                                            }elseif ($row['hd_trangthai'] == 3) {
+                                            echo " Đang giao hàng";
+                                            }elseif ($row['hd_trangthai'] == 4) {
+                                            echo " Đã giao hàng";
+                                        }else  {
+                                            echo " Hủy đơn";
+                                        }
+                                        echo "
+                                                 </td>
                                                  
                                                  <td>
                                                 
-                                                     <button type='button' class='btn btn-sm btn btn-light-blue' title='Chi tiết đơn hàng'>
                                                      <a href=\"chitietdonhang.php?iddon=" . $row['hd_id'] . "\"  
                                                          class=\"white-text\" 
                                                         data-toggle=\"tooltip\" 
                                                         data-placement=\"top\" >
-                                                     <i class=\"fas fa-eye\"></i>
+                                                     <i class=\"fas fa-eye blue-text\" style='font-size: 26px'></i>
                                                      </a>
-                                                     </button>
                                               </td>
                                                ";
                                         $i++;

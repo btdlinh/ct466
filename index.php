@@ -174,7 +174,7 @@ require_once "khachhang/sanpham/csdl_function.php";
     <!--phân trang-->
     <?php
     //so san pham mot trang
-    $item_per_page = !empty($_GET['per_page']) ? $_GET['per_page'] : 12;
+    $item_per_page = !empty($_GET['per_page']) ? $_GET['per_page'] : 2;
     //trang hien tai
     $current_page = !empty($_GET['page']) ? $_GET['page'] : 1;
     // vi tri bd lay
@@ -196,11 +196,15 @@ require_once "khachhang/sanpham/csdl_function.php";
         if (isset($_GET['search'])) {
             // tiem kiem san pham
             $search = addslashes($_GET['search']);
-            $sql = "select * from sanpham as sp join the_loai as tl on sp.sp_idtheloai=tl.tl_id
-                                                join tac_gia as tg on sp.sp_idtg=tg.tg_id
+//            $sql = "select * from sanpham as sp join the_loai as tl on sp.sp_idtheloai=tl.tl_id
+//                                                join tac_gia as tg on sp.sp_idtg=tg.tg_id
+//                            where sp_tensach like '%$search%'
+//                               or tl.tl_tentheloai like '%$search%'
+//                               or tg.tg_hoten like '%$search%' ";
+
+            $sql = "select * from sanpham 
                             where sp_tensach like '%$search%' 
-                               or tl.tl_tentheloai like '%$search%' 
-                               or tg.tg_hoten like '%$search%' ";
+                              ";
             $s = mysqli_query($conn, $sql);
             $num = mysqli_num_rows($s);
         if ($num > 0 && $search != "") {
