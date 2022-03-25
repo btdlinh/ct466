@@ -148,7 +148,7 @@ $title = $row['sp_tensach'];
             <h4>Mô Tả</h4>
             <p><?php echo $row['sp_mota']; ?></p>
             <h4>Chi Tiết Sản Phẩm</h4>
-            <form method="POST" action="giohang.php">
+            <form method="POST" ">
                 <table class="table">
                     <?php foreach ($row as $key => $value) {
                         if ($key == "sp_id" || $key == "sp_idtheloai" || $key == "tg_id" || $key == "ncc_sdt" || $key == "ncc_diachi" || $key == "ncc_id" || $key == "sp_idnxb" || $key == "sp_soluong" || $key == "sp_hinhanh"
@@ -189,22 +189,12 @@ $title = $row['sp_tensach'];
 
                     <tr>
                         <td> Số lượng</td>
-                            <!--                <td> Số lượng</td>-->
-                            <!--                <td >-->
-                            <!--                    <input type="number" min="1" max="5" value="1" class="form-control text-center w-50">-->
-                            <!--                </td>-->
-                            <!--                <td> --><?php //echo $row['sp_soluong']?><!-- sản phẩm có sẵn</td>-->
-                            <!--                    <div class="buttons_added">-->
-                            <!--                        <input class="minus is-form" type="button" value="-">-->
-                            <!--                        <input aria-label="quantity" class="input-qty" max="5" min="1" name="" type="number" value="1">-->
-                            <!--                        <input class="plus is-form" type="button" value="+" >-->
-                            <!--                    </div>-->
 
                         <td>
                             <div class="buttons_added">
                                 <input class="minus is-form" type="button" value="-">
-                                <input aria-label="quantity" class="input-qty" max="5" min="1" name="soluong" type="number"
-                                       value="1" id="soluongmua">
+                                <input aria-label="quantity" class="input-qty" max=<?php echo $row['sp_soluong']  ?> min="1" name="soluong" type="number"
+                                       value="1" id="soluongmua" >
                                 <input class="plus is-form" type="button" value="+" onclick="soluong()">
                             </div>
                             <input type="hidden" name="idsach" value="<?php echo $id; ?>">
@@ -214,7 +204,7 @@ $title = $row['sp_tensach'];
              <div class="m-2 text-info">
                  <?php echo $row['sp_soluong'] ?> sản phẩm có sẵn
              </div>
-                <input type="submit" value="Mua / Thêm vào giỏ hàng" name="cart" class="btn btn-primary">
+                <input type="button" value="Mua / Thêm vào giỏ hàng" name="cart" class="btn btn-primary" onclick="addcart(<?php echo $id; ?>)">
             </form>
 
 
@@ -228,10 +218,89 @@ $title = $row['sp_tensach'];
 <!-- Navigation -->
 <?php
 //    require "headerhienthisp.php";
-require "../../UI/adheader.php";
+//require "../../UI/adheader.php";
+
 ?>
 <!-- Navigation -->
+<!-- Navbar ngang-->
+<nav class="navbar fixed-top navbar-expand-lg navbar-light scrolling-navbar white">
 
+    <div class="container">
+
+        <!-- SideNav slide-out button-->
+        <div class="float-left mr-2">
+            <i class="fas fa-book-open blue-text"></i>
+            <!--                <a href="#" data-activates="slide-out" class="button-collapse"><i class="fas fa-home"></i></a>-->
+        </div>
+
+        <a class="navbar-brand font-weight-bold" href="http://localhost/CT466"><strong>
+                HIRAKI.COM </strong></a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
+                aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item ml-3">
+                    <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"
+                       href="http://localhost/CT466/khachhang/lienhe.php"><i
+                                class="fas fa-comments blue-text"></i> Liên Hệ</a>
+                </li>
+
+                <li class="nav-item ml-3">
+                    <?php
+                    $number = 0;
+                    if(isset($_SESSION['cart'])){
+                        $cart = $_SESSION['cart'];
+                        foreach ($cart as $value){
+                            $number +=  (int)$value["number"];
+
+                        }
+                    }
+                    ?>
+                    <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"
+                       href="http://localhost/CT466/khachhang/sanpham/giohang.php">
+                        <i
+                                class="fas fa-shopping-cart blue-text"></i>Giỏ Hàng <span id="qty" style="display: block;
+    margin-top: -34px;
+    color: red;
+    margin-left: 98px;
+    border-radius: 50%;"><?php echo $number; ?></span></a>
+
+
+                </li>
+
+                <li class="nav-item dropdown ml-3">
+
+                    <a class="nav-link dropdown-toggle waves-effect waves-light dark-grey-text font-weight-bold"
+                       id="navbarDropdownMenuLink-4"
+                       data-toggle="dropdown"
+                       aria-haspopup="true"
+                       aria-expanded="false">
+                        <i class="fas fa-user blue-text"></i>Tài Khoản
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right dropdown-cyan"
+                         aria-labelledby="navbarDropdownMenuLink-4">
+                        <a class="dropdown-item waves-effect waves-light" href="dangky.html"> Đăng ký </a>
+                        <a class="dropdown-item waves-effect waves-light" href="dangnhap.html"> Đăng nhập </a>
+                        <a class="dropdown-item waves-effect waves-light" href="xulydangxuat.php"> Đăng xuất </a>
+                    </div>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+<!-- Navbar ngang-->
 
 <!-- Main Container -->
 <div class="container mt-5 pt-3">
@@ -577,12 +646,19 @@ require "../../UI/adheader.php";
 </script>
 <!--nút số lượng-->
 
-<script>
-    function soluong(){
-        var sl = document.getElementById('soluongmua').value;
-        console.log(sl)
-    }
 
+
+<script>
+    function addcart(id){
+        const num = document.getElementById('soluongmua').value;
+
+        $.post("../../giohang_test.php",{'id':id, 'num': num}, function(data, status){
+            // alert(data);
+            item = data.split("-"); //cat mang
+            $("#qty").text(item[0]);
+            $("#total").text(item[1]);
+        });
+    }
 </script>
 
 </body>

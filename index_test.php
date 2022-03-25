@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+//session_destroy();
 //require('./db.php');
 $servername = 'localhost';
 $username = 'root';
@@ -79,13 +82,30 @@ require_once "khachhang/sanpham/csdl_function.php";
                     <li class="nav-item ml-3">
                         <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"
                            href="http://localhost/CT466/khachhang/lienhe.php"><i
-                                    class="fas fa-comments blue-text"></i> Liên Hệ</a>
+                                class="fas fa-comments blue-text"></i> Liên Hệ</a>
                     </li>
 
                     <li class="nav-item ml-3">
+                        <?php
+                        $number = 0;
+                        if(isset($_SESSION['cart'])){
+                            $cart = $_SESSION['cart'];
+                            foreach ($cart as $value){
+                                $number +=  (int)$value["number"];
+
+                            }
+                        }
+                        ?>
                         <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"
-                           href="http://localhost/CT466/khachhang/sanpham/giohang.php"><i
-                                    class="fas fa-shopping-cart blue-text"></i> Giỏ Hàng</a>
+                           href="http://localhost/CT466/khachhang/sanpham/giohang.php">
+                            <i
+                                class="fas fa-shopping-cart blue-text"></i>Giỏ Hàng <span id="qty" style="display: block;
+    margin-top: -34px;
+    color: red;
+    margin-left: 98px;
+    border-radius: 50%;"><?php echo $number; ?></span></a>
+
+
                     </li>
 
                     <li class="nav-item dropdown ml-3">
@@ -123,7 +143,7 @@ require_once "khachhang/sanpham/csdl_function.php";
 <div class="container mt-5 pt-3">
 
     <!-- Navbar sp-->
-    <?php require "hienthi/navbar.php"; ?>
+<!--    --><?php //require "hienthi/navbar.php"; ?>
 
     <!-- Navbar sp-->
     <div class="row pt-4" style="margin-bottom: 5em;">
@@ -207,10 +227,10 @@ require_once "khachhang/sanpham/csdl_function.php";
                               ";
             $s = mysqli_query($conn, $sql);
             $num = mysqli_num_rows($s);
-        if ($num > 0 && $search != "") {
-            while ($rowloai = mysqli_fetch_assoc($s)) {
-                $linkhinh = "http://localhost/CT466/img/bookimg/". $rowloai['sp_hinhanh'];
-                echo '
+            if ($num > 0 && $search != "") {
+                while ($rowloai = mysqli_fetch_assoc($s)) {
+                    $linkhinh = "http://localhost/CT466/img/bookimg/". $rowloai['sp_hinhanh'];
+                    echo '
       
                             <div class="col-lg-4 mt-4 mb-4">
                                     <!-- Card -->
@@ -267,14 +287,14 @@ require_once "khachhang/sanpham/csdl_function.php";
                               </div>
        
                     ';
+                }
             }
-        }
-        else {
-            echo "<h5 class='text-info'><b>Không tìm thấy kết quả!</b></h5>";
-        }
+            else {
+                echo "<h5 class='text-info'><b>Không tìm thấy kết quả!</b></h5>";
+            }
 
         } else {
-           // hien thi san pham
+            // hien thi san pham
             while ($row = $rs->fetch_assoc()) {
                 $linkhinh = "CT466" . $row['sp_hinhanh'];
                 echo '
@@ -312,9 +332,13 @@ require_once "khachhang/sanpham/csdl_function.php";
                         <!-- Card footer gia-->
                             <div class="card-footer pb-0">
 
-                                <div class="row mb-0">
+                                <div class="row mb-0 " style="display: flex; justify-content: space-between;margin: 0 8px;">
 
                                     <span class="float-left m-1 center-element text-info"><strong>' . number_format($row["sp_gia"]) . ' đ</strong></span>
+                              
+                             
+
+                                    <span class="float-left m-1 center-element text-info"  title="Thêm Vào Giỏ Hàng" onclick="addcart('.$row['sp_id'].')" > <i class="fas fa-cart-plus" style="cursor: pointer; font-size: 30px;"></i></span>
                                 
                                 </div>
 
@@ -665,6 +689,17 @@ require_once "khachhang/sanpham/csdl_function.php";
 
 </script>
 
+<script>
+    function addcart(id){
+
+        $.post("giohang_test.php",{'id':id}, function(data, status){
+            // alert(data);
+            item = data.split("-"); //cat mang
+            $("#qty").text(item[0]);
+            $("#total").text(item[1]);
+        });
+    }
+</script>
 
 </body>
 
