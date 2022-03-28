@@ -59,9 +59,33 @@ if(isset($_POST["id"])) {
 
         $sql_update= "UPDATE `hoa_don` SET `hd_trangthai`='$value' WHERE hd_id=$id";
         $rs_update=mysqli_query($conn,$sql_update);
-
-
-
+    }else{
+        $sql_hd= "SELECT *  FROM `hoa_don` WHERE hd_id=$id";
+        $rs_hd=mysqli_query($conn,$sql_hd);
+        $row_hd=mysqli_fetch_assoc($rs_hd);
+        if(($value ==1 && $row_hd['hd_trangthai'] == 5) || ($value ==5 && $row_hd['hd_trangthai'] == 1)  ){
+            $sql1 = "SELECT * FROM `chi_tiet_hoa_don` as a join `sanpham` as b on a.cthd_idsp=b.sp_id WHERE cthd_idhd = $id";
+            $rs1=mysqli_query($conn,$sql1);
+            while ($row1 = mysqli_fetch_assoc($rs1)) {
+                $slcn= $row1['sp_soluong'];
+                $idsp = $row1[sp_id];
+                $sql_updatesp="UPDATE `sanpham` SET `sp_soluong`= '$slcn' WHERE sp_id=$idsp";
+                $rs_updatesp=mysqli_query($conn,$sql_updatesp);
+            }
+            $sql_update= "UPDATE `hoa_don` SET `hd_trangthai`='$value' WHERE hd_id=$id";
+            $rs_update=mysqli_query($conn,$sql_update);
+        }elseif(($value ==1 || $value ==5  )&&( $row_hd['hd_trangthai'] !=1 || $row_hd['hd_trangthai'] !=5 )){
+            $sql1 = "SELECT * FROM `chi_tiet_hoa_don` as a join `sanpham` as b on a.cthd_idsp=b.sp_id WHERE cthd_idhd = $id";
+            $rs1=mysqli_query($conn,$sql1);
+            while ($row1 = mysqli_fetch_assoc($rs1)) {
+                $slcn= $row1['sp_soluong'] + $row1['cthd_soluong'];
+                $idsp = $row1[sp_id];
+                $sql_updatesp="UPDATE `sanpham` SET `sp_soluong`= '$slcn' WHERE sp_id=$idsp";
+                $rs_updatesp=mysqli_query($conn,$sql_updatesp);
+            }
+            $sql_update= "UPDATE `hoa_don` SET `hd_trangthai`='$value' WHERE hd_id=$id";
+            $rs_update=mysqli_query($conn,$sql_update);
+        }
 
     }
 }
