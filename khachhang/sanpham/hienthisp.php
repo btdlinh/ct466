@@ -263,7 +263,7 @@ $title = $row['sp_tensach'];
                     }
                     ?>
                     <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"
-                       href="http://localhost/CT466/khachhang/sanpham/giohang.php">
+                       href="http://localhost/CT466/khachhang/sanpham/giohang_hienthi.php">
                         <i
                                 class="fas fa-shopping-cart blue-text"></i>Giỏ Hàng <span id="qty" style="display: block;
     margin-top: -34px;
@@ -652,7 +652,7 @@ $title = $row['sp_tensach'];
     function addcart(id){
         const num = document.getElementById('soluongmua').value;
 
-        $.post("../../giohang_test.php",{'id':id, 'num': num}, function(data, status){
+        $.post("../../giohang.php",{'id':id, 'num': num}, function(data, status){
             // alert(data);
             item = data.split("-"); //cat mang
             $("#qty").text(item[0]);

@@ -27,19 +27,10 @@ echo $b;
 echo "<br>";
 echo $c;
 
-//$sql1 = "SELECT * FROM hoa_don as a join chi_tiet_hoa_don as b on a.hd_id=b.cthd_idhd
-//                                        join sanpham as c on c.sp_id=b.cthd_idsp
-//                                        join khach_hang as d on d.kh_id=a.hd_idkh
-//                                        join dia_chi as e on d.kh_id=e.dc_idkh
-//                                        WHERE a.hd_id = $iddon  and kh_id='$b'
-//
-//";
 $sql1 = "SELECT * FROM hoa_don as a JOIN dia_chi as b on a.hd_iddc=b.dc_id join khach_hang AS c on c.kh_id=b.dc_idkh  WHERE a.hd_id = $iddon";
 
 $result1 = mysqli_query($conn, $sql1);
 
-
-//echo $iddon;
 
 ?>
 
@@ -201,6 +192,7 @@ $result1 = mysqli_query($conn, $sql1);
                                 <th class="th-sm font-weight-bold text-center">Đơn giá</th>
                                 <th class="th-sm font-weight-bold text-center">Số lượng</th>
                                 <th class="th-sm font-weight-bold text-center">Thành tiền</th>
+
                             </tr>
 
                             </thead>
@@ -212,15 +204,6 @@ $result1 = mysqli_query($conn, $sql1);
                             $sql11 = "select * from hoa_don where hd_id=$iddon";
                             $rs11 = mysqli_query($conn, $sql11);
                             while ($row11 = mysqli_fetch_assoc($rs11)) {
-
-//                                $sql12 = "select count(*) as tong, idsach, soluongsp from chitiet_dondathang where iddon=$iddon";
-//                                $rs12 = mysqli_query($conn,$sql12);
-//                                $sql112 = "select sum(soluongsp) as tongsp  from chitiet_dondathang where iddon=$iddon";
-//                                $rs112 = mysqli_query($conn,$sql112);
-//                                $row112 = mysqli_fetch_assoc($rs112);
-//                                echo "Tổng SL sách mua  là " . $row112['tongsp'] . "<br>";
-//                                while ($row12 = mysqli_fetch_assoc($rs12)) {
-//                                    echo " SL sách là " . $row12['tong'] . "<br>";
 
 
                                 $sql14 = "SELECT *
@@ -266,9 +249,17 @@ $result1 = mysqli_query($conn, $sql1);
                     <p align="center"><input class='btn btn-sm btn btn-primary' title="In hóa đơn" type="button"
                                              onclick="myPrint('myfrm')" value="In hóa đơn"></p>
 
+                    <!--số lượng kho-->
+                    <table>
+                        <tr>
+                            <th>Số lượng kho:</th>
+                            <td><?php $row14['sp_soluong']; ?></td>
+                        </tr>
+                    </table>
+
+                    <!--số lượng kho-->
 
                     <!--trạng thái-->
-
 
                     <div>
                         <form action="trangthai.php" method="GET">
@@ -303,7 +294,6 @@ $result1 = mysqli_query($conn, $sql1);
                                                 title="Cập nhật trạng thái"
                                                 type="submit">Cập nhật
 
-                                            <!--                                <a href="trangthai.php?iddon=-->
                                             <?php //echo $iddon;?><!--" class="white-text" >Cập nhật</a>-->
                                         </button>
                                     </td>
@@ -340,9 +330,5 @@ $result1 = mysqli_query($conn, $sql1);
         newwin.close();
     }
 </script>
-<!--<script>-->
-<!--    Let e = document.getElementById("select").value;-->
-<!--    Let giatri = e.option.text;-->
-<!--    console.log(giatri);-->
-<!--</script>-->
+
 </html>

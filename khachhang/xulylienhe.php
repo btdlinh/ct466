@@ -8,7 +8,7 @@ $loinhan= $_POST["kh_loinhan"];
 $sql= "INSERT INTO kh_lienhe (kh_ten, kh_email, kh_sdt, kh_loinhan) VALUES ('$ten', '$email', '$sdt', '$loinhan')";
 $result = $conn->query($sql);
 if($result == true){
-    header('location: ../index.php');
+    header('location: ../index1.php');
 //    echo"<h2> Gửi yêu cầu thành công. Chúng tôi sẽ liên lạc với bạn trong thời gian sớm nhất!</h2>";
 
 }

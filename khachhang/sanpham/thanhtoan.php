@@ -1,5 +1,16 @@
 <?php
 session_start();
+$servername = 'localhost';
+$username = 'root';
+$password = '';
+$dbname = 'ct466';
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname)
+or die($conn->connect_error);
+
+$conn->set_charset('utf8');
+
 if (isset($_SESSION['kh_email'])) {
     $email = $_SESSION['kh_email'];
 } else header("location:../../dangnhap.html");
@@ -7,7 +18,6 @@ require_once "../sanpham/csdl_function.php";
 //$title = "Thanh Toán";
 //require "headerhienthisp.php";
 
-if (isset($_SESSION['cart']) && (array_count_values($_SESSION['cart']))){
 ?>
 <html lang="en">
 
@@ -41,7 +51,8 @@ if (isset($_SESSION['cart']) && (array_count_values($_SESSION['cart']))){
             <!--                <a href="#" data-activates="slide-out" class="button-collapse"><i class="fas fa-home"></i></a>-->
         </div>
 
-        <a class="navbar-brand font-weight-bold" href="http://localhost/CT466"><strong> HIRAKI.COM </strong></a>
+        <a class="navbar-brand font-weight-bold" href="http://localhost/CT466"><strong>
+                HIRAKI.COM </strong></a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
                 aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,61 +61,108 @@ if (isset($_SESSION['cart']) && (array_count_values($_SESSION['cart']))){
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
 
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item ml-3">
+                    <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"
+                       href="http://localhost/CT466/khachhang/lienhe.php"><i
+                                class="fas fa-comments blue-text"></i> Liên Hệ</a>
+                </li>
+
+                <li class="nav-item ml-3">
+                    <?php
+                    $number = 0;
+                    if(isset($_SESSION['cart'])){
+                        $cart = $_SESSION['cart'];
+                        foreach ($cart as $value){
+                            $number +=  (int)$value["number"];
+                        }
+                    }
+                    ?>
+                    <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"
+                       href="http://localhost/CT466/khachhang/sanpham/giohang_hienthi.php">
+                        <i
+                                class="fas fa-shopping-cart blue-text"></i>Giỏ Hàng <span id="qty" style="display: block;
+                            margin-top: -34px;
+                            color: red;
+                            margin-left: 98px;
+                            border-radius: 50%;"><?php echo $number; ?></span></a>
+
+
+                </li>
+
+                <li class="nav-item dropdown ml-3">
+
+                    <a class="nav-link dropdown-toggle waves-effect waves-light dark-grey-text font-weight-bold"
+                       id="navbarDropdownMenuLink-4"
+                       data-toggle="dropdown"
+                       aria-haspopup="true"
+                       aria-expanded="false">
+                        <i class="fas fa-user blue-text"></i>Tài Khoản
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right dropdown-cyan"
+                         aria-labelledby="navbarDropdownMenuLink-4">
+                        <a class="dropdown-item waves-effect waves-light" href="dangky.html"> Đăng ký </a>
+                        <a class="dropdown-item waves-effect waves-light" href="dangnhap.html"> Đăng nhập </a>
+                        <a class="dropdown-item waves-effect waves-light" href="xulydangxuat.php"> Đăng xuất </a>
+                    </div>
+
+                </li>
+
+            </ul>
+
         </div>
 
     </div>
 
 </nav>
 <!-- Navbar ngang-->
+
+
 <div class="row pt-4 w-80 m-auto mt-5">
     <div class="col-lg-7">
         <div class="table-responsive w-75 pb-5 pt-5" style="margin:2em auto">
             <!--    <form action="dondathang.php" method="post" class="p-5">-->
             <table class="table product-table table-cart-v-1 ">
-                <!--        <tr>-->
-                <!--            <th></th>-->
-                <!--            <th class="font-weight-bold text-center" >Tên sách</th>-->
-                <!--            <th class="font-weight-bold text-center" >Tác giả</th>-->
-                <!--            <th class="font-weight-bold text-center" >Giá</th>-->
-                <!--            <th class="font-weight-bold text-center" >Số lượng</th>-->
-                <!--            <th class="font-weight-bold text-center" > Thành tiền</th>-->
-                <!--        </tr>-->
-
                 <?php
-                foreach ($_SESSION['cart'] as $id => $qty) {
-                    $conn = db_connect();
-                    $book = mysqli_fetch_assoc(getBookByIsbn($conn, $id));
+                $stt = 1;
+                // print_r($cart);
+                if(isset($_SESSION['cart'])){
+                    $cart = $_SESSION['cart'];
+                    $tong_sl=0;
+                    $tong_tien=0;
 
-                    ?>
+                    foreach ($cart as $value ) {
+                        $tong_sl += (int)$value["number"];
+                        $tong_tien += (int)$value["number"] * $value["price"];
+
+                    echo '
+                    
                     <tr>
                         <td class="img-fluid z-depth-0" style="width: 150px; height: 200px; margin: 0 auto;"><img
-                                    src="<?php echo $book['sp_hinhanh'] ?>" alt='Hình ảnh' width='100px'></td>
+                                    src="'.$value['img'].'" ></td>
 
-                        <td class=" text-center"><?php echo $book['sp_tensach'] . " <br><br> " . number_format($book['sp_gia']) . " đ"; ?></td>
+                        <td class=" text-center"> '.$value["name"].'<br><span class="text-danger">'.number_format($value["price"]).'<sup>đ</sup></span></td>
                         <td></td>
                         <td></td>
                         <td></td>
-                        <!--                <td class=" text-center">-->
-                        <?php //echo $book['tensach'] . " by " . $book['tentacgia'];
-                        ?><!--</td>-->
-                        <!--                <td class=" text-center">--><?php //echo $book['tentacgia'];
-                        ?><!--</td>-->
-                        <!--                <td class=" text-center">-->
-                        <?php //echo  number_format($book['gia']) ." đ";
-                        ?><!--</td>-->
-                        <td class=" text-center"><input type="text" value="<?php echo $qty; ?>" size="2"
-                                                        name="<?php echo $id; ?>"></td>
-                        <td class=" text-center"><?php echo number_format($qty * $book['sp_gia']) . " đ"; ?></td>
+                    
+                       
+                      
+                        <td class=" text-center"><span>'.$value["number"].'</span> </td>
+                        <td class=" text-center">'.number_format($value["number"]*$value["price"]).'<sup>đ</sup></td>
                     </tr>
+                    ';
+                }}
 
-                <?php } ?>
-
+                ?>
                 <tr>
                     <th></th>
                     <th colspan="3"><h5><strong class="mt-2 ">Tổng sản phẩm:</strong> <strong
-                                    class="text-primary"><?php echo $_SESSION['total_items']; ?> </strong></h5></th>
+                                    class="text-primary"><?php echo $tong_sl; ?> </strong></h5></th>
                     <th colspan="3"><h5><strong class="mt-2">Tổng tiền:</strong> <strong
-                                    class="text-primary"> <?php echo number_format($_SESSION['total_price']) . "đ"; ?></strong>
+                                    class="text-primary"> <?php echo number_format($tong_tien); ?><sup>đ</sup></strong>
                         </h5></th>
                 </tr>
 
@@ -155,12 +213,6 @@ if (isset($_SESSION['cart']) && (array_count_values($_SESSION['cart']))){
                     </div>
                 </div>
 
-<!--                --><?php
-//                $sql2 = "SELECT * FROM khach_hang as a on dia_chi as b on a.kh_id=b.dc_idkh WHERE(a.kh_id='b.dc_idkh')";
-//                $result2 = mysqli_query($conn, $sql2);
-//                if (mysqli_num_rows($result2) == 1) {
-//                    $row2 = mysqli_fetch_assoc($result2);
-//                ?>
 
                 <div class="form-group">
                     <!--                    <label for="address" class="control-label col-md-10">Địa chỉ</label>-->
@@ -177,7 +229,6 @@ if (isset($_SESSION['cart']) && (array_count_values($_SESSION['cart']))){
                         <input type="tel" name="sdtkh" class="col-md-10" class="form-control">
                     </div>
                 </div>
-            <?php } ?>
 
             <div class="form-group">
                 <input type="submit" name="submit" value="Tiến Hành Thanh Toán" class="btn btn-primary">
@@ -186,19 +237,14 @@ if (isset($_SESSION['cart']) && (array_count_values($_SESSION['cart']))){
         </form>
         <p class="lead">Vui lòng nhấn để xác nhận giao dịch của bạn!</p>
     </div>
-    <?php
-    } else {
-        echo "<p class=\"text-warning\">Giỏ hàng trống! Vui lòng thêm sản phẩm!</p>";
-    }
-    if (isset($conn)) {
-        mysqli_close($conn);
-    }
 
-    ?>
 </div>
 </div>
 <?php
 require_once "../../hienthi/footer.php";
+}
+
 ?>
 
 </body>
+</html>

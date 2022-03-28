@@ -155,7 +155,7 @@ require "headerhienthisp.php";
 
         </table>
         <br/><br/>
-        <a href="../../index.php" class="btn btn-primary" title="Tiếp Tục Mua Hàng"><i class="fas fa-reply"></i></a>
+        <a href="../../index1.php" class="btn btn-primary" title="Tiếp Tục Mua Hàng"><i class="fas fa-reply"></i></a>
         <input type="submit" class="btn btn-primary" name="save_change" value="Cập Nhật">
         <a href="thanhtoan.php" class="btn btn-primary">Tiến Hàng Thanh Toán</a>
     </form>
@@ -165,7 +165,7 @@ require "headerhienthisp.php";
 <?php require_once "../../hienthi/footer.php"; ?>
 <?php
 } else {
-    echo " <section class=\"alert alert-info\" style='text-align: center ; font-family: Arial; margin-top: 3em;'><h3>Giỏ hàng trống! <a href='http://localhost/CT466/index.php'> Quay lại trang chủ</a></h3></section>";
+    echo " <section class=\"alert alert-info\" style='text-align: center ; font-family: Arial; margin-top: 3em;'><h3>Giỏ hàng trống! <a href='http://localhost/CT466/index1.php'> Quay lại trang chủ</a></h3></section>";
 //    echo "<strong><h4 class=\"text-warning\ text-center\">Giỏ hàng của bạn trống! Vui lòng thêm sản phẩm !</h4></strong>";
 }
 if (isset($conn)) {

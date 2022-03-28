@@ -14,7 +14,7 @@
         if($pass==$row['matkhau']){ // so sanh mk vua nhap voi mk co trong csl=dl
       //      echo "Dang nhap thanh cong ^^";
             $_SESSION['email']= $email;
-            header('location:index.php');
+            header('location:index1.php');
         }else  header('location:dangnhap.html');
     } else header('location:dangnhap.html');
 
