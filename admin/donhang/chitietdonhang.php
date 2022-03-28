@@ -191,6 +191,7 @@ $result1 = mysqli_query($conn, $sql1);
                                 <th class="th-sm font-weight-bold text-center">Tên sách</th>
                                 <th class="th-sm font-weight-bold text-center">Đơn giá</th>
                                 <th class="th-sm font-weight-bold text-center">Số lượng</th>
+                                <th class="th-sm font-weight-bold text-center">Số lượng kho</th>
                                 <th class="th-sm font-weight-bold text-center">Thành tiền</th>
 
                             </tr>
@@ -220,9 +221,11 @@ $result1 = mysqli_query($conn, $sql1);
                                             <tr>
                                                 <td class="text-center">' . $stt++ . '</td>
                                                 <td > ' . $row14['sp_tensach'] . '</td>
-                                                <td class="text-center"> ' . number_format($row14['cthd_gia']) . '</td>
+                                                <td class="text-center"> ' . number_format($row14['cthd_gia']) . ' <sup>đ</sup></td>
                                                 <td class="text-center"> ' . $row14['cthd_soluong'] . ' </td>
-                                                <td class="text-center"> ' . number_format($row14['cthd_gia'] * $row14['cthd_soluong']) . ' </td>
+                                                <td class="text-center"> ' . $row14['sp_soluong'] . ' </td>
+
+                                                <td class="text-center"> ' . number_format($row14['cthd_gia'] * $row14['cthd_soluong']) . ' <sup>đ</sup></td>
 
                                             </tr>                                          
                                             
@@ -250,12 +253,28 @@ $result1 = mysqli_query($conn, $sql1);
                                              onclick="myPrint('myfrm')" value="In hóa đơn"></p>
 
                     <!--số lượng kho-->
-                    <table>
-                        <tr>
-                            <th>Số lượng kho:</th>
-                            <td><?php $row14['sp_soluong']; ?></td>
-                        </tr>
-                    </table>
+<!--                    <table>-->
+<!--                        --><?php
+//                        $sql15 = "select * from hoa_don where hd_id=$iddon";
+//                        $rs15 = mysqli_query($conn, $sql15);
+//
+//                        $sql16 = "SELECT *
+//                                        FROM sanpham  as s
+//                                        join chi_tiet_hoa_don as z on s.sp_id=z.cthd_idsp
+//                                        join hoa_don as a on a.hd_id=z.cthd_idhd
+//                                        join khach_hang as b on b.kh_id=a.hd_idkh
+//                                        WHERE z.cthd_idhd = $iddon ";
+//                        $rs16 = mysqli_query($conn,$sql16);
+//                        $row16 = mysqli_fetch_assoc($rs16);
+//                        foreach ($item as $value ) {
+//
+//                        }
+//                                ?>
+<!--                        <tr>-->
+<!--                            <th>Số lượng kho:</th>-->
+<!--                            <td>--><?php //echo $row16['sp_soluong']; ?><!--</td>-->
+<!--                        </tr>-->
+<!--                    </table>-->
 
                     <!--số lượng kho-->
 
@@ -263,6 +282,13 @@ $result1 = mysqli_query($conn, $sql1);
 
                     <div>
                         <form action="trangthai.php" method="GET">
+                            <?php
+                            $sql15 = "SELECT * FROM hoa_don  WHERE hd_id = $iddon
+                                        ";
+                            $rs15=mysqli_query($conn, $sql15);
+                            $row15 = mysqli_fetch_assoc($rs15);
+
+                            ?>
                             <table>
 
                                 <tr>
@@ -271,11 +297,33 @@ $result1 = mysqli_query($conn, $sql1);
                                             <label for="select" style="margin - left: 0.9em;">
                                                 Cập nhật trạng thái mới:
                                             </label>
-                                            <select class=""
+                                            <select
+                                                    onchange="updatebill('<?php echo $iddon;?>',this.value)"
+                                                    class=""
                                                     id="select"
                                                     name="trangthai"
                                                     style="margin - left: 3em; margin - top: 0.5em;width: 8em;">
+                                                <option value="<?php echo $row15['hd_trangthai'];?>" selected>
+                                                    <?php
+                                                        if($row15['hd_trangthai'] == 1){
+                                                            echo " Chờ xác nhận";
+                                                        }elseif($row15['hd_trangthai'] == 2){
+                                                            echo " Đã xác nhận";
+                                                        }elseif($row15['hd_trangthai'] == 3){
+                                                            echo " Đang giao hàng";
+                                                        }elseif($row15['hd_trangthai'] == 4){
+                                                            echo " Đã giao hàng";
+                                                        }else{
+                                                            echo "Hủy đơn hàng";
+                                                        }
+                                                    ?>
 
+
+
+
+
+
+                                                </option>
                                                 <option value="1">Chờ xác nhận</option>
                                                 <option value="2">Đã xác nhận</option>
                                                 <option value="3">Đang giao hàng</option>
@@ -290,12 +338,7 @@ $result1 = mysqli_query($conn, $sql1);
                                     <input type="hidden" name="id" value="<?php echo $iddon; ?>">
 
                                     <td>
-                                        <button class="btn btn-sm btn btn-blue-grey mt-0"
-                                                title="Cập nhật trạng thái"
-                                                type="submit">Cập nhật
 
-                                            <?php //echo $iddon;?><!--" class="white-text" >Cập nhật</a>-->
-                                        </button>
                                     </td>
                                 </tr>
 
@@ -320,8 +363,16 @@ $result1 = mysqli_query($conn, $sql1);
 </main>
 
 </body>
-
+<script type="text/javascript" src="../../MDB-ecommerce-Templates-Pack_4.8.11/js/jquery-3.4.1.min.js"></script>
+<!-- Bootstrap tooltips-->
+<script type="text/javascript" src="../../MDB-ecommerce-Templates-Pack_4.8.11/js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript-->
+<script type="text/javascript" src="../../MDB-ecommerce-Templates-Pack_4.8.11/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript-->
+<script type="text/javascript" src="../../MDB-ecommerce-Templates-Pack_4.8.11/js/mdb.min.js"></script>
 <script>
+
+
     function myPrint(myfrm) {
         var printdata = document.getElementById(myfrm);
         newwin = window.open("");
@@ -329,6 +380,20 @@ $result1 = mysqli_query($conn, $sql1);
         newwin.print();
         newwin.close();
     }
+
+    function updatebill(id,value){
+        let check = confirm("Bạn có chắc chắn cập nhật?");
+        // alert(value);
+        if(check){
+            $.post("updatebill.php",{'id':id,'value':value}, function(data, status){
+                window.location.reload();
+
+            });
+
+        }
+    }
+
+
 </script>
 
 </html>

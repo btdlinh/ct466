@@ -142,7 +142,7 @@ require "../header.php";
                                     name="idtheloai"
 
                             >
-                                <option  value="<?php echo $row['tl_id'];?>" selected> <?php echo  $row['tl_tentheloai'];   ?></option>
+                                <option  sd> <?php echo  $row['tl_tentheloai'];   ?></option>
                                 <?php
                                 if ($result->num_rows > 0) {
                                     while ($row = $result->fetch_assoc()) {
