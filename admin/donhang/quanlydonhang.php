@@ -144,15 +144,6 @@ $result = mysqli_query($conn, $sql1);
                                 <?php
 
 
-                                // trang thai
-//                                $sql_tt = " SELECT hd_trangthai FROM hoa_don";
-//                                $result_tt = mysqli_query($conn, $sql_tt);
-//                                $row_tt = mysqli_query($conn, $result_tt);
-//                                if($row_tt == 1){
-//
-//                                }
-                                // trang thai
-
 
                                 if ($result->num_rows > 0) {
                                     $i = 1;

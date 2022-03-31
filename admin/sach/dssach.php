@@ -127,19 +127,23 @@ $result = $conn->query($sql1);
                                                  <td>".$row['nxb_ten']."</td>
                                                  <td>".number_format($row['sp_gia'])." vnđ"."</td>
                                                  <td>".$row['sp_soluong']."</td>
-                                                <td>
-                                                <button type='button' class='btn btn-sm btn-primary'>
-                                                <a href=\"suasach.php?idsach=".$row['sp_id']."\"  > Sửa </a>
-                                                </button>
-                                                 <button type='button' class='btn btn-sm btn-danger'>
-                                                    <a onclick=\"return confirm('Bạn chắc chắn muốn xóa Sách này?')\"
+                                                <td >
                                                 
-                                                    href=\"xoasach.php?idsach=".$row['sp_id']."\"  > Xóa </a>
-                                                </button>
-                                                 <br>
-                                                 <button type='button' class='btn btn-sm blue btn-cyan'>
-                                                 <a href=\"thongtinsach.php?idsach=".$row['sp_id']."\"  >Xem</a>
-                                                 </button>
+                                                <a href=\"suasach.php?idsach=".$row['sp_id']."\"  title='Sửa thông tin sản phẩm'> 
+                                                 <i class=\"fas fa-edit blue-text\" style='font-size: 22px'></i>
+                                                
+                                               
+                                                
+                                                    <a onclick=\"return confirm('Bạn chắc chắn muốn xóa Sách này?')\" title='Xóa sản phẩm'
+                                                    href=\"xoasach.php?idsach=".$row['sp_id']."\"  > 
+                                                     <i class=\"far fa-trash-alt red-text\" style='font-size: 22px; margin: 0 .2rem;'></i>
+                                                    </a>
+                                              
+                                                 
+                                                 <a href=\"thongtinsach.php?idsach=".$row['sp_id']."\" title='Xem thông tin sản phẩm'>
+                                                  <i class=\"fas fa-eye grey-text\" style='font-size: 22px'></i>
+                                                 </a>
+                                                 
                                                
                                                 </td>
                                                ";

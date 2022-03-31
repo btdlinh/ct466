@@ -265,7 +265,7 @@ $title = $row['sp_tensach'];
                     <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"
                        href="http://localhost/CT466/khachhang/sanpham/giohang_hienthi.php">
                         <i
-                                class="fas fa-shopping-cart blue-text"></i>Giỏ Hàng <span id="qty" style="display: block;
+                                class="fas fa-shopping-cart blue-text"></i>Giỏ Hàng <span id="qty"  style="display:<?php echo $number ?'block' : 'none'?>;
     margin-top: -34px;
     color: red;
     margin-left: 98px;
@@ -649,8 +649,10 @@ $title = $row['sp_tensach'];
 
 
 <script>
+
     function addcart(id){
         const num = document.getElementById('soluongmua').value;
+        document.getElementById("qty").style.display = "block"
 
         $.post("../../giohang.php",{'id':id, 'num': num}, function(data, status){
             // alert(data);

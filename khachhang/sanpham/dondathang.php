@@ -276,7 +276,7 @@ $title = "Thanh Toán";
 
                 <?php } ?>
                 <div class="form-group ml-5 ">
-                    <a href="../../index1.php" class="btn btn-primary" title="Tiếp Tục Mua Hàng"><i
+                    <a href="../../index.php" class="btn btn-primary" title="Tiếp Tục Mua Hàng"><i
                                 class="fas fa-reply"></i></a>
 
                     <input type="submit" name="submit" value="Xác Nhận Đặt Hàng" class="btn btn-primary ">

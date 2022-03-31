@@ -308,7 +308,7 @@ require "../header.php";
                                 id="price"
                                 class="form-control form-control-sm black-text"
                                 name="giabansach"
-                                value="<?php echo number_format($row4['sp_gia']).' VNĐ'?>"
+                                value="<?php echo $row4['sp_gia'];?>"
                         />
                         <label for="price" class="orangeForm-price black-text "> Giá Bán</label>
                     </div>
@@ -383,7 +383,6 @@ require "../header.php";
                                 margin: 3em auto;
                                 padding-top: 1em;"
                             />
-
                             <div class="file-path-wrapper">
                             </div>
                         </div>

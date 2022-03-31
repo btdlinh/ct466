@@ -98,8 +98,7 @@ require_once "khachhang/sanpham/csdl_function.php";
                         ?>
                         <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"
                            href="http://localhost/CT466/khachhang/sanpham/giohang_hienthi.php">
-                            <i
-                                class="fas fa-shopping-cart blue-text"></i>Giỏ Hàng <span id="qty" style="display: block;
+                            <i class="fas fa-shopping-cart blue-text"></i>Giỏ Hàng <span id="qty" style="display:<?php echo $number ?'block' : 'none'?>;
     margin-top: -34px;
     color: red;
     margin-left: 98px;
@@ -691,13 +690,14 @@ require_once "khachhang/sanpham/csdl_function.php";
 
 <script>
     function addcart(id){
-
+        document.getElementById("qty").style.display = "block"
         $.post("giohang.php",{'id':id}, function(data, status){
             // alert(data);
             item = data.split("-"); //cat mang
             $("#qty").text(item[0]);
             $("#total").text(item[1]);
         });
+
     }
 </script>
 

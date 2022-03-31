@@ -8,8 +8,7 @@ require "../../db.php";
 //    $email = $_SESSION['email'];
 //} else exit();
 $iddon = $_GET['iddon'];
-echo $iddon;
-echo "<br>";
+
 // lay id kh
 $sql_dc = "SELECT kh_id,dc_diachi, dc_id FROM hoa_don as a join khach_hang as b on a.hd_idkh=b.kh_id
                                         join chi_tiet_hoa_don as c on a.hd_id=c.cthd_idhd  
@@ -23,9 +22,6 @@ $row_dc = mysqli_fetch_assoc($rs_dc);
 $b = $row_dc['kh_id'];
 
 $c = $row_dc['dc_id'];
-echo $b;
-echo "<br>";
-echo $c;
 
 $sql1 = "SELECT * FROM hoa_don as a JOIN dia_chi as b on a.hd_iddc=b.dc_id join khach_hang AS c on c.kh_id=b.dc_idkh  WHERE a.hd_id = $iddon";
 
@@ -252,40 +248,13 @@ $result1 = mysqli_query($conn, $sql1);
                     <p align="center"><input class='btn btn-sm btn btn-primary' title="In hóa đơn" type="button"
                                              onclick="myPrint('myfrm')" value="In hóa đơn"></p>
 
-                    <!--số lượng kho-->
-<!--                    <table>-->
-<!--                        --><?php
-//                        $sql15 = "select * from hoa_don where hd_id=$iddon";
-//                        $rs15 = mysqli_query($conn, $sql15);
-//
-//                        $sql16 = "SELECT *
-//                                        FROM sanpham  as s
-//                                        join chi_tiet_hoa_don as z on s.sp_id=z.cthd_idsp
-//                                        join hoa_don as a on a.hd_id=z.cthd_idhd
-//                                        join khach_hang as b on b.kh_id=a.hd_idkh
-//                                        WHERE z.cthd_idhd = $iddon ";
-//                        $rs16 = mysqli_query($conn,$sql16);
-//                        $row16 = mysqli_fetch_assoc($rs16);
-//                        foreach ($item as $value ) {
-//
-//                        }
-//                                ?>
-<!--                        <tr>-->
-<!--                            <th>Số lượng kho:</th>-->
-<!--                            <td>--><?php //echo $row16['sp_soluong']; ?><!--</td>-->
-<!--                        </tr>-->
-<!--                    </table>-->
-
-                    <!--số lượng kho-->
-
-                    <!--trạng thái-->
 
                     <div>
                         <form action="trangthai.php" method="GET">
                             <?php
                             $sql15 = "SELECT * FROM hoa_don  WHERE hd_id = $iddon
                                         ";
-                            $rs15=mysqli_query($conn, $sql15);
+                            $rs15 = mysqli_query($conn, $sql15);
                             $row15 = mysqli_fetch_assoc($rs15);
 
                             ?>
@@ -298,37 +267,73 @@ $result1 = mysqli_query($conn, $sql1);
                                                 Cập nhật trạng thái mới:
                                             </label>
                                             <select
-                                                    onchange="updatebill('<?php echo $iddon;?>',this.value)"
+                                                    onchange="updatebill('<?php echo $iddon; ?>',this.value)"
                                                     class=""
                                                     id="select"
                                                     name="trangthai"
                                                     style="margin - left: 3em; margin - top: 0.5em;width: 8em;">
-                                                <option value="<?php echo $row15['hd_trangthai'];?>" selected>
+                                                <option value="<?php echo $row15['hd_trangthai']; ?>" selected>
                                                     <?php
-                                                        if($row15['hd_trangthai'] == 1){
-                                                            echo " Chờ xác nhận";
-                                                        }elseif($row15['hd_trangthai'] == 2){
-                                                            echo " Đã xác nhận";
-                                                        }elseif($row15['hd_trangthai'] == 3){
-                                                            echo " Đang giao hàng";
-                                                        }elseif($row15['hd_trangthai'] == 4){
-                                                            echo " Đã giao hàng";
-                                                        }else{
-                                                            echo "Hủy đơn hàng";
-                                                        }
+                                                    if ($row15['hd_trangthai'] == 1) {
+                                                        echo " Chờ xác nhận";
+                                                    } elseif ($row15['hd_trangthai'] == 2) {
+                                                        echo " Đã xác nhận";
+                                                    } elseif ($row15['hd_trangthai'] == 3) {
+                                                        echo " Đang giao hàng";
+                                                    } elseif ($row15['hd_trangthai'] == 4) {
+                                                        echo " Đã giao hàng";
+                                                    } else {
+                                                        echo "Hủy đơn hàng";
+                                                    }
                                                     ?>
 
 
-
-
-
-
                                                 </option>
-                                                <option value="1">Chờ xác nhận</option>
-                                                <option value="2">Đã xác nhận</option>
-                                                <option value="3">Đang giao hàng</option>
-                                                <option value="4">Đã giao hàng</option>
-                                                <option value="5">Hủy đơn hàng</option>
+                                                <?php
+                                                if ($row15['hd_trangthai'] == 1) {
+                                                    echo '
+                                                        <option value="2">Đã xác nhận</option>
+                                                        <option value="3">Đang giao hàng</option>
+                                                        <option value="4">Đã giao hàng</option>
+                                                        <option value="5">Hủy đơn hàng</option>
+                                                    ';
+
+                                                } elseif ($row15['hd_trangthai'] == 2) {
+                                                    echo '
+                                                        <option value="1">Chờ xác nhận</option>
+                                                        <option value="3">Đang giao hàng</option>
+                                                        <option value="4">Đã giao hàng</option>
+                                                        <option value="5">Hủy đơn hàng</option>
+                                                    ';
+
+                                                } elseif ($row15['hd_trangthai'] == 3) {
+                                                    echo '
+                                                        <option value="1">Chờ xác nhận</option>
+                                                         <option value="2">Đã xác nhận</option>
+                                                        <option value="4">Đã giao hàng</option>
+                                                        <option value="5">Hủy đơn hàng</option>
+                                                    ';
+
+                                                } elseif ($row15['hd_trangthai'] == 4) {
+                                                    echo '
+                                                        <option value="1">Chờ xác nhận</option>
+                                                         <option value="2">Đã xác nhận</option>
+                                                        <option value="3">Đang giao hàng</option>
+                                                        <option value="5">Hủy đơn hàng</option>
+                                                    ';
+
+                                                } elseif ($row15['hd_trangthai'] == 5) {
+                                                    echo '
+                                                        <option value="1">Chờ xác nhận</option>
+                                                         <option value="2">Đã xác nhận</option>
+                                                        <option value="3">Đang giao hàng</option>
+                                                        <option value="4">Đã giao hàng</option>
+                                                    ';
+
+                                                }
+
+                                                ?>
+
 
                                             </select>
                                         </th>
@@ -381,11 +386,11 @@ $result1 = mysqli_query($conn, $sql1);
         newwin.close();
     }
 
-    function updatebill(id,value){
+    function updatebill(id, value) {
         let check = confirm("Bạn có chắc chắn cập nhật?");
         // alert(value);
-        if(check){
-            $.post("updatebill.php",{'id':id,'value':value}, function(data, status){
+        if (check) {
+            $.post("updatebill.php", {'id': id, 'value': value}, function (data, status) {
                 window.location.reload();
 
             });

@@ -106,7 +106,6 @@ function getbookprice($id){
     return $row['sp_gia'];
 }
 
-
         //lấy thông tin KH
 function getCustomerId( $emailkh, $tenkh, $sdtkh, $diachikh){
     $conn = db_connect();
@@ -127,7 +126,6 @@ function getCustomerId( $emailkh, $tenkh, $sdtkh, $diachikh){
         return null;
     }
 }
-
 
         // cap nhat thong tin KH
 function setCustomerId($emailkh, $tenkh, $sdtkh, $diachikh){

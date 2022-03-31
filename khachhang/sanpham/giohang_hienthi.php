@@ -12,12 +12,12 @@ require_once "../sanpham/csdl_function.php";
 <head>
     <meta charset="UTF-8">
     <script type="text/javascript" src="../../MDB-ecommerce-Templates-Pack_4.8.11/js/jquery-3.4.1.min.js"></script>
-<!-- Bootstrap tooltips-->
-<script type="text/javascript" src="../../MDB-ecommerce-Templates-Pack_4.8.11/js/popper.min.js"></script>
-<!-- Bootstrap core JavaScript-->
-<script type="text/javascript" src="../../MDB-ecommerce-Templates-Pack_4.8.11/js/bootstrap.min.js"></script>
-<!-- MDB core JavaScript-->
-<script type="text/javascript" src="../../MDB-ecommerce-Templates-Pack_4.8.11/js/mdb.min.js"></script>
+    <!-- Bootstrap tooltips-->
+    <script type="text/javascript" src="../../MDB-ecommerce-Templates-Pack_4.8.11/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script type="text/javascript" src="../../MDB-ecommerce-Templates-Pack_4.8.11/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript-->
+    <script type="text/javascript" src="../../MDB-ecommerce-Templates-Pack_4.8.11/js/mdb.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Giỏ hàng</title>
@@ -93,159 +93,165 @@ require_once "../sanpham/csdl_function.php";
 <body class="w-100 white">
 <div class="table-responsive w-75 pb-5 pt-5" style="margin:2em auto">
     <!-- Navigation-->
-<header>
+    <header>
 
-<!-- Navbar ngang-->
-<nav class="navbar fixed-top navbar-expand-lg navbar-light scrolling-navbar white">
+        <!-- Navbar ngang-->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light scrolling-navbar white">
 
-    <div class="container">
+            <div class="container">
 
-        <!-- SideNav slide-out button-->
-        <div class="float-left mr-2">
-            <i class="fas fa-book-open blue-text"></i>
-            <!--                <a href="#" data-activates="slide-out" class="button-collapse"><i class="fas fa-home"></i></a>-->
-        </div>
+                <!-- SideNav slide-out button-->
+                <div class="float-left mr-2">
+                    <i class="fas fa-book-open blue-text"></i>
+                    <!--                <a href="#" data-activates="slide-out" class="button-collapse"><i class="fas fa-home"></i></a>-->
+                </div>
 
-        <a class="navbar-brand font-weight-bold" href="http://localhost/CT466"><strong>
-                HIRAKI.COM </strong></a>
+                <a class="navbar-brand font-weight-bold" href="http://localhost/CT466"><strong>
+                        HIRAKI.COM </strong></a>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
-                aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent-4"
+                        aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
 
-            <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto">
 
-                <li class="nav-item ml-3">
-                    <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"
-                       href="http://localhost/CT466/khachhang/lienhe.php"><i
-                            class="fas fa-comments blue-text"></i> Liên Hệ</a>
-                </li>
+                        <li class="nav-item ml-3">
+                            <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"
+                               href="http://localhost/CT466/khachhang/lienhe.php"><i
+                                        class="fas fa-comments blue-text"></i> Liên Hệ</a>
+                        </li>
 
-                <li class="nav-item ml-3">
-                    <?php
-                    $number = 0;
-                    if(isset($_SESSION['cart'])){
-                        $cart = $_SESSION['cart'];
-                        foreach ($cart as $value){
-                            $number +=  (int)$value["number"];
-                        }
-                    }
-                    ?>
-                    <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"
-                       href="http://localhost/CT466/khachhang/sanpham/giohang_hienthi.php">
-                        <i
-                            class="fas fa-shopping-cart blue-text"></i>Giỏ Hàng <span id="qty" style="display: block;
+                        <li class="nav-item ml-3">
+                            <?php
+                            $number = 0;
+                            if (isset($_SESSION['cart'])) {
+                                $cart = $_SESSION['cart'];
+                                foreach ($cart as $value) {
+                                    $number += (int)$value["number"];
+                                }
+                            }
+                            ?>
+                            <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"
+                               href="http://localhost/CT466/khachhang/sanpham/giohang_hienthi.php">
+                                <i
+                                        class="fas fa-shopping-cart blue-text"></i>Giỏ Hàng <span id="qty"  style="display:<?php echo $number ?'block' : 'none'?>;
                             margin-top: -34px;
                             color: red;
                             margin-left: 98px;
                             border-radius: 50%;"><?php echo $number; ?></span></a>
 
 
-                </li>
+                        </li>
 
-                <li class="nav-item dropdown ml-3">
+                        <li class="nav-item dropdown ml-3">
 
-                    <a class="nav-link dropdown-toggle waves-effect waves-light dark-grey-text font-weight-bold"
-                       id="navbarDropdownMenuLink-4"
-                       data-toggle="dropdown"
-                       aria-haspopup="true"
-                       aria-expanded="false">
-                        <i class="fas fa-user blue-text"></i>Tài Khoản
-                    </a>
+                            <a class="nav-link dropdown-toggle waves-effect waves-light dark-grey-text font-weight-bold"
+                               id="navbarDropdownMenuLink-4"
+                               data-toggle="dropdown"
+                               aria-haspopup="true"
+                               aria-expanded="false">
+                                <i class="fas fa-user blue-text"></i>Tài Khoản
+                            </a>
 
-                    <div class="dropdown-menu dropdown-menu-right dropdown-cyan"
-                         aria-labelledby="navbarDropdownMenuLink-4">
-                        <a class="dropdown-item waves-effect waves-light" href="dangky.html"> Đăng ký </a>
-                        <a class="dropdown-item waves-effect waves-light" href="dangnhap.html"> Đăng nhập </a>
-                        <a class="dropdown-item waves-effect waves-light" href="xulydangxuat.php"> Đăng xuất </a>
-                    </div>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-cyan"
+                                 aria-labelledby="navbarDropdownMenuLink-4">
+                                <a class="dropdown-item waves-effect waves-light" href="dangky.html"> Đăng ký </a>
+                                <a class="dropdown-item waves-effect waves-light" href="dangnhap.html"> Đăng nhập </a>
+                                <a class="dropdown-item waves-effect waves-light" href="xulydangxuat.php"> Đăng
+                                    xuất </a>
+                            </div>
 
-                </li>
+                        </li>
 
-            </ul>
+                    </ul>
 
-        </div>
+                </div>
 
-    </div>
+            </div>
 
-</nav>
-<!-- Navbar ngang-->
+        </nav>
+        <!-- Navbar ngang-->
 
-</header>
-<!-- Navigation-->
+    </header>
+    <!-- Navigation-->
     <form action="giohang_hienthi.php" method="post">
         <table class="table product-table table-cart-v-1 ">
 
             <?php
             $stt = 1;
             // print_r($cart);
-            if(isset($_SESSION['cart'])){
+            if (isset($_SESSION['cart'])) {
                 $cart = $_SESSION['cart'];
-                $tong_sl=0;
-                $tong_tien=0;
+                $tong_sl = 0;
+                $tong_tien = 0;
 
-            foreach ($cart as $value ) {
-                $tong_sl+= (int)$value["number"];
-                $tong_tien+=  (int)$value["number"]*$value["price"];
+                foreach ($cart as $value) {
+                    $tong_sl += (int)$value["number"];
+                    $tong_tien += (int)$value["number"] * $value["price"];
 
 
-                ?>
-                <input type="hidden" id="price-h-<?php echo $value["id"] ?>"value="<?php echo $value["price"]?>" />
-                <tr>
-                    <td class="col-md-1"><?php echo $stt++ ?></td>
-                    <!--                    <td class="col-md-1">--><?php //echo $id
-                    ?><!--</td>-->
-                    <td class="img-fluid z-depth-0" style="width: 150px; height: 200px; margin: 0 auto;"><img
-                                src="<?php echo $value["img"] ?>" alt='Hình ảnh' width='100px'></td>
-                    <td class="w-75 m-0 m-auto text-center"><?php echo $value["name"]. " <br><br> " . number_format($value["price"]) . "đ"; ?></td>
-                    <td class="w-75 m-0 m-auto text-center">
-                        <input type="number" min="1"
-                        id="qty-<?php echo $value["id"] ?>"
-                               maxlength="<?php echo $value['number_kho']?>"
-                               class="form-control text-center w-100"
-                               value="<?php echo (int)$value["number"];  ?>" size="3"
-                               onchange="updatecart('<?php echo $value["id"];?>', this.value)"
-
-                        />
-                    </td>
-                    <td class="w-75 m-0 m-auto text-center" id="price-<?php echo $value["id"] ?>"><span>₫</span><?php echo number_format( (int)$value["number"]*$value["price"]);?></td>
-
-                    <td>
-                        <section class="col-md-2">
-
-                            <a
-                               class="btn btn-primary "
-                               onclick="deletecart('<?php echo $value["id"];?>')"
-                            >
-                                <i class="bi bi-trash"></i>
-                            </a>
-                        </section>
-
-                    </td>
-
-                </tr>
-
-            <?php } 
-        }?>
-
-<?php
-                    $numbers = 0;
-                    $tong_tien_sps = 0;
-                    if(isset($_SESSION['cart'])){
-                        $cart = $_SESSION['cart'];
-                        foreach ($cart as $value){
-                            $numbers +=  (int)$value["number"];
-                            $tong_tien_sps   += (int)$value["number"]*$value["price"];
-                        }
-                    }
                     ?>
+                    <input type="hidden" id="price-h-<?php echo $value["id"] ?>" value="<?php echo $value["price"] ?>"/>
+                    <tr>
+                        <td class="col-md-1"><?php echo $stt++ ?></td>
+                        <!--                    <td class="col-md-1">--><?php //echo $id
+                        ?><!--</td>-->
+                        <td class="img-fluid z-depth-0" style="width: 150px; height: 200px; margin: 0 auto;"><img
+                                    src="<?php echo $value["img"] ?>" alt='Hình ảnh' width='100px'></td>
+                        <td class="w-75 m-0 m-auto text-center"><?php echo $value["name"] . " <br><br> " . number_format($value["price"]) . "đ"; ?></td>
+                        <td class="w-75 m-0 m-auto text-center">
+                            <input type="number" min="1"
+                                   id="qty-<?php echo $value["id"] ?>"
+                                   maxlength="<?php echo $value['number_kho'] ?>"
+                                   class="form-control text-center w-100"
+                                   value="<?php echo (int)$value["number"]; ?>" size="3"
+                                   onchange="updatecart('<?php echo $value["id"]; ?>', this.value)"
+
+                            />
+                        </td>
+                        <td class="w-75 m-0 m-auto text-center" id="price-<?php echo $value["id"] ?>">
+                            <span>₫</span><?php echo number_format((int)$value["number"] * $value["price"]); ?></td>
+
+                        <td>
+                            <section class="col-md-2">
+
+                                <a
+                                        class="btn btn-primary "
+                                        onclick="deletecart('<?php echo $value["id"]; ?>')"
+                                >
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </section>
+
+                        </td>
+
+                    </tr>
+
+                <?php }
+            } ?>
+
+            <?php
+            $numbers = 0;
+            $tong_tien_sps = 0;
+            if (isset($_SESSION['cart'])) {
+                $cart = $_SESSION['cart'];
+                foreach ($cart as $value) {
+                    $numbers += (int)$value["number"];
+                    $tong_tien_sps += (int)$value["number"] * $value["price"];
+                }
+            }
+            ?>
             <tr>
-                <th colspan="3"><h5><strong class="mt-2 ">Tổng sản phẩm:  <span  id="qtys"><?php echo $numbers?></span> </strong> <strong
+                <th colspan="3"><h5><strong class="mt-2 ">Tổng sản phẩm: <span id="qtys"><?php echo $numbers ?></span>
+                        </strong> <strong
                                 class="text-primary"> </strong></h5></th>
-                <th colspan="3"><h5><strong class="mt-2" >Tổng tiền: <span id="totals"><?php  echo number_format($tong_tien_sps) ;?> </span> <sup>đ</sup></strong> <strong
+                <th colspan="3"><h5><strong class="mt-2">Tổng tiền: <span
+                                    id="totals"><?php echo number_format($tong_tien_sps); ?> </span>
+                            <sup>đ</sup></strong> <strong
                                 class="text-primary"> </strong>
                     </h5></th>
             </tr>
@@ -259,9 +265,9 @@ require_once "../sanpham/csdl_function.php";
 </div>
 <?php require_once "../../hienthi/footer.php"; ?>
 
-<?php 
+<?php
 // else {
-    // echo " <section class=\"alert alert-info\" style='text-align: center ; font-family: Arial; margin-top: 3em;'><h3>Giỏ hàng trống! <a href='http://localhost/CT466/index.php'> Quay lại trang chủ</a></h3></section>";
+// echo " <section class=\"alert alert-info\" style='text-align: center ; font-family: Arial; margin-top: 3em;'><h3>Giỏ hàng trống! <a href='http://localhost/CT466/index.php'> Quay lại trang chủ</a></h3></section>";
 ?>
 
 <!--nút số lượng-->
@@ -284,47 +290,45 @@ require_once "../sanpham/csdl_function.php";
             $this.attr('value', d).val(d)
         })
     })
-</script>
 
-
-<script>
-    function updatecart(id, value){
+    function updatecart(id, value) {
         const formatter = new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'VND',
-})
+            style: 'currency',
+            currency: 'VND',
+        })
 
-        const idr = "#price-"+id;
-    const pr = "price-h-"+id;
-    const price = document.getElementById(pr).value;
-$.post("giohang_update.php",{'id':id,'value':value}, function(data, status){
-    // alert(data);
-    item = data.split("-"); //cat mang
-    $("#qty").text(item[0]);
+        const idr = "#price-" + id;
+        const pr = "price-h-" + id;
+        const price = document.getElementById(pr).value;
+        $.post("giohang_update.php", {'id': id, 'value': value}, function (data, status) {
+            // alert(data);
+            item = data.split("-"); //cat mang
+            $("#qty").text(item[0]);
 
-    $("#total").text(item[1]);
-    $("#qtys").text(item[2]);
-    $("#totals").text( item[3]);
-    value1= item[4];
-    const idi = 'qty-'+id;
-    if (value > 0){
-        document.getElementById(idi).value = value > item[4] ? item[4] : value;
-    } else {
-        document.getElementById(idi).value = 1;
-        value1 = 1;
-    };
-    $(idr).text(formatter.format(value1*price));
+            $("#total").text(item[1]);
+            $("#qtys").text(item[2]);
+            $("#totals").text(item[3]);
+            value1 = item[4];
+            const idi = 'qty-' + id;
+            if (value > 0) {
+                document.getElementById(idi).value = value > item[4] ? item[4] : value;
+            } else {
+                document.getElementById(idi).value = 1;
+                value1 = 1;
+            }
+            ;
+            $(idr).text(formatter.format(value1 * price));
 
-});
-    // window.location.reload();
-}
+        });
+        // window.location.reload();
+    }
 
 
-    function deletecart(id){
-       let check = confirm("Xóa sản phẩm này?");
+    function deletecart(id) {
+        let check = confirm("Xóa sản phẩm này?");
         // alert(check);
-        if(check){
-            $.post("xoasp_giohang.php",{'id':id}, function(data, status){
+        if (check) {
+            $.post("xoasp_giohang.php", {'id': id}, function (data, status) {
 
             });
 
