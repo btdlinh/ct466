@@ -144,16 +144,16 @@ $result11 = mysqli_query($conn, $sql11);
                                                  
                                               <td>
 
-                                                <button type='button' class='btn btn-sm btn btn-rounded btn-danger' title='Xóa bình luận'>
+                                               
                                                     <a  href=\"xulyxoabinhluan.php?bl_id=".$row['t_id']."\" 
                                                     onclick=\"return confirm('Bạn chắc chắn muốn xóa Bình luận này?')\"
                                                     class=\"white-text\"
                                                     data-toggle=\"tooltip\"
                                                     data-placement=\"top\" >
-                                                    <i class=\"fas fa-eraser \"></i>
+                                                     <i class=\"fas fa-eraser red-text\" style='font-size: 22px; margin: 0 .1rem;' title='Xóa bình luận'></i>
                                                     </a>
                                                     
-                                                </button>
+                                             
                                             </td>
                                                ";
                                         $i++;

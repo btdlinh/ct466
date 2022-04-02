@@ -61,7 +61,6 @@ $result = $conn->query($sql1);
         <!--        <div class="breadcrumb-dn mr-auto">-->
         <!--            <p>Liệt Kê Sách</p>-->
         <!--        </div>-->
-
         <!-- Navbar links  -->
         <ul class="nav navbar-nav nav-flex-icons ml-auto">
 
@@ -136,15 +135,13 @@ $result = $conn->query($sql1);
                                                 
                                                     <a onclick=\"return confirm('Bạn chắc chắn muốn xóa Sách này?')\" title='Xóa sản phẩm'
                                                     href=\"xoasach.php?idsach=".$row['sp_id']."\"  > 
-                                                     <i class=\"far fa-trash-alt red-text\" style='font-size: 22px; margin: 0 .2rem;'></i>
+                                                     <i class=\"fas fa-eraser red-text\" style='font-size: 22px; margin: 0 .1rem;'></i>
                                                     </a>
                                               
                                                  
                                                  <a href=\"thongtinsach.php?idsach=".$row['sp_id']."\" title='Xem thông tin sản phẩm'>
                                                   <i class=\"fas fa-eye grey-text\" style='font-size: 22px'></i>
                                                  </a>
-                                                 
-                                               
                                                 </td>
                                                ";
                                     $i++;

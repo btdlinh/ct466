@@ -122,14 +122,14 @@ require "../headerindex.php";
                                                  <td>".$row['tg_diachi']."</td>
  
                                                 <td>
-                                                <button type='button' class='btn btn-sm btn-primary'>
-                                                <a href=\"suatacgia.php?idtacgia=".$row['tg_id']."\"  > Sửa </a>
-                                                </button>
-                                                <br>
-                                                 <button type='button' class='btn btn-sm btn-danger'>
-                                                 <a onclick=\"return confirm('Bạn chắc chắn muốn xóa Tác giả này?')\"
-                                                 href=\"xoatacgia.php?idtacgia=".$row['tg_id']."\"  > Xóa </a>
-                                                 </button>
+                                                 <a href=\"suatacgia.php?idtacgia=".$row['tg_id']."\" title='Sửa thông tin sản phẩm'> 
+                                                    <i class=\"fas fa-edit blue-text\" style='font-size: 22px'></i>
+                                                 </a>
+                                                
+                                                <a onclick=\"return confirm('Bạn chắc chắn muốn xóa Sách này?')\" title='Xóa sản phẩm'
+                                               href=\"xoatacgia.php?idtacgia=".$row['tg_id']."\"   > 
+                                                    <i class=\"fas fa-eraser red-text\" style='font-size: 22px;'></i>
+                                                </a>
                                                 </td>
                                                ";
                                     $i++;

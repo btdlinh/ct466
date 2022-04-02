@@ -101,14 +101,17 @@ $result = $conn->query($sql1);
                                                 <td>".$row['dc_hoten']."</td>  
                                                 <td>".$row['kh_email']."</td> 
                                                 <td>
-                                                         <button type='button' class='btn btn-sm btn-danger'>
-                                                         <a onclick=\"return confirm('Bạn chắc chắn muốn xóa Khách hàng này?')\"
-                                                         href=\"xoakh.php?id=".$row['kh_id']."\"  > Xóa </a>
-                                                         </button>
-                                                <br>
-                                                         <button type='button' class='btn btn-sm btn-cyan'>
-                                                         <a href=\"thongtinkh.php?id=".$row['kh_id']."\"  > Xem </a>
-                                                         </button>
+                                                
+                                                  <a onclick=\"return confirm('Bạn chắc chắn muốn xóa Khách hàng này?')\" title='Xóa khách hàng'
+                                                    href=\"xoakh.php?id=".$row['kh_id']."\"  > 
+                                                     <i class=\"fas fa-eraser red-text\" style='font-size: 22px; margin: 0 .1rem;'></i>
+                                                    </a>
+                                              
+                                                 
+                                                 <a href=\"thongtinkh.php?id=".$row['kh_id']."\" title='Xem thông tin khách hàng'>
+                                                  <i class=\"fas fa-eye grey-text\" style='font-size: 22px'></i>
+                                                 </a>
+                                                        
                                                 </td>
                                                 
                                                ";

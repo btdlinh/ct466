@@ -116,10 +116,12 @@ require "../headerindex.php";
                                                 <td>".$row['nn_ngonngu']."</td>                                     
                                                 <td>
                                              
-                                                 <button type='button' class='btn btn-sm btn-danger'>
+                                                 
                                                  <a onclick=\"return confirm('Bạn chắc chắn muốn xóa Mục này?')\"
-                                                    href=\"xoangonngu.php?idngonngu=".$row['nn_id']."\"  > Xóa </a>
-                                                 </button>
+                                                    href=\"xoangonngu.php?idngonngu=".$row['nn_id']."\"  > 
+                                                      <i class=\"fas fa-eraser red-text\" style='font-size: 22px; margin: 0 .1rem;'></i>    
+                                                </a>
+                                            
                                                 </td>
                                                ";
                                     $i++;

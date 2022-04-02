@@ -3,9 +3,9 @@
 <?php
 session_start();
 require "../db.php";
-if (isset($_SESSION['email'])) {
-    $email = $_SESSION['email'];
-} else exit();
+//if (isset($_SESSION['email'])) {
+//    $email = $_SESSION['email'];
+//} else exit();
 //$conn = new mysqli("localhost", "root", "", "CT466-01");
 //$conn->set_charset("utf8");
 
@@ -98,15 +98,15 @@ $result = $conn->query($sql1);
                                 while ($row = $result->fetch_assoc()) {
                                     echo "<tr>
                                                 <td>".$i."</td>
-                                                <td>".$row['kh_ten']."</td>  
-                                                <td>".$row['kh_email']."</td> 
-                                                <td>".$row['kh_sdt']."</td> 
-                                                <td>".$row['kh_loinhan']."</td> 
+                                                <td>".$row['khlh_ten']."</td>  
+                                                <td>".$row['khlh_email']."</td> 
+                                                <td>".$row['khlh_sdt']."</td> 
+                                                <td>".$row['khlh_loinhan']."</td> 
                                                 <td>
-                                                         <button type='button' class='btn btn-sm btn-danger' title='Xóa Khách Hàng'>
-                                                         <a onclick=\"return confirm('Bạn chắc chắn muốn xóa Khách hàng này?')\"
-                                                         href=\"xoa_khlienhe.php?id=".$row['stt']."\"  >Xóa</a>
-                                                         </button>
+                                                         
+                                                         <a onclick=\"return confirm('Bạn chắc chắn muốn xóa Khách hàng này?')\" title='Xóa Khách Hàng'
+                                                         href=\"xoa_khlienhe.php?id=".$row['khlh_id']."\"  ><i class=\"fas fa-eraser\" style='color: red; font-size: 22px; margin: 0 .2rem;'></i></a>
+                                                        
                                               
                                                 </td>
                                                 

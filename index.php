@@ -14,6 +14,16 @@ or die($conn->connect_error);
 
 $conn->set_charset('utf8');
 
+//if (isset($_SESSION['kh_email']) ) {
+//    $email = $_SESSION['kh_email'];
+//    $sqlkh ="Select kh_ten from khach_hang where kh_email = $email";
+//    $rskh = mysqli_query($conn,$sqlkh);
+//    $rowkh = mysqli_fetch_assoc($rskh);
+//    echo $email;
+//
+//}
+
+
 //$rs = $conn->query("SELECT * FROM sach ");
 require_once "khachhang/sanpham/csdl_function.php";
 ?>
@@ -114,7 +124,7 @@ require_once "khachhang/sanpham/csdl_function.php";
                            data-toggle="dropdown"
                            aria-haspopup="true"
                            aria-expanded="false">
-                            <i class="fas fa-user blue-text"></i><?php echo isset($_SESSION['email'] )? $_SESSION['kh_ten'] : 'Tài khoản' ?>
+                            <i class="fas fa-user blue-text"></i><?php echo isset($_SESSION['kh_email'] )? $_SESSION['kh_email'] : 'Tài khoản'; ?>
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right dropdown-cyan"

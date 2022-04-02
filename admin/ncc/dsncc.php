@@ -109,16 +109,15 @@ require "../headerindex.php";
                                                 <td>".$row['ncc_diachi']."</td>  
                                                                                 
                                                 <td>
-                                                    <button type='button' class='btn btn-sm btn-primary'>
-                                                    <a href=\"suancc.php?idncc=".$row['ncc_id']."\"  > Sửa </a>
-                                                    </button> 
-                                                <br>
-                                                     <button type='button' class='btn btn-sm btn-danger'>
-                                                     <a onclick=\"return confirm('Bạn chắc chắn muốn xóa Nhà cung cấp này?')\"
-                                                     href=\"xoancc.php?idncc=".$row['ncc_id']."\"> Xóa </a>
-                                                     </button>
-                                                     
-                       
+                                                  <a href=\"suancc.php?idncc=".$row['ncc_id']."\" title='Sửa thông tin'> 
+                                                    <i class=\"fas fa-edit blue-text\" style='font-size: 22px'></i>
+                                                 </a>
+                                                
+                                                <a onclick=\"return confirm('Bạn chắc chắn muốn xóa Nhà cung cấp này?')\" title='Xóa'
+                                                    href=\"xoancc.php?idncc=".$row['ncc_id']."\"> 
+                                                    <i class=\"fas fa-eraser red-text\" style='font-size: 22px;'></i>
+                                                </a>
+
                                                 </td>
                                                ";
                                     $i++;

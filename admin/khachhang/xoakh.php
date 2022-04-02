@@ -1,18 +1,15 @@
-<!--viết tất cả code php trên đầu file-->
-
 <?php
 session_start();
-require "../db.php";
+require "../../db.php";
 //if (isset($_SESSION['email'])) {
 //    $email = $_SESSION['email'];
 //} else exit();
 $id=$_GET['id']; // lay bien idsach tren url (id can xoa)
-$sql = "SELECT * FROM kh_lienhe  WHERE  $id=khlh_id";
+$sql = "SELECT * FROM khach_hang WHERE  $id=kh_id";
 $result = $conn->query($sql); // lay dong du lieu dua vao mang
-$sql = "DELETE FROM kh_lienhe WHERE khlh_id=$id";
+$sql = "DELETE FROM khach_hang WHERE kh_id=$id";
 $conn->query($sql) or die("err: ");
-header('location: xem_lienhe.php');
+header('location: dskhachhang.php');
 //echo "Thành Công";
 $conn->close();
 ?>
-

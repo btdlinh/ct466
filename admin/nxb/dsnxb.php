@@ -109,16 +109,15 @@ require "../headerindex.php";
                                                 <td>".$row['nxb_diachi']."</td>  
                                                                                 
                                                 <td>
-                                                    <button type='button' class='btn btn-sm btn-primary'>
-                                                    <a href=\"suanxb.php?idnxb=".$row['nxb_id']."\"  > Sửa </a>
-                                                    </button> 
-                                                <br>
-                                                     <button type='button' class='btn btn-sm btn-danger'>
-                                                     <a onclick=\"return confirm('Bạn chắc chắn muốn xóa Nhà xuất bản này?')\"
-                                                     href=\"xoanxb.php?idnxb=".$row['nxb_id']."\"> Xóa </a>
-                                                     </button>
-                                                     
-                       
+                                                  <a href=\"suanxb.php?idnxb=".$row['nxb_id']."\" title='Sửa thông tin Nhà xuất bản'> 
+                                                    <i class=\"fas fa-edit blue-text\" style='font-size: 22px'></i>
+                                                 </a>
+                                                
+                                                <a onclick=\"return confirm('Bạn chắc chắn muốn xóa Nhà xuất bản này?')\" title='Xóa'
+                                             href=\"xoanxb.php?idnxb=".$row['nxb_id']."\" > 
+                                                    <i class=\"fas fa-eraser red-text\" style='font-size: 22px;'></i>
+                                                </a>
+
                                                 </td>
                                                ";
                                     $i++;
