@@ -1,3 +1,27 @@
+<?php
+require "mail/sendmail.php";
+$ten=$_POST["name"];
+$email=$_POST["email"];
+//random
+function generateRandomString($length = 6) {
+//$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $characters = '0123456789';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}
+$a =generateRandomString();
+//random
+$tieude = " Mã xác nhận OTP từ Nhà Sách Trực Tuyến HIRAKI";
+$noidung = "<h3>Mã xác nhận tài khoản của bạn là:<u style='color: red'>".$a."</u> </h3>";
+$maildathang = $email;
+$mail = new Mailer();
+$mail->dathangmail($tieude, $noidung, $maildathang);
+?>
+
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 
@@ -51,36 +75,24 @@
 <!-- Main Navigation -->
 <header>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar" style="background: rgba(2,2,2,0.9)">
-        <div class="container">
-<!--            <a href="#" class="pl-0"><img src="./image/logo.png" style="width: 80%;"></a>-->
-
-<!--            <a class="navbar-brand white-text" style="font-family: 'Monoton', cursive" href="#"><strong> HIRAKI </strong></a>-->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7"
-                    aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link white-text" href="http://localhost/CT466"> <i class="fas fa-home"></i><strong>Trang Chủ</strong></a>
-                    </li>
-<!--                    <li class="nav-item">-->
-<!--                        <a class="nav-link white-text" href="#"><i class="far fa-bell"></i> Thông Báo</a>-->
+<!--    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar" style="background: rgba(2,2,2,0.9)">-->
+<!--        <div class="container">-->
+<!--         -->
+<!--            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7"-->
+<!--                    aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--                <span class="navbar-toggler-icon"></span>-->
+<!--            </button>-->
+<!--            <div class="collapse navbar-collapse" id="navbarSupportedContent-7">-->
+<!--                <ul class="navbar-nav mr-auto">-->
+<!--                    <li class="nav-item active">-->
+<!--                        <a class="nav-link white-text" href="http://localhost/CT466"> <i class="fas fa-home"></i><strong>Trang Chủ</strong></a>-->
 <!--                    </li>-->
-<!--                    <li class="nav-item">-->
-<!--                        <a class="nav-link white-text" href="#"><i class="fas fa-cart-plus"></i> Giỏ Hàng</a>-->
-<!--                    </li>-->
-                </ul>
-<!--                <form class="form-inline ">-->
-<!--                    <div class="md-form my-0" >-->
-<!--                        <i class="fas fa-search white-text">-->
-<!--                            <input class="form-control mr-sm-2 white-text" type="text" placeholder="Tìm Kiếm..." aria-label="Search"> </i>-->
-<!--                    </div>-->
-<!--                </form>-->
-            </div>
-        </div>
-    </nav>
+<!---->
+<!--                </ul>-->
+<!---->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </nav>-->
     <!-- Navbar -->
 
     <!-- Intro Section -->
@@ -92,16 +104,16 @@
 
                         <form action="xulydangky.php" method="POST" onsubmit="return Validate()">
 
-                        <!-- Form with header -->
-<!--                        style="background-color: whitesmoke; background:rgba(0,0,0,0.5);-->
-                        <div class="card wow fadeIn" data-wow-delay="0.3s" style="background:rgba(18,19,19,0.75); margin-top: 3em" >
-                            <div class="card-body">
+                            <!-- Form with header -->
+                            <!--                        style="background-color: whitesmoke; background:rgba(0,0,0,0.5);-->
+                            <div class="card wow fadeIn" data-wow-delay="0.3s" style="background:rgba(18,19,19,0.75); margin-top: 3em" >
+                                <div class="card-body">
 
-                            <!--form-->
-<!--                                <form action="xulydangky.php" method="post">-->
+                                    <!--form-->
+                                    <!--                                <form action="xulydangky.php" method="post">-->
                                     <div class="md-form">
-<!--                                        <h1 class="logo" style="padding-top: 0.5em;color: #41b1eb; text-align: center;text-shadow: 1px 2px rgba(219,226,234,0.87); font-size: 3.5em; font-family: 'Monoton', cursive;" >HIRAKI</h1>-->
-<!--                                        <p class="slogan" style="color: #ffffff; text-align: center; font-size: 1.6em">Tạo tài khoản mới</p>-->
+                                        <!--                                        <h1 class="logo" style="padding-top: 0.5em;color: #41b1eb; text-align: center;text-shadow: 1px 2px rgba(219,226,234,0.87); font-size: 3.5em; font-family: 'Monoton', cursive;" >HIRAKI</h1>-->
+                                        <!--                                        <p class="slogan" style="color: #ffffff; text-align: center; font-size: 1.6em">Tạo tài khoản mới</p>-->
                                         <h1 class="logo"
                                             style="
                                     padding-top: 0.3em;
@@ -117,7 +129,7 @@
 
                                     <div class="md-form" >
                                         <i class="fas fa-user prefix white-text"></i>
-                                        <input type="text" id="orangeForm-name" name="name" class="form-control white-text">
+                                        <input type="text" id="orangeForm-name" name="name"  value="<?php echo $ten; ?>" class="form-control white-text">
                                         <label for="orangeForm-name">Họ tên</label>
                                     </div>
                                     <div>
@@ -126,7 +138,7 @@
 
                                     <div class="md-form">
                                         <i class="fas fa-envelope prefix white-text"></i>
-                                        <input type="text" id="orangeForm-email" name="email" class="form-control white-text" placeholder=" ... @gmail.com">
+                                        <input type="text" id="orangeForm-email" name="email" value="<?php echo $email; ?>" class="form-control white-text" placeholder=" ... @gmail.com">
                                         <label for="orangeForm-email">Email</label>
                                     </div>
 
@@ -135,23 +147,47 @@
                                     </div>
 
 
-                                <div class="md-form">
+                                    <div class="md-form">
                                         <i class="fas fa-lock prefix white-text"></i>
                                         <input type="password" id="orangeForm-pass" name="pass" class="form-control white-text">
                                         <label for="orangeForm-pass">Mật khẩu</label>
-                                </div>
+                                    </div>
 
                                     <div>
                                         <p id="tbmk" class="error"></p>
                                     </div>
 
-                                <div class="text-center">
-                                        <button class="btn btn-outline-light-blue btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Đăng ký</button>                                    <hr class="mt-4">
-                                    <a href="dangnhap.html"> Đăng nhập</a>
-                                    <div class="inline-ul text-center d-flex justify-content-center">
-<!--                                            <a class="p-2 m-2 fa-lg tw-ic"><i class="fab fa-google-plus-g white-text"></i></a>-->
-<!--                                            <a class="p-2 m-2 fa-lg li-ic"><i class="fab fa-facebook white-text"></i></a>-->
-<!--                                            <a class="p-2 m-2 fa-lg ins-ic"><i class="fab fa-instagram white-text"> </i></a>-->
+
+                                      <div class="md-form">
+                                          <i class="fas fa-lock prefix white-text"></i>
+                                          <input type="password" id="orangeForm-repass" name="repass" class="form-control white-text">
+                                          <label for="orangeForm-repass">Nhập lại mật khẩu</label>
+                                      </div>
+
+
+
+                                    <div class="md-form">
+                                        <i class="fas fa-unlock prefix white-text"></i>
+                                        <input type="text" id="orangeForm-otp" name="otp" class="form-control white-text">
+                                        <label for="orangeForm-pass">Mã OTP</label>
+
+                                    </div>
+
+                                    <div>
+                                        <p id="tbotp" class="error"></p>
+                                    </div>
+
+
+                                    <div class="text-center">
+
+                                        <button class="btn btn-outline-light-blue btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Đăng ký</button>
+                                        <hr class="mt-4">
+
+                                        <a href="admin/dangnhap.html"> Đăng nhập</a>
+                                        <div class="inline-ul text-center d-flex justify-content-center">
+                                            <!--                                            <a class="p-2 m-2 fa-lg tw-ic"><i class="fab fa-google-plus-g white-text"></i></a>-->
+                                            <!--                                            <a class="p-2 m-2 fa-lg li-ic"><i class="fab fa-facebook white-text"></i></a>-->
+                                            <!--                                            <a class="p-2 m-2 fa-lg ins-ic"><i class="fab fa-instagram white-text"> </i></a>-->
                                         </div>
                                     </div>
 
@@ -220,6 +256,15 @@
         else {
             document.getElementById("tbmk").innerHTML="";
         }
+
+        if(document.querySelector('[name=otp]').value != <?php echo $a; ?>) {
+            OK = false;
+            console.log(document.querySelector('[name=otp]').value , <?php echo $a; ?>)
+            document.getElementById("tbmk").innerHTML="Mã OTP không đúng";
+            document.getElementById("tbmk").style.color="red"
+        }
+
+
         return OK;
     }
 
@@ -228,3 +273,4 @@
 </body>
 
 </html>
+
