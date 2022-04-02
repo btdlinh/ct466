@@ -83,25 +83,22 @@
 
                         <form action="xulyotp.php" method="POST" onsubmit="return Validate()">
 
-                            <!-- Form with header -->
-                            <!--                        style="background-color: whitesmoke; background:rgba(0,0,0,0.5);-->
+
                             <div class="card wow fadeIn" data-wow-delay="0.3s" style="background:rgba(18,19,19,0.75); margin-top: 3em" >
                                 <div class="card-body">
 
                                     <!--form-->
-                                    <!--                                <form action="xulydangky.php" method="post">-->
+
                                     <div class="md-form">
-                                        <!--                                        <h1 class="logo" style="padding-top: 0.5em;color: #41b1eb; text-align: center;text-shadow: 1px 2px rgba(219,226,234,0.87); font-size: 3.5em; font-family: 'Monoton', cursive;" >HIRAKI</h1>-->
-                                        <!--                                        <p class="slogan" style="color: #ffffff; text-align: center; font-size: 1.6em">Tạo tài khoản mới</p>-->
                                         <h1 class="logo"
                                             style="
-                                    padding-top: 0.3em;
-                                    color: rgba(55,132,187,0.85);
-                                    text-align: center;
-                                    font-size: 4em;
-                                    font-family: 'Libre Barcode 39 Text', cursive;
-                                    text-shadow: 2px 1px rgba(221,223,225,0.89)">
-                                            HIRAKI
+                                            padding-top: 0.3em;
+                                            color: rgba(55,132,187,0.85);
+                                            text-align: center;
+                                            font-size: 4em;
+                                            font-family: 'Libre Barcode 39 Text', cursive;
+                                            text-shadow: 2px 1px rgba(221,223,225,0.89)"
+                                        >HIRAKI
                                         </h1>
                                         <p class="slogan" style="color: #ffffff; text-align: center; font-size: 1.4em">Tạo khoản của bạn</p>
                                     </div>
@@ -174,7 +171,7 @@
     function Validate(){
         let tendangnhap=document.getElementById("orangeForm-name").value;
         let emaildangnhap=document.getElementById("orangeForm-email").value;
-        let matkhau=document.getElementById("orangeForm-pass").value;
+        // let matkhau=document.getElementById("orangeForm-pass").value;
         let OK = true;
         if(tendangnhap ===""&&emaildangnhap===""&&matkhau===""){
             alert("Hãy nhập đầy đủ thông tin!");
@@ -199,14 +196,14 @@
             document.getElementById("tbemail").innerHTML="";
         }
 
-        if(matkhau===""){
-            document.getElementById("tbmk").innerHTML="Bạn chưa nhập mật khẩu";
-            document.getElementById("tbmk").style.color="red"
-            OK= false;
-        }
-        else {
-            document.getElementById("tbmk").innerHTML="";
-        }
+        // if(matkhau===""){
+        //     document.getElementById("tbmk").innerHTML="Bạn chưa nhập mật khẩu";
+        //     document.getElementById("tbmk").style.color="red"
+        //     OK= false;
+        // }
+        // else {
+        //     document.getElementById("tbmk").innerHTML="";
+        // }
         return OK;
     }
 
