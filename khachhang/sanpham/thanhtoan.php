@@ -13,7 +13,7 @@ $conn->set_charset('utf8');
 
 if (isset($_SESSION['kh_email'])) {
     $email = $_SESSION['kh_email'];
-} else header("location:../../dangnhap.html");
+} else header("location:../../dangnhap.php");
 require_once "../sanpham/csdl_function.php";
 //$title = "Thanh Toán";
 //require "headerhienthisp.php";

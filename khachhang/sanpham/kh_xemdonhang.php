@@ -2,7 +2,7 @@
 session_start();
 if (isset($_SESSION['kh_email'])) {
     $email = $_SESSION['kh_email'];
-} else header("location:http://localhost/CT466/dangnhap.html");
+} else header("location:http://localhost/CT466/dangnhap.php");
 
 require "../../db.php";
 

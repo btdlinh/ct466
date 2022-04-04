@@ -3,10 +3,10 @@
 <?php
 
 session_start();
-
-//if (isset($_SESSION['email'])) {
-//    $email = $_SESSION['email'];
-//} else header("location:dangnhap.html");
+//
+if (isset($_SESSION['ad_email'])) {
+    $email = $_SESSION['ad_email'];
+} else header("location:dangnhap.php");
 
 ?>
 

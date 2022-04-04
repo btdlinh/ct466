@@ -15,9 +15,10 @@ if ($result->num_rows > 0) {
     if($pass==$row['kh_matkhau']){ // so sanh mk vua nhap voi mk co trong csl=dl
         //      echo "Dang nhap thanh cong ^^";
         $_SESSION['kh_email']= $email;
+        $_SESSION['kh_ten']= $row['kh_ten'];
         header('location:index.php');
-    }else  header('location:dangnhap.html');
-} else header('location:dangnhap.html');
+    }else  header('location:dangnhap.php');
+} else header('location:dangnhap.php');
 
 
 $conn->close();

@@ -281,7 +281,7 @@ require "../../db.php";
                         $id=$_GET['id'];
 //                        if(isset($_SESSION['email'])){
 //                            $email = $_SESSION['email'];
-//                        }else header("location:dangnhap.html");
+//                        }else header("location:dangnhap.php");
                             $sql4 = "SELECT * FROM khach_hang as a join dia_chi as b on a.kh_id = b.dc_idkh 
                                                                    join hoa_don as c on c.hd_idkh=a.kh_id
                                                 WHERE  (kh_id='".$id."')";

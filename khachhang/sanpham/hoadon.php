@@ -54,7 +54,7 @@ foreach($_POST as $key => $value){
 
 //if (isset($_SESSION['emailkh'])) {
 //    $email = $_SESSION['emailkh'];
-//} else header("location:../../dangnhap.html");
+//} else header("location:../../dangnhap.php");
 //require_once "../sanpham/csdl_function.php";
 $title = "Thanh Toán";
 require "headerhienthisp.php";

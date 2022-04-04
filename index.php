@@ -124,7 +124,7 @@ require_once "khachhang/sanpham/csdl_function.php";
                            data-toggle="dropdown"
                            aria-haspopup="true"
                            aria-expanded="false">
-                            <i class="fas fa-user blue-text"></i><?php echo isset($_SESSION['kh_email'] )? $_SESSION['kh_email'] : 'Tài khoản'; ?>
+                            <i class="fas fa-user blue-text"></i><?php echo isset($_SESSION['kh_email'] )? $_SESSION['kh_ten'] : 'Tài khoản'; ?>
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right dropdown-cyan"

@@ -304,13 +304,6 @@ $title = $row['sp_tensach'];
 
 <!-- Main Container -->
 <div class="container mt-5 pt-3">
-
-    <div class="divider-new">
-
-        <h3 class="h3-responsive font-weight-bold blue-text mx-3">Sản Phẩm Mới</h3>
-
-    </div>
-
     <!-- Section: Products v.5 -->
     <section id="products" class="pb-5">
 
@@ -354,73 +347,6 @@ $title = $row['sp_tensach'];
 
             <!-- Slides -->
 
-            <?php
-
-            $querynew = "SELECT * FROM sanpham ORDER BY sp_id DESC";
-            $resultnew = mysqli_query($conn, $querynew);
-            if (!$resultnew) {
-                echo "Không truy xuất được dữ liệu " . mysqli_error($conn);
-                exit;
-            }
-
-            for ($i = 0; $i < 3; $i++) {
-                $rownew = mysqli_fetch_array($resultnew);
-                echo '
-
-                <div class="row">
-                    <div class="col-sm mt-4 mb-4">
-                    
-                    <div>
-                            <!-- Card -->
-                            <div class="card">
-        
-                                <!-- Card image -->
-                                <div class="view overlay"  title=' . $rownew['sp_tensach'] . '>
-        
-                                    <img src=' . $rownew['sp_hinhanh'] . ' alt="Hình Ảnh Sách" style="width: 330px; height: 350px; margin: 1em auto; padding-top: 1em;">
-        
-                                    <a href="http://localhost/CT466/khachhang/sanpham/hienthisp.php?idsach=' . $rownew['sp_id'] . ' " 
-                                        title=' . $rownew['sp_tensach'] . ' />
-                                        <div class="mask rgba-white-slight"></div>
-                                    </a>
-        
-                                </div>
-                                <!-- Card image -->
-        
-                                <!-- Card content -->
-                                <div class="card-body" style="height: 5em;">
-                                    <!-- Category & Title tensach-->
-                                    <h5 class="card-title mb-1">
-                                        <strong>
-                                            <a href="http://localhost/CT466/khachhang/sanpham/hienthisp.php?idsach=' . $rownew['sp_id'] . ' " 
-                                                class="dark-grey-text font-small font-weight-bolder"  />' . $rownew['sp_tensach'] . '</a>
-                                        </strong>
-                                    </h5>
-                                  <!-- Category & Title ten sach-->
-                                </div>
-                                <!-- Card content -->
-                                
-                                <!-- Card footer gia-->
-                                    <div class="card-footer pb-0">
-        
-                                        <div class="row mb-0">
-        
-                                            <span class="float-left m-1 center-element text-info"><strong>' . number_format($rownew["sp_gia"]) . ' đ</strong></span>
-                                        
-                                        </div>
-        
-                                    </div>
-                                <!-- Card footer gia-->
-                            </div>
-                            <!-- Card -->
-                      </div>
-      
-                    ';
-
-            }
-
-            ?>
-
             <!-- Slides -->
         </div>
 
@@ -435,31 +361,44 @@ $title = $row['sp_tensach'];
 
     </div>
     <!--   viet binh luan-->
+    <?php
+    if ( isset($_SESSION['kh_email']) ){
+        ?>
+        <form action="xuly_vietdanhgia.php" method="get">
+            <div class="md-form-8 pb-5 pt-1">
 
-    <form action="xuly_vietdanhgia.php" method="get">
-        <div class="md-form-8 pb-5 pt-1">
 
 
-            <label for="form12">Email</label>
+                <input style="display: none;" type="text" id="form12" class="md-textarea form-control m-3" rows="2" name="tenkh" value="<?php echo $_SESSION['kh_email'];?>">
 
-            <input type="text" id="form12" class="md-textarea form-control m-3" rows="2" name="tenkh" placeholder="...@gmail.com">
+                <!--        <i class="fas fa-pencil-alt prefix"></i>-->
+                <label for="form12">Bình luận</label>
+                <textarea type="text" id="form11" class="md-textarea form-control m-3" rows="5" name="binhluan" placeholder="Thêm bình luận ..."></textarea>
 
-            <!--        <i class="fas fa-pencil-alt prefix"></i>-->
-            <label for="form12">Bình luận</label>
-            <textarea type="text" id="form11" class="md-textarea form-control m-3" rows="5" name="binhluan" placeholder="Thêm bình luận ..."></textarea>
+                <input type="hidden" name="idsp"  value="<?php echo $id; ?>" >
+                <button type="submit"
+                        class="btn blue-gradient btn-rounded waves-effect waves-light btn-sm"
+                        value="Gửi bình luận "
+                        name="guibinhluan"
 
-            <input type="hidden" name="idsp"  value="<?php echo $id; ?>" >
-            <button type="submit"
-                    class="btn blue-gradient btn-rounded waves-effect waves-light btn-sm"
-                    value="Gửi bình luận "
-                    name="guibinhluan"
+                >
+                    Gửi bình luận
+                </button>
 
-            >
-                Gửi bình luận
-            </button>
+            </div>
+        </form>
 
-        </div>
-    </form>
+
+        <?php
+    }else{
+        ?>
+        <span style="font-size: 24px;color: coral">Bạn cần đăng nhập để bình luận!</span>
+
+    <?php
+    }
+
+    ?>
+
     <div class="divider-new pt-5 pb-2">
 
         <h3 class="h3-responsive font-weight-bold blue-text mx-3">Xem Bình Luận</h3>
@@ -474,6 +413,19 @@ $title = $row['sp_tensach'];
 //                                          join hoa_don as d on d.hd_idkh=a.kh_id
 //                                          join chi_tiet_hoa_don as f on d.hd_id=f.cthd_idhd
 //                     WHERE c.sp_id=$id";
+
+//    if(isset($_SESSION['kh_email'])){
+//        $a = $_SESSION['kh_email'];
+//        $sql_kh= "SELECT * FROM hoa_don as a join chi_tiet_hoa_don as b on a.hd_id=b.cthd_idhd
+//                    join khach_hang as c on c.kh_id=a.hd_idkh
+//                    where kh_email='$a' and cthd_idsp = '$id'
+//        ";
+//        $rs_kh = mysqli_query($conn,$sql_kh);
+//        $row_kh = mysqli_fetch_assoc($rs_kh);
+//
+//
+//    }
+
     $sql_dg = "SELECT * FROM test as a 
                                           join sanpham as c on c.sp_id=a.t_idsp
                                         
@@ -574,9 +526,76 @@ $title = $row['sp_tensach'];
     </section>
 
     <!-- Product Reviews -->
+
 <?php
 
     }
+    ?>
+    <div class="divider-new">
+
+        <h3 class="h3-responsive font-weight-bold blue-text mx-3">Sản Phẩm Mới</h3>
+
+    </div>
+    <?php
+
+    $querynew = "SELECT * FROM sanpham ORDER BY sp_id DESC";
+    $resultnew = mysqli_query($conn, $querynew);
+    if (!$resultnew) {
+        echo "Không truy xuất được dữ liệu " . mysqli_error($conn);
+        exit;
+    }
+    echo ' <div class="row">';
+    for ($i = 0; $i < 3; $i++) {
+        $rownew = mysqli_fetch_array($resultnew);
+        echo '
+                    <div class="col-xl-4  mt-4 mb-4">
+                            <!-- Card -->
+                            <div class="card">
+        
+                                <!-- Card image -->
+                                <div class="view overlay"  title=' . $rownew['sp_tensach'] . '>
+        
+                                    <img src=' . $rownew['sp_hinhanh'] . ' alt="Hình Ảnh Sách" style="width: 330px; height: 350px; margin: 1em auto; padding-top: 1em;">
+        
+                                    <a href="http://localhost/CT466/khachhang/sanpham/hienthisp.php?idsach=' . $rownew['sp_id'] . ' " 
+                                        title=' . $rownew['sp_tensach'] . ' />
+                                        <div class="mask rgba-white-slight"></div>
+                                    </a>
+        
+                                </div>
+                                <!-- Card image -->
+        
+                                <!-- Card content -->
+                                <div class="card-body" style="height: 5em;">
+                                    <!-- Category & Title tensach-->
+                                    <h5 class="card-title mb-1">
+                                        <strong>
+                                            <a href="http://localhost/CT466/khachhang/sanpham/hienthisp.php?idsach=' . $rownew['sp_id'] . ' " 
+                                                class="dark-grey-text font-small font-weight-bolder"  />' . $rownew['sp_tensach'] . '</a>
+                                        </strong>
+                                    </h5>
+                                  <!-- Category & Title ten sach-->
+                                </div>
+                                <!-- Card content -->
+                                
+                                <!-- Card footer gia-->
+                                    <div class="card-footer pb-0">
+        
+                                        <div class="row mb-0">
+        
+                                            <span class="float-left m-1 center-element text-info"><strong>' . number_format($rownew["sp_gia"]) . ' đ</strong></span>
+                                        
+                                        </div>
+        
+                                    </div>
+                                <!-- Card footer gia-->
+                            </div>
+                            <!-- Card -->
+       </div>
+                    ';
+
+    }
+    echo '  </div>';
     ?>
     <!-- Section: Products v.5 danh dia-->
 

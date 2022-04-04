@@ -183,7 +183,7 @@ $mail->dathangmail($tieude, $noidung, $maildathang);
                                         <button class="btn btn-outline-light-blue btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Đăng ký</button>
                                         <hr class="mt-4">
 
-                                        <a href="admin/dangnhap.html"> Đăng nhập</a>
+                                        <a href="admin/dangnhap.php"> Đăng nhập</a>
                                         <div class="inline-ul text-center d-flex justify-content-center">
                                             <!--                                            <a class="p-2 m-2 fa-lg tw-ic"><i class="fab fa-google-plus-g white-text"></i></a>-->
                                             <!--                                            <a class="p-2 m-2 fa-lg li-ic"><i class="fab fa-facebook white-text"></i></a>-->

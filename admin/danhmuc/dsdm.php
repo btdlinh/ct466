@@ -3,9 +3,9 @@
 <?php
 session_start();
 require "../../db.php";
-//if (isset($_SESSION['email'])) {
-//    $email = $_SESSION['email'];
-//} else exit();
+if (isset($_SESSION['email'])) {
+    $email = $_SESSION['email'];
+} else exit();
 
 $sql1 = "SELECT * FROM danh_muc";
 $result = $conn->query($sql1);

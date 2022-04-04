@@ -1,24 +1,21 @@
 <?php
     session_start();
-    $conn = new mysqli("localhost", "root", "", "CT466-01");
+    $conn = new mysqli("localhost", "root", "", "ct466");
     $conn->set_charset("utf8");
 
     $email=$_POST["email"];
     $pass=md5($_POST["pass"]);
 
-    $sql="SELECT* FROM admin where email='$email'";
-
+    $sql="SELECT * FROM admin where ad_email='$email' and ad_matkhau= '$pass' ";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc(); // dua cac toi tuong vua tim duoc thanh cac dong
-        if($pass==$row['matkhau']){ // so sanh mk vua nhap voi mk co trong csl=dl
-      //      echo "Dang nhap thanh cong ^^";
-            $_SESSION['email']= $email;
-            header('location:index1.php');
-        }else  header('location:dangnhap.html');
-    } else header('location:dangnhap.html');
-
-
+//        echo "dung";
+        $_SESSION['ad_email']= $email;
+              header('Location: http://localhost/ct466/admin/index.php');
+        } else {
+        $_SESSION['eror']= "Tài khoản mật khẩu không đúng";
+        header('Location: http://localhost/ct466/admin/dangnhap.php');
+    }
     $conn->close();
 ?>
 

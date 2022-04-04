@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -195,6 +199,16 @@
                                                         class="form-control black-text"
                                                 />
                                                 <label for="orangeForm-pass" class="blue-grey-text">Mật khẩu</label>
+                                                <?php
+
+                                                if(isset($_SESSION['eror'])){?>
+                                                <span style="color: red">Tài khoản mật khẩu không đúng</span>
+                                                <?php
+                                                    unset($_SESSION['eror']);
+
+                                                }
+
+                                                     ?>
                                             </div>
                                             <div>
                                                 <p id="tbmk" class="error"></p>

@@ -161,38 +161,38 @@ require "../db.php";
                                             <p id="tbten" class="error"></p>
                                         </div>
 
-
-                                        <div class="md-form ml-4 pl-5">
-                                            <label for="date" style="margin-left: 0.9em; padding-right: 2em;"> Ngày Sinh</label>
-                                            <input
-                                                    type="date"
-                                                    id="date"
-                                                    name="ns"
-                                                    for="orangeForm-nsinh"
-                                                    class="mb-2 ml-5 pl-2"
-                                                    style="margin-left: 3em; margin-top: 0.4em;"
-                                            />
-                                        </div>
-                                        <div>
-                                            <p id="tbns" class="error"></p>
-                                        </div>
-
-
-                                        <div class="md-form ml-4 pl-5" >
-                                            <label for="select" style="margin-left: 0.9em;">Giới tính</label>
-                                            <select
-                                                    id="select"
-                                                    name="gioitinh"
-                                                    style="margin-left: 3em; margin-top: 0.5em;width: 8em;">
-                                                <option value="luachon">Lựa chọn...</option>
-                                                <option value="Nam" for="orangeForm-gtinh">Nam</option>
-                                                <option value="Nữ" for="orangeForm-gtinh">Nữ</option>
-
-                                            </select>
-                                        </div>
-                                        <div>
-                                            <p id="tbgt" class="error"></p>
-                                        </div>
+<!---->
+<!--                                        <div class="md-form ml-4 pl-5">-->
+<!--                                            <label for="date" style="margin-left: 0.9em; padding-right: 2em;"> Ngày Sinh</label>-->
+<!--                                            <input-->
+<!--                                                    type="date"-->
+<!--                                                    id="date"-->
+<!--                                                    name="ns"-->
+<!--                                                    for="orangeForm-nsinh"-->
+<!--                                                    class="mb-2 ml-5 pl-2"-->
+<!--                                                    style="margin-left: 3em; margin-top: 0.4em;"-->
+<!--                                            />-->
+<!--                                        </div>-->
+<!--                                        <div>-->
+<!--                                            <p id="tbns" class="error"></p>-->
+<!--                                        </div>-->
+<!---->
+<!---->
+<!--                                        <div class="md-form ml-4 pl-5" >-->
+<!--                                            <label for="select" style="margin-left: 0.9em;">Giới tính</label>-->
+<!--                                            <select-->
+<!--                                                    id="select"-->
+<!--                                                    name="gioitinh"-->
+<!--                                                    style="margin-left: 3em; margin-top: 0.5em;width: 8em;">-->
+<!--                                                <option value="luachon">Lựa chọn...</option>-->
+<!--                                                <option value="Nam" for="orangeForm-gtinh">Nam</option>-->
+<!--                                                <option value="Nữ" for="orangeForm-gtinh">Nữ</option>-->
+<!---->
+<!--                                            </select>-->
+<!--                                        </div>-->
+<!--                                        <div>-->
+<!--                                            <p id="tbgt" class="error"></p>-->
+<!--                                        </div>-->
 
 
                                         <div class="md-form">
@@ -210,42 +210,43 @@ require "../db.php";
                                         </div>
 
 
-                                        <div class="md-form">
-                                            <i class="fas fa-phone-alt prefix blue-text"></i>
-                                            <input
-                                                    type="text"
-                                                    id="orangeForm-sdt"
-                                                    name="sdt"
-                                                    class="form-control black-text"
-                                            />
-                                            <label for="orangeForm-sdt">Số Điện Thoại</label>
-                                        </div>
-                                        <div>
-                                            <p id="tbsdt" class="error"></p>
-                                        </div>
-
-
-                                        <div class="md-form">
-                                            <i class="fas fa-home prefix blue-text"></i>
-                                            <input
-                                                    type="text"
-                                                    id="orangeForm-dc"
-                                                    name="dc"
-                                                    class="form-control black-text"
-                                            />
-                                            <label for="orangeForm-dc">Địa chỉ</label>
-                                        </div>
-                                        <div>
-                                            <p id="tbdc" class="error"></p>
-                                        </div>
-
+<!--                                        <div class="md-form">-->
+<!--                                            <i class="fas fa-phone-alt prefix blue-text"></i>-->
+<!--                                            <input-->
+<!--                                                    type="text"-->
+<!--                                                    id="orangeForm-sdt"-->
+<!--                                                    name="sdt"-->
+<!--                                                    class="form-control black-text"-->
+<!--                                            />-->
+<!--                                            <label for="orangeForm-sdt">Số Điện Thoại</label>-->
+<!--                                        </div>-->
+<!--                                        <div>-->
+<!--                                            <p id="tbsdt" class="error"></p>-->
+<!--                                        </div>-->
+<!---->
+<!---->
+<!--                                        <div class="md-form">-->
+<!--                                            <i class="fas fa-home prefix blue-text"></i>-->
+<!--                                            <input-->
+<!--                                                    type="text"-->
+<!--                                                    id="orangeForm-dc"-->
+<!--                                                    name="dc"-->
+<!--                                                    class="form-control black-text"-->
+<!--                                            />-->
+<!--                                            <label for="orangeForm-dc">Địa chỉ</label>-->
+<!--                                        </div>-->
+<!--                                        <div>-->
+<!--                                            <p id="tbdc" class="error"></p>-->
+<!--                                        </div>-->
+<!---->
 
                                         <div class="md-form">
                                             <i class="fas fa-lock prefix blue-text"></i>
                                             <input
-                                                    type="password"
-                                                    id="orangeForm-pass"
-                                                    name="pass"
+                                                    onkeyup="return passwordChanged();"
+                                                    type="text"
+                                                    id="password"
+                                                    name="password"
                                                     class="form-control black-text"
                                             />
                                             <label for="orangeForm-pass">Mật khẩu</label>
@@ -254,6 +255,7 @@ require "../db.php";
                                             <p id="tbmk" class="error"></p>
                                         </div>
 
+                                        <span id="strength">Vui lòng nhập mật khẩu ít nhất 6     ký tự!</span>
 
                                         <br>
 
@@ -340,11 +342,11 @@ require "../db.php";
         // let nsinh=document.getElementById("orangeForm-nsinh").value;
         // let gt=document.getElementById("orangeForm-gtinh").value;
         let emaildangnhap=document.getElementById("orangeForm-email").value;
-        let sdtdangnhap=document.getElementById("orangeForm-sdt").value;
-        let diachidangnhap=document.getElementById("orangeForm-dc").value;
-        let matkhau=document.getElementById("orangeForm-pass").value;
+        // let sdtdangnhap=document.getElementById("orangeForm-sdt").value;
+        // let diachidangnhap=document.getElementById("orangeForm-dc").value;
+        let matkhau=document.getElementById("password").value;
         let OK = true;
-        if(tendangnhap===""&&emaildangnhap===""&&sdtdangnhap===""&&diachidangnhap===""&&matkhau===""){
+        if(tendangnhap===""&&emaildangnhap===""&&matkhau===""){
             alert("Hãy nhập đầy đủ thông tin!");
             OK = false;
         }
@@ -384,24 +386,24 @@ require "../db.php";
         else {
             document.getElementById("tbemail").innerHTML="";
         }
-
-        if(sdtdangnhap===""){
-            document.getElementById("tbsdt").innerHTML="Bạn chưa nhập số điện thoại";
-            document.getElementById("tbsdt").style.color="red";
-            OK= false;
-        }
-        else {
-            document.getElementById("tbsdt").innerHTML="";
-        }
-
-        if(diachidangnhap===""){
-            document.getElementById("tbdc").innerHTML="Bạn chưa nhập địa chỉ";
-            document.getElementById("tbdc").style.color="red";
-            OK= false;
-        }
-        else {
-            document.getElementById("tbdc").innerHTML="";
-        }
+        //
+        // if(sdtdangnhap===""){
+        //     document.getElementById("tbsdt").innerHTML="Bạn chưa nhập số điện thoại";
+        //     document.getElementById("tbsdt").style.color="red";
+        //     OK= false;
+        // }
+        // else {
+        //     document.getElementById("tbsdt").innerHTML="";
+        // }
+        //
+        // if(diachidangnhap===""){
+        //     document.getElementById("tbdc").innerHTML="Bạn chưa nhập địa chỉ";
+        //     document.getElementById("tbdc").style.color="red";
+        //     OK= false;
+        // }
+        // else {
+        //     document.getElementById("tbdc").innerHTML="";
+        // }
 
         if(matkhau===""){
             document.getElementById("tbmk").innerHTML="Bạn chưa nhập mật khẩu";
@@ -412,6 +414,25 @@ require "../db.php";
             document.getElementById("tbmk").innerHTML="";
         }
         return OK;
+    }
+
+    function passwordChanged() {
+        var strength = document.getElementById('strength');
+        var strongRegex = new RegExp("^(?=.{14,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
+        var mediumRegex = new RegExp("^(?=.{10,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
+        var enoughRegex = new RegExp("(?=.{6,}).*", "g");
+        var pwd = document.getElementById("password");
+        if (pwd.value.length == 0) {
+            strength.innerHTML = 'Nhập mật khẩu';
+        } else if (false == enoughRegex.test(pwd.value)) {
+            strength.innerHTML = 'Nhập thêm ký tự để mật khẩu an toàn hơn!';
+        } else if (strongRegex.test(pwd.value)) {
+            strength.innerHTML = '<span style="color:green">Mật khẩu mạnh!</span>';
+        } else if (mediumRegex.test(pwd.value)) {
+            strength.innerHTML = '<span style="color:orange">Mật khẩu trung bình!</span>';
+        } else {
+            strength.innerHTML = '<span style="color:red">Mật khẩu yếu!</span>';
+        }
     }
 
 

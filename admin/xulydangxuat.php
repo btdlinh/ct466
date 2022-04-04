@@ -1,8 +1,8 @@
 
 <?php
     session_start();
-    unset($_SESSION['email']);
-    header('location:dangnhap.html')
+    unset($_SESSION['ad_email']);
+    header('location:dangnhap.php')
 ?>
 
 
