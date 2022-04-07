@@ -59,7 +59,7 @@ function getOrderId($conn, $idkh){
 //}
 
         // thong tin kh trong hoa don
-function insertIntoOrder($conn, $idkh,$gia, $trangthai, $date)
+function insertIntoOrder($conn, $idkh,$gia, $trangthai, $date, $pttt)
 {
     $emailkh = $_SESSION['kh_email'];
     $sql = "SELECT dc_id FROM `dia_chi` Where dc_emailkh ='$emailkh' ORDER BY dc_id DESC LIMIT 1";
@@ -71,7 +71,7 @@ function insertIntoOrder($conn, $idkh,$gia, $trangthai, $date)
 //    $query = "INSERT INTO dondathang VALUES
 //		('', '" . $idkh . "','" . $gia . "', '" . $emailkh . "','" . $diachikh . "','" . $sdtkh . "','" . $date . "')";
     $query = "INSERT INTO hoa_don VALUES
-		('', '" . $idkh . "','" . $hdiddc . "','" . $gia . "', '" . $trangthai . "','" . $date . "')";
+		('', '" . $idkh . "','" . $hdiddc . "','" . $gia . "', '" . $trangthai . "','" . $date . "','" . $pttt . "')";
     $result = mysqli_query($conn, $query);
 
     if (!$result) {

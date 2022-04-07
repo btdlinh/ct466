@@ -29,8 +29,7 @@ if (isset($_SESSION['cart'])) {
         $tong_tien += (int)$value["number"] * $value["price"];
     }
 }
-$pttt = $_POST['pttt'];
-insertIntoOrder($conn, $idkh, $tong_tien, 1, $date, $pttt);
+insertIntoOrder($conn, $idkh, $tong_tien, 1, $date, "paypal");
 
 // take orderid from order to insert order items
 $iddon = getOrderId($conn, $idkh);

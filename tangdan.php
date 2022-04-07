@@ -92,7 +92,7 @@ require_once "khachhang/sanpham/csdl_function.php";
                     <li class="nav-item ml-3">
                         <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"
                            href="http://localhost/CT466/khachhang/lienhe.php"><i
-                                class="fas fa-comments blue-text"></i> Liên Hệ</a>
+                                    class="fas fa-comments blue-text"></i> Liên Hệ</a>
                     </li>
 
                     <li class="nav-item ml-3">
@@ -109,10 +109,10 @@ require_once "khachhang/sanpham/csdl_function.php";
                         <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"
                            href="http://localhost/CT466/khachhang/sanpham/giohang_hienthi.php">
                             <i class="fas fa-shopping-cart blue-text"></i>Giỏ Hàng <span id="qty" style="display:<?php echo $number ?'block' : 'none'?>;
-                                                                                                            margin-top: -34px;
-                                                                                                            color: red;
-                                                                                                            margin-left: 98px;
-                                                                                                            border-radius: 50%;"><?php echo $number; ?></span></a>
+                                    margin-top: -34px;
+                                    color: red;
+                                    margin-left: 98px;
+                                    border-radius: 50%;"><?php echo $number; ?></span></a>
 
 
                     </li>
@@ -154,7 +154,7 @@ require_once "khachhang/sanpham/csdl_function.php";
 <div class="container mt-5 pt-3">
 
     <!-- Navbar sp-->
-<!--    --><?php //require "hienthi/navbar.php"; ?>
+    <!--    --><?php //require "hienthi/navbar.php"; ?>
 
     <!-- Navbar sp-->
     <nav class="navbar navbar-expand-md navbar-dark white  mt-5 mb-5" style="background: #212121;">
@@ -208,6 +208,8 @@ require_once "khachhang/sanpham/csdl_function.php";
                                 <li class=""><a class="menu-item mb-0"
                                                 href="http://localhost/CT466/hienthi/hienthi_theloai.php?idtl='.$row_tl['tl_id'].'">'.$row_tl['tl_tentheloai'].'
                                         </a></li> ';
+
+
 
 
                                 echo'  </ul>
@@ -321,9 +323,9 @@ require_once "khachhang/sanpham/csdl_function.php";
     <div >
 
         <!-- Name -->
-        <select>
+        <select >
 
-            <option >Giá: Tăng dần</option>
+            <option ><a href="">Giá: Tăng dần</a></option>
             <option >Giá: Giảm dần</option>
             <option >Tên: A-Z</option>
             <option >Tên: Z-A</option>

@@ -146,65 +146,76 @@ $title = $row['sp_tensach'];
             </span>
             </h3>
             <h4>Mô Tả</h4>
-            <p><?php echo $row['sp_mota']; ?></p>
+            <p class="text-justify mota"><?php echo $row['sp_mota']; ?></p>
+            <script>
+
+                const shortString = value => {
+                    return value ? value.slice(0, 100) : "";
+                }
+
+
+            </script>
             <h4>Chi Tiết Sản Phẩm</h4>
-            <form method="POST" ">
-                <table class="table">
-                    <?php foreach ($row as $key => $value) {
-                        if ($key == "sp_id" || $key == "sp_idtheloai" || $key == "tg_id" || $key == "ncc_sdt" || $key == "ncc_diachi" || $key == "ncc_id" || $key == "sp_idnxb" || $key == "sp_soluong" || $key == "sp_hinhanh"
-                            || $key == "sp_idnn" || $key == "sp_idncc" || $key == "tl_id" || $key == "sp_idtg" || $key == "tl_iddm" || $key == "tg_diachi" || $key == "tg_sdt" || $key == "nxb_id" || $key == "nxb_sdt"
-                            || $key == "nxb_diachi" || $key == "sp_mota" || $key == "sp_gia" || $key == "sp_tensach" || $key == "nn_id" || $key == "status") {
-                            continue;
-                        }
-                        switch ($key) {
-                            case "nn_ngonngu":
-                                $key = "Ngôn ngữ";
-                                break;
-                            case "tl_tentheloai":
-                                $key = "Thể loại";
-                                break;
-                            case "tg_hoten":
-                                $key = "Tác giả";
-                                break;
-                            case "nxb_ten":
-                                $key = "Nhà xuất bản";
-                                break;
-                            case "ncc_ten":
-                                $key = "Nhà cung cấp";
-                                break;
-                        }
-                        ?>
-                        <tr>
-                            <td><?php echo $key; ?></td>
-
-                            <td><?php echo $value; ?></td>
-                            <td></td>
-                        </tr>
-
-                        <?php
+            <form method="POST"
+            ">
+            <table class="table">
+                <?php foreach ($row as $key => $value) {
+                    if ($key == "sp_id" || $key == "sp_idtheloai" || $key == "tg_id" || $key == "ncc_sdt" || $key == "ncc_diachi" || $key == "ncc_id" || $key == "sp_idnxb" || $key == "sp_soluong" || $key == "sp_hinhanh"
+                        || $key == "sp_idnn" || $key == "sp_idncc" || $key == "tl_id" || $key == "sp_idtg" || $key == "tl_iddm" || $key == "tg_diachi" || $key == "tg_sdt" || $key == "nxb_id" || $key == "nxb_sdt"
+                        || $key == "nxb_diachi" || $key == "sp_mota" || $key == "sp_gia" || $key == "sp_tensach" || $key == "nn_id" || $key == "status") {
+                        continue;
                     }
-
-                    //            if(isset($conn)) {mysqli_close($conn); }
+                    switch ($key) {
+                        case "nn_ngonngu":
+                            $key = "Ngôn ngữ";
+                            break;
+                        case "tl_tentheloai":
+                            $key = "Thể loại";
+                            break;
+                        case "tg_hoten":
+                            $key = "Tác giả";
+                            break;
+                        case "nxb_ten":
+                            $key = "Nhà xuất bản";
+                            break;
+                        case "ncc_ten":
+                            $key = "Nhà cung cấp";
+                            break;
+                    }
                     ?>
-
                     <tr>
-                        <td> Số lượng</td>
+                        <td><?php echo $key; ?></td>
 
-                        <td>
-                            <div class="buttons_added">
-                                <input class="minus is-form" type="button" value="-">
-                                <input aria-label="quantity" class="input-qty" max=<?php echo $row['sp_soluong']  ?> min="1" name="soluong" type="number"
-                                       value="1" id="soluongmua" >
-                                <input class="plus is-form" type="button" value="+" onclick="soluong()">
-                            </div>
-                            <input type="hidden" name="idsach" value="<?php echo $id; ?>">
-                        </td>
+                        <td><?php echo $value; ?></td>
+                        <td></td>
                     </tr>
-                </table>
-             <div class="m-2 text-info">
-                 <?php echo $row['sp_soluong'] ?> sản phẩm có sẵn
-             </div>
-                <input type="button" value="Mua / Thêm vào giỏ hàng" name="cart" class="btn btn-primary" onclick="addcart(<?php echo $id; ?>)">
+
+                    <?php
+                }
+
+                //            if(isset($conn)) {mysqli_close($conn); }
+                ?>
+
+                <tr>
+                    <td> Số lượng</td>
+
+                    <td>
+                        <div class="buttons_added">
+                            <input class="minus is-form" type="button" value="-">
+                            <input aria-label="quantity" class="input-qty" max=<?php echo $row['sp_soluong'] ?> min="1"
+                                   name="soluong" type="number"
+                                   value="1" id="soluongmua">
+                            <input class="plus is-form" type="button" value="+" onclick="soluong()">
+                        </div>
+                        <input type="hidden" name="idsach" value="<?php echo $id; ?>">
+                    </td>
+                </tr>
+            </table>
+            <div class="m-2 text-info">
+                <?php echo $row['sp_soluong'] ?> sản phẩm có sẵn
+            </div>
+            <input type="button" value="Mua / Thêm vào giỏ hàng" name="cart" class="btn btn-primary"
+                   onclick="addcart(<?php echo $id; ?>)">
             </form>
 
 
@@ -254,10 +265,10 @@ $title = $row['sp_tensach'];
                 <li class="nav-item ml-3">
                     <?php
                     $number = 0;
-                    if(isset($_SESSION['cart'])){
+                    if (isset($_SESSION['cart'])) {
                         $cart = $_SESSION['cart'];
-                        foreach ($cart as $value){
-                            $number +=  (int)$value["number"];
+                        foreach ($cart as $value) {
+                            $number += (int)$value["number"];
 
                         }
                     }
@@ -265,11 +276,12 @@ $title = $row['sp_tensach'];
                     <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"
                        href="http://localhost/CT466/khachhang/sanpham/giohang_hienthi.php">
                         <i
-                                class="fas fa-shopping-cart blue-text"></i>Giỏ Hàng <span id="qty"  style="display:<?php echo $number ?'block' : 'none'?>;
-    margin-top: -34px;
-    color: red;
-    margin-left: 98px;
-    border-radius: 50%;"><?php echo $number; ?></span></a>
+                                class="fas fa-shopping-cart blue-text"></i>Giỏ Hàng <span id="qty"
+                                                                                          style="display:<?php echo $number ? 'block' : 'none' ?>;
+                                                                                                  margin-top: -34px;
+                                                                                                  color: red;
+                                                                                                  margin-left: 98px;
+                                                                                                  border-radius: 50%;"><?php echo $number; ?></span></a>
 
 
                 </li>
@@ -304,57 +316,7 @@ $title = $row['sp_tensach'];
 
 <!-- Main Container -->
 <div class="container mt-5 pt-3">
-    <!-- Section: Products v.5 -->
-    <section id="products" class="pb-5">
 
-        <!--        <p class="text-center w-responsive mx-auto mb-5 dark-grey-text">Lorem ipsum dolor sit amet, consectetur-->
-        <!--            adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi,-->
-        <!---->
-        <!--            veritatis totam voluptas nostrum quisquam eum porro a pariatur accusamus veniam.</p>-->
-
-        <!-- Carousel Wrapper -->
-        <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
-
-            <!-- Controls -->
-            <!--            <div class="controls-top">-->
-            <!---->
-            <!--                <a class="btn-floating primary-color" href="#multi-item-example" data-slide="prev">-->
-            <!---->
-            <!--                    <i class="fas fa-chevron-left"></i>-->
-            <!---->
-            <!--                </a>-->
-            <!---->
-            <!--                <a class="btn-floating primary-color" href="#multi-item-example" data-slide="next">-->
-            <!---->
-            <!--                    <i class="fas fa-chevron-right"></i>-->
-            <!---->
-            <!--                </a>-->
-            <!---->
-            <!--            </div>-->
-            <!-- Controls -->
-
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-
-                <li class="primary-color" data-target="#multi-item-example" data-slide-to="0" class="active"></li>
-
-                <li class="primary-color" data-target="#multi-item-example" data-slide-to="1"></li>
-
-                <li class="primary-color" data-target="#multi-item-example" data-slide-to="2"></li>
-
-            </ol>
-            <!-- Indicators -->
-
-            <!-- Slides -->
-
-            <!-- Slides -->
-        </div>
-
-        <!-- Carousel Wrapper -->
-    </section>
-
-
-    <!-- Section: Products v.5 danh dia-->
     <div class="divider-new">
 
         <h3 class="h3-responsive font-weight-bold blue-text mx-3">Đánh Giá Sản Phẩm</h3>
@@ -362,20 +324,21 @@ $title = $row['sp_tensach'];
     </div>
     <!--   viet binh luan-->
     <?php
-    if ( isset($_SESSION['kh_email']) ){
+    if (isset($_SESSION['kh_email'])) {
         ?>
         <form action="xuly_vietdanhgia.php" method="get">
             <div class="md-form-8 pb-5 pt-1">
 
 
-
-                <input style="display: none;" type="text" id="form12" class="md-textarea form-control m-3" rows="2" name="tenkh" value="<?php echo $_SESSION['kh_email'];?>">
+                <input style="display: none;" type="text" id="form12" class="md-textarea form-control m-3" rows="2"
+                       name="tenkh" value="<?php echo $_SESSION['kh_email']; ?>">
 
                 <!--        <i class="fas fa-pencil-alt prefix"></i>-->
                 <label for="form12">Bình luận</label>
-                <textarea type="text" id="form11" class="md-textarea form-control m-3" rows="5" name="binhluan" placeholder="Thêm bình luận ..."></textarea>
+                <textarea type="text" id="form11" class="md-textarea form-control m-3" rows="5" name="binhluan"
+                          placeholder="Thêm bình luận ..."></textarea>
 
-                <input type="hidden" name="idsp"  value="<?php echo $id; ?>" >
+                <input type="hidden" name="idsp" value="<?php echo $id; ?>">
                 <button type="submit"
                         class="btn blue-gradient btn-rounded waves-effect waves-light btn-sm"
                         value="Gửi bình luận "
@@ -390,11 +353,11 @@ $title = $row['sp_tensach'];
 
 
         <?php
-    }else{
+    } else {
         ?>
-        <span style="font-size: 24px;color: coral">Bạn cần đăng nhập để bình luận!</span>
+        <span style="font-size: 24px;color: coral;">Vui lòng đăng nhập để bình luận!</span>
 
-    <?php
+        <?php
     }
 
     ?>
@@ -405,129 +368,110 @@ $title = $row['sp_tensach'];
 
     </div>
     <?php
-//    require "vietdanhgia.php";
 
-//    echo $id;
-//    $sql_dg = "SELECT * FROM khach_hang as a join danh_gia as b on a.kh_id=b.dg_idkh
-//                                          join sanpham as c on c.sp_id=b.dg_idsp
-//                                          join hoa_don as d on d.hd_idkh=a.kh_id
-//                                          join chi_tiet_hoa_don as f on d.hd_id=f.cthd_idhd
-//                     WHERE c.sp_id=$id";
-
-//    if(isset($_SESSION['kh_email'])){
-//        $a = $_SESSION['kh_email'];
-//        $sql_kh= "SELECT * FROM hoa_don as a join chi_tiet_hoa_don as b on a.hd_id=b.cthd_idhd
-//                    join khach_hang as c on c.kh_id=a.hd_idkh
-//                    where kh_email='$a' and cthd_idsp = '$id'
-//        ";
-//        $rs_kh = mysqli_query($conn,$sql_kh);
-//        $row_kh = mysqli_fetch_assoc($rs_kh);
-//
-//
-//    }
 
     $sql_dg = "SELECT * FROM test as a 
                                           join sanpham as c on c.sp_id=a.t_idsp
                                         
                      WHERE c.sp_id=$id";
-    $rs_dg = mysqli_query($conn,$sql_dg);
+    $rs_dg = mysqli_query($conn, $sql_dg);
     $row_dg = mysqli_num_rows($rs_dg);
 
-    while ($row_dg = mysqli_fetch_assoc($rs_dg)){
-    ?>
+    while ($row_dg = mysqli_fetch_assoc($rs_dg)) {
+        ?>
 
-    <!-- Product Reviews -->
+        <!-- Product Reviews -->
 
-    <section id="reviews" class="pb-5">
+        <section id="reviews" class="pb-5">
 
-        <!-- Main wrapper -->
-        <div class="comments-list text-center text-md-left">
+            <!-- Main wrapper -->
+            <div class="comments-list text-center text-md-left">
 
-            <!-- First row -->
-            <div class="row mb-5">
+                <!-- First row -->
+                <div class="row mb-5">
 
-                <!-- Image column -->
-                <div class="col-sm-2 col-12 mb-3 ">
-<!--                    <i class="fas fa-user-edit " style="width: 100px; height: 150px;"></i>-->
-                    <img src="http://localhost/CT466/img/thv.png" alt="sample image"
-                         class="avatar rounded-circle z-depth-1-half">
+                    <!-- Image column -->
+                    <div class="col-sm-2 col-12 mb-3 ">
+                        <!--                    <i class="fas fa-user-edit " style="width: 100px; height: 150px;"></i>-->
+                        <img src="http://localhost/CT466/img/thv.png" alt="sample image"
+                             class="avatar rounded-circle z-depth-1-half">
 
-                </div>
-                <!-- Image column -->
+                    </div>
+                    <!-- Image column -->
 
-                <!-- Content column -->
-                <div class="col-sm-10 col-12">
+                    <!-- Content column -->
+                    <div class="col-sm-10 col-12">
 
-                    <a>
+                        <a>
 
-                        <h5 class="user-name font-weight-bold"><?php echo $row_dg['t_email']; ?></h5>
+                            <h5 class="user-name font-weight-bold"><?php echo $row_dg['t_email']; ?></h5>
 
-                    </a>
+                        </a>
 
-                    <!-- Rating -->
-                    <ul class="rating">
+                        <!-- Rating -->
+                        <ul class="rating">
 
-                        <li>
+                            <li>
 
-                            <i class="fas fa-star blue-text"></i>
+                                <i class="fas fa-star blue-text"></i>
 
-                        </li>
+                            </li>
 
-                        <li>
+                            <li>
 
-                            <i class="fas fa-star blue-text"></i>
+                                <i class="fas fa-star blue-text"></i>
 
-                        </li>
+                            </li>
 
-                        <li>
+                            <li>
 
-                            <i class="fas fa-star blue-text"></i>
+                                <i class="fas fa-star blue-text"></i>
 
-                        </li>
+                            </li>
 
-                        <li>
+                            <li>
 
-                            <i class="fas fa-star blue-text"></i>
+                                <i class="fas fa-star blue-text"></i>
 
-                        </li>
+                            </li>
 
-                        <li>
+                            <li>
 
-                            <i class="fas fa-star blue-text"></i>
+                                <i class="fas fa-star blue-text"></i>
 
-                        </li>
-
-                    </ul>
-
-                    <div class="card-data">
-
-                        <ul class="list-unstyled mb-1">
-
-                            <li class="comment-date font-small grey-text">
-
-                                <i class="far fa-clock-o"></i> <?php echo $row_dg['t_tg']; ?></li>
+                            </li>
 
                         </ul>
 
-                    </div>
+                        <div class="card-data">
 
-                    <p class="dark-grey-text article"><?php echo $row_dg['t_binhluan']; ?></p>
+                            <ul class="list-unstyled mb-1">
+
+                                <li class="comment-date font-small grey-text">
+
+                                    <i class="far fa-clock-o"></i> <?php echo $row_dg['t_tg']; ?></li>
+
+                            </ul>
+
+                        </div>
+
+                        <p class="dark-grey-text article"><?php echo $row_dg['t_binhluan']; ?></p>
+
+                    </div>
+                    <!-- Content column -->
 
                 </div>
-                <!-- Content column -->
+                <!-- First row -->
+
 
             </div>
-            <!-- First row -->
+            <!-- Main wrapper -->
 
+        </section>
 
-        </div>
-        <!-- Main wrapper -->
+        <!-- Product Reviews -->
 
-    </section>
-
-    <!-- Product Reviews -->
-
-<?php
+        <?php
 
     }
     ?>
@@ -600,6 +544,53 @@ $title = $row['sp_tensach'];
     <!-- Section: Products v.5 danh dia-->
 
 </div>
+<!-- Section: Products v.5 -->
+<section id="products" class="pt-2 ">
+
+
+    <!-- Carousel Wrapper -->
+    <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+
+        <!-- Controls -->
+        <!--                        <div class="controls-top">-->
+        <!---->
+        <!--                            <a class="btn-floating primary-color" href="#multi-item-example" data-slide="prev">-->
+        <!---->
+        <!--                                <i class="fas fa-chevron-left"></i>-->
+        <!---->
+        <!--                            </a>-->
+        <!---->
+        <!--                            <a class="btn-floating primary-color" href="#multi-item-example" data-slide="next">-->
+        <!---->
+        <!--                                <i class="fas fa-chevron-right"></i>-->
+        <!---->
+        <!--                            </a>-->
+        <!---->
+        <!--                        </div>-->
+        <!-- Controls -->
+
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+
+            <li class="primary-color" data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+
+            <li class="primary-color" data-target="#multi-item-example" data-slide-to="1"></li>
+
+            <li class="primary-color" data-target="#multi-item-example" data-slide-to="2"></li>
+
+        </ol>
+        <!-- Indicators -->
+
+        <!-- Slides -->
+
+        <!-- Slides -->
+    </div>
+
+    <!-- Carousel Wrapper -->
+</section>
+
+
+<!-- Section: Products v.5 danh dia-->
 <!-- Main Container -->
 
 
@@ -666,20 +657,20 @@ $title = $row['sp_tensach'];
 <!--nút số lượng-->
 
 
-
 <script>
 
-    function addcart(id){
+    function addcart(id) {
         const num = document.getElementById('soluongmua').value;
         document.getElementById("qty").style.display = "block"
 
-        $.post("../../giohang.php",{'id':id, 'num': num}, function(data, status){
+        $.post("../../giohang.php", {'id': id, 'num': num}, function (data, status) {
             // alert(data);
             item = data.split("-"); //cat mang
             $("#qty").text(item[0]);
             $("#total").text(item[1]);
         });
     }
+
 </script>
 
 </body>
