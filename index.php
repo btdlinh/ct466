@@ -315,21 +315,21 @@ require_once "khachhang/sanpham/csdl_function.php";
     <!--phân trang-->
 
     <!-- Grid row san pham-->
-    <h1 class="text-center text-info">Danh sách sản phẩm</h1>
+    <h1 class="text-center text-info">Tất cả sản phẩm</h1>
 
     <!-- Grid column -->
-    <div >
+
+    <div class="select-wrapper mdb-select  w-25" >
 
         <!-- Name -->
-        <select>
-
-            <option >Giá: Tăng dần</option>
-            <option >Giá: Giảm dần</option>
-            <option >Tên: A-Z</option>
-            <option >Tên: Z-A</option>
-            <option >Cũ nhất</option>
-            <option >Mới nhất</option>
-            <option >Bán chạy nhất</option>
+        <select id="sampleSelect" class="select-dropdown form-control">
+           <option  value="" selected>Sắp xếp theo</option>
+           <option  value="tangdan.php" >Giá: Tăng dần</option>
+            <option value="giamdan.php" >Giá: Giảm dần</option>
+<!--            <option value="a-z.php">Tên: A-Z</option>-->
+<!--            <option value="z-a.php">Tên: Z-A</option>-->
+            <option value="cunhat.php">Cũ nhất</option>
+            <option value="moinhat.php">Mới nhất</option>
 
         </select>
 
@@ -827,7 +827,19 @@ require_once "khachhang/sanpham/csdl_function.php";
         });
 
     }
+
+
+    $("select").click(function() {
+        var open = $(this).data("isopen");
+        if(open) {
+            window.location.href = $(this).val()
+        }
+        //set isopen to opposite so next time when use clicked select box
+        //it wont trigger this event
+        $(this).data("isopen", !open);
+    });
 </script>
+
 
 </body>
 

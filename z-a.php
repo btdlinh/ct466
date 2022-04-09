@@ -92,7 +92,7 @@ require_once "khachhang/sanpham/csdl_function.php";
                     <li class="nav-item ml-3">
                         <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"
                            href="http://localhost/CT466/khachhang/lienhe.php"><i
-                                    class="fas fa-comments blue-text"></i> Liên Hệ</a>
+                                class="fas fa-comments blue-text"></i> Liên Hệ</a>
                     </li>
 
                     <li class="nav-item ml-3">
@@ -109,10 +109,10 @@ require_once "khachhang/sanpham/csdl_function.php";
                         <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"
                            href="http://localhost/CT466/khachhang/sanpham/giohang_hienthi.php">
                             <i class="fas fa-shopping-cart blue-text"></i>Giỏ Hàng <span id="qty" style="display:<?php echo $number ?'block' : 'none'?>;
-                                    margin-top: -34px;
-                                    color: red;
-                                    margin-left: 98px;
-                                    border-radius: 50%;"><?php echo $number; ?></span></a>
+                                margin-top: -34px;
+                                color: red;
+                                margin-left: 98px;
+                                border-radius: 50%;"><?php echo $number; ?></span></a>
 
 
                     </li>
@@ -317,18 +317,18 @@ require_once "khachhang/sanpham/csdl_function.php";
     <!--phân trang-->
 
     <!-- Grid row san pham-->
-    <h1 class="text-center text-info">Tất cả sản phẩm</h1>
+    <h1 class="text-center text-info">Danh sách sản phẩm</h1>
 
     <!-- Grid column -->
-    <div class="select-wrapper mdb-select  w-25">
+    <div >
 
         <!-- Name -->
-        <select id="sampleSelect" class="select-dropdown form-control  ">
+        <select id="sampleSelect">
 
             <option  value="tangdan.php" >Giá: Tăng dần</option>
             <option value="giamdan.php" >Giá: Giảm dần</option>
-<!--            <option >Tên: A-Z</option>-->
-<!--            <option >Tên: Z-A</option>-->
+            <option value="a-z.php">Tên: A-Z</option>
+            <option value="z-a.php">Tên: Z-A</option>
             <option value="cunhat.php">Cũ nhất</option>
             <option value="moinhat.php">Mới nhất</option>
 
@@ -423,8 +423,8 @@ require_once "khachhang/sanpham/csdl_function.php";
 
         } else {
             // hien thi san pham
-            $rs_tang = $conn->query('SELECT * FROM sanpham ORDER BY `sp_gia` ASC');
-            while ($row = $rs_tang->fetch_assoc()) {
+            $rs_cu = $conn->query('SELECT * FROM sanpham ORDER BY `sp_tensach` DESC ');
+            while ($row = $rs_cu->fetch_assoc()) {
                 $linkhinh = "CT466" . $row['sp_hinhanh'];
                 echo '
       
