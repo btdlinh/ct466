@@ -198,6 +198,11 @@ $b = $row_dc['dc_id'];
                             </tr>
                             
                             <tr>
+                                <td class="col-md-5 font-weight-normal">Phương thức thanh toán:</td>
+                                <th class="col-md-5 font-weight-bold">' .$row3['hd_pttt']. '</th>
+                            </tr>
+                            
+                            <tr>
                                 <td class="col-md-5 font-weight-normal">Phí vận chuyển:</td>
                                 <th class="col-md-5 font-weight-bold">30,000 VNĐ</th>
                             </tr>
@@ -227,6 +232,7 @@ $b = $row_dc['dc_id'];
 
                             <tr>
                                 <th class="font-weight-bold text-center">STT</th>
+                                <th class="th-sm font-weight-bold text-center"></th>
                                 <th class="th-sm font-weight-bold text-center">Tên sách</th>
                                 <th class="th-sm font-weight-bold text-center">Đơn giá</th>
                                 <th class="th-sm font-weight-bold text-center">Số lượng</th>
@@ -264,10 +270,13 @@ $b = $row_dc['dc_id'];
 
                                 if ($rs14 = mysqli_query($conn, $sql14)) {
                                     while ($row14 = mysqli_fetch_assoc($rs14)) {
+                                        $hinh= "http://localhost/CT466/img/bookimg/". $row14['sp_hinhanh'];
                                         echo '
                                             <tr>
                                                 <td class="text-center">' . $stt++ . '</td>
-                                                <td > ' . $row14['sp_tensach'] . '</td>
+                                                <td width="200px"> <img style="width: 150px; height: 100px;"  src="'.$hinh.'"></td>
+                                                <td  style="    word-break: break-all;
+    width: 240px;"> ' . $row14['sp_tensach'] . '</td>
                                                 <td class="text-center"> ' . number_format($row14['cthd_gia']) . '</td>
                                                 <td class="text-center"> ' . $row14['cthd_soluong'] . ' </td>
                                                 <td class="text-center"> ' . number_format($row14['cthd_gia'] * $row14['cthd_soluong']) . ' </td>

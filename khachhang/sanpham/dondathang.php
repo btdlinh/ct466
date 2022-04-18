@@ -5,20 +5,23 @@ require_once "../sanpham/csdl_function.php";
 $conn = mysqli_connect("localhost", "root", "", "ct466");
 
 
-//$iddon=$_GET['iddon'];
-$tenkh = $_POST['tenkh'];
-$email = $_POST['emailkh'];
-$diachi = $_POST['diachikh'];
-$sdt = $_POST['sdtkh'];
-$email = $_POST['emailkh'];
-$idkh = $_POST['idkh'];
+////$iddon=$_GET['iddon'];
 
-
-$sql = "INSERT INTO  dia_chi ( dc_idkh, dc_emailkh, dc_hoten,  dc_sdt, dc_diachi)
+    $tenkh = $_POST['tenkh'];
+    $email = $_POST['emailkh'];
+    $diachi = $_POST['diachikh'];
+    $sdt = $_POST['sdtkh'];
+    $email = $_POST['emailkh'];
+    $idkh = $_POST['idkh'];
+    $sql = "INSERT INTO  dia_chi ( dc_idkh, dc_emailkh, dc_hoten,  dc_sdt, dc_diachi)
          VALUES ('$idkh', '$email', '$tenkh','$sdt', '$diachi')
-        
+
          ";
-$result = mysqli_query($conn, $sql);
+    $result = mysqli_query($conn, $sql);
+
+
+
+
 
 
 ?>

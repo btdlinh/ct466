@@ -31,6 +31,12 @@
         .view {
             height: 100%;
         }
+        .in:active{
+            background-color: transparent;
+        }
+        .in:valid{
+            background-color: transparent;
+        }
 
         @media (min-width: 560px) and (max-width: 740px) {
             html,
@@ -123,7 +129,7 @@
                                     type="text"
                                     id="orangeForm-email"
                                     name="emailkh"
-                                    class="form-control white-text"
+                                    class="form-control white-text in"
                                     placeholder=" ... @gmail.com"
                             />
                             <label for="orangeForm-email">Email</label>

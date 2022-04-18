@@ -304,8 +304,9 @@ require_once "khachhang/sanpham/csdl_function.php";
     //trang hien tai
     $current_page = !empty($_GET['page']) ? $_GET['page'] : 1;
     // vi tri bd lay
+    $idtll= $_GET['idtl'];
     $offset = (int)($current_page - 1) * (int)$item_per_page;
-    $rs = $conn->query('SELECT * FROM sanpham ORDER BY `sp_gia` ASC LIMIT ' . $item_per_page . ' OFFSET ' . $offset . ' ');
+    $rs = $conn->query('SELECT * FROM sanpham WHERE sp_idtheloai ='.$idtll.' ORDER BY `sp_id` DESC LIMIT ' . $item_per_page . ' OFFSET ' . $offset . ' ');
     $total_records = $conn->query("SELECT * FROM sanpham");
     $total_records = $total_records->num_rows;
     // hien thi tong so trang = tong so sp / so sp o mot trang
@@ -323,8 +324,8 @@ require_once "khachhang/sanpham/csdl_function.php";
 
         <!-- Name -->
         <select id="sampleSelect" class="select-dropdown form-control">
-            <option>Sắp xếp theo</option>
-            <option  value="tangdan.php" selected>Giá: Tăng dần</option>
+            <option  value="" selected>Sắp xếp theo</option>
+            <option  value="tangdan.php" >Giá: Tăng dần</option>
             <option value="giamdan.php" >Giá: Giảm dần</option>
             <!--            <option value="a-z.php">Tên: A-Z</option>-->
             <!--            <option value="z-a.php">Tên: Z-A</option>-->

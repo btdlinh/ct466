@@ -92,7 +92,7 @@ require_once "khachhang/sanpham/csdl_function.php";
                     <li class="nav-item ml-3">
                         <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"
                            href="http://localhost/CT466/khachhang/lienhe.php"><i
-                                class="fas fa-comments blue-text"></i> Liên Hệ</a>
+                                    class="fas fa-comments blue-text"></i> Liên Hệ</a>
                     </li>
 
                     <li class="nav-item ml-3">
@@ -109,10 +109,10 @@ require_once "khachhang/sanpham/csdl_function.php";
                         <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"
                            href="http://localhost/CT466/khachhang/sanpham/giohang_hienthi.php">
                             <i class="fas fa-shopping-cart blue-text"></i>Giỏ Hàng <span id="qty" style="display:<?php echo $number ?'block' : 'none'?>;
-                                margin-top: -34px;
-                                color: red;
-                                margin-left: 98px;
-                                border-radius: 50%;"><?php echo $number; ?></span></a>
+                                    margin-top: -34px;
+                                    color: red;
+                                    margin-left: 98px;
+                                    border-radius: 50%;"><?php echo $number; ?></span></a>
 
 
                     </li>
@@ -206,10 +206,8 @@ require_once "khachhang/sanpham/csdl_function.php";
                                 while ($row_tl = $rs_tl->fetch_assoc())
                                     echo '
                                 <li class=""><a class="menu-item mb-0"
-                                                href="http://localhost/CT466/hienthi/hienthi_theloai.php?idtl='.$row_tl['tl_id'].'">'.$row_tl['tl_tentheloai'].'
+                                                href="http://localhost/CT466/theloai.php?idtl='.$row_tl['tl_id'].'">'.$row_tl['tl_tentheloai'].'
                                         </a></li> ';
-
-
 
 
                                 echo'  </ul>
@@ -317,25 +315,26 @@ require_once "khachhang/sanpham/csdl_function.php";
     <!--phân trang-->
 
     <!-- Grid row san pham-->
-    <h1 class="text-center text-info">Tất cả sản phẩm </h1>
+    <h1 class="text-center text-info">Tất cả sản phẩm</h1>
 
     <!-- Grid column -->
-    <div class="select-wrapper mdb-select  w-25">
+
+    <div class="select-wrapper mdb-select  w-25" >
 
         <!-- Name -->
-        <select id="sampleSelect" class="select-dropdown form-control  ">
-
+        <select id="sampleSelect" class="select-dropdown form-control">
+            <option >Sắp xếp theo</option>
             <option  value="tangdan.php" >Giá: Tăng dần</option>
             <option value="giamdan.php" >Giá: Giảm dần</option>
-<!--            <option >Tên: A-Z</option>-->
-<!--            <option >Tên: Z-A</option>-->
+            <!--            <option value="a-z.php">Tên: A-Z</option>-->
+            <!--            <option value="z-a.php">Tên: Z-A</option>-->
             <option value="cunhat.php">Cũ nhất</option>
             <option value="moinhat.php" selected>Mới nhất</option>
 
         </select>
 
     </div>
-    <!-- Grid column tim kiem & hien thi  sp-->
+    <!-- Grid column -->
 
     <div class="row mb-5 pt-5 pb-5">
 
@@ -423,8 +422,7 @@ require_once "khachhang/sanpham/csdl_function.php";
 
         } else {
             // hien thi san pham
-            $rs_moi = $conn->query('SELECT * FROM sanpham ORDER BY `sp_id` DESC ');
-            while ($row = $rs_moi->fetch_assoc()) {
+            while ($row = $rs->fetch_assoc()) {
                 $linkhinh = "CT466" . $row['sp_hinhanh'];
                 echo '
       
@@ -491,7 +489,7 @@ require_once "khachhang/sanpham/csdl_function.php";
         <!--    </div>-->
     </div>
 
-    <!-- Grid row tim kiem & hien thi san pham-->
+    <!-- Grid row san pham-->
 
     <!-- Grid row so trang-->
 
@@ -558,7 +556,15 @@ require_once "khachhang/sanpham/csdl_function.php";
                     }
                 }
                 ?>
-
+                <!--            <li class="page-item"><a class="page-link waves-effect waves-effect" href="?per_page=4&page=1" >1</a></li>-->
+                <!---->
+                <!--            <li class="page-item"><a class="page-link waves-effect waves-effect" href="?per_page=4&page=2" >2</a></li>-->
+                <!---->
+                <!--            <li class="page-item"><a class="page-link waves-effect waves-effect" href="?per_page=4&page=3" >3</a></li>-->
+                <!---->
+                <!--            <li class="page-item"><a class="page-link waves-effect waves-effect" href="?per_page=4&page=4" >4</a></li>-->
+                <!---->
+                <!--            <li class="page-item"><a class="page-link waves-effect waves-effect" href="?per_page=4&page=5" >5</a></li>-->
 
                 <!-- Arrow right -->
                 <?php
@@ -821,7 +827,8 @@ require_once "khachhang/sanpham/csdl_function.php";
         });
 
     }
-    // TUY CHON GIA TANG- GIAM- THEO TEN
+
+
     $("select").click(function() {
         var open = $(this).data("isopen");
         if(open) {
@@ -831,9 +838,8 @@ require_once "khachhang/sanpham/csdl_function.php";
         //it wont trigger this event
         $(this).data("isopen", !open);
     });
-
-
 </script>
+
 
 </body>
 

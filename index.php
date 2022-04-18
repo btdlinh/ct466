@@ -206,7 +206,7 @@ require_once "khachhang/sanpham/csdl_function.php";
                                 while ($row_tl = $rs_tl->fetch_assoc())
                                     echo '
                                 <li class=""><a class="menu-item mb-0"
-                                                href="http://localhost/CT466/hienthi/hienthi_theloai.php?idtl='.$row_tl['tl_id'].'">'.$row_tl['tl_tentheloai'].'
+                                                href="http://localhost/CT466/theloai.php?idtl='.$row_tl['tl_id'].'">'.$row_tl['tl_tentheloai'].'
                                         </a></li> ';
 
 

@@ -196,7 +196,7 @@ require_once "../sanpham/csdl_function.php";
                     <!--                    <label for="name" class=" control-label col-md-10">Họ tên</label>-->
                     <div class="col-md-10">
                         Họ Tên <br>
-                        <input type="text" name="tenkh" class="col-md-10" class="form-control"
+                        <input type="text" name="tenkh" class="col-md-10" class="form-control" required
                                value="<?php echo $row1['kh_ten'] ?>"
                         />
                     </div>
@@ -206,7 +206,7 @@ require_once "../sanpham/csdl_function.php";
                     <!--                    <label for="email" class="control-label col-md-10">Email</label>-->
                     <div class="col-md-10">
                         Email <br>
-                        <input type="text" name="emailkh" class="col-md-10" class="form-control"
+                        <input type="text" name="emailkh" class="col-md-10" class="form-control" required
                                placeholder="... @gmail.com"
                                value="<?php echo $row1['kh_email'] ?>"
                         />
@@ -218,7 +218,7 @@ require_once "../sanpham/csdl_function.php";
                     <!--                    <label for="address" class="control-label col-md-10">Địa chỉ</label>-->
                     <div class="col-md-10">
                         Địa chỉ <br>
-                        <input type="text" name="diachikh" class="col-md-10" class="form-control">
+                        <input type="text" name="diachikh" class="col-md-10" class="form-control" required >
                     </div>
                 </div>
 
@@ -226,9 +226,12 @@ require_once "../sanpham/csdl_function.php";
                     <!--                    <label for="phone" class="control-label col-md-10">Số điện thoại</label>-->
                     <div class="col-md-10">
                         Số điện thoại <br>
-                        <input type="tel" name="sdtkh" class="col-md-10" class="form-control">
+                        <input type="tel" name="sdtkh" class="col-md-10" class="form-control" required >
                     </div>
                 </div>
+            <div>
+
+            </div>
 
             <div class="form-group">
                 <input type="submit" name="submit" value="Tiến Hành Thanh Toán" class="btn btn-primary">

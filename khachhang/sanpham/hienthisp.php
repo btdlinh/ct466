@@ -293,7 +293,7 @@ $title = $row['sp_tensach'];
                        data-toggle="dropdown"
                        aria-haspopup="true"
                        aria-expanded="false">
-                        <i class="fas fa-user blue-text"></i>Tài Khoản
+                        <i class="fas fa-user blue-text"></i><?php echo isset($_SESSION['kh_email'] )? $_SESSION['kh_ten'] : 'Tài khoản'; ?>
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right dropdown-cyan"
