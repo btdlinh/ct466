@@ -1,7 +1,7 @@
 <?php
     session_start();
     unset($_SESSION['kh_email']);
-    header('location:dangnhap.html');
+    header('location:dangnhap.php');
 
 //if(isset($_SESSION['email'])) {
 //    unset($_SESSION['email']);

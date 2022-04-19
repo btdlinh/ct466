@@ -1,3 +1,33 @@
+<?php
+session_start();
+$conn = new mysqli("localhost", "root", "", "ct466");
+$conn->set_charset("utf8");
+$error = '';
+if(isset($_POST['emailkh'])&&isset($_POST['passkh'])){
+    echo "fawffwaef";
+    $email= $_POST["emailkh"];
+    $pass= md5($_POST["passkh"]);
+
+    $sql="SELECT * FROM khach_hang WHERE kh_email='$email'";
+
+    $result = $conn->query($sql);
+    //$row = $result -> fetch_assoc();
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc(); // dua cac toi tuong vua tim duoc thanh cac dong
+        if($pass==$row['kh_matkhau']){ // so sanh mk vua nhap voi mk co trong csl=dl
+    //      echo "Dang nhap thanh cong ^^";
+            $_SESSION['kh_email']= $email;
+            $_SESSION['kh_ten']= $row['kh_ten']; // dung tai khoan va mat khau
+            header('location:index.php');
+        }else  $error = 'sai mật khẩu'; //sai password
+    } else $error = 'tài khoản không tồn tại'; //tai khoan khong ton tai
+}
+
+
+
+$conn->close();
+?>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -57,7 +87,6 @@
         }
     </style>
 </head>
-
 <body class="login-page">
 
 <!-- Main Navigation -->
@@ -103,7 +132,7 @@
                 <div class="row">
                     <div class="col-xl-5 col-lg-6 col-md-10 col-sm-12 mx-auto mt">
                         <!--form-->
-                        <form action="xulydangnhap.php" method="POST" onsubmit="return Validate()">
+                        <form action="dangnhap.php" method="POST" onsubmit="return Validate()">
 
                             <!-- Form with header -->
                             <div class="card wow fadeIn" data-wow-delay="0.3s" style="background:rgba(18,19,19,0.75); margin-top: 8em" >
@@ -121,6 +150,13 @@
                                 HIRAKI
                             </h1>
                             <p class="slogan" style="color: #ffffff; text-align: center; font-size: 1.4em">Đăng nhập vào tài khoản của bạn</p>
+                            <p class="slogan" style="color: red; text-align: center; font-size: 1.4em">
+                                <?php
+                                    if($error !=''){
+                                        echo $error;
+                                    }
+                                    ?>
+                            </p>
                         </div>
 
                         <div class="md-form">

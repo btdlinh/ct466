@@ -36,7 +36,7 @@ $result = $conn->query($sql);
 if ($result == true) {
     $_SESSION['email'] = $email;
     $_SESSION['kh_ten'] = $ten;
-    header('location: dangnhap.html');
+    header('location: dangnhap.php');
 } else {
     echo "<h2> Tài Khoản Đã Tồn Tại</h2>";
 }

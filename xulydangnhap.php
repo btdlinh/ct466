@@ -16,7 +16,9 @@ if ($result->num_rows > 0) {
         //      echo "Dang nhap thanh cong ^^";
         $_SESSION['kh_email']= $email;
         $_SESSION['kh_ten']= $row['kh_ten'];
-        header('location:index.php');
+        ?>
+
+<?php
     }else  header('location:dangnhap.php');
 } else header('location:dangnhap.php');
 

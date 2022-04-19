@@ -154,15 +154,25 @@ require_once "../sanpham/csdl_function.php";
                                data-toggle="dropdown"
                                aria-haspopup="true"
                                aria-expanded="false">
-                                <i class="fas fa-user blue-text"></i>Tài Khoản
+                                <i class="fas fa-user blue-text"></i><?php echo isset($_SESSION['kh_email'] )? $_SESSION['kh_ten'] : 'Tài khoản'; ?>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right dropdown-cyan"
                                  aria-labelledby="navbarDropdownMenuLink-4">
-                                <a class="dropdown-item waves-effect waves-light" href="dangky.html"> Đăng ký </a>
-                                <a class="dropdown-item waves-effect waves-light" href="dangnhap.html"> Đăng nhập </a>
-                                <a class="dropdown-item waves-effect waves-light" href="xulydangxuat.php"> Đăng
-                                    xuất </a>
+                                <?php
+                                if(isset($_SESSION['kh_email'])){
+                                    ?>
+                                    <a class="dropdown-item waves-effect waves-light" href="http://localhost/ct466/xulydangxuat.php"> Đăng xuất </a>
+                                    <a class="dropdown-item waves-effect waves-light"
+                                       href="http://localhost/CT466/khachhang/sanpham/kh_xemdonhang.php"> Đơn hàng của bạn </a>
+                                    <?php
+                                }else{
+                                    ?>
+                                    <a class="dropdown-item waves-effect waves-light" href="http://localhost/ct466/dangky.php"> Đăng ký </a>
+                                    <a class="dropdown-item waves-effect waves-light" href="http://localhost/ct466/dangnhap.php"> Đăng nhập </a>
+                                    <?php
+                                }
+                                ?>
                             </div>
 
                         </li>

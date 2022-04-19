@@ -70,8 +70,8 @@ require "headerindex.php";
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="http://localhost/CT466/admin/thongtin/thongtintaikhoan.php">Tài Khoản Của Tôi</a>
-                <a class="dropdown-item" href="http://localhost/CT466/admin/dangky.html">Đăng Ký</a>
-                <a class="dropdown-item" href="http://localhost/CT466/admin/dangnhap.html">Đăng Nhập</a>
+<!--                <a class="dropdown-item" href="http://localhost/CT466/admin/dangky.html">Đăng Ký</a>-->
+<!--                <a class="dropdown-item" href="http://localhost/CT466/admin/dangnhap.html">Đăng Nhập</a>-->
                 <a class="dropdown-item" onclick="return confirm('Bạn chắc chắn đăng xuất?')" href="http://localhost/CT466/admin/xulydangxuat.php">Đăng Xuất</a>
             </div>
         </li>

@@ -20,7 +20,6 @@ $conn->set_charset('utf8');
 //    $rskh = mysqli_query($conn,$sqlkh);
 //    $rowkh = mysqli_fetch_assoc($rskh);
 //    echo $email;
-//
 //}
 
 
@@ -129,11 +128,22 @@ require_once "khachhang/sanpham/csdl_function.php";
 
                         <div class="dropdown-menu dropdown-menu-right dropdown-cyan"
                              aria-labelledby="navbarDropdownMenuLink-4">
-                            <a class="dropdown-item waves-effect waves-light" href="dangky.php"> Đăng ký </a>
-                            <a class="dropdown-item waves-effect waves-light" href="dangnhap.html"> Đăng nhập </a>
-                            <a class="dropdown-item waves-effect waves-light" href="xulydangxuat.php"> Đăng xuất </a>
-                            <a class="dropdown-item waves-effect waves-light"
-                               href="http://localhost/CT466/khachhang/sanpham/kh_xemdonhang.php"> Đơn hàng của bạn </a>
+                            <?php
+                                if(isset($_SESSION['kh_email'])){
+                                    ?>
+                                    <a class="dropdown-item waves-effect waves-light" href="xulydangxuat.php"> Đăng xuất </a>
+                                    <a class="dropdown-item waves-effect waves-light" href="kh_doimatkhau.php"> Đổi mật khẩu </a>
+                                    <a class="dropdown-item waves-effect waves-light"
+                                       href="http://localhost/CT466/khachhang/sanpham/kh_xemdonhang.php"> Đơn hàng của bạn </a>
+                                    <?php
+                                }else{
+                                    ?>
+                                    <a class="dropdown-item waves-effect waves-light" href="dangky.php"> Đăng ký </a>
+                                    <a class="dropdown-item waves-effect waves-light" href="dangnhap.php"> Đăng nhập </a>
+                                    <?php
+                                }
+                            ?>
+
                         </div>
 
                     </li>
@@ -507,7 +517,7 @@ require_once "khachhang/sanpham/csdl_function.php";
                     echo '
                     <li class="page-item disabled clearfix d-none d-md-block">
                         <a class="page-link waves-effect waves-effect"
-                        href="?per_page = ' .$item_per_page. ' &page = ' .$first_page. ' ">Đầu
+                        href="?per_page='.$item_per_page.'&page='.$first_page.'">Đầu
                         </a>
                     </li>
                    ';
@@ -521,7 +531,7 @@ require_once "khachhang/sanpham/csdl_function.php";
                     <li class="page-item ">
                         <a class="page-link waves-effect waves-effect" 
                             aria-label="Previous"
-                            href="?per_page = ' .$item_per_page. ' &page = ' .$prev_page. ' "> «
+                            href="?per_page='.$item_per_page.'&page='.$prev_page.'"> «
                             
                         </a>
                     </li>
@@ -539,7 +549,7 @@ require_once "khachhang/sanpham/csdl_function.php";
                             echo '
                             <li class="page-item">
                                 <a class="page-link waves-effect waves-effect" 
-                                href="?per_page= ' .$item_per_page. ' & page= ' .$num. ' " >' .$num. '</a>
+                                href="?per_page='.$item_per_page.'&page='.$num.'" >' .$num. '</a>
                             </li>
 
                     ';
@@ -549,7 +559,7 @@ require_once "khachhang/sanpham/csdl_function.php";
                     
                     <strong>
                              <li class="page-item">
-                                <a class="page-link waves-effect waves-effect"  > ' .$num. ' </a>
+                                <a class="page-link waves-effect waves-effect" >'.$num.'</a>
                              </li>
                     </strong>
                     ';
@@ -574,7 +584,7 @@ require_once "khachhang/sanpham/csdl_function.php";
                     <li class="page-item">
                         <a class="page-link waves-effect waves-effect" 
                         aria-label="Next"
-                        href="?per_page =' .$item_per_page. ' &page = ' .$next_page. ' "> »
+                        href="?per_page='.$item_per_page.'&page='.$next_page.'"> »
                         </a>
                     </li>
                 ';
@@ -587,7 +597,7 @@ require_once "khachhang/sanpham/csdl_function.php";
                     $end_page = $total_pages;
                     echo '
                 <li class="page-item clearfix d-none d-md-block">
-                    <a class="page-link waves-effect waves-effect" href="?per_page =' .$item_per_page. '&page=' .$end_page. ' ">Cuối</a>
+                    <a class="page-link waves-effect waves-effect" href="?per_page='.$item_per_page.'&page='.$end_page.'">Cuối</a>
                 </li>
                     ';
                 }
