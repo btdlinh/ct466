@@ -120,7 +120,7 @@ if (count($_POST) > 0) {
                 <td><input type="password" name="newPassword"
                            class="txtField" /><span id="newPassword"
                                                     class="required"></span></td>
-            </tr>
+            </tr>.
             <td><label>Xác nhận mật khẩu</label></td>
             <td><input type="password" name="confirmPassword"
                        class="txtField" /><span id="confirmPassword"

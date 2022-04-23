@@ -300,7 +300,6 @@ $result1 = mysqli_query($conn, $sql1);
 
                                                 } elseif ($row15['hd_trangthai'] == 2) {
                                                     echo '
-                                                        <option value="1">Chờ xác nhận</option>
                                                         <option value="3">Đang giao hàng</option>
                                                         <option value="4">Đã giao hàng</option>
                                                         <option value="5">Hủy đơn hàng</option>
@@ -308,18 +307,14 @@ $result1 = mysqli_query($conn, $sql1);
 
                                                 } elseif ($row15['hd_trangthai'] == 3) {
                                                     echo '
-                                                        <option value="1">Chờ xác nhận</option>
-                                                         <option value="2">Đã xác nhận</option>
+                                                       
                                                         <option value="4">Đã giao hàng</option>
                                                         <option value="5">Hủy đơn hàng</option>
                                                     ';
 
                                                 } elseif ($row15['hd_trangthai'] == 4) {
                                                     echo '
-                                                        <option value="1">Chờ xác nhận</option>
-                                                         <option value="2">Đã xác nhận</option>
-                                                        <option value="3">Đang giao hàng</option>
-                                                        <option value="5">Hủy đơn hàng</option>
+                                                        
                                                     ';
 
                                                 } elseif ($row15['hd_trangthai'] == 5) {

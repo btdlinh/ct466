@@ -126,8 +126,10 @@ $result = $conn->query($sql1);
                                                  <td>".$row['nxb_ten']."</td>
                                                  <td>".number_format($row['sp_gia'])." vnđ"."</td>
                                                  <td>".$row['sp_soluong']."</td>
-                                                <td >
-                                                
+                                                <td style='display: flex;'>
+                                                  <a href=\"themsoluong.php?idsach=".$row['sp_id']."\"  title='Thêm số lượng'> 
+                                                    <i class=\"fas fa-plus-circle\"  style='font-size: 22px; margin: 0 .1rem;'></i>
+                                                    
                                                 <a href=\"suasach.php?idsach=".$row['sp_id']."\"  title='Sửa thông tin sản phẩm'> 
                                                  <i class=\"fas fa-edit blue-text\" style='font-size: 22px'></i>
                                                 

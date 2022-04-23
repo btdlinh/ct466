@@ -47,8 +47,7 @@
                                     <ul>
                                         <li><a href="http://localhost/CT466/admin/sach/dssach.php" class="waves-effect">Danh Sách Sản Phẩm</a></li>
                                         <li><a href="http://localhost/CT466/admin/sach/ThemSach.php" class="waves-effect">Thêm Sản Phẩm</a></li>
-                                        <li><a href="http://localhost/CT466/admin/sach/dssach.php" class="waves-effect">Sửa Sản Phẩm</a></li>
-                                        <li><a href="http://localhost/CT466/admin/sach/dssach.php" class="waves-effect">Xóa Sản Phẩm</a></li>
+                                        <li><a href="http://localhost/CT466/admin/sach/thongkesp.php" class="waves-effect">Thống kê Sản Phẩm</a></li>
                                     </ul>
                                 </div>
                             </li>

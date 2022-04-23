@@ -323,7 +323,7 @@ require "../header.php";
                 <!-- Grid column -->
                                     <div class="col-md-10">
 
-                                        <div class="md-form">
+                                        <div class="md-form" style="display: none;">
                                             <input
                                                     type="number"
                                                     id="slsach"
