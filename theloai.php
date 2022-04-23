@@ -26,6 +26,9 @@ $conn->set_charset('utf8');
 
 //$rs = $conn->query("SELECT * FROM sach ");
 require_once "khachhang/sanpham/csdl_function.php";
+$idtll= '';
+if(isset($_GET['idtl']))
+    $idtll = $_GET['idtl'];
 ?>
 <!DOCTYPE html>
 
@@ -187,6 +190,7 @@ require_once "khachhang/sanpham/csdl_function.php";
                             $sql = "SELECT * FROM danh_muc ";
                             $rs = mysqli_query($conn,$sql);
                             $row = mysqli_num_rows($rs);
+
                             while ($row = $rs->fetch_assoc()){
                                 $dm_id = $row['dm_id'];
 
@@ -233,6 +237,11 @@ require_once "khachhang/sanpham/csdl_function.php";
                 <form method="get">
                     <div class="row align-items-center">
                         <div class="col-md-3 col-md-8">
+                            <?php
+                                if($idtll!=''){
+                                    echo "<input type='text' name='idtl' id='form-s' class='form-control' value='$idtll' style='display:none'/>";
+                                }
+                            ?>
                             <input type="text" name="search" id="form-s" class="form-control"/>
                             <label for="form-s" type="text" class="form-label blue-white">Tìm kiếm...</label>
                         </div>
@@ -305,7 +314,7 @@ require_once "khachhang/sanpham/csdl_function.php";
     $current_page = !empty($_GET['page']) ? $_GET['page'] : 1;
 
     // vi tri bd lay
-    $idtll= $_GET['idtl'];
+
     $offset = (int)($current_page - 1) * (int)$item_per_page;
     $rs = $conn->query('SELECT * FROM sanpham WHERE sp_idtheloai ='.$idtll.' ORDER BY `sp_id` DESC LIMIT ' . $item_per_page . ' OFFSET ' . $offset . ' ');
     $total_records = $conn->query("SELECT * FROM sanpham");
@@ -424,6 +433,11 @@ require_once "khachhang/sanpham/csdl_function.php";
 
         } else {
             // hien thi san pham
+            $num = mysqli_num_rows($rs);
+            if(!$num){
+                echo "<h1 style='text-align: center'>Không có sản phẩm</h1>";
+            }
+
             while ($row = $rs->fetch_assoc()) {
                 $linkhinh = "CT466" . $row['sp_hinhanh'];
                 echo '

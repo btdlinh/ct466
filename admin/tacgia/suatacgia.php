@@ -116,6 +116,7 @@ echo "<form action=\"xulysuatacgia.php?idtacgia=".$idtacgia."\" method=\"POST\" 
                                     class="form-control form-control-sm black-text"
                                     name="tentacgia"
                                     value="<?php echo $row4['tg_hoten']?>"
+                                    required
                                 />
                                 <label for="form2" class="orangeForm-name black-text"> Họ Tên</label>
                             </div>
