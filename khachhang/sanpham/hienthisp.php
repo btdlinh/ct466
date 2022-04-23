@@ -670,8 +670,13 @@ $title = $row['sp_tensach'];
 
 <script>
 
-    function addcart(id) {
-        const num = document.getElementById('soluongmua').value;
+    const addcart = (id) =>{
+        let num = document.getElementById('soluongmua').value;
+        let max = parseInt($('input.input-qty').attr('max'));
+
+        if(num>max){
+            num=max;
+        }
         document.getElementById("qty").style.display = "block"
 
         $.post("../../giohang.php", {'id': id, 'num': num}, function (data, status) {
