@@ -82,6 +82,7 @@ require "../header.php";
                                    id="tensach"
                                    class="form-control form-control-sm black-text"
                                    name="tensach"
+                                   required="required"
                             />
                             <label for="tensach" class="orangeForm-ten black-text"> Tên Sách</label>
                         </div>

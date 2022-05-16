@@ -163,6 +163,8 @@ require_once "../sanpham/csdl_function.php";
                                 if(isset($_SESSION['kh_email'])){
                                     ?>
                                     <a class="dropdown-item waves-effect waves-light" href="http://localhost/ct466/xulydangxuat.php"> Đăng xuất </a>
+                                    <a class="dropdown-item waves-effect waves-light" href="http://localhost/CT466/kh_doimatkhau.php"> Đổi mật khẩu </a>
+
                                     <a class="dropdown-item waves-effect waves-light"
                                        href="http://localhost/CT466/khachhang/sanpham/kh_xemdonhang.php"> Đơn hàng của bạn </a>
                                     <?php

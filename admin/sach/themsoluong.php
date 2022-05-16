@@ -107,17 +107,18 @@ require "../header.php";
     <!--<form method="POST" onsubmit="return Validate()" enctype="multipart/form-data">-->
     <div class="card-body black-text p-5 ">
         <!-- Section heading -->
-        <h2 class="text-center my-5 h1 mb-5 pt-5 text-black-50" > Cập Nhật Thông Tin Sách</h2>
+        <h2 class="text-center my-5 h1 mb-5 pt-5 text-black-50" > Cập Nhật Số Lượng Sách</h2>
         <div class="md-form">
             <div class="file-field">
 
                 <?php    $linkhinh = "http://localhost/CT466/img/bookimg/". $row4['sp_hinhanh']; ?>
                 <img src=<?php echo $linkhinh; ?>
                      alt="Hình Ảnh Sách"
-                style="width: 150px;
-                height: 180px;
-                margin: 3em auto;
-                padding-top: 1em;"
+                style="width: 350px;
+                height: 380px;
+                margin: 1em auto;
+                padding-top: 1em;
+                "
                 />
                 <div class="file-path-wrapper">
                 </div>
@@ -179,23 +180,17 @@ require "../header.php";
                                 min="0"
                                 value="0"
                         />
-                        <label for="slsach" class="orangeForm-price black-text "> Số Lượng</label>
+                        <label for="slsach" class="orangeForm-price black-text font-weight-bold"> Số Lượng</label>
                     </div>
                     <div>
                         <p id="tbsl" class="error"></p>
                     </div>
                 </div>
                 <!-- Grid column -->
-                <!-- Grid column -->
 
-                <!-- Grid column -->
 
                 <!-- Grid column -->
                 <div class="col-md-10">
-
-
-
-
 
                 </div>
 

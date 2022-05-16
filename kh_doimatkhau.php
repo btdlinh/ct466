@@ -9,8 +9,8 @@ if (count($_POST) > 0) {
     $row = mysqli_fetch_array($result);
 //    var_dump($row);
     if (md5($_POST["currentPassword"]) == $row["kh_matkhau"]) {
-        mysqli_query($conn, "UPDATE admin set kh_matkhau ='" . md5($_POST["newPassword"]) . "' WHERE kh_email='" . $_SESSION["kh_email"] . "'");
-        $message = "Mật khẩu của bạn đã được thay đổi!";
+            mysqli_query($conn, "UPDATE admin set kh_matkhau ='" . md5($_POST["newPassword"]) . "' WHERE kh_email='" . $_SESSION["kh_email"] . "'");
+            $message = "Mật khẩu của bạn đã được thay đổi!";
     }else
         $message = "Mật khẩu hiện tại không đúng. Vui lòng nhập lại chính xác mật khẩu.";
 }
@@ -31,24 +31,24 @@ if (count($_POST) > 0) {
 
             if(!currentPassword.value) {
                 currentPassword.focus();
-                document.getElementById("currentPassword").innerHTML = "required";
+                document.getElementById("currentPassword").innerHTML = "Chưa nhập";
                 output = false;
             }
             else if(!newPassword.value) {
                 newPassword.focus();
-                document.getElementById("newPassword").innerHTML = "required";
+                document.getElementById("newPassword").innerHTML = "Chưa nhập";
                 output = false;
             }
             else if(!confirmPassword.value) {
                 confirmPassword.focus();
-                document.getElementById("confirmPassword").innerHTML = "required";
+                document.getElementById("confirmPassword").innerHTML = "Chưa nhập";
                 output = false;
             }
             if(newPassword.value != confirmPassword.value) {
                 newPassword.value="";
                 confirmPassword.value="";
                 newPassword.focus();
-                getElementById("confirmPassword").innerHTML = "not same";
+                document.getElementById("confirmPassword").innerHTML = "Chưa trùng khớp";
                 output = false;
             }
             return output;
@@ -122,18 +122,26 @@ if (count($_POST) > 0) {
                                                     class="required"></span></td>
             </tr>.
             <td><label>Xác nhận mật khẩu</label></td>
-            <td><input type="password" name="confirmPassword"
-                       class="txtField" /><span id="confirmPassword"
-                                                class="required"></span></td>
+            <td><input type="password"
+                       name="confirmPassword"
+                       class="txtField" /><span
+                        id="confirmPassword"
+                        class="required"></span></td>
             </tr>
             <tr>
-                <td colspan="2"><input type="submit" name="submit"
-                                       value="Lưu lại" class="btnSubmit"></td>
+                <td></td>
+                <td colspan=""><input type="submit"
+                                       name="submit"
+                                       value="Lưu lại"
+                                       class="btnSubmit"></td>
+
             </tr>
 
             <tr>
-                <td colspan="2"><a href="http://localhost/CT466/index.php"
-                                   class="btnSubmit">Quay lại</a></td>
+                <td></td>
+                <td style="text-align: left">
+                    <a href="http://localhost/CT466/index.php" class="btnSubmit">Quay lại</a>
+                </td>
             </tr>
         </table>
     </div>

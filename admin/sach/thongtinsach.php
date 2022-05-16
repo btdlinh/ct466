@@ -258,7 +258,7 @@ $result = $conn->query($sql1);
 
             <div class="row mt-5">
 
-                <div class="col-lg-6">
+                <div class="col-lg-4">
 
                     <!-- Carousel Wrapper -->
                     <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails"
@@ -305,10 +305,10 @@ $result = $conn->query($sql1);
                     <!-- Carousel Wrapper -->
 
                 </div>
-                <div class="col-lg-5">
+                <div class="col-lg-8" style="    padding-right: 60px;">
                     <h3><strong>Thông Tin Sách</strong></h3>
                     <br><br>
-                    <table id="dtMaterialDesignExample" class="table">
+                    <table id="dtMaterialDesignExample" class="table m-2">
                         <tbody>
                         <?php
                         // lấy id cần xem
@@ -361,13 +361,13 @@ $result = $conn->query($sql1);
 //                                                <td>".$row4['soluong']."</td>
 //                                               </tr>";
                                 echo "<tr>
-                                                <th class=\"th-sm\">Mô tả</th>
-                                                <td>" . $row4['sp_mota'] . "</td>
-                                               </tr>";
-                                echo "<tr>
                                                 <th class=\"th-sm\">Số lượng</th>
                                                 <td>" . $row4['sp_soluong'] . "</td>
                                                </tr>";
+                                echo "<tr>
+                                                <td colspan='2' style='text-align: justify;padding: 1rem; '><b>Mô tả</b><br>". $row4['sp_mota'] . "</td>
+                                               </tr>";
+
                             }
                         }
                         ?>

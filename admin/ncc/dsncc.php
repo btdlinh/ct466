@@ -84,7 +84,7 @@ require "../headerindex.php";
             <!-- Gird column -->
             <div class="col-md-12">
                 <div class="card">
-                    <h2 class="text-center blue-grey-text font-weight-bold mb-4 mt-5">Thông Tin Nhà Xuất Bản</h2>
+                    <h2 class="text-center blue-grey-text font-weight-bold mb-4 mt-5">Thông Tin Nhà Nà Cung Cấp</h2>
 
                     <div class="card-body">
                         <table id="dtMaterialDesignExample" class="table" cellspacing="0" width="100%">

@@ -1,7 +1,11 @@
 <?php
 require "mail/sendmail.php";
-$ten=$_POST["name"];
-$email=$_POST["email"];
+$ten='';
+$email='';
+if(isset($_POST['name'])&&isset($_POST['email'])){
+    $ten=$_POST["name"];
+    $email=$_POST["email"];
+}
 //random
 function generateRandomString($length = 6) {
 //$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -20,6 +24,8 @@ $noidung = "<h3>Mã xác nhận tài khoản của bạn là:<u style='color: re
 $maildathang = $email;
 $mail = new Mailer();
 $mail->dathangmail($tieude, $noidung, $maildathang);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -51,6 +57,13 @@ $mail->dathangmail($tieude, $noidung, $maildathang);
         .view {
             height: 100%;
         }
+        .form1{
+            overflow: scroll;
+        }
+        .form1::-webkit-scrollbar {
+            display: none;
+        }
+
         @media (min-width: 560px) and (max-width: 740px) {
             html,
             body,
@@ -98,7 +111,7 @@ $mail->dathangmail($tieude, $noidung, $maildathang);
     <!-- Intro Section -->
     <section class="view intro-2" style="background-image:url('image/nen7.png');">
         <div class="  h-100 d-flex justify-content-center align-items-center; ">
-            <div class="container">
+            <div class="container form1">
                 <div class="row">
                     <div class="col-xl-5 col-lg-6 col-md-10 col-sm-12 mx-auto mt-5">
 
@@ -106,7 +119,7 @@ $mail->dathangmail($tieude, $noidung, $maildathang);
 
                             <!-- Form with header -->
                             <!--                        style="background-color: whitesmoke; background:rgba(0,0,0,0.5);-->
-                            <div class="card wow fadeIn" data-wow-delay="0.3s" style="background:rgba(18,19,19,0.75); margin-top: 3em" >
+                            <div class="card wow fadeIn" data-wow-delay="0.3s" style="background:rgba(18,19,19,0.75);" >
                                 <div class="card-body">
 
                                     <!--form-->
@@ -126,7 +139,13 @@ $mail->dathangmail($tieude, $noidung, $maildathang);
                                         </h1>
                                         <p class="slogan" style="color: #ffffff; text-align: center; font-size: 1.4em">Tạo khoản của bạn</p>
                                     </div>
-
+                                    <?php
+                                        echo $a; # nhớ xóa
+                                        if(isset($_POST['tbmk'])){
+                                        if($a!=$_POST['tbmk']){
+                                            echo 'otp không đúng';
+                                        }
+                                    } ?>
                                     <div class="md-form" >
                                         <i class="fas fa-user prefix white-text"></i>
                                         <input type="text" id="orangeForm-name" name="name"  value="<?php echo $ten; ?>" class="form-control white-text">
@@ -163,6 +182,10 @@ $mail->dathangmail($tieude, $noidung, $maildathang);
                                           <input type="password" id="orangeForm-repass" name="repass" class="form-control white-text">
                                           <label for="orangeForm-repass">Nhập lại mật khẩu</label>
                                       </div>
+
+                                    <div>
+                                        <p id="tbmk1" class="error"></p>
+                                    </div>
 
 
 
@@ -223,6 +246,7 @@ $mail->dathangmail($tieude, $noidung, $maildathang);
     function Validate(){
         let tendangnhap=document.getElementById("orangeForm-name").value;
         let emaildangnhap=document.getElementById("orangeForm-email").value;
+        let matkhaunhaplai=document.getElementById("orangeForm-repass").value;
         let matkhau=document.getElementById("orangeForm-pass").value;
         let OK = true;
         if(tendangnhap ===""&&emaildangnhap===""&&matkhau===""){
@@ -256,16 +280,40 @@ $mail->dathangmail($tieude, $noidung, $maildathang);
         else {
             document.getElementById("tbmk").innerHTML="";
         }
-
-        if(document.querySelector('[name=otp]').value != <?php echo $a; ?>) {
-            OK = false;
-            console.log(document.querySelector('[name=otp]').value , <?php echo $a; ?>)
-            document.getElementById("tbmk").innerHTML="Mã OTP không đúng";
-            document.getElementById("tbmk").style.color="red"
+        if(matkhaunhaplai===""){
+            document.getElementById("tbmk1").innerHTML="Bạn chưa nhập lại mật khẩu";
+            document.getElementById("tbmk1").style.color="red"
+            OK= false;
+        }
+        else {
+            document.getElementById("tbmk1").innerHTML="";
+            if(matkhau!==matkhaunhaplai){
+                document.getElementById("tbmk1").innerHTML="Mật khẩu không khớp";
+                document.getElementById("tbmk1").style.color="red"
+                OK= false;
+            }
+            else {
+                document.getElementById("tbmk1").innerHTML="";
+            }
         }
 
+        if(document.querySelector('[name=otp]').value === ""){
 
+                console.log(document.querySelector('[name=otp]').value , <?php echo $a; ?>)
+                document.getElementById("tbotp").innerHTML="Bạn chưa nhập mã OTP";
+                document.getElementById("tbotp").style.color="red"
+
+            OK = false;
+        }else {
+            if(document.querySelector('[name=otp]').value != <?php echo $a; ?>) {
+                OK = false;
+                console.log(document.querySelector('[name=otp]').value , <?php echo $a; ?>)
+                document.getElementById("tbotp").innerHTML="Mã OTP không đúng";
+                document.getElementById("tbotp").style.color="red"
+            }
+        }
         return OK;
+
     }
 
 </script>

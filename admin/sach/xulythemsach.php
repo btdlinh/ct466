@@ -25,8 +25,8 @@ if(isset($_POST["tensach"])){
     //echo $destination;
     $sql= "INSERT INTO sanpham( sp_idtheloai, sp_idnxb, sp_idnn, sp_idncc, sp_idtg, sp_tensach, sp_gia, sp_hinhanh, sp_mota, sp_soluong ) 
                     VALUES ( '$idloai', '$idnxb', '$idnn', '$idncc', '$idtacgia', '$tensach', '$gia', '$destination', '$mota', '$soluong')";
-
-    $conn->query($sql) or die("err: ");
+//    $conn->query($sql) or die("err: ");
+    $conn->query($sql) or die("<b>Lỗi! <a href='ThemSach.php' style='color: firebrick'>Nhập lại</a></b> ");
 
     $SQL_SP =" SELECT * FROM sanpham order by sp_id DESC LIMIT 1";
     $r= $conn->query($SQL_SP);

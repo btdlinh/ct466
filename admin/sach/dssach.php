@@ -105,7 +105,7 @@ $result = $conn->query($sql1);
                                 <th class="th-sm">STT</th>
                                 <th class="th-sm">Tên sách</th>
                                 <th class="th-sm">Tác giả</th>
-                                <th class="th-sm">Nhà xuất bản</th>
+<!--                                <th class="th-sm">Nhà xuất bản</th>-->
                                 <th class="th-sm">Giá</th>
                                 <th class="th-sm">Số lượng</th>
 
@@ -123,24 +123,22 @@ $result = $conn->query($sql1);
                                                  <td>".$i."</td>
                                                  <td>".$row['sp_tensach']."</td>
                                                  <td>".$row['tg_hoten']."</td>
-                                                 <td>".$row['nxb_ten']."</td>
                                                  <td>".number_format($row['sp_gia'])." vnđ"."</td>
                                                  <td>".$row['sp_soluong']."</td>
                                                 <td style='display: flex;'>
-                                                  <a href=\"themsoluong.php?idsach=".$row['sp_id']."\"  title='Thêm số lượng'> 
-                                                    <i class=\"fas fa-plus-circle\"  style='font-size: 22px; margin: 0 .1rem;'></i>
+                                                  <a href=\"themsoluong.php?idsach=".$row['sp_id']."\" title='Thêm số lượng'> 
+                                                    <i class=\"fas fa-plus-circle green-text\"  style='font-size: 22px; margin: 0 .1rem;'></i>
                                                     
                                                 <a href=\"suasach.php?idsach=".$row['sp_id']."\"  title='Sửa thông tin sản phẩm'> 
                                                  <i class=\"fas fa-edit blue-text\" style='font-size: 22px'></i>
                                                 
                                                
                                                 
-                                                    <a onclick=\"return confirm('Bạn chắc chắn muốn xóa Sách này?')\" title='Xóa sản phẩm'
+                                                    <a onclick=\"return confirm('Bạn chắc chắn muốn xóa sách ".$row['sp_tensach']." ?')\" title='Xóa sản phẩm'
                                                     href=\"xoasach.php?idsach=".$row['sp_id']."\"  > 
                                                      <i class=\"fas fa-eraser red-text\" style='font-size: 22px; margin: 0 .1rem;'></i>
                                                     </a>
                                               
-                                                 
                                                  <a href=\"thongtinsach.php?idsach=".$row['sp_id']."\" title='Xem thông tin sản phẩm'>
                                                   <i class=\"fas fa-eye grey-text\" style='font-size: 22px'></i>
                                                  </a>

@@ -105,7 +105,7 @@
 
                                     <div class="md-form" >
                                         <i class="fas fa-user prefix white-text"></i>
-                                        <input type="text" id="orangeForm-name" name="name" class="form-control white-text">
+                                        <input type="text" id="orangeForm-name" name="name" class="form-control white-text" required>
                                         <label for="orangeForm-name">Họ tên</label>
                                     </div>
                                     <div>
@@ -114,7 +114,7 @@
 
                                     <div class="md-form">
                                         <i class="fas fa-envelope prefix white-text"></i>
-                                        <input type="text" id="orangeForm-email" name="email" class="form-control white-text" placeholder=" ... @gmail.com">
+                                        <input type="text" id="orangeForm-email" name="email" class="form-control white-text" placeholder=" ... @gmail.com" required>
                                         <label for="orangeForm-email">Email</label>
                                     </div>
 

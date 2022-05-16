@@ -192,22 +192,22 @@ $result = mysqli_query($conn, $sql1);
                         </form>
                     </div>
 
-                    <div  class="card-body">
-                        <table class="m-auto" id="dtMaterialDesignExample" >
-                            <tr>
-                                <td >1: <b>Chờ xác nhận</b></td>
-
-                                <td >2: <b>Đã xác nhận</b></td>
-
-                                <td >3: <b>Đang giao hàng</b></td>
-
-                                <td >4: <b>Đã giao hàng</b></td>
-
-                                <td >5: <b>Hủy đơn</b></td>
-                            </tr>
-                        </table>
-
-                    </div>
+<!--                    <div  class="card-body">-->
+<!--                        <table class="m-auto" id="dtMaterialDesignExample" >-->
+<!--                            <tr>-->
+<!--                                <td >1: <b>Chờ xác nhận</b></td>-->
+<!---->
+<!--                                <td >2: <b>Đã xác nhận</b></td>-->
+<!---->
+<!--                                <td >3: <b>Đang giao hàng</b></td>-->
+<!---->
+<!--                                <td >4: <b>Đã giao hàng</b></td>-->
+<!---->
+<!--                                <td >5: <b>Hủy đơn</b></td>-->
+<!--                            </tr>-->
+<!--                        </table>-->
+<!---->
+<!--                    </div>-->
                 </div>
             </div>
             <!-- Gird column -->

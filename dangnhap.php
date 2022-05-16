@@ -7,6 +7,7 @@ if(isset($_POST['emailkh'])&&isset($_POST['passkh'])){
     echo "fawffwaef";
     $email= $_POST["emailkh"];
     $pass= md5($_POST["passkh"]);
+    echo
 
     $sql="SELECT * FROM khach_hang WHERE kh_email='$email'";
 
@@ -19,8 +20,8 @@ if(isset($_POST['emailkh'])&&isset($_POST['passkh'])){
             $_SESSION['kh_email']= $email;
             $_SESSION['kh_ten']= $row['kh_ten']; // dung tai khoan va mat khau
             header('location:index.php');
-        }else  $error = 'sai mật khẩu'; //sai password
-    } else $error = 'tài khoản không tồn tại'; //tai khoan khong ton tai
+        }else  $error = 'Sai mật khẩu. Nhập lại!'; //sai password
+    } else $error = 'Tài khoản không tồn tại!'; //tai khoan khong ton tai
 }
 
 

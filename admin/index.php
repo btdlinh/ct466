@@ -151,9 +151,9 @@ require "headerindex.php";
             $query4 = "select count(ncc_id) from nha_cung_cap ";
             $rs4 = mysqli_query($conn,$query4);
             $row4 = mysqli_fetch_row($rs4);
-//            $query4 = "select count(stt) from kh_lienhe  ";
-//            $rs4 = mysqli_query($conn,$query4);
-//            $row4 = mysqli_fetch_row($rs4);
+            $query4 = "select count(khlh_id) from kh_lienhe  ";
+            $rs4 = mysqli_query($conn,$query4);
+            $row4 = mysqli_fetch_row($rs4);
             //print_r($row4[0]);
 
             $query5 = "select sum(hd_tongtiendonhang) from hoa_don  ";
@@ -171,7 +171,7 @@ require "headerindex.php";
             $row7 = mysqli_fetch_row($rs7);
             //print_r($row7[0])
 
-//            $query8 = "select count(id) from admin  ";
+//            $query8 = "select count(id) from kh_lienhe  ";
 //            $rs8 = mysqli_query($conn,$query8);
 //            $row8 = mysqli_fetch_row($rs8);
             //print_r($row7[0]);
@@ -263,7 +263,7 @@ require "headerindex.php";
                                         <div class="col-md-7 col-7 text-right pr-5">
 
                                             <h5 class="ml-4 mt-4 mb-2 font-weight-bold"><?php print_r($row2[0]); ?> </h5>
-                                            <p class="font-small grey-text">Tổng khách hàng</p>
+                                            <p class="font-small grey-text">Khách hàng thành viên</p>
 
                                         </div>
 
@@ -274,7 +274,7 @@ require "headerindex.php";
                                     <div class="row my-3">
 
                                         <div class="col-md-7 col-7 text-left pl-4">
-                                            <p class="font-small font-up ml-4 font-weight-bold">Khách Hàng</p>
+                                            <p class="font-small font-up ml-4 font-weight-bold">Khách Hàng </p>
                                         </div>
 
                                         <!--                <div class="col-md-5 col-5 text-right pr-5">-->
@@ -308,7 +308,7 @@ require "headerindex.php";
 
                                         <div class="col-md-7 col-7 text-right pr-5">
                                             <h5 class="ml-4 mt-4 mb-2 font-weight-bold"><?php print_r($row4[0]); ?></h5>
-                                            <p class="font-small grey-text">Khách hàng</p>
+                                            <p class="font-small grey-text"> SL yêu cầu</p>
                                         </div>
 
                                     </div>
@@ -319,7 +319,7 @@ require "headerindex.php";
 
                                         <!-- Grid column -->
                                         <div class="col-md-9 col-7 text-left pl-4">
-                                            <p class="font-small font-up ml-4 font-weight-bold">Khách hàng cần tư vấn</p>
+                                            <p class="font-small font-up ml-4 font-weight-bold">Yêu cầu tư vấn</p>
                                         </div>
                                         <!-- Grid column -->
 
@@ -402,7 +402,7 @@ require "headerindex.php";
 
                                         <div class="col-md-7 col-7 text-right pr-5">
                                             <h5 class="ml-4 mt-4 mb-2 font-weight-bold"><?php print_r($row1[0]); ?></h5>
-                                            <p class="font-small grey-text">Tổng đơn hàng</p>
+                                            <p class="font-small grey-text">SL đơn hàng</p>
                                         </div>
 
                                     </div>
@@ -490,7 +490,7 @@ require "headerindex.php";
 
                                         <div class="col-md-7 col-7 text-right pr-5">
                                             <h5 class="ml-4 mt-4 mb-2 font-weight-bold"><?php print_r($row7[0]); ?></h5>
-                                            <p class="font-small grey-text">SL nhà xuất bản</p>
+                                            <p class="font-small grey-text">SL Nhà Xuất Bản</p>
                                         </div>
 
                                     </div>
@@ -500,7 +500,7 @@ require "headerindex.php";
                                     <div class="row my-3">
 
                                         <div class="col-md-9 col-7 text-left pl-4">
-                                            <p class="font-small font-up ml-4 font-weight-bold">Nhà xuất bản</p>
+                                            <p class="font-small font-up ml-4 font-weight-bold">Nhà Xuất Bản</p>
                                         </div>
 
                                         <div class="col-md-5 col-5 text-right pr-5">
@@ -533,7 +533,7 @@ require "headerindex.php";
 
                                         <div class="col-md-7 col-7 text-right pr-5">
                                             <h5 class="ml-4 mt-4 mb-2 font-weight-bold"><?php print_r($row9[0]); ?></h5>
-                                            <p class="font-small grey-text">SL tác giả</p>
+                                            <p class="font-small grey-text">SL Tác Giả</p>
                                         </div>
 
                                     </div>
@@ -543,7 +543,7 @@ require "headerindex.php";
                                     <div class="row my-3">
 
                                         <div class="col-md-9 col-7 text-left pl-4">
-                                            <p class="font-small font-up ml-4 font-weight-bold">Tác giả</p>
+                                            <p class="font-small font-up ml-4 font-weight-bold">Tác Giả</p>
                                         </div>
 
                                         <div class="col-md-5 col-5 text-right pr-5">
@@ -568,16 +568,16 @@ require "headerindex.php";
                                     <div class="row mt-3">
 
                                         <div class="col-md-5 col-5 text-left pl-4">
-                                            <a type="button" class="btn-floating btn-lg btn-pink ml-4" href="http://localhost/CT466/admin/thongtin/dsadmin.php">
+                                            <a type="button" class="btn-floating btn-lg btn-blue-grey ml-4" href="http://localhost/CT466/admin/nhacungcap/dsadmin.php">
                                                 <!--                                                <i class="fas fa-database" aria-hidden="true"></i>-->
-                                                <i class="far fa-heart"></i>
+                                                <i class="fas fa-warehouse"></i>
                                             </a>
                                         </div>
 
-<!--                                        <div class="col-md-7 col-7 text-right pr-5">-->
-<!--                                            <h5 class="ml-4 mt-4 mb-2 font-weight-bold">--><?php //print_r($row8[0]); ?><!--</h5>-->
-<!--                                            <p class="font-small grey-text">SL admin</p>-->
-<!--                                        </div>-->
+                                        <div class="col-md-7 col-7 text-right pr-5">
+                                            <h5 class="ml-4 mt-4 mb-2 font-weight-bold"><?php print_r($row4[0]); ?></h5>
+                                            <p class="font-small grey-text">SL Nhà Cung Cấp</p>
+                                        </div>
 
                                     </div>
                                     <!-- Card Data -->
@@ -586,7 +586,7 @@ require "headerindex.php";
                                     <div class="row my-3">
 
                                         <div class="col-md-9 col-7 text-left pl-4">
-                                            <p class="font-small font-up ml-4 font-weight-bold">Người quản lý</p>
+                                            <p class="font-small font-up ml-4 font-weight-bold">Nhà Cung Cấp</p>
                                         </div>
 
                                         <div class="col-md-5 col-5 text-right pr-5">

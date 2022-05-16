@@ -3,8 +3,8 @@
 <?php
 session_start();
 require "../../db.php";
-if (isset($_SESSION['email'])) {
-    $email = $_SESSION['email'];
+if (isset($_SESSION['ad_email'])) {
+    $email = $_SESSION['ad_email'];
 } else exit();
 
 $sql1 = "SELECT * FROM danh_muc";

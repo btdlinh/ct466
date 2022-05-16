@@ -101,15 +101,17 @@ $result = $conn->query($sql1);
                             <thead>
                             <tr>
                                 <th class="th-sm">Nhà cung cấp</th>
-                                <th class="th-sm">Tên sách</th>
-                                <th class="th-sm">Nhân viên</th>
-                                <th class="th-sm">Thao tác </th>
-                                <th class="th-sm">Số lượng sản phẩm </th>
+                                <th class="th-sm">Tên sản phẩm</th>
+<!--                                <th class="th-sm">Nhân viên</th>-->
+                                <th class="th-sm">Thao tác</th>
+                                <th class="th-sm">Số lượng</th>
                                 <th class="th-sm">Ngày</th>
                             </tr>
                             </thead>
                             <tbody>
+<!--                            <td>".$email."</td>-->
                             <?php
+
                             if ($result->num_rows > 0) {
                                 $i=1;
                                 while ($row = $result->fetch_assoc()) {
@@ -117,7 +119,7 @@ $result = $conn->query($sql1);
                                     echo "<tr>
                                                  <td>".$row['ncc_ten']."</td>
                                                  <td>".$row['kho_tensach']."</td>
-                                                 <td>".$email."</td>
+                                                
                                                  <td>".$row['kho_hanhdong']."</td>
                                                  <td>".$row['kho_soluong']."</td>
                                                  <td>".$row['kho_ngaygio']."</td>

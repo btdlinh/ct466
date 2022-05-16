@@ -13,6 +13,7 @@ $conn->set_charset('utf8');
 
 if (isset($_SESSION['kh_email'])) {
     $email = $_SESSION['kh_email'];
+//    $mk = $_SESSION['kh_matkhau'];
 } else header("location:../../dangnhap.php");
 require_once "../sanpham/csdl_function.php";
 //$title = "Thanh Toán";
@@ -25,6 +26,13 @@ require_once "../sanpham/csdl_function.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <script type="text/javascript" src="../../MDB-ecommerce-Templates-Pack_4.8.11/js/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap tooltips-->
+    <script type="text/javascript" src="../../MDB-ecommerce-Templates-Pack_4.8.11/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script type="text/javascript" src="../../MDB-ecommerce-Templates-Pack_4.8.11/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript-->
+    <script type="text/javascript" src="../../MDB-ecommerce-Templates-Pack_4.8.11/js/mdb.min.js"></script>
     <title>Thông Tin Đơn Hàng</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
@@ -98,14 +106,27 @@ require_once "../sanpham/csdl_function.php";
                        data-toggle="dropdown"
                        aria-haspopup="true"
                        aria-expanded="false">
-                        <i class="fas fa-user blue-text"></i>Tài Khoản
+                        <i class="fas fa-user blue-text"></i><?php echo isset($_SESSION['kh_email'] )? $_SESSION['kh_ten'] : 'Tài khoản'; ?>
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right dropdown-cyan"
                          aria-labelledby="navbarDropdownMenuLink-4">
-                        <a class="dropdown-item waves-effect waves-light" href="dangky.html"> Đăng ký </a>
-                        <a class="dropdown-item waves-effect waves-light" href="dangnhap.html"> Đăng nhập </a>
-                        <a class="dropdown-item waves-effect waves-light" href="xulydangxuat.php"> Đăng xuất </a>
+                        <?php
+                        if(isset($_SESSION['kh_email'])){
+                            ?>
+                            <a class="dropdown-item waves-effect waves-light" href="http://localhost/ct466/xulydangxuat.php"> Đăng xuất </a>
+                            <a class="dropdown-item waves-effect waves-light" href="http://localhost/CT466/kh_doimatkhau.php"> Đổi mật khẩu </a>
+
+                            <a class="dropdown-item waves-effect waves-light"
+                               href="http://localhost/CT466/khachhang/sanpham/kh_xemdonhang.php"> Đơn hàng của bạn </a>
+                            <?php
+                        }else{
+                            ?>
+                            <a class="dropdown-item waves-effect waves-light" href="http://localhost/ct466/dangky.php"> Đăng ký </a>
+                            <a class="dropdown-item waves-effect waves-light" href="http://localhost/ct466/dangnhap.php"> Đăng nhập </a>
+                            <?php
+                        }
+                        ?>
                     </div>
 
                 </li>

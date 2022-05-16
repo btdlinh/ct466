@@ -32,22 +32,23 @@
                     <li>
                         <ul class="collapsible collapsible-accordion">
                             <!-- buoi 0 -->
-                            <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-chevron-right"></i> ADMIN<i class="fas fa-angle-down rotate-icon"></i></a>
-                                <div class="collapsible-body">
-                                    <ul>
-                                        <li><a href="http://localhost/CT466/admin/thongtin/dsadmin.php" class="waves-effect">Danh Sách Admin</a></li>
-                                        <li><a href="http://localhost/CT466/admin/thongtin/thongtintaikhoan.php" class="waves-effect">Thông Tin Cá Nhân</a></li>
-                                    </ul>
-                                </div>
-                            </li>
+<!--                            <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-chevron-right"></i> ADMIN<i class="fas fa-angle-down rotate-icon"></i></a>-->
+<!--                                <div class="collapsible-body">-->
+<!--                                    <ul>-->
+<!--                                        <li><a href="http://localhost/CT466/admin/thongtin/dsadmin.php" class="waves-effect">Danh Sách Admin</a></li>-->
+<!--                                        <li><a href="http://localhost/CT466/admin/thongtin/thongtintaikhoan.php" class="waves-effect">Thông Tin Cá Nhân</a></li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                            </li>-->
 
                             <!-- buoi 1 -->
                             <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-chevron-right"></i> SẢN PHẨM<i class="fas fa-angle-down rotate-icon"></i></a>
                                 <div class="collapsible-body">
                                     <ul>
-                                        <li><a href="http://localhost/CT466/admin/sach/dssach.php" class="waves-effect">Danh Sách Sản Phẩm</a></li>
+                                        <li><a href="http://localhost/CT466/admin/sach/dssach.php" class="waves-effect">Xem chi tiết</a></li>
                                         <li><a href="http://localhost/CT466/admin/sach/ThemSach.php" class="waves-effect">Thêm Sản Phẩm</a></li>
-                                        <li><a href="http://localhost/CT466/admin/sach/thongkesp.php" class="waves-effect">Thống kê Sản Phẩm</a></li>
+                                        <li><a href="http://localhost/CT466/admin/sach/thongkesp.php" class="waves-effect">Quản Lý Nhập Xuất</a></li>
+
                                     </ul>
                                 </div>
                             </li>
@@ -88,8 +89,8 @@
                                     <ul>
                                         <li><a href="http://localhost/CT466/admin/tacgia/dstacgia.php" class="waves-effect">Danh Sách Tác Giả</a></li>
                                         <li><a href="http://localhost/CT466/admin/tacgia/ThemTacGia.html" class="waves-effect">Thêm Tác Giả</a></li>
-                                        <li><a href="http://localhost/CT466/admin/tacgia/dstacgia.php" class="waves-effect">Sửa Tác Giả</a></li>
-                                        <li><a href="http://localhost/CT466/admin/tacgia/dstacgia.php" class="waves-effect">Xóa Tác Giả</a></li>
+<!--                                        <li><a href="http://localhost/CT466/admin/tacgia/dstacgia.php" class="waves-effect">Sửa Tác Giả</a></li>-->
+<!--                                        <li><a href="http://localhost/CT466/admin/tacgia/dstacgia.php" class="waves-effect">Xóa Tác Giả</a></li>-->
                                     </ul>
                                 </div>
                             </li>
@@ -97,10 +98,10 @@
                             <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-chevron-right"></i> NHÀ XUẤT BẢN<i class="fas fa-angle-down rotate-icon"></i></a>
                                 <div class="collapsible-body">
                                     <ul>
-                                        <li><a href="http://localhost/CT466/admin/nxb/dsnxb.php" class="waves-effect">Danh Sách NXB</a></li>
+                                        <li><a href="http://localhost/CT466/admin/nxb/dsnxb.php" class="waves-effect">Xem chi tiết</a></li>
                                         <li><a href="http://localhost/CT466/admin/nxb/themnxb.html" class="waves-effect">Thêm NXB</a></li>
-                                        <li><a href="http://localhost/CT466/admin/nxb/dsnxb.php" class="waves-effect">Sửa NXB</a></li>
-                                        <li><a href="http://localhost/CT466/admin/nxb/dsnxb.php" class="waves-effect">Xóa NXB</a></li>
+<!--                                        <li><a href="http://localhost/CT466/admin/nxb/dsnxb.php" class="waves-effect">Sửa NXB</a></li>-->
+<!--                                        <li><a href="http://localhost/CT466/admin/nxb/dsnxb.php" class="waves-effect">Xóa NXB</a></li>-->
                                     </ul>
                                 </div>
                             </li>
@@ -109,10 +110,10 @@
                             <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-chevron-right"></i> NHÀ CUNG CẤP<i class="fas fa-angle-down rotate-icon"></i></a>
                                 <div class="collapsible-body">
                                     <ul>
-                                        <li><a href="http://localhost/CT466/admin/ncc/dsncc.php" class="waves-effect">Danh Sách NCC</a></li>
+                                        <li><a href="http://localhost/CT466/admin/ncc/dsncc.php" class="waves-effect">Xem chi tiết</a></li>
                                         <li><a href="http://localhost/CT466/admin/ncc/themncc.html" class="waves-effect">Thêm NCC</a></li>
-                                        <li><a href="http://localhost/CT466/admin/ncc/dsncc.php" class="waves-effect">Sửa NCC</a></li>
-                                        <li><a href="http://localhost/CT466/admin/ncc/dsncc.php" class="waves-effect">Xóa NCC</a></li>
+<!--                                        <li><a href="http://localhost/CT466/admin/ncc/dsncc.php" class="waves-effect">Sửa NCC</a></li>-->
+<!--                                        <li><a href="http://localhost/CT466/admin/ncc/dsncc.php" class="waves-effect">Xóa NCC</a></li>-->
                                     </ul>
                                 </div>
                             </li>
@@ -120,10 +121,10 @@
                             <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-chevron-right"></i> THỂ LOẠI<i class="fas fa-angle-down rotate-icon"></i></a>
                                 <div class="collapsible-body">
                                     <ul>
-                                        <li><a href="http://localhost/CT466/admin/theloai/dstheloai.php" class="waves-effect">Danh Sách Thể Loại</a></li>
+                                        <li><a href="http://localhost/CT466/admin/theloai/dstheloai.php" class="waves-effect">Xem chi tiết</a></li>
                                         <li><a href="http://localhost/CT466/admin/theloai/ThemTheLoai.php" class="waves-effect">Thêm Thể Loại</a></li>
-                                        <li><a href="http://localhost/CT466/admin/theloai/dstheloai.php" class="waves-effect">Sửa Thể Loại</a></li>
-                                        <li><a href="http://localhost/CT466/admin/theloai/dstheloai.php" class="waves-effect">Xóa Thể Loại</a></li>
+<!--                                        <li><a href="http://localhost/CT466/admin/theloai/dstheloai.php" class="waves-effect">Sửa Thể Loại</a></li>-->
+<!--                                        <li><a href="http://localhost/CT466/admin/theloai/dstheloai.php" class="waves-effect">Xóa Thể Loại</a></li>-->
                                     </ul>
                                 </div>
                             </li>
@@ -132,9 +133,9 @@
                             <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-chevron-right"></i> DANH MỤC<i class="fas fa-angle-down rotate-icon"></i></a>
                                 <div class="collapsible-body">
                                     <ul>
-                                        <li><a href="http://localhost/CT466/admin/danhmuc/dsdm.php" class="waves-effect">Danh Sách Danh Mục</a></li>
+                                        <li><a href="http://localhost/CT466/admin/danhmuc/dsdm.php" class="waves-effect">Xem chi tiết</a></li>
                                         <li><a href="http://localhost/CT466/admin/danhmuc/themdanhmuc.php" class="waves-effect">Thêm Danh Mục</a></li>
-                                        <li><a href="http://localhost/CT466/admin/danhmuc/xoadanhmuc.php" class="waves-effect">Xóa Danh Mục</a></li>
+<!--                                        <li><a href="http://localhost/CT466/admin/danhmuc/xoadanhmuc.php" class="waves-effect">Xóa Danh Mục</a></li>-->
                                     </ul>
                                 </div>
                             </li>
@@ -142,9 +143,9 @@
                             <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-chevron-right"></i> NGÔN NGỮ<i class="fas fa-angle-down rotate-icon"></i></a>
                                 <div class="collapsible-body">
                                     <ul>
-                                        <li><a href="http://localhost/CT466/admin/ngonngu/dsngonngu.php" class="waves-effect">Danh Sách Ngôn Ngữ</a></li>
+                                        <li><a href="http://localhost/CT466/admin/ngonngu/dsngonngu.php" class="waves-effect">Xem chi tiết</a></li>
                                         <li><a href="http://localhost/CT466/admin/ngonngu/themngonngu.html" class="waves-effect">Thêm Ngôn Ngữ</a></li>
-                                        <li><a href="http://localhost/CT466/admin/ngonngu/xoangonngu.php" class="waves-effect">Xóa Ngôn Ngữ</a></li>
+<!--                                        <li><a href="http://localhost/CT466/admin/ngonngu/xoangonngu.php" class="waves-effect">Xóa Ngôn Ngữ</a></li>-->
                                     </ul>
                                 </div>
                             </li>
