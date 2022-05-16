@@ -69,7 +69,6 @@ require "headerindex.php";
                         class="clearfix d-none d-sm-inline-block">Tài Khoản</span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="http://localhost/CT466/admin/thongtin/thongtintaikhoan.php">Tài Khoản Của Tôi</a>
 <!--                <a class="dropdown-item" href="http://localhost/CT466/admin/dangky.html">Đăng Ký</a>-->
 <!--                <a class="dropdown-item" href="http://localhost/CT466/admin/dangnhap.html">Đăng Nhập</a>-->
                 <a class="dropdown-item" onclick="return confirm('Bạn chắc chắn đăng xuất?')" href="http://localhost/CT466/admin/xulydangxuat.php">Đăng Xuất</a>
@@ -139,6 +138,13 @@ require "headerindex.php";
             $row1 = mysqli_fetch_row($rs1);
             //print_r($row1[0]);
 
+            $query10= "select sum(hd_tongtiendonhang) 
+                        from hoa_don WHERE hd_trangthai = 4 
+                                               and month(hd_thoigianlapdonhang) = month(CURRENT_DATE()) 
+                                                and year( hd_thoigianlapdonhang) = year(CURRENT_DATE());";
+            $rs10 = mysqli_query($conn,$query10);
+            $row10 = mysqli_fetch_row($rs10);
+
             $query2 = "select count(kh_id) from khach_hang  ";
             $rs2 = mysqli_query($conn,$query2);
             $row2 = mysqli_fetch_row($rs2);
@@ -156,7 +162,8 @@ require "headerindex.php";
             $row4 = mysqli_fetch_row($rs4);
             //print_r($row4[0]);
 
-            $query5 = "select sum(hd_tongtiendonhang) from hoa_don  ";
+            $query5 = "select sum(hd_tongtiendonhang) 
+                        from hoa_don WHERE hd_trangthai = 4 ";
             $rs5 = mysqli_query($conn,$query5);
             $row5 = mysqli_fetch_row($rs5);
             //print_r($row5[0]);
@@ -354,7 +361,7 @@ require "headerindex.php";
                                         </div>
 
                                         <div class="col-md-7 col-7 text-right pr-5">
-                                            <h5 class=" mt-4 mb-2 font-weight-bold"><?php print_r(number_format($row5[0])); ?></h5>
+                                            <h5 class=" mt-4 mb-2 font-weight-bold"><?php print_r(number_format($row10[0])); ?></h5>
                                             <p class="font-small grey-text">VNĐ</p>
                                         </div>
 
@@ -366,7 +373,7 @@ require "headerindex.php";
 
                                         <!-- Grid column -->
                                         <div class="col-md-9 col-7 text-left pl-4">
-                                            <p class="font-small font-up ml-4 font-weight-bold">Tổng doanh thu</p>
+                                            <p class="font-small font-up ml-4 font-weight-bold">Tổng doanh thu trong tháng</p>
                                         </div>
                                         <!-- Grid column -->
 
@@ -600,6 +607,52 @@ require "headerindex.php";
 
                             </div>
                             <!-- Grid column ad -->
+
+                            <!-- Grid column tong tien nam-->
+                            <div class="col-xl-12 col-md-12 mb-12">
+
+                                <!-- Card -->
+                                <div class="card">
+
+                                    <!-- Card Data -->
+                                    <div class="row mt-3">
+
+                                        <div class="col-md-5 col-5 text-left pl-4">
+                                            <a type="button" class="btn-floating btn-lg light-blue lighten-1 ml-4"><i class="fas fa-dollar-sign"
+                                                                                                                      aria-hidden="true"></i></a>
+                                        </div>
+
+                                        <div class="col-md-7 col-7 text-right pr-5">
+                                            <h5 class=" mt-4 mb-2 font-weight-bold"><?php print_r(number_format($row5[0])); ?></h5>
+                                            <p class="font-small grey-text">VNĐ</p>
+                                        </div>
+
+                                    </div>
+                                    <!-- Card Data -->
+
+                                    <!-- Card content -->
+                                    <div class="row my-3">
+
+                                        <!-- Grid column -->
+                                        <div class="col-md-9 col-7 text-left pl-4">
+                                            <p class="font-small font-up ml-4 font-weight-bold">Tổng doanh thu </p>
+                                        </div>
+                                        <!-- Grid column -->
+
+                                        <!-- Grid column -->
+                                        <div class="col-md-5 col-5 text-right pr-5">
+                                            <!--                  <p class="font-small grey-text">145,567</p>-->
+                                        </div>
+                                        <!-- Grid column -->
+
+                                    </div>
+                                    <!-- Card content -->
+
+                                </div>
+                                <!-- Card -->
+
+                            </div>
+                            <!-- Grid column tong tien nam-->
 
 
                         </div>

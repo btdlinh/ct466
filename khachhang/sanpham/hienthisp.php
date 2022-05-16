@@ -383,6 +383,7 @@ $title = $row['sp_tensach'];
 
     $sql_dg = "SELECT * FROM test as a 
                                           join sanpham as c on c.sp_id=a.t_idsp
+                                            join khach_hang as b on b.kh_email=a.t_email
                                         
                      WHERE c.sp_id=$id";
     $rs_dg = mysqli_query($conn, $sql_dg);
@@ -413,46 +414,48 @@ $title = $row['sp_tensach'];
                     <!-- Content column -->
                     <div class="col-sm-10 col-12">
 
-                        <a>
 
-                            <h5 class="user-name font-weight-bold"><?php echo $row_dg['t_email']; ?></h5>
+                        <p>
 
-                        </a>
+                            <h5 class="user-name font-weight-bold"><?php echo $row_dg['kh_ten']; ?></h5>
+
+                        </p>
+
 
                         <!-- Rating -->
-                        <ul class="rating">
-
-                            <li>
-
-                                <i class="fas fa-star blue-text"></i>
-
-                            </li>
-
-                            <li>
-
-                                <i class="fas fa-star blue-text"></i>
-
-                            </li>
-
-                            <li>
-
-                                <i class="fas fa-star blue-text"></i>
-
-                            </li>
-
-                            <li>
-
-                                <i class="fas fa-star blue-text"></i>
-
-                            </li>
-
-                            <li>
-
-                                <i class="fas fa-star blue-text"></i>
-
-                            </li>
-
-                        </ul>
+<!--                        <ul class="rating">-->
+<!---->
+<!--                            <li>-->
+<!---->
+<!--                                <i class="fas fa-star blue-text"></i>-->
+<!---->
+<!--                            </li>-->
+<!---->
+<!--                            <li>-->
+<!---->
+<!--                                <i class="fas fa-star blue-text"></i>-->
+<!---->
+<!--                            </li>-->
+<!---->
+<!--                            <li>-->
+<!---->
+<!--                                <i class="fas fa-star blue-text"></i>-->
+<!---->
+<!--                            </li>-->
+<!---->
+<!--                            <li>-->
+<!---->
+<!--                                <i class="fas fa-star blue-text"></i>-->
+<!---->
+<!--                            </li>-->
+<!---->
+<!--                            <li>-->
+<!---->
+<!--                                <i class="fas fa-star blue-text"></i>-->
+<!---->
+<!--                            </li>-->
+<!---->
+<!--                        </ul>-->
 
                         <div class="card-data">
 

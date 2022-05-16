@@ -372,11 +372,11 @@ require "../header.php";
                             <div class="btn btn-primary btn-sm float-left">
                                 <span> Choose files</span>
                                 <input type="file" name="hinhanhsach"
-
+                                    onchange="changeimage(this)"
                                 />
                             </div>
                             <?php    $linkhinh = "http://localhost/CT466/img/bookimg/". $row4['sp_hinhanh']; ?>
-                            <img src=<?php echo $linkhinh; ?>
+                            <img class="showimage" src=<?php echo $linkhinh; ?>
                                  alt="Hình Ảnh Sách"
                                  style="width: 150px;
                                 height: 180px;
@@ -443,6 +443,28 @@ require "../header.php";
 <script>
     // new WOW().init();
     // cai khúc nay t chu làm t de choi á
+    const changeimage = (e)=>{
+        e = window.event;
+        let filereader = new FileReader();
+        filereader.onload = function(progressEvent) {
+            var url = filereader.result;
+
+            // Something like: data:image/png;base64,iVBORw...Ym57Ad6m6uHj96js
+            //
+            var myImg = document.querySelector("img.showimage");
+            myImg.src= url;
+            myImg.style.display = 'block';
+        }
+        filereader.readAsDataURL(e.target.files[0]); // fileReader.result -> URL.
+        // console.log((window.URL || window.webkitURL).createObjectURL(e.target.files[0]))
+        // console.log(e.target.files[0])
+        // let inputFile = document.querySelector("input[name='hinhanhsach']");
+        let show = document.querySelector('div.showimage');
+        // show.backgroundImage = "url('"+inputFile.target+"')";
+        // console.log("url('"+inputFile.target+"')")
+        let input = $('input[name="hinhanhsach"]');
+        console.log(input.files)
+    }
     function Validate() {
         let masach = document.getElementById("orangeForm-id").value;
         let tensach = document.getElementById("orangeForm-name").value;

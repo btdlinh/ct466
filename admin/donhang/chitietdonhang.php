@@ -143,6 +143,11 @@ $result1 = mysqli_query($conn, $sql1);
                                 <th class="col-md-5 font-weight-bold">' . $row1['dc_diachi'] . '</th>
                             </tr>
                             
+                             <tr>
+                                <td class="col-md-5 font-weight-normal">Phương thức thanh toán:</td>
+                                <th class="col-md-5 font-weight-bold" style="text-transform: uppercase">' . $row1['hd_pttt'] . '</th>
+                            </tr>
+                            
                             <tr>
                                 <td class="col-md-5 font-weight-normal">Số lượng sản phẩm:</td>
                                 <th class="col-md-5 font-weight-bold">' . $row2['tongsp'] . '</th>

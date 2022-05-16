@@ -11,7 +11,7 @@ $title = "Đơn đặt hàng";
 $conn = db_connect();
 extract($_SESSION['ship']);
 //print_r($_SESSION['ship']);
-$idkh = getCustomerId($emailkh, $tenkh, $sdtkh, $diachikh);
+$idkh = getCustomerId($email, $tenkh, $sdtkh, $diachikh);
 //echo "idkh la:".$idkh;
 $date = date("Y-m-d");
 

@@ -28,7 +28,7 @@ $sql_iddon="SELECT * FROM hoa_don as a join khach_hang as b on a.hd_idkh=b.kh_id
                             ";
 $rs_iddon = mysqli_query($conn, $sql_iddon);
 $row_iddon = mysqli_fetch_assoc($rs_iddon);
-$a = $row_iddon['hd_id'];
+
 //echo $a;
 
 
@@ -42,7 +42,7 @@ $sql_dc=" SELECT dc_id, dc_diachi, dc_sdt FROM hoa_don as a join khach_hang as b
                             ";
 $rs_dc = mysqli_query($conn, $sql_dc);
 $row_dc = mysqli_fetch_assoc($rs_dc);
-$b = $row_dc['dc_id'];
+
 //echo $b;
 //echo $row_dc['dc_sdt'] ;
 
@@ -119,12 +119,17 @@ $b = $row_dc['dc_id'];
     <div class="container-fluid my-5 w-75 ">
 
         <!-- Gird column -->
-        <div class="col-md-12">
+        <div class="col-md-12" style="margin-top:100px">
 
             <div class="card">
 
                 <div class="card-body mb-5">
-
+                    <?php
+                        $count = mysqli_num_rows($result1);
+                    if($count>0){
+                        $b = $row_dc['dc_id'];
+                        $a = $row_iddon['hd_id'];
+                    ?>
 
                     <form id="myfrm">
                         <p class="mt-5"><i><u>Đơn Hàng Gần Đây Của Bạn</u></i></p>
@@ -174,7 +179,7 @@ $b = $row_dc['dc_id'];
                             
                              <tr>
                                 <td class="col-md-5 font-weight-normal">Email khách hàng:</td>
-                                <th class="col-md-5 font-weight-bold">' . $row1['dc_emailkh'] . '</th>
+                                <th class="col-md-5 font-weight-bold">' . $row1['kh_email'] . '</th>
                             </tr>
                             
                              <tr>
@@ -199,7 +204,7 @@ $b = $row_dc['dc_id'];
                             
                             <tr>
                                 <td class="col-md-5 font-weight-normal">Phương thức thanh toán:</td>
-                                <th class="col-md-5 font-weight-bold">' .$row3['hd_pttt']. '</th>
+                                <th class="col-md-5 font-weight-bold" style="text-transform: uppercase">' .$row3['hd_pttt']. '</th>
                             </tr>
                             
                             <tr>
@@ -304,8 +309,13 @@ $b = $row_dc['dc_id'];
                         <!--end thong tin sp-->
                     </form>
 
-                    <p align="center"><a href="http://localhost/CT466" title="Quay lại trang chủ" ><i class="fas fa-arrow-circle-left btn-lg btn-outline-info" ></i></a></p>
 
+                    <?php
+                    }else{
+                        echo "<div style='text-align: center;color:blue;'>Bạn chưa có đơn hàng</div>";
+                    }
+                    ?>
+                    <p align="center"><a href="http://localhost/CT466" title="Quay lại trang chủ" ><i class="fas fa-arrow-circle-left btn-lg btn-outline-info" ></i></a></p>
                 </div>
 
             </div>

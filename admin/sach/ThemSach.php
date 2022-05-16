@@ -313,7 +313,7 @@ require "../header.php";
                                 <div>
                                     <div class="form-control form-control-sm float-left w-100 black-text border-bottom">
                                         <span class="float-left"> Chọn hình ảnh</span>
-                                        <input class="float-left ml-2" type="file" name="hinhanhsach"/>
+                                        <input class="float-left ml-2" type="file" name="hinhanhsach" onchange="changeimage(this)"/>
                                     </div>
                                     <div class="file-path-wrapper">
                                     </div>
@@ -322,7 +322,9 @@ require "../header.php";
                         </form>
 
                     </div>
-
+                        <div style="margin: 0 auto">
+                            <img src="" class="showimage" width="250" height="250" style="display: none">
+                        </div>
                     <div>
                         <p id="tbhinh" class="error"></p>
                     </div>
@@ -374,7 +376,30 @@ require "../header.php";
 
 <!-- Custom scripts -->
 <script>
+
     new WOW().init();
+    const changeimage = (e)=>{
+        e = window.event;
+        let filereader = new FileReader();
+        filereader.onload = function(progressEvent) {
+            var url = filereader.result;
+
+            // Something like: data:image/png;base64,iVBORw...Ym57Ad6m6uHj96js
+            //
+            var myImg = document.querySelector("img.showimage");
+            myImg.src= url;
+            myImg.style.display = 'block';
+        }
+        filereader.readAsDataURL(e.target.files[0]); // fileReader.result -> URL.
+        // console.log((window.URL || window.webkitURL).createObjectURL(e.target.files[0]))
+        // console.log(e.target.files[0])
+        // let inputFile = document.querySelector("input[name='hinhanhsach']");
+        let show = document.querySelector('div.showimage');
+        // show.backgroundImage = "url('"+inputFile.target+"')";
+        // console.log("url('"+inputFile.target+"')")
+        let input = $('input[name="hinhanhsach"]');
+        console.log(input.files)
+    }
     function Validate() {
         let tensach = document.getElementById("orangeForm-ten").value;
         let loai = document.getElementById("orangeForm-theloai").value;
@@ -428,7 +453,7 @@ require "../header.php";
         // }
         if (mota === "") {
             document.getElementById("tbmota").innerHTML = "Bạn chưa nhập mô tả";
-            document.getElementById("tbmota).style.color = "red";
+            document.getElementById("tbmota").style.color = "red";
             OK = false;
         } else {
             document.getElementById("tbmota").innerHTML = "";

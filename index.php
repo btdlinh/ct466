@@ -441,7 +441,7 @@ require_once "khachhang/sanpham/csdl_function.php";
                     <div class="card">
 
                         <!-- Card image -->
-                        <div class="view overlay"  >
+                        <div class="view overlay" style="height: 255px; width:255px">
     
                             <img src=' . $linkhinh . ' alt="Hình Ảnh Sách" style="width: 100%; height: 100%;">
 

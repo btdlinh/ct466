@@ -227,9 +227,15 @@ require_once "../sanpham/csdl_function.php";
                     <!--                    <label for="email" class="control-label col-md-10">Email</label>-->
                     <div class="col-md-10">
                         Email <br>
-                        <input type="text" name="emailkh" class="col-md-10" class="form-control" required
+                        <input type="text" class="col-md-10" class="form-control"
                                placeholder="... @gmail.com"
                                value="<?php echo $row1['kh_email'] ?>"
+                               disabled
+                        />
+                        <input type="text" name="emailkh" class="col-md-10" class="form-control"
+                               placeholder="... @gmail.com"
+                               value="<?php echo $row1['kh_email'] ?>"
+                               style="display: none"
                         />
                     </div>
                 </div>
