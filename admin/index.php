@@ -575,7 +575,7 @@ require "headerindex.php";
                                     <div class="row mt-3">
 
                                         <div class="col-md-5 col-5 text-left pl-4">
-                                            <a type="button" class="btn-floating btn-lg btn-blue-grey ml-4" href="http://localhost/CT466/admin/nhacungcap/dsadmin.php">
+                                            <a type="button" class="btn-floating btn-lg btn-blue-grey ml-4" href="http://localhost/CT466/admin/ncc/dsncc.php">
                                                 <!--                                                <i class="fas fa-database" aria-hidden="true"></i>-->
                                                 <i class="fas fa-warehouse"></i>
                                             </a>
@@ -618,7 +618,7 @@ require "headerindex.php";
                                     <div class="row mt-3">
 
                                         <div class="col-md-5 col-5 text-left pl-4">
-                                            <a type="button" class="btn-floating btn-lg light-blue lighten-1 ml-4"><i class="fas fa-dollar-sign"
+                                            <a type="button" class="btn-floating btn-lg pink lighten-1 ml-4"><i class="fas fa-dollar-sign"
                                                                                                                       aria-hidden="true"></i></a>
                                         </div>
 

@@ -166,7 +166,8 @@ $row_dc = mysqli_fetch_assoc($rs_dc);
                                 echo '
                         <table >
                         <tbody >
-
+                          
+                            
                             <tr>
                                 <td class="col-md-5 font-weight-normal">Ngày đặt:</td>
                                 <th class="col-md-5 font-weight-bold">' . date('d/m/Y ', strtotime($row1['hd_thoigianlapdonhang'])) . '</th>
